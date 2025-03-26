@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Aek Ads - India's Largest Digital Screen Network. Advertise in premium residential, corporate, and outdoor locations.">
+    <meta name="keywords"
+        content="Aek Ads, Digital Advertising, Outdoor Advertising, India, Residential Advertising, Corporate Advertising">
+    <meta name="author" content="Aek Ads">
+
+
+    <title>Aek Ads - India's Largest Digital Screen Network</title>
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+
+        .section1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+            color: white;
+            height: 100%;
+        }
+
+
+        /* Privacy Policy Content Styles */
+        .privacy-policy {
+            max-width: 1300px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .privacy-policy h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .privacy-policy h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: #ffffff;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .privacy-policy h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            color: #ffffff;
+        }
+
+        .privacy-policy p {
+            margin-bottom: 1rem;
+            font-size: 20px;
+        }
+
+        .privacy-policy ul {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .privacy-policy li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-policy strong {
+            font-weight: bold;
+        }
+
+        .privacy-policy a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .privacy-policy a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width : 460px) {
+            .privacy-policy h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: #ffffff;
+            }
+        }
+    </style>
+
+    <style>
+        .footer {
+            background: var(--black-10, #1C1C1C1A);
+            color: #4D4D4D;
+            padding: 40px 0;
+        }
+
+        /* Custom container for full-width responsiveness */
+        .custom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+
+
+        p {
+            color: #d2d2d2;
+        }
+
+        .footerP {
+            text-align: justify;
+            margin-bottom: 1rem;
+            color: #4D4D4D;
+        }
+
+        .footer a {
+            color: #4D4D4D;
+            text-decoration: none;
+        }
+
+        .footerP .term {
+            text-decoration: none;
+            cursor: pointer;
+            color: rgba(38, 98, 250, 1);
+        }
+
+        .footerh5 {
+            color: #006499;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footerimg {
+            width: 60%;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #4D4D4D;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+
+
+        .linkk {
+            line-height: 50px;
+            text-align: start;
+        }
+
+        .collink {
+            line-height: 37px;
+        }
+
+        .linkk a::before {
+            content: "• ";
+            color: #006499;
+            /* Change color if needed */
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .custom-container {
+                text-align: center;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+            }
+
+            .linkk {
+                line-height: 30px;
+            }
+
+            .footerimg {
+                width: 50%;
+            }
+
+            .mt-4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 0rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footerimg {
+                width: 58%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div data-scroll-container>
+        <section class="section1">
+
+            <main class="privacy-policy">
+                <h1>Privacy Policy</h1>
+                <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of
+                    Your
+                    information when You use the Service and tells You about Your privacy rights and how the law
+                    protects
+                    You.
+                </p>
+
+                <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the
+                    collection and use of information in accordance with this Privacy Policy.</p>
+
+                <h2>Interpretation and Definitions</h2>
+                <h3>Interpretation</h3>
+                <p>The words of which the initial letter is capitalized have meanings defined under the following
+                    conditions.
+                    The following definitions shall have the same meaning regardless of whether they appear in singular
+                    or
+                    in
+                    plural.</p>
+
+                <h3>Definitions</h3>
+                <p>For the purposes of this Privacy Policy:</p>
+
+                <p><strong>Account</strong> means a unique account created for You to access our Service or parts of our
+                    Service.</p>
+
+                <p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control
+                    with a
+                    party, where "control" means ownership of 50% or more of the shares, equity interest or other
+                    securities
+                    entitled to vote for election of directors or other managing authority.</p>
+
+                <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement)
+                    refers
+                    to Elekgo Technology Pvt. Ltd.</p>
+
+                <p><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other
+                    device
+                    by a website, containing the details of Your browsing history on that website among its many uses.
+                </p>
+
+                <p><strong>Country</strong> refers to: Gujarat, India</p>
+
+                <p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone
+                    or a
+                    digital tablet.</p>
+
+                <p><strong>Personal Data</strong> is any information that relates to an identified or identifiable
+                    individual.
+                </p>
+
+                <p><strong>Service</strong> refers to the Website.</p>
+
+                <p><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf
+                    of
+                    the
+                    Company. It refers to third-party companies or individuals employed by the Company to facilitate the
+                    Service, to provide the Service on behalf of the Company, to perform services related to the Service
+                    or
+                    to
+                    assist the Company in analyzing how the Service is used.</p>
+
+                <p><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of
+                    the
+                    Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
+
+                <p><strong>Website</strong> refers to Aekads, accessible from <a
+                        href="https://www.aekads.com/">https://www.aekads.com/</a></p>
+
+                <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other
+                    legal
+                    entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
+
+                <!-- Continue with the rest of the privacy policy content -->
+                <!-- I've shown the first part as an example - you would continue with all the sections from the Word document -->
+
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, You can contact us:</p>
+                <p>By email: <a href="mailto:info@aekads.com">info@aekads.com</a></p>
+            </main>
+
+        </section>
+
+        <footer class="footer">
+            <div class="custom-container">
+                <div class="row">
+                    <!-- Logo and Description -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <h2 style="margin-top: 4%">
+                            <a href="https://www.aekads.com" target="_blank">
+                              <img src="/images/Footerlogo.png" alt="AekAds Logo" class="footerimg" />
+                            </a>
+                          </h2>
+
+                        <p class="footerP">
+                            Empowering Your Business with Professional Problem Solutions.
+                            Tailored strategies to overcome challenges and drive success.
+                            Let’s transform obstacles into opportunities together.
+                        </p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/aekads1/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/aek_ads/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/aekads/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/@aek_ads"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <h5 class="footerh5">Quick Links</h5>
+                        <div class="row">
+                            <div class="col-6 linkk">
+                                <a href="#section-1">About Us</a><br />
+                                <a href="#section-2">Why AekAds?</a><br />
+                                <a href="#section-3">Dual Screen Tech</a>
+                            </div>
+                            <div class="col-6 linkk">
+                                <a href="#section-4">Our Process</a><br />
+                                <a href="#section-6">Blog</a><br />
+                                <a href="#section-5">Brands That Trust Us</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <h5 class="footerh5">Contact Us</h5>
+                        <div class="collink">
+
+                            <p class="footerP" style="margin-top: 5%;">
+                                <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_12788_6343)">
+                                        <path
+                                            d="M10.9009 8.59457C10.1752 8.59457 9.46278 8.48108 8.78762 8.25796C8.45679 8.14512 8.05009 8.24864 7.84818 8.45602L6.51556 9.46201C4.97009 8.63704 4.01812 7.68537 3.20441 6.15151L4.1808 4.85361C4.43447 4.60028 4.52546 4.23022 4.41645 3.88299C4.19238 3.20429 4.07855 2.49216 4.07855 1.76623C4.07858 1.24182 3.65194 0.815186 3.12756 0.815186H0.951019C0.426636 0.815186 0 1.24182 0 1.7662C0 7.77701 4.89006 12.667 10.9009 12.667C11.4252 12.667 11.8519 12.2404 11.8519 11.716V9.54556C11.8519 9.0212 11.4252 8.59457 10.9009 8.59457Z"
+                                            fill="#006499" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_12788_6343">
+                                            <rect width="11.8519" height="11.8519" fill="white"
+                                                transform="translate(0 0.815186)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                +91 80908 02014
+                            </p>
+                            <p class="footerP">
+                                <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_12788_6348)">
+                                        <path
+                                            d="M11.7468 2.94775L8.15234 6.51903L11.7468 10.0903C11.8117 9.95449 11.8512 9.80435 11.8512 9.64403V3.39403C11.8512 3.23368 11.8117 3.08356 11.7468 2.94775Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M10.8085 2.35229H1.04002C0.879676 2.35229 0.72956 2.39172 0.59375 2.45669L5.1878 7.0276C5.594 7.4338 6.25456 7.4338 6.66076 7.0276L11.2548 2.45669C11.119 2.39172 10.9689 2.35229 10.8085 2.35229Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M0.104398 2.94775C0.0394213 3.08356 0 3.23368 0 3.39403V9.64403C0 9.80437 0.0394213 9.95451 0.104398 10.0903L3.69882 6.51903L0.104398 2.94775Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M7.66039 7.01001L7.15176 7.51864C6.47493 8.19547 5.37361 8.19547 4.69678 7.51864L4.18817 7.01001L0.59375 10.5813C0.72956 10.6463 0.879676 10.6857 1.04002 10.6857H10.8085C10.9689 10.6857 11.119 10.6463 11.2548 10.5813L7.66039 7.01001Z"
+                                            fill="#006499" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_12788_6348">
+                                            <rect width="11.8519" height="11.8519" fill="white"
+                                                transform="translate(0 0.593262)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                sales@aekads.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="color: #4D4D4D; text-align: center; margin-top: 20px">
+                    Popular Searches
+                </h4>
+                <marquee behavior="scroll" direction="left" scrollamount="3" style="
+                color: #4D4D4D;
+                font-size: 16px;
+                padding: 20px 0;
+                border-top: 1px solid rgb(0 0 0 / 18%);
+                margin-top: 20px;
+              ">
+                    Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads
+                    | Ahmedabad No.1 Digital Advertising Screen Network • Aekads |
+                    Gandhinagar Best And Largest Digital Screen Network • Aekads |
+                    Mumbai Best And Largest Digital Screen Network • Aekads | Surat Best
+                    And Largest Digital Screen Network • Aekads | Vadodara Best And
+                    Largest Digital Screen Network • Aekads | Baroda Best Digital
+                    Outdoor Advertising Company • Aekads | Mount Abu Rajasthan Best And
+                    Largest Digital Screen Network • Aekads | Udaipur Rajasthan Best And
+                    Largest Digital Screen Network
+                </marquee>
+
+                <div class="text-center">
+                    <p class="footerP" style="text-align: center">
+                        <a class="term" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of
+                            Use</a>
+                        |
+                        <a class="term" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy
+                            Policy</a> |
+
+                        Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+
+    <script>
+        // Initialize Locomotive Scroll with smooth scrolling
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector("[data-scroll-container]"),
+            smooth: true,
+            lerp: 0.08,
+            offset: [-100, 0],
+            getDirection: true, // Add this
+            repeat: true       // Add this if needed
+        });
+
+
+        // Smooth scroll for anchor links
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+
+            links.forEach((link) => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+
+                    const targetId = this.getAttribute("href");
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        scroll.scrollTo(targetElement, {
+                            offset: 0, // Adjust for fixed header
+                        });
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollElements = document.querySelectorAll("[data-scroll]");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("in-view");
+                        } else {
+                            entry.target.classList.remove("in-view"); // Optional: Remove class if element exits viewport
+                        }
+                    });
+                },
+                {
+                    threshold: 0.5, // Trigger when 50% of the element is in view
+                }
+            );
+
+            scrollElements.forEach((el) => observer.observe(el));
+        });
+
+    </script>
+
+
+</body>
+
+</html>
