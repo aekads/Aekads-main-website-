@@ -9,8 +9,11 @@
   <meta name="keywords"
     content="Aek Ads, Digital Advertising, Outdoor Advertising, India, Residential Advertising, Corporate Advertising">
   <meta name="author" content="Aek Ads">
+
+
   <title>Aek Ads - India's Largest Digital Screen Network</title>
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png">
+  <link rel="icon" type="image/png"
+    href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" />
@@ -424,20 +427,6 @@
       padding-left: 7%;
     }
 
-    input[type="radio"] {
-      display: none;
-    }
-
-    .card {
-      position: absolute;
-      border-radius: 14px;
-      left: 317px;
-      right: 317px;
-      margin: auto;
-      transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
-      cursor: pointer;
-    }
-
     .container {
       width: 100%;
       max-width: 1300px;
@@ -449,89 +438,73 @@
       align-items: center;
     }
 
-    .cards {
-      position: relative;
-      width: 80.5%;
-      height: 70%;
-      margin-bottom: 20px;
-      padding-bottom: 50px;
-    }
-
-    .carouHight {
-      height: 50%;
-    }
-
-    .carousal {
-      width: 360px;
-      height: 465px;
-      top: 59px;
-      left: 491px;
-      gap: 0px;
-      border-radius: 14px;
-      box-shadow: 0px 0px 14px 0px #000000b2;
-      object-fit: cover;
-    }
-
     .carouselCant {
       height: 500px;
     }
 
-    /* Left transform rules */
-    #item-1:checked~.cards #song-4,
-    #item-2:checked~.cards #song-5,
-    #item-3:checked~.cards #song-1,
-    #item-4:checked~.cards #song-2,
-    #item-5:checked~.cards #song-3 {
-      transform: translateX(-130%) scale(0.6);
-      opacity: 1;
-      z-index: -1;
-      filter: blur(5px);
+    .carouHight {
+      height: 40%;
     }
 
-    #item-1:checked~.cards #song-5,
-    #item-2:checked~.cards #song-1,
-    #item-3:checked~.cards #song-2,
-    #item-4:checked~.cards #song-3,
-    #item-5:checked~.cards #song-4 {
-      transform: translateX(-70%) scale(0.7);
-      opacity: 1;
-      z-index: 0;
-      filter: blur(3px);
+    .gallery-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Right transform rules */
-    #item-1:checked~.cards #song-2,
-    #item-2:checked~.cards #song-3,
-    #item-3:checked~.cards #song-4,
-    #item-4:checked~.cards #song-5,
-    #item-5:checked~.cards #song-1 {
-      transform: translateX(70%) scale(0.7);
-      opacity: 1;
-      z-index: 0;
-      filter: blur(3px);
+    .gallery-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
     }
 
-    #item-1:checked~.cards #song-3,
-    #item-2:checked~.cards #song-4,
-    #item-3:checked~.cards #song-5,
-    #item-4:checked~.cards #song-1,
-    #item-5:checked~.cards #song-2 {
-      transform: translateX(130%) scale(0.6);
-      opacity: 1;
-      z-index: -1;
-      filter: blur(5px);
+    .gallery {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      width: max-content;
+      animation: scroll 50s linear infinite;
     }
 
-    /* Style for the active image (center) */
-    #item-1:checked~.cards #song-1,
-    #item-2:checked~.cards #song-2,
-    #item-3:checked~.cards #song-3,
-    #item-4:checked~.cards #song-4,
-    #item-5:checked~.cards #song-5 {
-      transform: translateX(0) scale(0.8);
-      opacity: 1;
-      z-index: 1;
-      filter: blur(0px);
+    .gallery-item {
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* filter: grayscale(100%); */
+      transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover img {
+      /* filter: grayscale(0%); */
+      transform: scale(1.1);
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-item {
+        width: 200px;
+        height: 150px;
+      }
     }
 
     @media (max-width: 1300px) {
@@ -628,6 +601,11 @@
 
       .row.align-items-center {
         flex-direction: column;
+      }
+
+      .gallery-item {
+        width: 200px;
+        height: 150px;
       }
 
       .col-lg-6 {
@@ -757,7 +735,7 @@
 
     @media (max-width: 460px) {
       .section2 {
-        height: 150vh;
+        height: 170vh;
         background: linear-gradient(116.21deg,
             #052652 -3.25%,
             #2d9cdb 107.37%);
@@ -793,7 +771,7 @@
       }
 
       .section2 {
-        height: 145vh;
+        height: 175vh;
         background: linear-gradient(116.21deg,
             #052652 -3.25%,
             #2d9cdb 107.37%);
@@ -2160,9 +2138,14 @@
       text-decoration: none;
     }
 
+    .footerP .term {
+      text-decoration: none;
+      cursor: pointer;
+      color: rgba(38, 98, 250, 1);
+    }
+
     .footerh5 {
       color: #006499;
-
     }
 
     .footer a:hover {
@@ -2243,6 +2226,35 @@
       }
     }
   </style>
+
+  <style>
+    .custom-popup {
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .custom-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .custom-button {
+      background: #0f9d58 !important;
+      color: white !important;
+      border-radius: 8px !important;
+      padding: 8px 16px !important;
+    }
+
+    .custom-button-error {
+      background: #d9534f !important;
+      color: white !important;
+      border-radius: 8px !important;
+      padding: 8px 16px !important;
+    }
+  </style>
+
 
 </head>
 
@@ -2653,88 +2665,120 @@
     </script>
 
     <section class="section2" id="section-1">
+
+      <br><br><br>
+
       <div class="container carouHight">
-        <input type="radio" name="slider" id="item-1" checked />
-        <input type="radio" name="slider" id="item-2" />
-        <input type="radio" name="slider" id="item-3" />
-        <input type="radio" name="slider" id="item-4" />
-        <input type="radio" name="slider" id="item-5" />
-        <div class="cards">
-          <label class="card" for="item-1" id="song-1">
-            <img class="carousal" src="/images/carousel01.png" alt="song" />
-          </label>
-          <label class="card" for="item-2" id="song-2">
-            <img class="carousal" src="/images/carousel02.png" alt="song" />
-          </label>
-          <label class="card" for="item-3" id="song-3">
-            <img class="carousal" src="/images/carousel03.png" alt="song" />
-          </label>
-          <label class="card" for="item-4" id="song-4">
-            <img class="carousal" src="/images/carousel04.png" alt="song" />
-          </label>
-          <label class="card" for="item-5" id="song-5">
-            <img class="carousal" src="/images/carousel05.png" alt="song" />
-          </label>
+        <div class="container-fluid">
+          <div class="gallery-wrapper">
+            <div class="gallery-container">
+              <div class="gallery">
+                <!-- First row: First 7 images -->
+                <div class="gallery-item"><img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 1"></div>
+
+                <div class="gallery-item"><img src="/images/Dual Screen Kuber Residency Block B (2) 1.png"
+                    alt="Image 3"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 4">
+                </div>
+                <div class="gallery-item"><img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 5"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 6"></div>
+                <div class="gallery-item"><img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 7"></div>
+                <!-- Duplicate the first 7 images -->
+                <div class="gallery-item"><img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 1"></div>
+
+                <div class="gallery-item"><img src="/images/Dual Screen Kuber Residency Block B (2) 1.png"
+                    alt="Image 3"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 4">
+                </div>
+                <div class="gallery-item"><img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 5"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 6"></div>
+                <div class="gallery-item"><img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 7"></div>
+
+                <div class="gallery-item"><img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 1"></div>
+                
+                <div class="gallery-item"><img src="/images/Dual Screen Kuber Residency Block B (2) 1.png"
+                    alt="Image 3"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 4">
+                </div>
+                <div class="gallery-item"><img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 5"></div>
+                <div class="gallery-item"><img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 6"></div>
+                <div class="gallery-item"><img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 7"></div>
+              </div>
+            </div>
+
+            <div class="gallery-container mt-3">
+              <div class="gallery">
+                <!-- Second row: Remaining images -->
+                <div class="gallery-item"><img src="/images/Mount Abu Entry Gate.jpg" alt="Image 9"></div>
+                <div class="gallery-item"><img src="/images/IMG_6099 1.jpg" alt="Image 8"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Entry.png" alt="Image 10"></div>
+                <div class="gallery-item"><img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 12"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 11"></div>
+                <div class="gallery-item"><img src="/images/Ekta Festival Block A.jpg" alt="Image 13"></div>
+                <!-- Duplicate the remaining images -->
+                <div class="gallery-item"><img src="/images/Mount Abu Entry Gate.jpg" alt="Image 9"></div>
+                <div class="gallery-item"><img src="/images/IMG_6099 1.jpg" alt="Image 8"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Entry.png" alt="Image 10"></div>
+                <div class="gallery-item"><img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 12"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 11"></div>
+                <div class="gallery-item"><img src="/images/Ekta Festival Block A.jpg" alt="Image 13"></div>
+
+                <div class="gallery-item"><img src="/images/Mount Abu Entry Gate.jpg" alt="Image 9"></div>
+                <div class="gallery-item"><img src="/images/IMG_6099 1.jpg" alt="Image 8"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Entry.png" alt="Image 10"></div>
+                <div class="gallery-item"><img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 12"></div>
+                <div class="gallery-item"><img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 11"></div>
+                <div class="gallery-item"><img src="/images/Ekta Festival Block A.jpg" alt="Image 13"></div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
-
-
 
       <div class="container carouselCant" data-scroll>
         <div class="row align-items-center">
-          <!-- Left Column -->
           <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="brand-logo">
               <img src="images/image.png" alt="AekAds Logo" class="logo" />
             </div>
             <h2 class="mt-3">
-              Aekads | India's Best Digital Outdoor Advertising Company
+              Aekads | India's Best Digital Out Of Advertising Company
             </h2>
             <p class="brand-description">
-              Aekads is India's top digital outdoor advertising company,
-              transforming brand visibility with innovative digital screens
-              strategically placed near liftes in residential, corporate,
-              commercial properties and high-traffic areas across the country.
+              Aekads is India's top digital outdoor advertising company, transforming brand visibility with innovative
+              digital screens strategically placed near liftes in residential, corporate, commercial properties and
+              high-traffic areas across the country.
             </p>
           </div>
-          <!-- Right Column -->
           <div class="col-lg-6 rightText">
             <div class="row gy-4" style="display: block">
-              <!-- Stat 1 -->
               <div class="col-md-4">
                 <div class="stat-card">
                   <h5>3500+ Screens</h5>
-                  <p>
-                    Across 2000+ Residential, 1500+ Commercial & Corporate,
-                    and 10+ Outdoor Locations
-                  </p>
+                  <p>Across 2000+ Residential, 1500+ Commercial & Corporate, and 10+ Outdoor Locations</p>
                 </div>
               </div>
-              <!-- Stat 2 -->
               <div class="col-md-4">
                 <div class="stat-card">
                   <h5>1 Cr+ Daily Impressions</h5>
-                  <p>
-                    Driving Unmatched Visibility. Maximize Your Brand’s Reach
-                    with Our Expansive Network!
-                  </p>
+                  <p>Driving Unmatched Visibility. Maximize Your Brand’s Reach with Our Expansive Network!</p>
                 </div>
               </div>
-              <!-- Stat 3 -->
               <div class="col-md-4">
                 <div class="stat-card">
                   <h5>8 Cities</h5>
-                  <p>
-                    Connected Across 8 Cities: Gandhinagar, Ahmedabad, Mumbai,
-                    Surat, Baroda, Rajkot, Udaipur & Mount Abu
-                  </p>
+                  <p>Connected Across 8 Cities: Gandhinagar, Ahmedabad, Mumbai, Surat, Baroda, Rajkot, Udaipur & Mount
+                    Abu</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </section>
+
 
     <section class="section3" id="section-2">
       <div class="container py-5">
@@ -3541,8 +3585,11 @@
           <!-- Logo and Description -->
           <div class="col-md-4 text-center text-md-start">
             <h2 style="margin-top: 4%">
-              <img src="/images/Footerlogo.png" alt="AekAds Logo" class="footerimg" />
+              <a href="https://www.aekads.com" target="_blank">
+                <img src="/images/Footerlogo.png" alt="AekAds Logo" class="footerimg" />
+              </a>
             </h2>
+            
 
             <p class="footerP">
               Empowering Your Business with Professional Problem Solutions.
@@ -3579,7 +3626,7 @@
             <h5 class="footerh5">Contact Us</h5>
             <div class="collink">
 
-              <p class="footerP">
+              <p class="footerP" style="margin-top: 5%;">
                 <svg width="17" height="18" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_12788_6343)">
                     <path
@@ -3647,6 +3694,9 @@
 
         <div class="text-center">
           <p class="footerP" style="text-align: center">
+            <a class="term" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> | 
+            <a class="term" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |
+            
             Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
           </p>
         </div>
@@ -3839,30 +3889,45 @@
 
         if (response.ok) {
           Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-
+            title: "Success!",
             text: "Thank you for submitting! We'll get back to you soon.",
-            confirmButtonText: 'OK'
+            icon: "success",
+            confirmButtonText: "OK",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              confirmButton: "custom-button",
+            },
           });
           document.getElementById("contact-form").reset();
         } else {
           Swal.fire({
-            icon: 'error',
-            title: 'Failed',
-            text: 'Failed to send message: ' + result.error,
-            confirmButtonText: 'OK'
+            title: "Failed",
+            text: "Failed to send message: " + result.error,
+            icon: "error",
+            confirmButtonText: "OK",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              confirmButton: "custom-button-error",
+            },
           });
         }
       } catch (error) {
         Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Error: ' + error.message,
-          confirmButtonText: 'OK'
+          title: "Error",
+          text: "Error: " + error.message,
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button-error",
+          },
         });
       }
     });
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
