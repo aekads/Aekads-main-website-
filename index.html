@@ -141,7 +141,8 @@
 
     .head1 {
       position: absolute;
-      bottom: 60px; /* Adjust this value to move it up/down */
+      bottom: 60px;
+      /* Adjust this value to move it up/down */
       /* left: 20%; */
       /* transform: translateY(-50%); */
       font-size: 40px;
@@ -325,17 +326,17 @@
       }
 
       .slideshow-gradient {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 92vh;
-    background-image: url(/images/gradientBG.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    z-index: 1;
-    pointer-events: none;
-}
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 92vh;
+        background-image: url(/images/gradientBG.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        z-index: 1;
+        pointer-events: none;
+      }
     }
 
     @media (max-width: 460px) {
@@ -2265,7 +2266,8 @@
           </div>
           <div class="form-group">
             <label for="phone">*Phone number</label>
-            <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number" required />
+            <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
+              required />
           </div>
         </div>
         <div class="form-group">
@@ -2274,7 +2276,7 @@
         </div>
         <button type="submit" class="submit-btn">SEND MESSAGE</button>
       </form>
-      
+
     </div>
   </div>
 
@@ -2464,37 +2466,41 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Popup Handling Elements
-      const quoteButton = document.querySelector('.ajayy');
+      const quoteButtons = document.querySelectorAll('.ajayy');
       const quotePopup = document.getElementById('quotePopup');
       const popupContent = document.querySelector('.popup-content');
-
-      // Form Elements
       const quoteForm = document.getElementById('quote-form');
 
-      // Open Popup
-      quoteButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        quotePopup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+      // Attach click to all quote buttons
+      quoteButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+          quotePopup.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
       });
 
-      // Close Popup when clicking outside
+      // Close popup when clicking outside
       quotePopup.addEventListener('click', function (e) {
         if (e.target === quotePopup) {
           closePopup();
         }
       });
 
-      // Prevent closing when clicking inside popup content
       popupContent.addEventListener('click', function (e) {
         e.stopPropagation();
       });
 
+      // Close function
+      function closePopup() {
+        quotePopup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
       // Form Submission Handler
       quoteForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(quoteForm);
         const formObject = {};
         formData.forEach((value, key) => {
@@ -2524,7 +2530,7 @@
               confirmButton: "custom-button",
             },
           });
-          
+
           closePopup();
           quoteForm.reset();
 
@@ -2643,7 +2649,7 @@
         gap: 3px;
         /* background: rgba(255, 102, 51, 1); */
         color: white !important;
-    }
+      }
 
       .mobile-links a:hover {
         background-color: #f5f5f5;
@@ -2714,7 +2720,7 @@
           <img src="/images/IMG_6267 BW.jpg" class="slide1 fade active" />
           <img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade" />
           <img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade" />
-          
+
         </div>
         <div class="slideshow-gradient"></div>
       </div>
