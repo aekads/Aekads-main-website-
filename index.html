@@ -280,7 +280,7 @@
         color: white;
       }
 
-     
+
     }
 
     @media (max-width: 700px) {
@@ -2041,12 +2041,13 @@
           <li class="links"><a href="#section-3">Dual Screen Tech</a></li>
           <li class="links"><a href="#section-4">Our Process</a></li>
           <li class="dropdown">
-            <a href="javascript:void(0)">More ▼</a>
-            <div class="dropdown-content">
-              <a href="#section-6">BLogs</a>
+            <a href="javascript:void(0)" id="moreBtn">More ▼</a>
+            <div class="dropdown-content" id="dropdownMenu">
+              <a href="#section-6">Blogs</a>
               <a href="#section-7">Contact</a>
             </div>
           </li>
+          
 
           <li class="links">
             <a class="ajayy" href="">Get Quote</a>
@@ -2251,14 +2252,53 @@
   </style>
 
   <script>
-    document.querySelectorAll('.dropdown-content a').forEach(link => {
+    const moreBtn = document.getElementById('moreBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Toggle dropdown on More button click
+    moreBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Stop bubbling so body click doesn't close it instantly
+      const isOpen = dropdownMenu.style.opacity === '1';
+      
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    // Close dropdown when clicking on a dropdown link
+    dropdownMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        const dropdownContent = link.closest('.dropdown-content');
-        dropdownContent.style.opacity = '0';
-        dropdownContent.style.transform = 'translateY(10px)';
-        dropdownContent.style.pointerEvents = 'none';
+        closeDropdown();
       });
     });
+
+    // Close dropdown if clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownMenu.contains(e.target) && e.target !== moreBtn) {
+        closeDropdown();
+      }
+    });
+
+    // Close dropdown when scrolling
+    window.addEventListener('scroll', () => {
+      if (dropdownMenu.style.opacity === '1') {
+        closeDropdown();
+      }
+    });
+
+    function openDropdown() {
+      dropdownMenu.style.opacity = '1';
+      dropdownMenu.style.transform = 'translateY(0)';
+      dropdownMenu.style.pointerEvents = 'auto';
+    }
+
+    function closeDropdown() {
+      dropdownMenu.style.opacity = '0';
+      dropdownMenu.style.transform = 'translateY(10px)';
+      dropdownMenu.style.pointerEvents = 'none';
+    }
   </script>
 
 
@@ -2742,19 +2782,19 @@
       <div class="slideshow-wrapper desktop-slideshow">
         <div class="slideshow-bg">
           <img src="/images/IMG_6267 BW.jpg" class="slide1 fade desktop-img active" />
-<img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade desktop-img" />
-<img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade desktop-img" />
+          <img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade desktop-img" />
+          <img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade desktop-img" />
 
         </div>
         <div class="slideshow-gradient"></div>
       </div>
-    
+
       <!-- Mobile Slideshow -->
       <div class="slideshow-wrapper mobile-slideshow">
         <div class="slideshow-bg">
           <img src="/images/IMG_6267 BW Mobile.jpg" class="slide1 fade mobile-img active" />
-<img src="/images/IMG_6267 BW Mobile 2.jpg" class="slide1 fade mobile-img" />
-<img src="/images/IMG_6267 BW Mobile 3.jpg" class="slide1 fade mobile-img" />
+          <img src="/images/IMG_6267 BW Mobile 2.jpg" class="slide1 fade mobile-img" />
+          <img src="/images/IMG_6267 BW Mobile 3.jpg" class="slide1 fade mobile-img" />
 
         </div>
         <div class="slideshow-gradient"></div>
@@ -2780,11 +2820,11 @@
 
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         // Get all slides (both desktop and mobile)
         const allSlides = document.querySelectorAll('.slide1');
         let current = 0;
-        
+
         // Function to get only the visible slides (either desktop or mobile based on screen size)
         function getVisibleSlides() {
           const isMobile = window.innerWidth <= 700;
@@ -2792,22 +2832,22 @@
             return isMobile ? slide.classList.contains('mobile-img') : slide.classList.contains('desktop-img');
           });
         }
-        
+
         function showNextSlide() {
           const visibleSlides = getVisibleSlides();
-          
+
           // Hide current slide
           if (visibleSlides[current]) {
             visibleSlides[current].classList.remove('active');
           }
-          
+
           // Move to next slide
           current = (current + 1) % visibleSlides.length;
-          
+
           // Show new slide
           visibleSlides[current].classList.add('active');
         }
-        
+
         // Initialize - show first visible slide
         function initializeSlideshow() {
           const visibleSlides = getVisibleSlides();
@@ -2817,16 +2857,16 @@
           });
           current = 0;
         }
-        
+
         // Handle window resize
         let resizeTimeout;
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
           clearTimeout(resizeTimeout);
           resizeTimeout = setTimeout(() => {
             initializeSlideshow();
           }, 200);
         });
-        
+
         // Start the slideshow
         initializeSlideshow();
         setInterval(showNextSlide, 4000); // Change every 4 seconds
