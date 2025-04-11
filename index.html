@@ -198,6 +198,7 @@
 
     .slideshow-gradient {
       position: relative;
+      top: 500px;
       bottom: 0;
       width: 100%;
       height: 100vh;
@@ -209,6 +210,14 @@
       background-position: bottom;
       z-index: 1;
       pointer-events: none;
+    }
+
+    .desktop-slideshow {
+      display: block;
+    }
+
+    .mobile-slideshow {
+      display: none;
     }
 
 
@@ -268,18 +277,23 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
         color: white;
       }
 
-
+     
     }
 
     @media (max-width: 700px) {
       .arrow-icon {
         width: 16%;
+      }
+
+      .desktop-slideshow {
+        display: none;
+      }
+
+      .mobile-slideshow {
+        display: block;
       }
     }
 
@@ -319,9 +333,6 @@
         justify-content: center;
         align-items: center;
         height: 92vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
         color: white;
       }
 
@@ -2715,11 +2726,22 @@
   <div data-scroll-container>
 
     <section class="section1" id="section-0">
-      <div class="slideshow-wrapper">
+      <div class="slideshow-wrapper desktop-slideshow">
         <div class="slideshow-bg">
-          <img src="/images/IMG_6267 BW.jpg" class="slide1 fade active" />
-          <img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade" />
-          <img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade" />
+          <img src="/images/IMG_6267 BW.jpg" class="slide1 fade desktop-img active" />
+<img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade desktop-img" />
+<img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade desktop-img" />
+
+        </div>
+        <div class="slideshow-gradient"></div>
+      </div>
+    
+      <!-- Mobile Slideshow -->
+      <div class="slideshow-wrapper mobile-slideshow">
+        <div class="slideshow-bg">
+          <img src="/images/IMG_6267 BW Mobile.jpg" class="slide1 fade mobile-img active" />
+<img src="/images/IMG_6267 BW Mobile 2.jpg" class="slide1 fade mobile-img" />
+<img src="/images/IMG_6267 BW Mobile 3.jpg" class="slide1 fade mobile-img" />
 
         </div>
         <div class="slideshow-gradient"></div>
@@ -2745,16 +2767,57 @@
 
 
     <script>
-      const slides = document.querySelectorAll('.slide1');
-      let current = 0;
-
-      function showNextSlide() {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }
-
-      setInterval(showNextSlide, 4000); // Change every 4 seconds
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get all slides (both desktop and mobile)
+        const allSlides = document.querySelectorAll('.slide1');
+        let current = 0;
+        
+        // Function to get only the visible slides (either desktop or mobile based on screen size)
+        function getVisibleSlides() {
+          const isMobile = window.innerWidth <= 700;
+          return Array.from(allSlides).filter(slide => {
+            return isMobile ? slide.classList.contains('mobile-img') : slide.classList.contains('desktop-img');
+          });
+        }
+        
+        function showNextSlide() {
+          const visibleSlides = getVisibleSlides();
+          
+          // Hide current slide
+          if (visibleSlides[current]) {
+            visibleSlides[current].classList.remove('active');
+          }
+          
+          // Move to next slide
+          current = (current + 1) % visibleSlides.length;
+          
+          // Show new slide
+          visibleSlides[current].classList.add('active');
+        }
+        
+        // Initialize - show first visible slide
+        function initializeSlideshow() {
+          const visibleSlides = getVisibleSlides();
+          visibleSlides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === 0) slide.classList.add('active');
+          });
+          current = 0;
+        }
+        
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            initializeSlideshow();
+          }, 200);
+        });
+        
+        // Start the slideshow
+        initializeSlideshow();
+        setInterval(showNextSlide, 4000); // Change every 4 seconds
+      });
     </script>
 
 
