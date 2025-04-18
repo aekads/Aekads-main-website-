@@ -4,2078 +4,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Aek Ads - India's Largest Digital Screen Network. Advertise in premium residential, corporate, and outdoor locations." />
-  <meta name="keywords"
-    content="Aek Ads, Digital Advertising, Outdoor Advertising, India, Residential Advertising, Corporate Advertising" />
-  <meta name="author" content="Aek Ads" />
 
-  <title>Aek Ads - India's Largest Digital Screen Network</title>
+  <!-- ✅ SEO Meta Tags -->
+  <title>Aek Ads | Premium Digital Advertising in India</title>
+  <meta name="description"
+    content="Advertise with Aek Ads in premium residential, corporate, and outdoor locations across India using our digital screen network." />
+  <meta name="keywords"
+    content="Digital Advertising, Outdoor Ads, India Advertising, Aek Ads, Corporate Advertising, Residential Ads" />
+  <meta name="author" content="Aek Ads" />
+  <meta name="google-site-verification" content="r7l9nsJJOuEHyJRSuTVhS2OVh4DA6upUzAgJ6kVbS7k" />
+  <link rel="canonical" href="https://www.aekads.com/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.aekads.com/sitemap.xml" />
+
+
+  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png"
     href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+  <link rel="apple-touch-icon"
+    href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+
+  <!-- ✅ Open Graph Tags -->
+  <meta property="og:title" content="Aek Ads | Premium Digital Advertising in India" />
+  <meta property="og:description"
+    content="Advertise across India in residential, corporate, and outdoor spaces using our smart screen technology." />
+  <meta property="og:image"
+    content="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+  <meta property="og:url" content="https://www.aekads.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aek Ads | Premium Digital Advertising in India" />
+  <meta name="twitter:description" content="Advertise in premium locations across India with Aek Ads." />
+  <meta name="twitter:image"
+    content="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+
+  <!-- ✅ Fonts and Stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" />
 
+  <!-- ✅ Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-
-  <!-- Google tag (gtag.js) -->
+  <!-- ✅ Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDBPBR6Q80"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-SDBPBR6Q80');
+  </script>
+
+  <!-- ✅ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aek Ads",
+    "url": "https://www.aekads.com",
+    "logo": "https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png",
+    "sameAs": [
+      "https://www.instagram.com/aekads/",
+      "https://www.facebook.com/aekads"
+    ]
+  }
   </script>
 
   <!-- Add smooth scrolling CSS -->
   <style>
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: smooth
     }
-  </style>
 
-   <style>
-    /* Add this to your existing CSS */
     @keyframes slideUp {
       from {
-        opacity: 0.8;
-        transform: translateY(30px);
+        opacity: .8;
+        transform: translateY(30px)
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
 
     .slide-up {
-      animation: slideUp 0.9s ease-out forwards;
+      animation: slideUp .9s ease-out forwards
     }
 
-    /* Initially hide the elements */
     [data-scroll] {
-      opacity: 0.9;
+      opacity: .9;
       transform: translateY(30px);
-      transition: opacity 0.3s ease-out, transform 0.9s ease-out;
+      transition: opacity .3s ease-out, transform .9s ease-out
     }
 
-    /* When the element is in view, add the slide-up class */
     [data-scroll].in-view {
       opacity: 1;
-      transform: translateY(10px);
+      transform: translateY(10px)
     }
 
-    /* Mobile-specific styles */
-    @media only screen and (max-width: 1000px) {
-
-      /* Adjust the animation duration or other properties for mobile */
+    @media only screen and (max-width:1000px) {
       .slide-up {
-        animation: slideUp 0.5s ease-out forwards;
-        /* Faster animation for mobile */
+        animation: slideUp .5s ease-out forwards
       }
 
       [data-scroll] {
-        transform: translateY(20px);
-        /* Smaller translateY for mobile */
+        transform: translateY(20px)
       }
 
       [data-scroll].in-view {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
-  </style>
 
-  <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
     body {
       margin: 0;
       padding: 0;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Montserrat", sans-serif
     }
 
     [data-scroll-container] {
       overflow: hidden;
-      overflow-y: scroll;
-      /* Enables vertical scrolling */
+      overflow-y: scroll
     }
 
-    .section1 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      /* background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%); */
-      color: white;
-    }
-
-    .banner {
-      max-width: 90%;
-      padding: 20px;
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .arrow-icon {
-      position: absolute;
-      bottom: 20px;
-      /* Adjust to move the arrow further down */
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(10px);
-      }
-    }
-
-    .logo {
-      width: 50%;
-      margin-bottom: 5%;
-    }
-
-    .head1 {
-      position: absolute;
-      bottom: 60px;
-      /* Adjust this value to move it up/down */
-      /* left: 20%; */
-      /* transform: translateY(-50%); */
-      font-size: 40px;
-      white-space: nowrap;
-      text-align: center;
-      z-index: 2;
-    }
-
-
-    .slideshow-bg {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    .slide1 {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-
-    .slide1.active {
-      opacity: 1;
-    }
-
-    .bottom-title {
-      position: absolute;
-      bottom: 40px;
-      font-size: 24px;
-      font-weight: 600;
-      color: white;
-      z-index: 2;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .slideshow-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      /* height: 100%; */
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .slideshow-gradient {
-      position: relative;
-      top: 500px;
-      bottom: 0;
-      width: 100%;
-      height: 100vh;
-      /* Adjust height based on your gradient image height */
-      background-image: url('/images/gradientBG.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      /* Or 'contain' if needed */
-      background-position: bottom;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .desktop-slideshow {
-      display: block;
-    }
-
-    .mobile-slideshow {
-      display: none;
-    }
-
-
-
-    /* @media (max-width: 600px) {
-  .bottom-title {
-    font-size: 18px;
-    bottom: 20px;
-  }
-} */
-
-
-    .highlight-container {
-      display: flex;
-      position: relative;
-      height: 74px;
-      vertical-align: bottom;
-      width: 800px;
-      text-align: center;
-      justify-content: center;
-    }
-
-    .highlight {
-      position: absolute;
-      font: 800 50px "Montserrat";
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease-in-out;
-    }
-
-    .highlight.active {
-      opacity: 1;
-      transform: translateY(0);
-      text-align: center;
-    }
-
-    @media (max-width: 1300px) {
-      .logo {
-        width: 45%;
-        margin-bottom: 5%;
-      }
-
-    }
-
-    @media (max-width: 1100px) {
-      .logo {
-        width: 41%;
-        margin-bottom: 5%;
-      }
-
-
-    }
-
-    @media (max-width: 1000px) {
-      .section1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        color: white;
-      }
-
-
-    }
-
-    @media (max-width: 700px) {
-      .arrow-icon {
-        width: 16%;
-      }
-
-      .desktop-slideshow {
-        display: none;
-      }
-
-      .mobile-slideshow {
-        display: block;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .head1 {
-        font-size: 35px;
-        white-space: nowrap;
-        opacity: 1;
-      }
-
-      .highlight {
-        position: absolute;
-        font: 800 40px "Montserrat";
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease-in-out;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .head1 {
-        font-size: 34px;
-        white-space: nowrap;
-        opacity: 1;
-      }
-
-      .highlight {
-        position: absolute;
-        font: 800 38px "Montserrat";
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease-in-out;
-      }
-
-      .section1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 92vh;
-        color: white;
-      }
-
-      .slideshow-gradient {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        height: 92vh;
-        background-image: url(/images/gradientBG.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: bottom;
-        z-index: 1;
-        pointer-events: none;
-      }
-    }
-
-    @media (max-width: 460px) {
-      .head1 {
-        font-size: 28px;
-        white-space: nowrap;
-        opacity: 1;
-      }
-
-      .highlight {
-        position: absolute;
-        font: 800 32px "Montserrat";
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease-in-out;
-      }
-
-      .logo {
-        width: 65%;
-        margin-bottom: -7%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .head1 {
-        font-size: 27px;
-        white-space: nowrap;
-        opacity: 1;
-      }
-
-      .highlight {
-        position: absolute;
-        font: 800 30px "Montserrat";
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1sease-in-out;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .head1 {
-        font-size: 23px;
-        white-space: nowrap;
-        opacity: 1;
-      }
-
-      .highlight {
-        position: absolute;
-        font: 800 25px "Montserrat";
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1sease-in-out;
-      }
-    }
-  </style>
-
-  <style>
-    .section2 {
-      height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-    }
-
-    .brand-logo {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    .brand-description {
-      text-align: justify;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-    }
-
-    .stat-card {
-      width: 80px;
-      height: 70px;
-      background-color: #f4f4f4;
-      border-radius: 8px;
-      margin-right: 15px;
-      display: flex;
-      justify-content: center;
-      box-shadow: 0px 4px 4px 0px #00000040;
-      align-items: center;
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .stat-text {
-      width: 50vh;
-    }
-
-    .stat-text h5 {
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-
-    .stat-text p {
-      text-align: justify;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-    }
-
-    .rightText {
-      padding-left: 7%;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1300px;
-      height: 100%;
-      transform-style: preserve-3d;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .carouselCant {
-      height: 500px;
-    }
-
-    .carouHight {
-      height: 40%;
-    }
-
-    .gallery-wrapper {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .gallery-container {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 10px;
-      width: max-content;
-      animation: scroll 70s linear infinite;
-    }
-
-    .gallery-item {
-      /* width: 300px; */
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* filter: grayscale(100%); */
-      transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
-      cursor: pointer;
-    }
-
-    .gallery-item:hover img {
-      /* filter: grayscale(0%); */
-      transform: scale(1.1);
-    }
-
-    @keyframes scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (max-width: 1300px) {
-      .carouselCant {
-        height: 460px;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .rightText {
-        padding-left: 7%;
-      }
-
-      .section2 {
-        height: 150vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-
-      .carouHight {
-        height: 30%;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .section2 {
-        height: 175vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container.carouselCant {
-        height: auto;
-        padding: 20px;
-      }
-
-      .row.align-items-center {
-        flex-direction: column;
-      }
-
-      .gallery-item {
-        width: 200px;
-        height: 150px;
-      }
-
-      .col-lg-6 {
-        width: 100%;
-        padding: 0 15px;
-      }
-
-      .brand-logo {
-        text-align: center;
-      }
-
-      .brand-logo img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-        text-align: center;
-        margin-top: 15px;
-      }
-
-      .brand-description {
-        text-align: center;
-        font-size: 0.9rem;
-      }
-
-      .rightText {
-        padding-left: 0;
-        margin-top: 20px;
-      }
-
-      .stat-text {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-
-      .stat-text h5 {
-        font-size: 1.1rem;
-      }
-
-      .stat-text p {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 460px) {
-      .section2 {
-        height: 170vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-
-      .carouHight {
-        height: 21%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .section2 {
-        height: 175vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-    }
-  </style>
-
-  <style>
-    .section3 {
-      height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-    }
-
-    .single {
-      width: 100%;
-      margin-top: 15%;
-      height: 92.5%;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .section-titleH1 {
-      font-size: 60px;
-      margin-bottom: 5%;
-      text-align: left;
-    }
-
-    .feature-icon {
-      width: 67px;
-      height: 67px;
-      background-color: #f4f4f4;
-      border-radius: 8px;
-      margin-right: 15px;
-      display: flex;
-      justify-content: center;
-      box-shadow: 0px 4px 4px 0px #00000040;
-      align-items: center;
-    }
-
-    .feature-text {
-      flex: 1;
-    }
-
-    .whyP {
-      margin-bottom: 10%;
-    }
-
-    .py-5 {
-      padding-top: 1rem !important;
-      padding-bottom: 1rem !important;
-    }
-
-    /* Responsive Styles */
-    /* @media screen and (max-width: 1000px) {
-            
-        } */
-
-    @media (max-width: 1625px) {
-      .single {
-        height: 92%;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .single {
-        margin-top: 18%;
-      }
-
-      .section-titleH1 {
-        font-size: 55px;
-      }
-    }
-
-    @media (max-width: 1150px) {
-      .single {
-        margin-top: 18%;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .single {
-        margin-top: 21.5%;
-      }
-    }
-
-    @media (max-width: 1050px) {
-      .single {
-        margin-top: 23%;
-      }
-    }
-
-    @media (max-width: 1037px) {
-      .single {
-        margin-top: 20.5%;
-      }
-
-      .whyP {
-        margin-bottom: 5%;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .section3 {
-        height: 170vh;
-      }
-
-      .single {
-        margin-top: 2%;
-        height: 100%;
-        width: 60%;
-      }
-    }
-
-    @media (max-width: 821px) {
-      .single {
-        margin-top: 2.4%;
-        height: 100%;
-        width: 60%;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .single {
-        margin-top: 2.5%;
-        height: 100%;
-        width: 60%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .single {
-        margin-top: 2.2%;
-        height: 100%;
-        width: 75%;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .single {
-        margin-top: 3%;
-        height: 100%;
-        width: 75%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .single {
-        margin-top: 3.5%;
-        height: 100%;
-        width: 90%;
-      }
-    }
-
-    @media (max-width: 555px) {
-      .single {
-        margin-top: 4%;
-        height: 100%;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .single {
-        margin-top: 4.5%;
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .single {
-        margin-top: 5%;
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width: 400px) {
-      .single {
-        margin-top: 6.5%;
-        height: 100%;
-        width: 100%;
-      }
-
-      .section-titleH1 {
-        font-size: 42px !important;
-        margin-bottom: 10% !important;
-      }
-
-      .section3 {
-        height: 210vh !important;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .single {
-        margin-top: 8%;
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    /* .ad-image-container {
-            width: 30%;
-            height: 92%;
-            background-color: #fff;
-            border-radius: 12px;
-            margin: 5% 10% 0;
-        } */
-  </style>
-
-  <style>
-    .section4 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 115vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-    }
-
-    .dual {
-      width: 100%;
-      padding-bottom: 13.6%;
-    }
-
-    .container {
-      padding: 0px 40px;
-    }
-
-    .section-title {
-      font-size: 26px;
-      margin-bottom: 3%;
-    }
-
-    .section-titleH1 {
-      font-size: 60px;
-      margin-bottom: 5%;
-      text-align: left;
-    }
-
-    .content-box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .info-card {
-      background-color: white;
-      border-radius: 10px;
-      text-align: center;
-      transition: 0.3s ease-in-out;
-      box-shadow: 0px 3.2px 27.2px 0.8px #00000059;
-    }
-
-    .info-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-left: -14%;
-    }
-
-    h4 {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    .row>* {
-      padding-right: calc(var(--bs-gutter-x) * 1);
-      padding-left: calc(var(--bs-gutter-x) * 1);
-    }
-
-    @media (max-width: 1200px) {
-      .section-titleH1 {
-        font-size: 55px;
-      }
-
-      .dual {
-        margin-top: 0%;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .section-titleH1 {
-        margin-bottom: 2%;
-      }
-
-      .dual {
-        margin-top: 0.5%;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .section4 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 140vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-
-      .dual {
-        width: 60%;
-        margin-top: 0%;
-      }
-
-      .section-titleH1 {
-        margin-bottom: 5%;
-        margin-top: 2%;
-      }
-    }
-
-    @media (max-height: 900px) {
-      .dual {
-        padding-bottom: 0%;
-        /* margin-top: 4%; */
-      }
-    }
-
-    @media (max-height: 832px) {
-      .dual {
-        width: 100%;
-        padding-bottom: 0%;
-        /* margin-top: 2%; */
-      }
-    }
-
-    @media (max-width: 800px) {
-      .section-titleH1 {
-        font-size: 46px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section4 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 342vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-
-      .dual {
-        width: 75%;
-        margin-top: 0%;
-      }
-
-      .container {
-        padding: 0px 20px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .dual {
-        width: 90%;
-        margin-top: 0%;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .dual {
-        width: 100%;
-        margin-top: 0%;
-      }
-
-      .section-titleH1 {
-        font-size: 40px;
-      }
-
-      .container {
-        padding: 0px 15px;
-      }
-    }
-
-    @media (max-width: 411px) {
-      .dual {
-        width: 100%;
-        margin-top: 0%;
-      }
-
-      .section-titleH1 {
-        font-size: 38px !important;
-      }
-
-      .section-title {
-        font-size: 20px;
-        margin-bottom: 3%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .section4 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 285vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-      }
-    }
-  </style>
-
-  <style>
-    .section5 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-    }
-
-    .fullscreen {
-      width: 100%;
-    }
-
-    .sec5d {
-      flex-wrap: nowrap;
-    }
-
-    .ptext5 {
-      margin-bottom: 5%;
-    }
-
-    .step-box {
-      background: #f4f4f4;
-      padding: 15px;
-      width: 70px;
-      height: 70px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0px 3.2px 27.2px 0.8px #00000059;
-    }
-
-    .arrow {
-      font-size: 24px;
-      color: white;
-      text-align: center;
-    }
-
-    .sec5img {
-      margin-left: -8%;
-    }
-
-    p {
-      text-align: justify;
-      margin: 0;
-    }
-
-    .row>* {
-      padding-right: calc(var(--bs-gutter-x) * 0.5);
-      padding-left: calc(var(--bs-gutter-x) * 0.5);
-    }
-
-    @media (max-width: 1300px) {
-      .sec5img {
-        margin-left: -6%;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .processHead {
-        font-size: 22px;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .section5 {
-        height: auto;
-      }
-
-      .fullscreen {
-        width: 60%;
-        margin-left: 20%;
-        margin-bottom: 20px;
-      }
-
-      .sec5d {
-        flex-wrap: wrap;
-      }
-
-      .arrow {
-        display: none;
-      }
-
-      .col-md-4 {
-        margin-bottom: 20px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section5 {
-        height: auto;
-      }
-
-      .fullscreen {
-        width: 70%;
-        margin-left: 16%;
-        margin-bottom: 20px;
-      }
-
-      .sec5img {
-        display: none;
-      }
-
-      .sec5d {
-        flex-wrap: wrap;
-      }
-
-      .arrow {
-        display: none;
-      }
-
-      .col-md-4 {
-        display: grid;
-        justify-items: center;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .section5 {
-        height: auto;
-        padding: 40px 0;
-      }
-
-      .fullscreen {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 20px;
-      }
-
-      .sec5d {
-        flex-wrap: wrap;
-      }
-
-      .arrow {
-        display: none;
-      }
-
-      .col-md-4 {
-        margin-bottom: 20px;
-      }
-    }
-  </style>
-
-  <style>
-    .section6 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-      /* overflow-x: hidden; */
-      padding: 20px 0;
-    }
-
-    .stat-box {
-      background: #f4f4f4;
-      color: black;
-      padding: 14px;
-      border-radius: 10px;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      /* Center horizontally */
-      height: 81px;
-      width: 81px;
-      box-shadow: 0px 3.2px 27.2px 0.8px #00000059;
-    }
-
-    .feedback-img {
-      width: 100%;
-      max-width: 412px;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    .brands-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .brand-box {
-      width: 120px;
-      height: 60px;
-      background: #ccc;
-      border-radius: 8px;
-    }
-
-    .textt {
-      display: flex;
-      flex-direction: column;
-      margin: 4% 8%;
-    }
-
-    .g-3,
-    .gy-3 {
-      --bs-gutter-y: 4rem;
-    }
-
-    .statext {
-      display: flex;
-      align-content: center;
-    }
-
-    .scroll-container {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      width: 100%;
-      display: grid;
-    }
-
-    .e-con-inner {
-      padding: 30px;
-    }
-
-    .scroll-content {
-      overflow: hidden;
-    }
-
-    .brandsH {
-      font-size: 3rem;
-      text-align: center;
-    }
-
-    .scroll-wrapper {
-      display: inline-flex;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .rtl .scroll-wrapper {
-      animation: scrollRtl 40s linear infinite;
-    }
-
-    .ltr .scroll-wrapper {
-      animation: scrollLtr 40s linear infinite;
-    }
-
-    .scroll-content img {
-      height: 80px;
-      margin: 0 11px;
-      object-fit: contain;
-      flex-shrink: 0;
-      background-color: white;
-    }
-
-    @keyframes scrollRtl {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    @keyframes scrollLtr {
-      0% {
-        transform: translateX(-50%);
-      }
-
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .scroll-content img {
-        height: 70px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section6 {
-        height: 135vh;
-      }
-
-      .feedback-img {
-        width: 80%;
-        max-width: 300px;
-      }
-
-      .brandsH {
-        font-size: 2rem;
-      }
-
-      .scroll-content img {
-        height: 60px;
-        margin: 0 15px;
-      }
-
-      .stat-box {
-        height: 70px;
-        width: 70px;
-      }
-
-      .textt h3 {
-        font-size: 1.5rem;
-      }
-
-      .textt h5 {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .section6 {
-        height: 175vh;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .scroll-content img {
-        height: 50px;
-        margin: 0 10px;
-      }
-
-      .stat-box {
-        height: 60px;
-        width: 60px;
-      }
-
-      .textt h3 {
-        font-size: 1.8rem;
-      }
-
-      .textt h5 {
-        font-size: 1.2rem;
-      }
-
-      .textt {
-        display: flex;
-        flex-direction: column;
-        margin: 0% 6%;
-      }
-    }
-  </style>
-
-  <style>
-    .section7 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-      overflow-x: hidden;
-    }
-
-    .blog-card {
-      /* background: rgba(255, 255, 255, 0.1); */
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .blog-card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .blogB {
-      margin-left: 56rem;
-    }
-
-    .blog-sidebar {
-      overflow-y: auto;
-      margin-top: 5%;
-    }
-
-    .blog-sidebar img {
-      width: 44%;
-      height: 100%;
-      border-radius: 8px;
-    }
-
-    .blog-sidebar h6 {
-      font-weight: bold;
-    }
-
-    .blog-text {
-      margin: 0 20px;
-      align-content: center;
-    }
-
-    .carousel-item {
-      display: flex;
-    }
-
-    .fs-1 {
-      font-size: 3.5rem !important;
-    }
-
-    .mt-4 {
-      margin-top: 1.5rem !important;
-      margin-bottom: 5rem;
-    }
-
-    @media (max-width: 1625px) {
-      .blogB {
-        margin-left: 61rem;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .fs-1 {
-        font-size: 3.5rem !important;
-        width: 14%;
-        margin-left: 3%;
-      }
-
-      .fs-2 {
-        width: 30%;
-        margin-left: 3%;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .blogB {
-        margin-left: 50rem;
-      }
-
-      .fs-1 {
-        font-size: 3rem !important;
-        width: 40%;
-        margin-left: 1%;
-      }
-
-      .fs-2 {
-        width: 35%;
-        margin-left: 1%;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .blogB {
-        margin-left: 46rem;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-
-      .blogB {
-        margin-left: 43rem;
-      }
-
-      .blog-sidebar img {
-        width: 35%;
-        height: 100%;
-        border-radius: 8px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .blogB {
-        margin-left: 36rem;
-      }
-
-      .fs-2 {
-        width: 50%;
-        margin-left: 1%;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .blogB {
-        margin-left: 31rem;
-      }
-
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 196vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .blogB {
-        margin-left: 29rem;
-      }
-    }
-
-    @media (max-width: 750px) {
-      .blogB {
-        margin-left: 28rem;
-      }
-    }
-
-    @media (max-width: 721px) {
-      .blogB {
-        margin-left: 27rem;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .blogB {
-        margin-left: 24rem;
-      }
-
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 196vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 238vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-
-      .carousel-item {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .blogB {
-        margin-left: 19rem;
-      }
-
-      .fs-1 {
-        font-size: 2.5rem !important;
-        width: 40%;
-        margin-left: 1%;
-      }
-
-      .fs-2 {
-        width: 100%;
-        margin-left: 1%;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .blogB {
-        margin-left: 16rem;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .blogB {
-        margin-left: 12rem;
-        margin-top: 15%;
-      }
-
-      .mt-4 {
-        margin-top: 0rem !important;
-        margin-bottom: 0rem;
-      }
-
-      .blog-sidebar h6 {
-        font-weight: bold;
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .blog-sidebar img {
-        width: 50%;
-        height: 100%;
-        border-radius: 8px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 247vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 280vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-
-      .blogB {
-        margin-left: 5rem;
-        margin-top: 15%;
-      }
-    }
-
-    @media (max-width: 350px) {
-      .section7 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 250vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow-x: hidden;
-      }
-    }
-  </style>
-
-  <style>
-    .section8 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-      overflow: hidden;
-      /* Ensure no overflow */
-    }
-
-    .container-fluid {
-      height: 100%;
-      padding: 0;
-      /* Remove default padding */
-    }
-
-    .row {
-      height: 100%;
-      margin: 0;
-      /* Remove default margin */
-    }
-
-    .contact-form {
-      /* padding: 50px; */
-      align-content: center;
-    }
-
-    .form-control {
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-    }
-
-    .form-control::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .btn-submit {
-      background-color: white;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      margin-left: 2%;
-    }
-
-    .btn-submit:hover {
-      background-color: #f0f0f0;
-      color: #052652;
-    }
-
-    .ad-section {
-      height: 100%;
-      padding: 0;
-      /* Remove padding */
-    }
-
-    .ad-card {
-      height: 100%;
-      width: 100%;
-    }
-
-    .ad-card {
-      height: 100%;
-      background-image: url("/images/sec8image.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .getin {
-      font-size: 63.43px;
-      font-weight: 700;
-      text-align: left;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-      margin-left: 1%;
-    }
-
-    .contactp {
-      font-size: 18px;
-      font-weight: 400;
-      text-align: left;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-      margin-left: 2%;
-      margin-bottom: 4rem;
-    }
-
-    textarea {
-      margin-left: 2%;
-      width: 96% !important;
-    }
-
-    .p-5 {
-      padding: 5rem !important;
-    }
-
-    @media (max-width: 1200px) {
-      .getin {
-        font-size: 50.43px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .p-5 {
-        padding: 4rem !important;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .section8 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(116.21deg,
-            #052652 -3.25%,
-            #2d9cdb 107.37%);
-        color: white;
-        overflow: hidden;
-        /* Ensure no overflow */
-      }
-
-      .getin {
-        font-size: 43px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .getin {
-        font-size: 38px;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .p-5 {
-        padding: 3rem !important;
-      }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 767.98px) {
-      .section8 {
-        height: auto;
-        padding: 20px 0;
-      }
-
-      .contact-form {
-        padding: 20px;
-      }
-
-      .ad-section {
-        height: 300px;
-        /* Set a fixed height for the image on mobile */
-      }
-
-      .ad-card img {
-        border-radius: 0;
-        /* Remove border radius for full-width image */
-      }
-    }
-
-    @media (max-width: 500px) {
-      .getin {
-        font-size: 35px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .getin {
-        font-size: 30px;
-      }
-    }
-  </style>
-
-  <style>
-    .footer {
-      background: var(--black-10, #1c1c1c1a);
-      color: #4d4d4d;
-      padding: 40px 0;
-    }
-
-    /* Custom container for full-width responsiveness */
-    .custom-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 30px;
-    }
-
-    p {
-      color: #d2d2d2;
-    }
-
-    .footerP {
-      text-align: justify;
-      margin-bottom: 1rem;
-      color: #4d4d4d;
-    }
-
-    .footer a {
-      color: #4d4d4d;
-      text-decoration: none;
-    }
-
-    .footerP .term {
-      text-decoration: none;
-      cursor: pointer;
-      color: rgba(38, 98, 250, 1);
-    }
-
-    .footerh5 {
-      color: #006499;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footerimg {
-      width: 60%;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      height: 40px;
-      width: 40px;
-      background-color: #4d4d4d;
-      margin: 0 10px 10px 0;
-      text-align: center;
-      line-height: 40px;
-      border-radius: 50%;
-      color: #ffffff;
-      transition: all 0.5s ease;
-    }
-
-    .social-icons a:hover {
-      opacity: 0.8;
-      color: #24262b;
-      background-color: #ffffff;
-    }
-
-    .linkk {
-      line-height: 50px;
-      text-align: start;
-    }
-
-    .collink {
-      line-height: 37px;
-    }
-
-    .linkk a::before {
-      content: "• ";
-      color: #006499;
-      /* Change color if needed */
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .custom-container {
-        text-align: center;
-      }
-
-      .social-icons {
-        margin-top: 10px;
-      }
-
-      .linkk {
-        line-height: 30px;
-      }
-
-      .footerimg {
-        width: 50%;
-      }
-
-      .mt-4 {
-        margin-top: 1.5rem !important;
-        margin-bottom: 0rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footerimg {
-        width: 58%;
-      }
-    }
-  </style>
-
-  <style>
-    .custom-popup {
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
-      color: white;
-      border-radius: 10px;
-      padding: 20px;
-    }
-
-    .custom-title {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .custom-button {
-      background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%) !important;
-      color: white !important;
-      border-radius: 8px !important;
-      padding: 8px 16px !important;
-    }
-
-    .custom-button-error {
-      background: #d9534f !important;
-      color: white !important;
-      border-radius: 8px !important;
-      padding: 8px 16px !important;
-    }
-  </style>
-</head>
-
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="logoH">
-        <img src="/images/Footerlogo.png" alt="AekAds Logo" />
-      </div>
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li class="links"><a href="#section-0">Home</a></li>
-          <li class="links"><a href="#section-1">About Us</a></li>
-          <li class="links"><a href="#section-2">Why Aek Ads?</a></li>
-          <li class="links"><a href="#section-3">Dual Screen Tech</a></li>
-          <li class="links"><a href="#section-4">Our Process</a></li>
-          <li class="dropdown">
-            <a href="javascript:void(0)" id="moreBtn">More ▼</a>
-            <div class="dropdown-content" id="dropdownMenu">
-              <a href="#section-6">Blogs</a>
-              <a href="#section-7">Contact</a>
-            </div>
-          </li>
-          
-
-          <li class="links">
-            <a class="ajayy" href="">Get Quote</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <style>
     /* Header Styles */
     .header {
       background: rgba(255, 255, 255, 0.60);
       color: rgba(77, 77, 77, 1);
-      padding: 10px 0;
+      padding: 12px 0;
       position: fixed;
       top: 0;
       width: 100%;
-      height: 71px;
+      height: 69px;
       z-index: 1000;
       transition: transform 0.3s ease-in-out;
       transform: translateY(0);
@@ -2258,100 +325,8 @@
         display: none;
       }
     }
-  </style>
-
-  <script>
-    const moreBtn = document.getElementById('moreBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    // Toggle dropdown on More button click
-    moreBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop bubbling so body click doesn't close it instantly
-      const isOpen = dropdownMenu.style.opacity === '1';
-      
-      if (isOpen) {
-        closeDropdown();
-      } else {
-        openDropdown();
-      }
-    });
-
-    // Close dropdown when clicking on a dropdown link
-    dropdownMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeDropdown();
-      });
-    });
-
-    // Close dropdown if clicking outside
-    document.addEventListener('click', (e) => {
-      if (!dropdownMenu.contains(e.target) && e.target !== moreBtn) {
-        closeDropdown();
-      }
-    });
-
-    // Close dropdown when scrolling
-    window.addEventListener('scroll', () => {
-      if (dropdownMenu.style.opacity === '1') {
-        closeDropdown();
-      }
-    });
-
-    function openDropdown() {
-      dropdownMenu.style.opacity = '1';
-      dropdownMenu.style.transform = 'translateY(0)';
-      dropdownMenu.style.pointerEvents = 'auto';
-    }
-
-    function closeDropdown() {
-      dropdownMenu.style.opacity = '0';
-      dropdownMenu.style.transform = 'translateY(10px)';
-      dropdownMenu.style.pointerEvents = 'none';
-    }
-  </script>
 
 
-  <div id="quotePopup" class="quote-popup">
-    <div class="popup-content">
-      <div class="popup-header">
-        <h2 class="gradient-text">GET A QUOTE</h2>
-      </div>
-      <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
-      <form class="quote-form" id="quote-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">*First name</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">*Last name</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">*Email address</label>
-            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-              title="Please enter a valid email address (e.g., example@domain.com)" required />
-            <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
-          </div>
-          <div class="form-group">
-            <label for="phone">*Phone number</label>
-            <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
-              required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">*Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">SEND MESSAGE</button>
-      </form>
-
-    </div>
-  </div>
-
-  <style>
     /* Popup Styles */
     .quote-popup {
       display: none;
@@ -2533,120 +508,9 @@
         padding: 12px 15px;
       }
     }
-  </style>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const quoteButtons = document.querySelectorAll('.ajayy');
-      const quotePopup = document.getElementById('quotePopup');
-      const popupContent = document.querySelector('.popup-content');
-      const quoteForm = document.getElementById('quote-form');
 
-      // Attach click to all quote buttons
-      quoteButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-          quotePopup.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        });
-      });
 
-      // Close popup when clicking outside
-      quotePopup.addEventListener('click', function (e) {
-        if (e.target === quotePopup) {
-          closePopup();
-        }
-      });
-
-      popupContent.addEventListener('click', function (e) {
-        e.stopPropagation();
-      });
-
-      // Close function
-      function closePopup() {
-        quotePopup.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-
-      // Form Submission Handler
-      quoteForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(quoteForm);
-        const formObject = {};
-        formData.forEach((value, key) => {
-          formObject[key] = value;
-        });
-
-        try {
-          const response = await fetch('https://aekteam.onrender.com/api/send-message', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formObject)
-          });
-
-          if (!response.ok) {
-            throw new Error(`Server error: ${response.status}`);
-          }
-
-          // Success Handling
-          Swal.fire({
-            title: "Success!",
-            text: "We have received your request for a quote , Our sales representative will contact you soon!",
-            icon: "success",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button",
-            },
-          });
-
-          closePopup();
-          quoteForm.reset();
-
-        } catch (error) {
-          console.error('Submission error:', error);
-          Swal.fire({
-            title: "Error!",
-            text: "Failed to send message. Please try again.",
-            icon: "error",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button-error",
-            },
-          });
-        }
-      });
-
-      function closePopup() {
-        quotePopup.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  </script>
-
-  <nav class="navbar-mobile">
-    <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
-      &#9776;
-    </button>
-    <div class="mobile-links" id="mobile-links">
-      <a href="#section-1">About Us</a>
-      <a href="#section-2">Why AekAds?</a>
-      <a href="#section-3">Dual Screen Tech</a>
-      <a href="#section-4">Our Process</a>
-      <a href="#section-5">Brands That Trust Us</a>
-      <a href="#section-6">Blog</a>
-      <a href="#section-7">Contact</a>
-      <a class="ajayy" href="">Get Quote</a>
-    </div>
-    <div class="overlay" id="overlay"></div>
-    <!-- Full-screen overlay -->
-  </nav>
-
-  <style>
     /* Default styles for navbar */
     .navbar-mobile {
       display: none;
@@ -2773,7 +637,1836 @@
         color: #000;
       }
     }
+
+
+
+
+    /* section style  */
+
+    .section1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white
+    }
+
+    .banner {
+      max-width: 90%;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center
+    }
+
+    .arrow-icon {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 1.5s infinite
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(10px)
+      }
+    }
+
+    .logo {
+      width: 50%;
+      margin-bottom: 5%
+    }
+
+    .head1 {
+      position: absolute;
+      bottom: 60px;
+      font-size: 40px;
+      white-space: nowrap;
+      text-align: center;
+      z-index: 2
+    }
+
+    .slideshow-bg {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0
+    }
+
+    .slide1 {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out
+    }
+
+    .slide1.active {
+      opacity: 1
+    }
+
+    .bottom-title {
+      position: absolute;
+      bottom: 40px;
+      font-size: 24px;
+      font-weight: 600;
+      color: white;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px
+    }
+
+    .slideshow-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+      overflow: hidden
+    }
+
+    .slideshow-gradient {
+      position: relative;
+      top: 500px;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url('/images/gradientBG.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom;
+      z-index: 1;
+      pointer-events: none
+    }
+
+    .desktop-slideshow {
+      display: block
+    }
+
+    .mobile-slideshow {
+      display: none
+    }
+
+    .highlight-container {
+      display: flex;
+      position: relative;
+      height: 74px;
+      vertical-align: bottom;
+      width: 800px;
+      text-align: center;
+      justify-content: center
+    }
+
+    .highlight {
+      position: absolute;
+      font: 800 50px "Montserrat";
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out
+    }
+
+    .highlight.active {
+      opacity: 1;
+      transform: translateY(0);
+      text-align: center
+    }
+
+    @media (max-width:1300px) {
+      .logo {
+        width: 45%;
+        margin-bottom: 5%
+      }
+    }
+
+    @media (max-width:1100px) {
+      .logo {
+        width: 41%;
+        margin-bottom: 5%
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white
+      }
+    }
+
+    @media (max-width:700px) {
+      .arrow-icon {
+        width: 16%
+      }
+
+      .desktop-slideshow {
+        display: none
+      }
+
+      .mobile-slideshow {
+        display: block
+      }
+    }
+
+    @media (max-width:600px) {
+      .head1 {
+        font-size: 35px;
+        white-space: nowrap;
+        opacity: 1
+      }
+
+      .highlight {
+        font: 800 40px "Montserrat";
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-in-out
+      }
+    }
+
+    @media (max-width:500px) {
+      .head1 {
+        font-size: 34px;
+        white-space: nowrap;
+        opacity: 1
+      }
+
+      .highlight {
+        font: 800 38px "Montserrat";
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-in-out
+      }
+
+      .section1 {
+        height: 92vh
+      }
+
+      .slideshow-gradient {
+        height: 92vh
+      }
+    }
+
+    @media (max-width:460px) {
+      .head1 {
+        font-size: 28px;
+        white-space: nowrap;
+        opacity: 1
+      }
+
+      .highlight {
+        font: 800 32px "Montserrat";
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-in-out
+      }
+
+      .logo {
+        width: 65%;
+        margin-bottom: -7%
+      }
+    }
+
+    @media (max-width:400px) {
+      .head1 {
+        font-size: 27px;
+        white-space: nowrap;
+        opacity: 1
+      }
+
+      .highlight {
+        font: 800 30px "Montserrat";
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1sease-in-out
+      }
+    }
+
+    @media (max-width:320px) {
+      .head1 {
+        font-size: 23px;
+        white-space: nowrap;
+        opacity: 1
+      }
+
+      .highlight {
+        font: 800 25px "Montserrat";
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1sease-in-out
+      }
+    }
+
+    .section2 {
+      height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white
+    }
+
+    .brand-logo {
+      font-size: 2.5rem;
+      font-weight: bold
+    }
+
+    .brand-description {
+      text-align: justify;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none
+    }
+
+    .stat-card {
+      width: 80px;
+      height: 70px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      margin-right: 15px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 4px 4px #00000040;
+      align-items: center
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px
+    }
+
+    .stat-text {
+      width: 50vh
+    }
+
+    .stat-text h5 {
+      font-size: 1.25rem;
+      font-weight: bold
+    }
+
+    .stat-text p {
+      text-align: justify;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none
+    }
+
+    .rightText {
+      padding-left: 7%
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      height: 100%;
+      transform-style: preserve-3d;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .carouselCant {
+      height: 500px
+    }
+
+    .carouHight {
+      height: 40%
+    }
+
+    .gallery-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .gallery-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      width: max-content;
+      animation: scroll 70s linear infinite
+    }
+
+    .gallery-item {
+      height: 200px;
+      overflow: hidden
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease-in-out, filter .5s ease-in-out;
+      cursor: pointer
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1)
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @media (max-width:1300px) {
+      .carouselCant {
+        height: 460px
+      }
+    }
+
+    @media (max-width:1000px) {
+      .rightText {
+        padding-left: 7%
+      }
+
+      .section2 {
+        height: 150vh;
+        background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+        color: white
+      }
+
+      .carouHight {
+        height: 30%
+      }
+    }
+
+    @media (max-width:991px) {
+      .section2 {
+        height: 175vh
+      }
+    }
+
+    @media (max-width:768px) {
+      .container.carouselCant {
+        height: auto;
+        padding: 20px
+      }
+
+      .row.align-items-center {
+        flex-direction: column
+      }
+
+      .gallery-item {
+        width: 200px;
+        height: 150px
+      }
+
+      .col-lg-6 {
+        width: 100%;
+        padding: 0 15px
+      }
+
+      .brand-logo {
+        text-align: center
+      }
+
+      .brand-logo img {
+        max-width: 100%;
+        height: auto
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 15px
+      }
+
+      .brand-description {
+        text-align: center;
+        font-size: .9rem
+      }
+
+      .rightText {
+        padding-left: 0;
+        margin-top: 20px
+      }
+
+      .stat-text {
+        width: 100%;
+        margin-bottom: 20px
+      }
+
+      .stat-text h5 {
+        font-size: 1.1rem
+      }
+
+      .stat-text p {
+        font-size: .9rem
+      }
+    }
+
+    @media (max-width:460px) {
+      .section2 {
+        height: 170vh
+      }
+
+      .carouHight {
+        height: 21%
+      }
+    }
+
+    @media (max-width:400px) {
+      .section2 {
+        height: 175vh
+      }
+    }
+
+    .section3 {
+      height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white
+    }
+
+    .single {
+      width: 100%;
+      margin-top: 15%;
+      height: 92.5%
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px
+    }
+
+    .section-titleH1 {
+      font-size: 60px;
+      margin-bottom: 5%;
+      text-align: left
+    }
+
+    .feature-icon {
+      width: 67px;
+      height: 67px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      margin-right: 15px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 4px 4px #00000040;
+      align-items: center
+    }
+
+    .feature-text {
+      flex: 1
+    }
+
+    .whyP {
+      margin-bottom: 10%
+    }
+
+    .py-5 {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important
+    }
+
+    @media (max-width:1625px) {
+      .single {
+        height: 92%
+      }
+    }
+
+    @media (max-width:1200px) {
+      .single {
+        margin-top: 18%
+      }
+
+      .section-titleH1 {
+        font-size: 55px
+      }
+    }
+
+    @media (max-width:1150px) {
+      .single {
+        margin-top: 18%
+      }
+    }
+
+    @media (max-width:1100px) {
+      .single {
+        margin-top: 21.5%
+      }
+    }
+
+    @media (max-width:1050px) {
+      .single {
+        margin-top: 23%
+      }
+    }
+
+    @media (max-width:1037px) {
+      .single {
+        margin-top: 20.5%
+      }
+
+      .whyP {
+        margin-bottom: 5%
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section3 {
+        height: 170vh
+      }
+
+      .single {
+        margin-top: 2%;
+        height: 100%;
+        width: 60%
+      }
+    }
+
+    @media (max-width:821px) {
+      .single {
+        margin-top: 2.4%;
+        height: 100%;
+        width: 60%
+      }
+    }
+
+    @media (max-width:800px) {
+      .single {
+        margin-top: 2.5%;
+        height: 100%;
+        width: 60%
+      }
+    }
+
+    @media (max-width:768px) {
+      .single {
+        margin-top: 2.2%;
+        height: 100%;
+        width: 75%
+      }
+    }
+
+    @media (max-width:700px) {
+      .single {
+        margin-top: 3%;
+        height: 100%;
+        width: 75%
+      }
+    }
+
+    @media (max-width:600px) {
+      .single {
+        margin-top: 3.5%;
+        height: 100%;
+        width: 90%
+      }
+    }
+
+    @media (max-width:555px) {
+      .single {
+        margin-top: 4%;
+        height: 100%
+      }
+    }
+
+    @media (max-width:500px) {
+      .single {
+        margin-top: 4.5%;
+        height: 100%;
+        width: 100%
+      }
+    }
+
+    @media (max-width:430px) {
+      .single {
+        margin-top: 5%;
+        height: 100%;
+        width: 100%
+      }
+    }
+
+    @media (max-width:400px) {
+      .single {
+        margin-top: 6.5%;
+        height: 100%;
+        width: 100%
+      }
+
+      .section-titleH1 {
+        font-size: 42px !important;
+        margin-bottom: 10% !important
+      }
+
+      .section3 {
+        height: 210vh !important
+      }
+    }
+
+    @media (max-width:320px) {
+      .single {
+        margin-top: 8%;
+        height: 100%;
+        width: 100%
+      }
+    }
+
+    .section4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 115vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white
+    }
+
+    .dual {
+      width: 100%;
+      padding-bottom: 13.6%
+    }
+
+    .container {
+      padding: 0 40px
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 3%
+    }
+
+    .section-titleH1 {
+      font-size: 60px;
+      margin-bottom: 5%;
+      text-align: left
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, .1);
+      padding: 20px;
+      border-radius: 10px
+    }
+
+    .info-card {
+      background-color: #fff;
+      border-radius: 10px;
+      text-align: center;
+      transition: .3s ease-in-out;
+      box-shadow: 0 3.2px 27.2px .8px #00000059
+    }
+
+    .info-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-left: -14%
+    }
+
+    h4 {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: left
+    }
+
+    .row>* {
+      padding-right: calc(var(--bs-gutter-x)*1);
+      padding-left: calc(var(--bs-gutter-x)*1)
+    }
+
+    @media (max-width:1200px) {
+      .section-titleH1 {
+        font-size: 55px
+      }
+
+      .dual {
+        margin-top: 0%
+      }
+    }
+
+    @media (max-width:1100px) {
+      .section-titleH1 {
+        margin-bottom: 2%
+      }
+
+      .dual {
+        margin-top: .5%
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section4 {
+        height: 140vh
+      }
+
+      .dual {
+        width: 60%;
+        margin-top: 0%
+      }
+
+      .section-titleH1 {
+        margin-bottom: 5%;
+        margin-top: 2%
+      }
+    }
+
+    @media (max-height:900px) {
+      .dual {
+        padding-bottom: 0%
+      }
+    }
+
+    @media (max-height:832px) {
+      .dual {
+        width: 100%;
+        padding-bottom: 0%
+      }
+    }
+
+    @media (max-width:800px) {
+      .section-titleH1 {
+        font-size: 46px
+      }
+    }
+
+    @media (max-width:768px) {
+      .section4 {
+        height: 342vh
+      }
+
+      .dual {
+        width: 75%;
+        margin-top: 0%
+      }
+
+      .container {
+        padding: 0 20px
+      }
+    }
+
+    @media (max-width:600px) {
+      .dual {
+        width: 90%;
+        margin-top: 0%
+      }
+    }
+
+    @media (max-width:500px) {
+      .dual {
+        width: 100%;
+        margin-top: 0%
+      }
+
+      .section-titleH1 {
+        font-size: 40px
+      }
+
+      .container {
+        padding: 0 15px
+      }
+    }
+
+    @media (max-width:411px) {
+      .dual {
+        width: 100%;
+        margin-top: 0%
+      }
+
+      .section-titleH1 {
+        font-size: 38px !important
+      }
+
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 3%
+      }
+    }
+
+    @media (max-width:400px) {
+      .section4 {
+        height: 285vh
+      }
+    }
+
+    .section5 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white
+    }
+
+    .fullscreen {
+      width: 100%
+    }
+
+    .sec5d {
+      flex-wrap: nowrap
+    }
+
+    .ptext5 {
+      margin-bottom: 5%
+    }
+
+    .step-box {
+      background: #f4f4f4;
+      padding: 15px;
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 3.2px 27.2px .8px #00000059
+    }
+
+    .arrow {
+      font-size: 24px;
+      color: #fff;
+      text-align: center
+    }
+
+    .sec5img {
+      margin-left: -8%
+    }
+
+    p {
+      text-align: justify;
+      margin: 0
+    }
+
+    .row>* {
+      padding-right: calc(var(--bs-gutter-x)*.5);
+      padding-left: calc(var(--bs-gutter-x)*.5)
+    }
+
+    @media (max-width:1300px) {
+      .sec5img {
+        margin-left: -6%
+      }
+    }
+
+    @media (max-width:1100px) {
+      .processHead {
+        font-size: 22px
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section5 {
+        height: auto
+      }
+
+      .fullscreen {
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 20px
+      }
+
+      .sec5d {
+        flex-wrap: wrap
+      }
+
+      .arrow {
+        display: none
+      }
+
+      .col-md-4 {
+        margin-bottom: 20px
+      }
+    }
+
+    @media (max-width:768px) {
+      .section5 {
+        height: auto
+      }
+
+      .fullscreen {
+        width: 70%;
+        margin-left: 16%;
+        margin-bottom: 20px
+      }
+
+      .sec5img {
+        display: none
+      }
+
+      .sec5d {
+        flex-wrap: wrap
+      }
+
+      .arrow {
+        display: none
+      }
+
+      .col-md-4 {
+        display: grid;
+        justify-items: center
+      }
+    }
+
+    @media (max-width:576px) {
+      .section5 {
+        height: auto;
+        padding: 40px 0
+      }
+
+      .fullscreen {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px
+      }
+
+      .sec5d {
+        flex-wrap: wrap
+      }
+
+      .arrow {
+        display: none
+      }
+
+      .col-md-4 {
+        margin-bottom: 20px
+      }
+    }
+
+    .section6 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white;
+      padding: 20px 0
+    }
+
+    .stat-box {
+      background: #f4f4f4;
+      color: #000;
+      padding: 14px;
+      border-radius: 10px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 81px;
+      width: 81px;
+      box-shadow: 0 3.2px 27.2px .8px #00000059
+    }
+
+    .feedback-img {
+      width: 100%;
+      max-width: 412px;
+      height: auto;
+      margin-top: 20px
+    }
+
+    .brands-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px
+    }
+
+    .brand-box {
+      width: 120px;
+      height: 60px;
+      background: #ccc;
+      border-radius: 8px
+    }
+
+    .textt {
+      display: flex;
+      flex-direction: column;
+      margin: 4% 8%
+    }
+
+    .g-3,
+    .gy-3 {
+      --bs-gutter-y: 4rem
+    }
+
+    .statext {
+      display: flex;
+      align-content: center
+    }
+
+    .scroll-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+      display: grid
+    }
+
+    .e-con-inner {
+      padding: 30px
+    }
+
+    .scroll-content {
+      overflow: hidden
+    }
+
+    .brandsH {
+      font-size: 3rem;
+      text-align: center
+    }
+
+    .scroll-wrapper {
+      display: inline-flex;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      white-space: nowrap;
+      position: relative
+    }
+
+    .rtl .scroll-wrapper {
+      animation: scrollRtl 40s linear infinite
+    }
+
+    .ltr .scroll-wrapper {
+      animation: scrollLtr 40s linear infinite
+    }
+
+    .scroll-content img {
+      height: 80px;
+      margin: 0 11px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background-color: #fff
+    }
+
+    @keyframes scrollRtl {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    @keyframes scrollLtr {
+      0% {
+        transform: translateX(-50%)
+      }
+
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @media (max-width:1200px) {
+      .scroll-content img {
+        height: 70px
+      }
+    }
+
+    @media (max-width:768px) {
+      .section6 {
+        height: 135vh
+      }
+
+      .feedback-img {
+        width: 80%;
+        max-width: 300px
+      }
+
+      .brandsH {
+        font-size: 2rem
+      }
+
+      .scroll-content img {
+        height: 60px;
+        margin: 0 15px
+      }
+
+      .stat-box {
+        height: 70px;
+        width: 70px
+      }
+
+      .textt h3 {
+        font-size: 1.5rem
+      }
+
+      .textt h5 {
+        font-size: 1rem
+      }
+    }
+
+    @media (max-width:576px) {
+      .section6 {
+        height: 175vh
+      }
+    }
+
+    @media (max-width:480px) {
+      .scroll-content img {
+        height: 50px;
+        margin: 0 10px
+      }
+
+      .stat-box {
+        height: 60px;
+        width: 60px
+      }
+
+      .textt h3 {
+        font-size: 1.8rem
+      }
+
+      .textt h5 {
+        font-size: 1.2rem
+      }
+
+      .textt {
+        display: flex;
+        flex-direction: column;
+        margin: 0 6%
+      }
+    }
+
+    .section7 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white;
+      overflow-x: hidden
+    }
+
+    .blog-card {
+      padding: 20px;
+      border-radius: 10px
+    }
+
+    .blog-card img {
+      width: 100%;
+      border-radius: 8px
+    }
+
+    .blogB {
+      margin-left: 56rem
+    }
+
+    .blog-sidebar {
+      overflow-y: auto;
+      margin-top: 5%
+    }
+
+    .blog-sidebar img {
+      width: 44%;
+      height: 100%;
+      border-radius: 8px
+    }
+
+    .blog-sidebar h6 {
+      font-weight: bold
+    }
+
+    .blog-text {
+      margin: 0 20px;
+      align-content: center
+    }
+
+    .carousel-item {
+      display: flex
+    }
+
+    .fs-1 {
+      font-size: 3.5rem !important
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem !important;
+      margin-bottom: 5rem
+    }
+
+    @media (max-width:1625px) {
+      .blogB {
+        margin-left: 61rem
+      }
+    }
+
+    @media (max-width:1200px) {
+      .fs-1 {
+        font-size: 3.5rem !important;
+        width: 14%;
+        margin-left: 3%
+      }
+
+      .fs-2 {
+        width: 30%;
+        margin-left: 3%
+      }
+    }
+
+    @media (max-width:1100px) {
+      .blogB {
+        margin-left: 50rem
+      }
+
+      .fs-1 {
+        font-size: 3rem !important;
+        width: 40%;
+        margin-left: 1%
+      }
+
+      .fs-2 {
+        width: 35%;
+        margin-left: 1%
+      }
+    }
+
+    @media (max-width:1024px) {
+      .blogB {
+        margin-left: 46rem
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section7 {
+        height: 200vh
+      }
+
+      .blogB {
+        margin-left: 43rem
+      }
+
+      .blog-sidebar img {
+        width: 35%
+      }
+    }
+
+    @media (max-width:900px) {
+      .blogB {
+        margin-left: 36rem
+      }
+
+      .fs-2 {
+        width: 50%;
+        margin-left: 1%
+      }
+    }
+
+    @media (max-width:800px) {
+      .blogB {
+        margin-left: 31rem
+      }
+
+      .section7 {
+        height: 196vh
+      }
+    }
+
+    @media (max-width:768px) {
+      .blogB {
+        margin-left: 29rem
+      }
+    }
+
+    @media (max-width:750px) {
+      .blogB {
+        margin-left: 28rem
+      }
+    }
+
+    @media (max-width:721px) {
+      .blogB {
+        margin-left: 27rem
+      }
+    }
+
+    @media (max-width:700px) {
+      .blogB {
+        margin-left: 24rem
+      }
+
+      .section7 {
+        height: 196vh
+      }
+    }
+
+    @media (max-width:600px) {
+      .section7 {
+        height: 238vh
+      }
+
+      .carousel-item {
+        display: flex;
+        flex-wrap: wrap
+      }
+
+      .blogB {
+        margin-left: 19rem
+      }
+
+      .fs-1 {
+        font-size: 2.5rem !important;
+        width: 40%;
+        margin-left: 1%
+      }
+
+      .fs-2 {
+        width: 100%;
+        margin-left: 1%
+      }
+    }
+
+    @media (max-width:550px) {
+      .blogB {
+        margin-left: 16rem
+      }
+    }
+
+    @media (max-width:500px) {
+      .blogB {
+        margin-left: 12rem;
+        margin-top: 15%
+      }
+
+      .mt-4 {
+        margin-top: 0 !important;
+        margin-bottom: 0
+      }
+
+      .blog-sidebar h6 {
+        font-weight: bold;
+        font-size: 14px
+      }
+    }
+
+    @media (max-width:480px) {
+      .blog-sidebar img {
+        width: 50%
+      }
+    }
+
+    @media (max-width:430px) {
+      .section7 {
+        height: 247vh
+      }
+    }
+
+    @media (max-width:400px) {
+      .section7 {
+        height: 280vh
+      }
+
+      .blogB {
+        margin-left: 5rem;
+        margin-top: 15%
+      }
+    }
+
+    @media (max-width:350px) {
+      .section7 {
+        height: 250vh
+      }
+    }
+
+    .section8 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: white;
+      overflow: hidden
+    }
+
+    .container-fluid {
+      height: 100%;
+      padding: 0
+    }
+
+    .row {
+      height: 100%;
+      margin: 0
+    }
+
+    .contact-form {
+      align-content: center
+    }
+
+    .form-control {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, .7)
+    }
+
+    .btn-submit {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      transition: background-color .3s ease, color .3s ease;
+      margin-left: 2%
+    }
+
+    .btn-submit:hover {
+      background-color: #f0f0f0;
+      color: #052652
+    }
+
+    .ad-section {
+      height: 100%;
+      padding: 0
+    }
+
+    .ad-card {
+      height: 100%;
+      width: 100%
+    }
+
+    .ad-card {
+      height: 100%;
+      background-image: url("/images/sec8image.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat
+    }
+
+    .getin {
+      font-size: 63.43px;
+      font-weight: 700;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      margin-left: 1%
+    }
+
+    .contactp {
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      margin-left: 2%;
+      margin-bottom: 4rem
+    }
+
+    textarea {
+      margin-left: 2%;
+      width: 96% !important
+    }
+
+    .p-5 {
+      padding: 5rem !important
+    }
+
+    @media (max-width:1200px) {
+      .getin {
+        font-size: 50.43px
+      }
+    }
+
+    @media (max-width:1024px) {
+      .p-5 {
+        padding: 4rem !important
+      }
+    }
+
+    @media (max-width:1000px) {
+      .section8 {
+        height: 100vh
+      }
+
+      .getin {
+        font-size: 43px
+      }
+    }
+
+    @media (max-width:900px) {
+      .getin {
+        font-size: 38px
+      }
+    }
+
+    @media (max-width:800px) {
+      .p-5 {
+        padding: 3rem !important
+      }
+    }
+
+    @media (max-width:767.98px) {
+      .section8 {
+        height: auto;
+        padding: 20px 0
+      }
+
+      .contact-form {
+        padding: 20px
+      }
+
+      .ad-section {
+        height: 300px
+      }
+
+      .ad-card img {
+        border-radius: 0
+      }
+    }
+
+    @media (max-width:500px) {
+      .getin {
+        font-size: 35px
+      }
+    }
+
+    @media (max-width:400px) {
+      .getin {
+        font-size: 30px
+      }
+    }
+
+    .footer {
+      background: var(--black-10, #1c1c1c1a);
+      color: #4d4d4d;
+      padding: 40px 0
+    }
+
+    .custom-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px
+    }
+
+    p {
+      color: #d2d2d2
+    }
+
+    .footerP {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #4d4d4d
+    }
+
+    .footer a {
+      color: #4d4d4d;
+      text-decoration: none
+    }
+
+    .footerP .term {
+      text-decoration: none;
+      cursor: pointer;
+      color: rgba(38, 98, 250, 1)
+    }
+
+    .footerh5 {
+      color: #006499
+    }
+
+    .footer a:hover {
+      text-decoration: underline
+    }
+
+    .footerimg {
+      width: 60%
+    }
+
+    .social-icons a {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background-color: #4d4d4d;
+      margin: 0 10px 10px 0;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      color: #fff;
+      transition: all .5s ease
+    }
+
+    .social-icons a:hover {
+      opacity: .8;
+      color: #24262b;
+      background-color: #fff
+    }
+
+    .linkk {
+      line-height: 50px;
+      text-align: start
+    }
+
+    .collink {
+      line-height: 37px
+    }
+
+    .linkk a::before {
+      content: "• ";
+      color: #006499;
+      font-weight: bold;
+      font-size: 1.5em
+    }
+
+    @media (max-width:768px) {
+      .custom-container {
+        text-align: center
+      }
+
+      .social-icons {
+        margin-top: 10px
+      }
+
+      .linkk {
+        line-height: 30px
+      }
+
+      .footerimg {
+        width: 50%
+      }
+
+      .mt-4 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 0
+      }
+    }
+
+    @media (max-width:480px) {
+      .footerimg {
+        width: 58%
+      }
+    }
+
+    .custom-popup {
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
+      color: #fff;
+      border-radius: 10px;
+      padding: 20px
+    }
+
+    .custom-title {
+      font-size: 20px;
+      font-weight: bold
+    }
+
+    .custom-button {
+      background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%) !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+      padding: 8px 16px !important
+    }
+
+    .custom-button-error {
+      background: #d9534f !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+      padding: 8px 16px !important
+    }
   </style>
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logoH">
+        <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" />
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li class="links"><a href="#section-0">Home</a></li>
+          <li class="links"><a href="#section-1">About Us</a></li>
+          <li class="links"><a href="#section-2">Why Aek Ads?</a></li>
+          <li class="links"><a href="#section-3">Dual Screen Tech</a></li>
+          <li class="links"><a href="#section-4">Our Process</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" id="moreBtn">More ▼</a>
+            <div class="dropdown-content" id="dropdownMenu">
+              <a href="#section-6">Blogs</a>
+              <a href="#section-7">Contact</a>
+            </div>
+          </li>
+
+
+          <li class="links">
+            <a class="ajayy" href="">Get Quote</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="quotePopup" class="quote-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2 class="gradient-text">GET A QUOTE</h2>
+      </div>
+      <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
+      <form class="quote-form" id="quote-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">*First name</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">*Last name</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">*Email address</label>
+            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              title="Please enter a valid email address (e.g., example@domain.com)" required />
+            <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
+          </div>
+          <div class="form-group">
+            <label for="phone">*Phone number</label>
+            <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
+              required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">*Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+      </form>
+
+    </div>
+  </div>
+
+  <nav class="navbar-mobile">
+    <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
+      &#9776;
+    </button>
+    <div class="mobile-links" id="mobile-links">
+      <a href="#section-1">About Us</a>
+      <a href="#section-2">Why AekAds?</a>
+      <a href="#section-3">Dual Screen Tech</a>
+      <a href="#section-4">Our Process</a>
+      <a href="#section-5">Brands That Trust Us</a>
+      <a href="#section-6">Blog</a>
+      <a href="#section-7">Contact</a>
+      <a class="ajayy" href="">Get Quote</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <!-- Full-screen overlay -->
+  </nav>
+
 
   <!-- <div class="nav-dots">
     <span class="dot" data-target="#section-1" data-tooltip="About Us"></span>
@@ -2790,9 +2483,11 @@
     <section class="section1" id="section-0">
       <div class="slideshow-wrapper desktop-slideshow">
         <div class="slideshow-bg">
-          <img src="/images/IMG_6267 BW.jpg" class="slide1 fade desktop-img active" />
-          <img src="/images/IMG_6267 BW 2.jpg" class="slide1 fade desktop-img" />
-          <img src="/images/IND Vs NZ Celebration ImageBW.jpg" class="slide1 fade desktop-img" />
+          <img src="/images/IMG_6267 BW.jpg" alt="Digital Screen Display in India"
+            class="slide1 fade desktop-img active" />
+          <img src="/images/IMG_6267 BW 2.jpg" alt="Digital Screen Display in India" class="slide1 fade desktop-img" />
+          <img src="/images/IND Vs NZ Celebration ImageBW.jpg" alt="Digital Screen Display in India"
+            class="slide1 fade desktop-img" />
 
         </div>
         <div class="slideshow-gradient"></div>
@@ -2801,9 +2496,12 @@
       <!-- Mobile Slideshow -->
       <div class="slideshow-wrapper mobile-slideshow">
         <div class="slideshow-bg">
-          <img src="/images/IMG_6267 BW Mobile.jpg" class="slide1 fade mobile-img active" />
-          <img src="/images/IMG_6267 BW Mobile 2.jpg" class="slide1 fade mobile-img" />
-          <img src="/images/IMG_6267 BW Mobile 3.jpg" class="slide1 fade mobile-img" />
+          <img src="/images/IMG_6267 BW Mobile.jpg" alt="Digital Screen Display in India"
+            class="slide1 fade mobile-img active" />
+          <img src="/images/IMG_6267 BW Mobile 2.jpg" alt="Digital Screen Display in India"
+            class="slide1 fade mobile-img" />
+          <img src="/images/IMG_6267 BW Mobile 3.jpg" alt="Digital Screen Display in India"
+            class="slide1 fade mobile-img" />
 
         </div>
         <div class="slideshow-gradient"></div>
@@ -2827,63 +2525,6 @@
       </main>
     </section>
 
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Get all slides (both desktop and mobile)
-        const allSlides = document.querySelectorAll('.slide1');
-        let current = 0;
-
-        // Function to get only the visible slides (either desktop or mobile based on screen size)
-        function getVisibleSlides() {
-          const isMobile = window.innerWidth <= 700;
-          return Array.from(allSlides).filter(slide => {
-            return isMobile ? slide.classList.contains('mobile-img') : slide.classList.contains('desktop-img');
-          });
-        }
-
-        function showNextSlide() {
-          const visibleSlides = getVisibleSlides();
-
-          // Hide current slide
-          if (visibleSlides[current]) {
-            visibleSlides[current].classList.remove('active');
-          }
-
-          // Move to next slide
-          current = (current + 1) % visibleSlides.length;
-
-          // Show new slide
-          visibleSlides[current].classList.add('active');
-        }
-
-        // Initialize - show first visible slide
-        function initializeSlideshow() {
-          const visibleSlides = getVisibleSlides();
-          visibleSlides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            if (index === 0) slide.classList.add('active');
-          });
-          current = 0;
-        }
-
-        // Handle window resize
-        let resizeTimeout;
-        window.addEventListener('resize', function () {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            initializeSlideshow();
-          }, 200);
-        });
-
-        // Start the slideshow
-        initializeSlideshow();
-        setInterval(showNextSlide, 4000); // Change every 4 seconds
-      });
-    </script>
-
-
-
     <section class="section2" id="section-1">
       <br /><br /><br />
 
@@ -2894,79 +2535,82 @@
               <div class="gallery">
                 <!-- First row: First 8 images -->
                 <div class="gallery-item">
-                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 1" />
+                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 2" />
+                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 3" />
+                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 4" />
+                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Ekta Festival Block A.jpg" alt="Image 5" />
+                  <img src="/images/Ekta Festival Block A.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg" alt="Image 6" />
+                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg"
+                    alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 7" />
+                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Image 8" />
+                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Digital Screen Display in India" />
                 </div>
 
                 <!-- Duplicate the first 8 images -->
                 <div class="gallery-item">
-                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 1" />
+                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 2" />
+                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 3" />
+                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 4" />
+                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Ekta Festival Block A.jpg" alt="Image 5" />
+                  <img src="/images/Ekta Festival Block A.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg" alt="Image 6" />
+                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg"
+                    alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 7" />
+                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Image 8" />
+                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Digital Screen Display in India" />
                 </div>
 
                 <div class="gallery-item">
-                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Image 1" />
+                  <img src="/images/Dual ScreenSHARTHAK SHRINAND B (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Image 2" />
+                  <img src="/images/Dual Screen Shypram Block C (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Image 3" />
+                  <img src="/images/Single Screen SHAKTI 140 A LIFT 2 (5).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Image 4" />
+                  <img src="/images/Mount Abu Main Market  Exit.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Ekta Festival Block A.jpg" alt="Image 5" />
+                  <img src="/images/Ekta Festival Block A.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg" alt="Image 6" />
+                  <img src="/images/Dual Screen Kuber Residency Block B (2) 1.jpg"
+                    alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Image 7" />
+                  <img src="/images/Dual Screen Sun Shela-1 Blok B (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Image 8" />
+                  <img src="/images/Dual Screen IMG_6322.jpg" alt="Digital Screen Display in India" />
                 </div>
               </div>
             </div>
@@ -2975,79 +2619,80 @@
               <div class="gallery">
                 <!-- Second row: Remaining images -->
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 9" />
+                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Digital Screen Display in India" creen
+                    Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Image 10" />
+                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Image 11" />
+                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Image 12" />
+                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/IMG_6099 1.jpg" alt="Image 13" />
+                  <img src="/images/IMG_6099 1.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Image 14" />
+                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Image 15" />
+                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 16" />
+                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Digital Screen Display in India" />
                 </div>
 
                 <!-- Duplicate the remaining images -->
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 9" />
+                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Image 10" />
+                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Image 11" />
+                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Image 12" />
+                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/IMG_6099 1.jpg" alt="Image 13" />
+                  <img src="/images/IMG_6099 1.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Image 14" />
+                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Image 15" />
+                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 16" />
+                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Digital Screen Display in India" />
                 </div>
 
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Image 9" />
+                  <img src="/images/Dual Screen Ananta Block A (2).jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Image 10" />
+                  <img src="/images/Dual Screen IMG_6285.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Image 11" />
+                  <img src="/images/Mount Abu Entry Gate.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Image 12" />
+                  <img src="/images/Dual Screen IMG_6321.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/IMG_6099 1.jpg" alt="Image 13" />
+                  <img src="/images/IMG_6099 1.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Image 14" />
+                  <img src="/images/Mount Abu Main Market  Entry.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Image 15" />
+                  <img src="/images/Dua Screen IMG_6270.jpg" alt="Digital Screen Display in India" />
                 </div>
                 <div class="gallery-item">
-                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Image 16" />
+                  <img src="/images/Dual Screen Orchid Heaven Block E6 (2).jpg" alt="Digital Screen Display in India" />
                 </div>
               </div>
             </div>
@@ -3059,7 +2704,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="brand-logo">
-              <img src="images/image.png" alt="AekAds Logo" class="logo" />
+              <img src="images/image.png" alt="Digital Screen Display in India" class="logo" />
             </div>
             <h2 class="mt-3">
               Aekads | India's Best Digital Out Of Advertising Company
@@ -3419,7 +3064,7 @@
           </div>
 
           <div class="col-lg-6 text-center ad-image-container">
-            <img class="single" src=images/sec3image.png alt="Ad Image" />
+            <img class="single" src=images/sec3image.png alt="Digital Screen Display in India" />
           </div>
         </div>
       </div>
@@ -3450,14 +3095,14 @@
             </p>
           </div>
           <div class="col-lg-6 text-center order-1 order-lg-2">
-            <img class="dual img-fluid rounded" src="/images/sec4image.png" alt="Dual Screen Display" />
+            <img class="dual img-fluid rounded" src="/images/sec4image.png" alt="Digital Screen Display in India" />
           </div>
         </div>
 
         <div class="row text-center">
           <div class="col-md-4 mb-4" data-scroll>
             <div class="info-card">
-              <img src="images/whether.png" alt="Weather Update" />
+              <img src="images/whether.png" alt="Digital Screen Display in India" />
             </div>
             <h4>Weather Update</h4>
             <p>
@@ -3468,7 +3113,7 @@
           </div>
           <div class="col-md-4 mb-4" data-scroll>
             <div class="info-card">
-              <img src="images/news.png" alt="News Update" />
+              <img src="images/news.png" alt="Digital Screen Display in India" />
             </div>
             <h4>News Update</h4>
             <p>
@@ -3478,7 +3123,7 @@
           </div>
           <div class="col-md-4 mb-4" data-scroll>
             <div class="info-card">
-              <img src="images/date&time.png" alt="Date & Time Update" />
+              <img src="images/date&time.png" alt="Digital Screen Display in India" />
             </div>
             <h4>Date & Time Update</h4>
             <p>
@@ -3496,7 +3141,7 @@
         <h1 class="section-titleH1">Our Process</h1>
         <div class="row align-items-center">
           <div class="col-lg-4 sec5img">
-            <img class="fullscreen img-fluid" src="/images/sec5image.png" alt="Ad Display" />
+            <img class="fullscreen img-fluid" src="/images/sec5image.png" alt="Digital Screen Display in India" />
           </div>
           <div class="col-lg-8 ptext5">
             <div class="row sec5d align-items-center" data-scroll>
@@ -3761,7 +3406,7 @@
 
           <!-- Right Side - Illustration -->
           <div class="col-lg-6 col-md-12 text-center text-lg-end">
-            <img src="/images/sec6image.png" alt="Customer Feedback Illustration" class="img-fluid feedback-img" />
+            <img src="/images/sec6image.png" alt="Digital Screen Display in India" class="img-fluid feedback-img" />
           </div>
         </div>
 
@@ -3783,40 +3428,40 @@
                   <div class="scroll-content rtl">
                     <div class="scroll-wrapper">
                       <!-- First set of logos -->
-                      <img src="/images/1mg.png" alt="1mg" />
-                      <img src="/images/Adani.png" alt="Adani" />
-                      <img src="/images/Aishwarya.png" alt="Aishwarya" />
-                      <img src="/images/Amazon Fresh.png" alt="Amazon Fresh" />
-                      <img src="/images/Amul.png" alt="Amul" />
-                      <img src="/images/Anmol-GRP_LOGO-1.png" alt="Anmol-GRP" />
-                      <img src="/images/Blinkit.png" alt="Blinkit" />
-                      <img src="/images/BMK.png" alt="BMK" />
-                      <img src="/images/Britania.png" alt="Britania" />
-                      <img src="/images/Cree N Nuts.png" alt="Cree N Nuts" />
-                      <img src="/images/Croma.png" alt="Croma" />
-                      <img src="/images/IKEA.png" alt="IKEA" />
-                      <img src="/images/Liver Pool.png" alt="Liver Pool" />
-                      <img src="/images/Maggi.png" alt="Maggi" />
-                      <img src="/images/Magson.png" alt="Magson" />
-                      <img src="/images/Mahindra Rise.png" alt="Mahindra Rise" />
+                      <img src="/images/1mg.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Adani.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Aishwarya.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Amazon Fresh.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Amul.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Anmol-GRP_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Blinkit.png" alt="Digital Screen Display in India" />
+                      <img src="/images/BMK.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Britania.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Cree N Nuts.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Croma.png" alt="Digital Screen Display in India" />
+                      <img src="/images/IKEA.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Liver Pool.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Maggi.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Magson.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Mahindra Rise.png" alt="Digital Screen Display in India" />
 
                       <!-- Duplicated for seamless looping -->
-                      <img src="/images/1mg.png" alt="1mg" />
-                      <img src="/images/Adani.png" alt="Adani" />
-                      <img src="/images/Aishwarya.png" alt="Aishwarya" />
-                      <img src="/images/Amazon Fresh.png" alt="Amazon Fresh" />
-                      <img src="/images/Amul.png" alt="Amul" />
-                      <img src="/images/Anmol-GRP_LOGO-1.png" alt="Anmol-GRP" />
-                      <img src="/images/Blinkit.png" alt="Blinkit" />
-                      <img src="/images/BMK.png" alt="BMK" />
-                      <img src="/images/Britania.png" alt="Britania" />
-                      <img src="/images/Cree N Nuts.png" alt="Cree N Nuts" />
-                      <img src="/images/Croma.png" alt="Croma" />
-                      <img src="/images/IKEA.png" alt="IKEA" />
-                      <img src="/images/Liver Pool.png" alt="Liver Pool" />
-                      <img src="/images/Maggi.png" alt="Maggi" />
-                      <img src="/images/Magson.png" alt="Magson" />
-                      <img src="/images/Mahindra Rise.png" alt="Mahindra Rise" />
+                      <img src="/images/1mg.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Adani.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Aishwarya.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Amazon Fresh.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Amul.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Anmol-GRP_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Blinkit.png" alt="Digital Screen Display in India" />
+                      <img src="/images/BMK.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Britania.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Cree N Nuts.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Croma.png" alt="Digital Screen Display in India" />
+                      <img src="/images/IKEA.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Liver Pool.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Maggi.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Magson.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Mahindra Rise.png" alt="Digital Screen Display in India" />
                     </div>
                   </div>
 
@@ -3824,40 +3469,40 @@
 
                   <div class="scroll-content ltr">
                     <div class="scroll-wrapper">
-                      <img src="/images/Hundai_LOGO-1.png" alt="Hundai" />
-                      <img src="/images/VS-Gold_LOGO-1.png" alt="VS-Gold" />
-                      <img src="/images/Nestle.png" alt="Nestle" />
-                      <img src="/images/Orbit Mall.png" alt="Orbit Mall" />
-                      <img src="/images/Palladium Mall.png" alt="Palladium Mall" />
-                      <img src="/images/Pantaloons_LOGO.png" alt="Pantaloons" />
-                      <img src="/images/Pidilite.png" alt="Pidilite" />
-                      <img src="/images/Repido.png" alt="Repido" />
-                      <img src="/images/Shree-hari_LOGO-1.png" alt="Shree-hari" />
-                      <img src="/images/Shudhvam Ghee.png" alt="Shudhvam Ghee" />
-                      <img src="/images/Splus LED.png" alt="Splus LED" />
-                      <img src="/images/Swiggy.png" alt="Swiggy" />
-                      <img src="/images/Valks.png" alt="Valks" />
-                      <img src="/images/Zoho.png" alt="Zoho" />
-                      <img src="/images/Zydus Hospital.png" alt="Zydus Hospital" />
-                      <img src="/images/Zizuwadia_LOGO-1.png" alt="Zizuwadia" />
+                      <img src="/images/Hundai_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/VS-Gold_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Nestle.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Orbit Mall.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Palladium Mall.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Pantaloons_LOGO.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Pidilite.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Repido.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Shree-hari_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Shudhvam Ghee.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Splus LED.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Swiggy.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Valks.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zoho.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zydus Hospital.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zizuwadia_LOGO-1.png" alt="Digital Screen Display in India" />
 
                       <!-- Duplicated for seamless looping -->
-                      <img src="/images/Hundai_LOGO-1.png" alt="Hundai" />
-                      <img src="/images/VS-Gold_LOGO-1.png" alt="VS-Gold" />
-                      <img src="/images/Nestle.png" alt="Nestle" />
-                      <img src="/images/Orbit Mall.png" alt="Orbit Mall" />
-                      <img src="/images/Palladium Mall.png" alt="Palladium Mall" />
-                      <img src="/images/Pantaloons_LOGO.png" alt="Pantaloons" />
-                      <img src="/images/Pidilite.png" alt="Pidilite" />
-                      <img src="/images/Repido.png" alt="Repido" />
-                      <img src="/images/Shree-hari_LOGO-1.png" alt="Shree-hari" />
-                      <img src="/images/Shudhvam Ghee.png" alt="Shudhvam Ghee" />
-                      <img src="/images/Splus LED.png" alt="Splus LED" />
-                      <img src="/images/Swiggy.png" alt="Swiggy" />
-                      <img src="/images/Valks.png" alt="Valks" />
-                      <img src="/images/Zoho.png" alt="Zoho" />
-                      <img src="/images/Zydus Hospital.png" alt="Zydus Hospital" />
-                      <img src="/images/Zizuwadia_LOGO-1.png" alt="Zizuwadia" />
+                      <img src="/images/Hundai_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/VS-Gold_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Nestle.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Orbit Mall.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Palladium Mall.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Pantaloons_LOGO.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Pidilite.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Repido.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Shree-hari_LOGO-1.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Shudhvam Ghee.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Splus LED.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Swiggy.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Valks.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zoho.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zydus Hospital.png" alt="Digital Screen Display in India" />
+                      <img src="/images/Zizuwadia_LOGO-1.png" alt="Digital Screen Display in India" />
                     </div>
                   </div>
                 </div>
@@ -3885,7 +3530,7 @@
               <div class="carousel-inner">
                 <div class="carousel-item">
                   <div class="blog-card" data-scroll>
-                    <img src="/images/blog1.jpg" alt="Blog 1" />
+                    <img src="/images/blog1.jpg" alt="Digital Screen Display in India" />
                     <p class="mt-2 text-light">March 12, 2025 |</p>
                     <h5 class="fw-bold">
                       Aekads Brings the Champions Trophy Final Live to Orbit
@@ -3902,7 +3547,7 @@
                   </div>
 
                   <div class="blog-card" data-scroll>
-                    <img src="/images/blog2.jpg" alt="Blog 2" />
+                    <img src="/images/blog2.jpg" alt="Digital Screen Display in India" />
                     <p class="mt-2 text-light">March 7, 2025 |</p>
                     <h5 class="fw-bold">
                       India vs New Zealand Champions Trophy Final this Sunday!
@@ -3923,7 +3568,7 @@
           <div class="col-lg-4">
             <div class="blog-sidebar" data-scroll>
               <div class="d-flex mb-3">
-                <img src="/images/blog3.jpg" alt="Sidebar Blog 1" />
+                <img src="/images/blog3.jpg" alt="Digital Screen Display in India" />
                 <div class="blog-text">
                   <p class="text-light">February 21, 2025 |</p>
                   <h6>
@@ -3933,7 +3578,7 @@
                 </div>
               </div>
               <div class="d-flex mb-3">
-                <img src="/images/blog4.jpeg" alt="Sidebar Blog 2" />
+                <img src="/images/blog4.jpeg" alt="Digital Screen Display in India" />
                 <div class="blog-text">
                   <p class="text-light">February 14, 2025 |</p>
                   <h6>
@@ -3943,14 +3588,14 @@
                 </div>
               </div>
               <div class="d-flex mb-3">
-                <img src="/images/blog5.jpeg" alt="Sidebar Blog 3" />
+                <img src="/images/blog5.jpeg" alt="Digital Screen Display in India" />
                 <div class="blog-text">
                   <p class="text-light">January 17, 2025 |</p>
                   <h6>Aekads Shines Bright at GPBS Expo 2025</h6>
                 </div>
               </div>
               <div class="d-flex mb-3">
-                <img src="/images/blog6.jpg" alt="Sidebar Blog 4" />
+                <img src="/images/blog6.jpg" alt="Digital Screen Display in India" />
                 <div class="blog-text">
                   <p class="text-light">January 6, 2025 |</p>
                   <h6>
@@ -4019,7 +3664,7 @@
           <div class="col-md-4 text-center text-md-start">
             <h2 style="margin-top: 4%">
               <a href="https://www.aekads.com" target="_blank">
-                <img src="/images/Footerlogo.png" alt="AekAds Logo" class="footerimg" />
+                <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" class="footerimg" />
               </a>
             </h2>
 
@@ -4028,11 +3673,20 @@
               lives of real audiences. Reach where people live, work, and shop. Smart advertising for smart cities.
             </p>
             <div class="social-icons">
-              <a href="https://www.facebook.com/aekads1/"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/aek_ads/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/aekads/"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://www.youtube.com/@aek_ads"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.facebook.com/aekads1/" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/aek_ads/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/aekads/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.youtube.com/@aek_ads" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
             </div>
+
           </div>
 
           <!-- Quick Links -->
@@ -4132,334 +3786,12 @@
         </div>
       </div>
     </footer>
+
   </div>
 
+  <script src="script.js" defer></script>
+
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
-
-  <script>
-    let scroll;
-    let lastScrollY = window.scrollY;
-    const header = document.querySelector(".header");
-    let navLinksActive = false;
-
-    function handleScroll(currentScrollY) {
-      if (!header) return;
-
-      // Header visibility logic
-      if (currentScrollY <= 0) {
-        header.classList.remove("header-hidden");
-        header.classList.add("header-visible");
-        return;
-      }
-
-      if (Math.abs(currentScrollY - lastScrollY) < 5) return;
-
-      if (currentScrollY > lastScrollY) {
-        header.classList.remove("header-visible");
-        header.classList.add("header-hidden");
-      } else {
-        header.classList.remove("header-hidden");
-        header.classList.add("header-visible");
-      }
-
-      lastScrollY = currentScrollY;
-    }
-
-    function updateActiveLink() {
-      const links = document.querySelectorAll(".nav-links a");
-      const sections = document.querySelectorAll("section[id]");
-      let currentSection = "";
-
-      // Find which section is currently in view
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const sectionTop = rect.top + window.scrollY;
-        const sectionHeight = rect.height;
-        const sectionId = section.getAttribute("id");
-
-        // Check if section is in view (with some offset)
-        if (
-          window.scrollY >= sectionTop - 200 &&
-          window.scrollY < sectionTop + sectionHeight - 200
-        ) {
-          currentSection = sectionId;
-        }
-      });
-
-      // Update active link
-      if (currentSection && !navLinksActive) {
-        links.forEach((link) => {
-          link.classList.remove("active");
-          const href = link.getAttribute("href");
-
-          if (
-            href === `#${currentSection}` ||
-            (currentSection === "section-0" && href === "#") ||
-            (currentSection === "section-0" && href === "#section-0")
-          ) {
-            link.classList.add("active");
-          }
-        });
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // Initialize Locomotive Scroll
-      scroll = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-        lerp: 0.08,
-        offset: [-100, 0],
-        getDirection: true,
-        repeat: true,
-      });
-
-      // Handle scroll events from Locomotive Scroll
-      scroll.on("scroll", (args) => {
-        handleScroll(args.scroll.y);
-        updateActiveLink();
-      });
-
-      // Also listen to native scroll for fallback
-      window.addEventListener("scroll", () => {
-        handleScroll(window.scrollY);
-        updateActiveLink();
-      });
-
-      // Make first link active on load
-      const links = document.querySelectorAll(".nav-links a");
-      if (links.length > 0) {
-        links[0].classList.add("active");
-      }
-
-      // Click event for nav links
-      document
-        .querySelectorAll('.nav-links a[href^="#"]')
-        .forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            navLinksActive = true;
-
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
-
-            // Update active state
-            links.forEach((l) => l.classList.remove("active"));
-            this.classList.add("active");
-
-            // Scroll to target
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              scroll.scrollTo(targetElement);
-            }
-
-            // Reset flag after scroll completes
-            setTimeout(() => {
-              navLinksActive = false;
-            }, 1000);
-          });
-        });
-
-      // MOBILE MENU LOGIC
-      const mobileMenuIcon = document.getElementById("mobile-menu-icon");
-      const mobileLinks = document.getElementById("mobile-links");
-      const overlay = document.getElementById("overlay");
-
-      let lastScrollTop = 0;
-
-      window.addEventListener("scroll", function () {
-        let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop) {
-          mobileMenuIcon.style.opacity = "0";
-          mobileMenuIcon.style.pointerEvents = "none";
-        } else {
-          mobileMenuIcon.style.opacity = "1";
-          mobileMenuIcon.style.pointerEvents = "auto";
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-
-      function createCloseButton() {
-        const closeBtn = document.createElement("button");
-        closeBtn.className = "close-btn";
-        closeBtn.innerHTML = "&#10005;";
-        closeBtn.addEventListener("click", function () {
-          mobileLinks.classList.remove("active");
-          overlay.classList.remove("active");
-          mobileMenuIcon.innerHTML = "&#9776;";
-          closeBtn.remove();
-        });
-        return closeBtn;
-      }
-
-      mobileMenuIcon.addEventListener("click", function () {
-        mobileLinks.classList.toggle("active");
-        overlay.classList.toggle("active");
-
-        if (mobileLinks.classList.contains("active")) {
-          const closeBtn = createCloseButton();
-          mobileLinks.appendChild(closeBtn);
-          mobileMenuIcon.innerHTML = "&#10005;";
-        } else {
-          const closeBtn = mobileLinks.querySelector(".close-btn");
-          if (closeBtn) closeBtn.remove();
-          mobileMenuIcon.innerHTML = "&#9776;";
-        }
-      });
-
-      overlay.addEventListener("click", function () {
-        mobileLinks.classList.remove("active");
-        overlay.classList.remove("active");
-        mobileMenuIcon.innerHTML = "&#9776;";
-        const closeBtn = mobileLinks.querySelector(".close-btn");
-        if (closeBtn) closeBtn.remove();
-      });
-
-      // Smooth scroll for all anchors
-      document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const targetElement = document.querySelector(
-            this.getAttribute("href")
-          );
-          if (targetElement) {
-            scroll.scrollTo(targetElement);
-          }
-          mobileLinks.classList.remove("active");
-          overlay.classList.remove("active");
-          mobileMenuIcon.innerHTML = "&#9776;";
-          const closeBtn = mobileLinks.querySelector(".close-btn");
-          if (closeBtn) closeBtn.remove();
-        });
-      });
-
-      // Scroll animations
-      const scrollElements = document.querySelectorAll("[data-scroll]");
-      const scrollObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-            } else {
-              entry.target.classList.remove("in-view");
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      scrollElements.forEach((el) => scrollObserver.observe(el));
-
-      // Highlight rotation
-      const highlights = document.querySelectorAll(".highlight");
-      let currentIndex = 0;
-      setInterval(() => {
-        highlights.forEach((hl) => hl.classList.remove("active"));
-        currentIndex = (currentIndex + 1) % highlights.length;
-        highlights[currentIndex].classList.add("active");
-      }, 2500);
-
-      // Form validation
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-
-          const emailInput = document.getElementById("email");
-          const emailError = document.getElementById("email-error");
-
-          const emailPattern =
-            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-          if (!emailPattern.test(emailInput.value)) {
-            emailError.style.display = "block";
-            return;
-          } else {
-            emailError.style.display = "none";
-          }
-
-          const firstName = document.getElementById("first-name").value;
-          const lastName = document.getElementById("last-name").value;
-          const email = emailInput.value;
-          const phone = document.getElementById("phone").value;
-          const message = document.getElementById("message").value;
-
-          const formData = { firstName, lastName, email, phone, message };
-
-          try {
-            const response = await fetch(
-              "https://aekteam.onrender.com/api/send-message",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-              }
-            );
-
-            let result;
-            try {
-              result = await response.json();
-            } catch (error) {
-              result = { error: "No response body (possibly due to CORS)" };
-            }
-
-            if (response.ok) {
-              Swal.fire({
-                title: "Success!",
-                text: "Thank you for submitting! We'll get back to you soon.",
-                icon: "success",
-                confirmButtonText: "OK",
-                customClass: {
-                  popup: "custom-popup",
-                  title: "custom-title",
-                  confirmButton: "custom-button",
-                },
-              });
-              document.getElementById("contact-form").reset();
-            } else {
-              Swal.fire({
-                title: "Failed",
-                text: "Failed to send message: " + result.error,
-                icon: "error",
-                confirmButtonText: "OK",
-                customClass: {
-                  popup: "custom-popup",
-                  title: "custom-title",
-                  confirmButton: "custom-button-error",
-                },
-              });
-            }
-          } catch (error) {
-            Swal.fire({
-              title: "Error",
-              text: "Error: " + error.message,
-              icon: "error",
-              confirmButtonText: "OK",
-              customClass: {
-                popup: "custom-popup",
-                title: "custom-title",
-                confirmButton: "custom-button-error",
-              },
-            });
-          }
-        });
-
-      // Arrow section toggle
-      document.querySelector(".arrow-icon").addEventListener("click", () => {
-        const section1 = document.querySelector(".section1");
-        const section2 = document.querySelector(".section2");
-
-        scroll.scrollTo(
-          window.scrollY < section1.offsetHeight ? section2 : section1,
-          {
-            offset: 0,
-            duration: 1000,
-            easing: [0.25, 0.0, 0.35, 1.0],
-          }
-        );
-      });
-    });
-  </script>
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
