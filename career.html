@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Join Our Team | Aek Ads Careers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Locomotive Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    <style>
+        :root {
+            --primary-dark: #052652;
+            --primary-light: #2D9CDB;
+            --accent: #FF6B6B;
+            --light-bg: #F8FAFF;
+            --dark-text: #2D3748;
+            --light-text: #718096;
+        }
+
+        /* Locomotive Scroll adjustments */
+        html.has-scroll-smooth {
+            overflow: hidden;
+        }
+
+        html.has-scroll-dragging {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .c-scrollbar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 11px;
+            height: 100%;
+            transform-origin: center right;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .c-scrollbar:hover {
+            transform: scaleX(1.45);
+        }
+
+        .c-scrollbar:hover,
+        .has-scroll-scrolling .c-scrollbar,
+        .has-scroll-dragging .c-scrollbar {
+            opacity: 1;
+        }
+
+        .c-scrollbar_thumb {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ffffff00;
+            opacity: 0.5;
+            width: 7px;
+            border-radius: 10px;
+            margin: 2px;
+            cursor: -webkit-grab;
+            cursor: grab;
+        }
+
+        .has-scroll-dragging .c-scrollbar_thumb {
+            cursor: -webkit-grabbing;
+            cursor: grabbing;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Main scroll container */
+        [data-scroll-container] {
+            min-height: 100vh;
+        }
+
+        /* Rest of your existing styles... */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+
+        .hero-title {
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-weight: 300;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .career-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .job-meta-item i {
+            margin-right: 5px;
+            color: var(--primary-light);
+        }
+
+        .job-description {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+            color: #b6dcff;
+        }
+
+        .benefits-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background-color: var(--light-bg);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .benefit-description {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Job Detail Page Styles */
+        .job-detail-page {
+            padding: 60px 0;
+        }
+
+        .job-detail-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .view-more-btn {
+            color: var(--primary-light);
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .view-more-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+
+         /* Job Detail Page Styles */
+    .job-detail-page {
+        padding: 80px 0;
+        background-color: var(--light-bg);
+    }
+
+    .job-detail-card {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .job-detail-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+    }
+
+    #detail-job-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .job-detail-page .job-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .job-detail-page .job-meta-item {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: var(--light-text);
+        background: rgba(45, 156, 219, 0.1);
+        padding: 8px 15px;
+        border-radius: 50px;
+    }
+
+    .job-detail-page .job-meta-item i {
+        margin-right: 8px;
+        color: var(--primary-light);
+    }
+
+    #detail-job-description {
+        color: var(--dark-text);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+
+    #detail-job-description h3,
+    #detail-job-description h4 {
+        color: var(--primary-dark);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #detail-job-description ul,
+    #detail-job-description ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #detail-job-description li {
+        margin-bottom: 0.5rem;
+    }
+
+    .job-detail-page .btn-apply {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        margin-top: 1rem;
+    }
+
+    .job-detail-page .btn-link {
+        color: var(--primary-light);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .job-detail-page .btn-link:hover {
+        color: var(--primary-dark);
+        transform: translateX(-5px);
+    }
+
+    .job-detail-page .btn-link i {
+        margin-right: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .job-detail-card {
+            padding: 40px;
+        }
+        
+        #detail-job-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-page {
+            padding: 60px 0;
+        }
+        
+        .job-detail-card {
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        #detail-job-title {
+            font-size: 1.6rem;
+        }
+        
+        .job-detail-page .job-meta {
+            gap: 10px;
+        }
+        
+        .job-detail-page .job-meta-item {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+        }
+        
+        #detail-job-description {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .job-detail-card {
+            padding: 25px 20px;
+        }
+        
+        #detail-job-title {
+            font-size: 1.4rem;
+        }
+        
+        .job-detail-page .job-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+    </style>
+
+<style>
+    :root {
+        --primary-dark: #052652;
+        --primary-light: #2D9CDB;
+        --accent: #FF6B6B;
+        --light-bg: #F8FAFF;
+        --dark-text: #2D3748;
+        --light-text: #718096;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--dark-text);
+        line-height: 1.6;
+    }
+
+    /* Job Detail Page Background */
+    .job-detail-page {
+        padding: 80px 0;
+        background: linear-gradient(135deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 0%) 100%), url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80) no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    .job-detail-page::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(248, 250, 255, 0.95) 0%, rgba(248, 250, 255, 0.7) 100%);
+        z-index: 0;
+    }
+
+    .job-detail-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Job Detail Card */
+    .job-detail-card {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 6px 11px 40px -14px rgb(63 63 63);
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .job-detail-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+    }
+
+    #detail-job-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    #detail-job-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
+        border-radius: 2px;
+    }
+
+    .job-detail-page .job-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .job-detail-page .job-meta-item {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: var(--light-text);
+        background: rgba(45, 156, 219, 0.1);
+        padding: 8px 20px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+
+    .job-detail-page .job-meta-item:hover {
+        background: rgba(45, 156, 219, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .job-detail-page .job-meta-item i {
+        margin-right: 8px;
+        color: var(--primary-light);
+    }
+
+    #detail-job-description {
+        color: var(--dark-text);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+
+    #detail-job-description h3,
+    #detail-job-description h4 {
+        color: var(--primary-dark);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    #detail-job-description ul,
+    #detail-job-description ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #detail-job-description li {
+        margin-bottom: 0.8rem;
+        position: relative;
+    }
+
+    /* Apply Button */
+    .job-detail-page .btn-apply {
+        font-size: 1.1rem;
+        padding: 15px 35px;
+        margin-top: 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(45, 156, 219, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .job-detail-page .btn-apply:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(46, 95, 124, 0.4);
+    }
+
+    /* Back Button */
+    .job-detail-page .btn-link {
+        color: var(--primary-light);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+
+    .job-detail-page .btn-link:hover {
+        color: var(--primary-dark);
+        transform: translateX(-5px);
+    }
+
+    .job-detail-page .btn-link i {
+        margin-right: 8px;
+        transition: all 0.3s ease;
+    }
+
+    /* CTA Section */
+    .job-detail-cta {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+        padding: 60px 0;
+        margin-top: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .job-detail-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+    }
+
+    .cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta-title {
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .cta-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Quick Apply Form */
+    .quick-apply-form {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .quick-apply-form .form-control {
+        height: 50px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .quick-apply-form .form-control:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
+    }
+
+    .quick-apply-form .btn-submit {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
+    }
+
+    .quick-apply-form .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
+    }
+
+    /* Apply Modal Styling */
+    .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+        color: white;
+        border-bottom: none;
+        padding: 25px;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+
+    .modal-body {
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: var(--dark-text);
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        height: 50px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 15px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
+    }
+
+    textarea.form-control {
+        height: auto;
+        min-height: 120px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
+    }
+
+    .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .job-detail-card {
+            padding: 40px;
+        }
+    
+        #detail-job-title {
+            font-size: 1.8rem;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-page {
+            padding: 60px 0;
+        }
+        
+        .job-detail-card {
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        #detail-job-title {
+            font-size: 1.6rem;
+        }
+        
+        .job-detail-page .job-meta {
+            gap: 10px;
+        }
+        
+        .job-detail-page .job-meta-item {
+            font-size: 0.9rem;
+            padding: 6px 15px;
+        }
+        
+        #detail-job-description {
+            font-size: 1rem;
+        }
+
+        .cta-title {
+            font-size: 1.6rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-apply-form {
+            padding: 25px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .job-detail-card {
+            padding: 25px 20px;
+        }
+        
+        #detail-job-title {
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+        }
+        
+        .job-detail-page .job-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .job-detail-cta {
+            padding: 50px 0;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 1.4rem;
+        }
+
+        .modal-header {
+            padding: 20px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- Main scroll container -->
+    <div id="scroll-container" data-scroll-container>
+        <!-- Main Content (shown by default) -->
+        <main data-scroll-section>
+            <!-- Hero Section -->
+            <section class="hero-section text-center" data-scroll>
+                <div class="container position-relative">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">Let’s Build the Future Together</h1>
+                    <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Lead the next era of digital advertising with cutting-edge solutions and innovative creativity.</p>
+                    <a href="#open-positions"
+                        class="btn btn-light btn-lg rounded-pill px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s">View
+                        Open Positions</a>
+                </div>
+            </section>
+
+            <!-- Benefits Section -->
+            <section class="benefits-section" data-scroll>
+                <div class="container">
+                    <h2 class="section-title text-center mb-5">Why Work With Us</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4" data-scroll>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3 class="benefit-title">Creative Work Environment</h3>
+                                <p class="benefit-description">Join a team that's redefining the future of advertising. At Aekads, you’ll work with cutting-edge digital out-of-home (DOOH) technology in a fast-paced, creative environment where new ideas are always welcome.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-scroll data-scroll-delay="0.1">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="benefit-title">Career Growth Pathways</h3>
+                                <p class="benefit-description">Your career matters to us. We invest in your growth through hands-on training, mentorship, and clear paths for career advancement. Whether you're a creative, coder, or strategist—there’s space for you to grow.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-scroll data-scroll-delay="0.2">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3 class="benefit-title">Balanced Living, Better Working</h3>
+                                <p class="benefit-description">We take care of our team with competitive salaries, comprehensive health coverage, and flexible work options that support your work-life balance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Job Listings Section -->
+            <section id="open-positions" class="py-5 bg-light" data-scroll>
+                <div class="container">
+                    <h2 class="section-title mb-5">Current Openings</h2>
+                    <div id="job-listings" class="row g-4">
+                        <div class="loading-spinner">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-5" data-scroll
+                style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);">
+                <div class="container text-center text-white">
+                    <h2 class="mb-4">Your Future Starts Here</h2>
+                    <p class="mb-4">At our company, we believe in nurturing talent and creating opportunities for passionate individuals. Stay tuned for exciting roles, and feel free to reach out if you'd like to be part of our journey.</p>
+                </div>
+                
+            </section>
+        </main>
+
+        <!-- Job Detail Page (hidden by default) -->
+        <section id="job-detail-page" class="job-detail-page hidden" data-scroll-section>
+            <div class="job-detail-card" data-scroll>
+                <h2 id="detail-job-title" class="job-title"></h2>
+                <div class="job-meta">
+                    <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> <span
+                            id="detail-job-location"></span></span>
+                    <span class="job-meta-item"><i class="fas fa-clock"></i> <span id="detail-job-type"></span></span>
+                </div>
+                <div id="detail-job-description" class="job-description"></div>
+                <button class="btn btn-apply" id="detail-apply-btn" data-bs-toggle="modal" data-bs-target="#applyModal">
+                    Apply Now <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+                <a href="career.html" class="btn btn-link mt-3">← Back to all jobs</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Apply Now Modal -->
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Apply for <span id="jobTitleInput"></span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="uploadForm">
+                        <input type="hidden" name="Job_post" id="appliedJobTitle">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="Email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" name="mobile_number" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message (Cover Letter)"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="resumeUpload" class="form-label">Upload Resume</label>
+                            <input type="file" name="pdf" class="form-control" id="resumeUpload" required accept=".pdf,.doc,.docx">
+                        </div>
+                        <button type="submit" class="btn btn-submit">Submit Application</button>
+                    </form>
+                    
+                    <div id="response" class="mt-3"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Locomotive Scroll JS -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+        // Initialize Locomotive Scroll
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            smartphone: {
+                smooth: true
+            },
+            tablet: {
+                smooth: true
+            }
+        });
+
+        // Update scroll when content changes
+        function updateScroll() {
+            scroll.update();
+        }
+
+        // API Base URL
+        const API_BASE_URL = 'https://cms.aekads.com/api';
+
+        // DOM Elements
+        const jobListings = document.getElementById("job-listings");
+        const applyModal = document.getElementById('applyModal');
+
+        // Function to fetch all jobs
+        async function fetchAllJobs() {
+            try {
+                const response = await fetch(`https://cms.aekads.com/api/Aekadsjobs`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch jobs');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+                showError('Failed to load job listings. Please try again later.');
+                return [];
+            }
+        }
+
+        // Function to fetch job by ID
+        async function fetchJobById(jobId) {
+            try {
+                const response = await fetch(`https://cms.aekads.com/api/Aekadsjobs/${jobId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch job details');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching job details:', error);
+                showError('Failed to load job details. Please try again later.');
+                return null;
+            }
+        }
+
+        // Function to render job listings
+        async function renderJobs() {
+            // Show loading state
+            jobListings.innerHTML = `
+        <div class="loading-spinner">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      `;
+
+            const jobs = await fetchAllJobs();
+
+            if (jobs.length === 0) {
+                jobListings.innerHTML = `
+          <div class="col-12">
+            <div class="alert alert-info">No job openings currently available. Please check back later.</div>
+          </div>
+        `;
+                return;
+            }
+
+            jobListings.innerHTML = '';
+
+            jobs.forEach(job => {
+                const col = document.createElement("div");
+                col.className = "col-md-6 col-lg-4";
+                col.setAttribute('data-scroll', '');
+                col.innerHTML = `
+          <div class="career-card animate__animated animate__fadeIn">
+            <h3 class="job-title">${job.title}</h3>
+            <div class="job-meta">
+              <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+              <span class="job-meta-item"><i class="fas fa-clock"></i> ${job.work_type}</span>
+            </div>
+            <p class="job-description">${job.short_description} <button class="view-more-btn" data-job-id="${job.id}">View more</button></p>
+            <button class="btn btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal" data-title="${job.title}">
+              Apply Now <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>`;
+                jobListings.appendChild(col);
+            });
+
+            // Add event listeners to view more buttons
+            document.querySelectorAll('.view-more-btn').forEach(btn => {
+                btn.addEventListener('click', async function (e) {
+                    e.preventDefault();
+                    const jobId = this.getAttribute('data-job-id');
+                    await showJobDetail(jobId);
+                });
+            });
+
+            // Update scroll after content loads
+            updateScroll();
+        }
+
+        // Fixed showJobDetail function
+        async function showJobDetail(jobId) {
+            try {
+                // Show loading state
+                const detailPage = document.getElementById('job-detail-page');
+                detailPage.innerHTML = `
+      <div class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    `;
+                detailPage.classList.remove('hidden');
+                document.querySelector('main').classList.add('hidden');
+
+                // Fetch job details
+                const job = await fetchJobById(jobId);
+                if (!job) return;
+
+                // Create job detail elements
+                detailPage.innerHTML = `
+      <div class="job-detail-card" data-scroll>
+        <h2 id="detail-job-title" class="job-title">${job.title}</h2>
+        <div class="job-meta">
+          <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> 
+            <span id="detail-job-location">${job.location}</span>
+          </span>
+          <span class="job-meta-item"><i class="fas fa-clock"></i> 
+            <span id="detail-job-type">${job.work_type}</span>
+          </span>
+        </div>
+        <div id="detail-job-description" class="job-description">
+          ${job.description}
+        </div>
+        <button class="btn btn-apply" id="detail-apply-btn" 
+          data-bs-toggle="modal" data-bs-target="#applyModal"
+          data-title="${job.title}">
+          Apply Now <i class="fas fa-arrow-right ms-2"></i>
+        </button>
+        <a href="index.html" class="btn btn-link mt-3">← Back to all jobs</a>
+      </div>
+    `;
+
+                // Update URL
+                history.pushState(null, '', `?jobId=${jobId}`);
+
+                // Update scroll after content loads
+                updateScroll();
+
+            } catch (error) {
+                console.error('Error showing job detail:', error);
+                detailPage.innerHTML = `
+      <div class="error-message">
+        <i class="fas fa-exclamation-circle me-2"></i>
+        Failed to load job details. Please try again later.
+      </div>
+    `;
+            }
+        }
+
+        // Function to show error message
+        function showError(message) {
+            jobListings.innerHTML = `
+        <div class="col-12">
+          <div class="error-message">
+            <i class="fas fa-exclamation-circle me-2"></i>${message}
+          </div>
+        </div>
+      `;
+        }
+
+        // Set job title in modal when apply button is clicked
+        applyModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const jobTitle = button.getAttribute('data-title');
+            document.getElementById('jobTitleInput').textContent = jobTitle;
+            document.getElementById('appliedJobTitle').value = jobTitle;
+        });
+
+        // Initialize job listings
+        renderJobs();
+
+        // Check if we're showing a specific job (for when coming from URL)
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobIdParam = urlParams.get('jobId');
+        if (jobIdParam) {
+            showJobDetail(parseInt(jobIdParam));
+        }
+
+        // Handle back/forward navigation
+        window.addEventListener('popstate', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobIdParam = urlParams.get('jobId');
+
+            if (jobIdParam) {
+                showJobDetail(jobIdParam);
+            } else {
+                document.getElementById('job-detail-page').classList.add('hidden');
+                document.querySelector('main').classList.remove('hidden');
+                updateScroll();
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Check if we're showing a specific job (for when coming from URL)
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobIdParam = urlParams.get('jobId');
+
+            if (jobIdParam) {
+                await showJobDetail(jobIdParam);
+            } else {
+                await renderJobs();
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const form = document.getElementById("uploadForm");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            console.log("formData",formData);
+            
+            // Show submitting alert
+            Swal.fire({
+                title: 'Submitting...',
+                text: 'Please wait while we upload your application.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            try {
+                const res = await fetch("https://cms.aekads.com/upload-to-drive", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Upload Successful!',
+                        text: 'Your application has been submitted successfully.',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'custom-popup',
+                            title: 'custom-title',
+                            confirmButton: 'custom-button'
+                        }
+                    });
+                    form.reset();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Upload Failed',
+                        text: data.message || 'Something went wrong while uploading.',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'custom-popup',
+                            title: 'custom-title',
+                            confirmButton: 'custom-button-error'
+                        }
+                    });
+                }
+            } catch (err) {
+                console.error(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while uploading. Please try again.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
