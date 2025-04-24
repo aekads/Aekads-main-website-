@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start the slideshow
   initializeSlideshow();
-  setInterval(showNextSlide, 4000); // Change every 4 seconds
+  setInterval(showNextSlide, 2500); // Change every 4 seconds
 });
 
 let scroll;
