@@ -187,7 +187,7 @@
 
         .job-description {
             color: var(--light-text);
-            margin-bottom: 1.5rem;
+            margin: 0;
             flex-grow: 1;
         }
 
@@ -309,597 +309,627 @@
         }
 
 
-         /* Job Detail Page Styles */
-    .job-detail-page {
-        padding: 80px 0;
-        background-color: var(--light-bg);
-    }
-
-    .job-detail-card {
-        background: white;
-        border-radius: 20px;
-        padding: 50px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-        max-width: 900px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .job-detail-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
-    }
-
-    #detail-job-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: var(--primary-dark);
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-    }
-
-    .job-detail-page .job-meta {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .job-detail-page .job-meta-item {
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-        color: var(--light-text);
-        background: rgba(45, 156, 219, 0.1);
-        padding: 8px 15px;
-        border-radius: 50px;
-    }
-
-    .job-detail-page .job-meta-item i {
-        margin-right: 8px;
-        color: var(--primary-light);
-    }
-
-    #detail-job-description {
-        color: var(--dark-text);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 2.5rem;
-    }
-
-    #detail-job-description h3,
-    #detail-job-description h4 {
-        color: var(--primary-dark);
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    #detail-job-description ul,
-    #detail-job-description ol {
-        padding-left: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    #detail-job-description li {
-        margin-bottom: 0.5rem;
-    }
-
-    .job-detail-page .btn-apply {
-        font-size: 1.1rem;
-        padding: 12px 30px;
-        margin-top: 1rem;
-    }
-
-    .job-detail-page .btn-link {
-        color: var(--primary-light);
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        transition: all 0.3s ease;
-    }
-
-    .job-detail-page .btn-link:hover {
-        color: var(--primary-dark);
-        transform: translateX(-5px);
-    }
-
-    .job-detail-page .btn-link i {
-        margin-right: 8px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        .job-detail-card {
-            padding: 40px;
-        }
-        
-        #detail-job-title {
-            font-size: 1.8rem;
-        }
-    }
-
-    @media (max-width: 768px) {
+        /* Job Detail Page Styles */
         .job-detail-page {
-            padding: 60px 0;
+            padding: 80px 0;
+            background-color: var(--light-bg);
         }
-        
-        .job-detail-card {
-            padding: 30px;
-            border-radius: 15px;
-        }
-        
-        #detail-job-title {
-            font-size: 1.6rem;
-        }
-        
-        .job-detail-page .job-meta {
-            gap: 10px;
-        }
-        
-        .job-detail-page .job-meta-item {
-            font-size: 0.9rem;
-            padding: 6px 12px;
-        }
-        
-        #detail-job-description {
-            font-size: 1rem;
-        }
-    }
 
-    @media (max-width: 576px) {
         .job-detail-card {
-            padding: 25px 20px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .job-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+        }
+
         #detail-job-title {
-            font-size: 1.4rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
-        
+
         .job-detail-page .job-meta {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            display: flex;
+            gap: 20px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-    }
+
+        .job-detail-page .job-meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--light-text);
+            background: rgba(45, 156, 219, 0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .job-detail-page .job-meta-item i {
+            margin-right: 8px;
+            color: var(--primary-light);
+        }
+
+        #detail-job-description {
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        #detail-job-description h3,
+        #detail-job-description h4 {
+            color: var(--primary-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #detail-job-description ul,
+        #detail-job-description ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #detail-job-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .job-detail-page .btn-apply {
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            margin-top: 1rem;
+        }
+
+        .job-detail-page .btn-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .job-detail-page .btn-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(-5px);
+        }
+
+        .job-detail-page .btn-link i {
+            margin-right: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .job-detail-card {
+                padding: 40px;
+            }
+
+            #detail-job-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .job-detail-page {
+                padding: 60px 0;
+            }
+
+            .job-detail-card {
+                padding: 30px;
+                border-radius: 15px;
+            }
+
+            #detail-job-title {
+                font-size: 1.6rem;
+            }
+
+            .job-detail-page .job-meta {
+                gap: 10px;
+            }
+
+            .job-detail-page .job-meta-item {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            #detail-job-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .job-detail-card {
+                padding: 25px 20px;
+            }
+
+            #detail-job-title {
+                font-size: 1.4rem;
+            }
+
+            .job-detail-page .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
     </style>
 
-<style>
-    :root {
-        --primary-dark: #052652;
-        --primary-light: #2D9CDB;
-        --accent: #FF6B6B;
-        --light-bg: #F8FAFF;
-        --dark-text: #2D3748;
-        --light-text: #718096;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif;
-        color: var(--dark-text);
-        line-height: 1.6;
-    }
-
-    /* Job Detail Page Background */
-    .job-detail-page {
-        padding: 80px 0;
-        background-image: url(/images/job-detail-page.png);
-        background-size: cover;
-        background-attachment: fixed;
-        position: relative;
-    }
-
-    .job-detail-page::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, rgb(248 250 255 / 70%) 0%, rgb(248 250 255 / 70%) 100%);
-        z-index: 0;
-    }
-
-    .job-detail-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Job Detail Card */
-    .job-detail-card {
-        background: white;
-        border-radius: 20px;
-        padding: 50px;
-        box-shadow: 6px 11px 40px -14px rgb(63 63 63);
-        max-width: 900px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .job-detail-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
-    }
-
-    #detail-job-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: var(--primary-dark);
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    #detail-job-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
-        border-radius: 2px;
-    }
-
-    .job-detail-page .job-meta {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .job-detail-page .job-meta-item {
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-        color: var(--light-text);
-        background: rgba(45, 156, 219, 0.1);
-        padding: 8px 20px;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-    }
-
-    .job-detail-page .job-meta-item:hover {
-        background: rgba(45, 156, 219, 0.2);
-        transform: translateY(-2px);
-    }
-
-    .job-detail-page .job-meta-item i {
-        margin-right: 8px;
-        color: var(--primary-light);
-    }
-
-    #detail-job-description {
-        color: var(--dark-text);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 2.5rem;
-    }
-
-    #detail-job-description h3,
-    #detail-job-description h4 {
-        color: var(--primary-dark);
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    #detail-job-description ul,
-    #detail-job-description ol {
-        padding-left: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    #detail-job-description li {
-        margin-bottom: 0.8rem;
-        position: relative;
-    }
-
-    /* Apply Button */
-    .job-detail-page .btn-apply {
-        font-size: 1.1rem;
-        padding: 15px 35px;
-        margin-top: 1rem;
-        border-radius: 8px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        box-shadow: 0 4px 15px rgba(45, 156, 219, 0.3);
-        transition: all 0.3s ease;
-    }
-
-    .job-detail-page .btn-apply:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(46, 95, 124, 0.4);
-    }
-
-    /* Back Button */
-    .job-detail-page .btn-link {
-        color: var(--primary-light);
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        transition: all 0.3s ease;
-        font-size: 1rem;
-        margin-top: 2rem;
-    }
-
-    .job-detail-page .btn-link:hover {
-        color: var(--primary-dark);
-        transform: translateX(-5px);
-    }
-
-    .job-detail-page .btn-link i {
-        margin-right: 8px;
-        transition: all 0.3s ease;
-    }
-
-    /* CTA Section */
-    .job-detail-cta {
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-        padding: 60px 0;
-        margin-top: 60px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .job-detail-cta::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-    }
-
-    .cta-container {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-
-    .cta-title {
-        color: white;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    .cta-subtitle {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.2rem;
-        text-align: center;
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Quick Apply Form */
-    .quick-apply-form {
-        background: white;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .quick-apply-form .form-control {
-        height: 50px;
-        border-radius: 8px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 10px 20px;
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .quick-apply-form .form-control:focus {
-        border-color: var(--primary-light);
-        box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
-    }
-
-    .quick-apply-form .btn-submit {
-        width: 100%;
-        padding: 15px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-        border: none;
-        color: white;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
-    }
-
-    .quick-apply-form .btn-submit:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
-    }
-
-    /* Apply Modal Styling */
-    .modal-content {
-        border-radius: 15px;
-        overflow: hidden;
-        border: none;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .modal-header {
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-        color: white;
-        border-bottom: none;
-        padding: 25px;
-    }
-
-    .modal-title {
-        font-weight: 600;
-    }
-
-    .modal-body {
-        padding: 30px;
-    }
-
-    .form-label {
-        font-weight: 500;
-        color: var(--dark-text);
-        margin-bottom: 8px;
-    }
-
-    .form-control {
-        height: 50px;
-        border-radius: 8px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 10px 15px;
-        font-size: 1rem;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .form-control:focus {
-        border-color: var(--primary-light);
-        box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
-    }
-
-    textarea.form-control {
-        height: auto;
-        min-height: 120px;
-    }
-
-    .btn-submit {
-        width: 100%;
-        padding: 15px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-        border: none;
-        color: white;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        margin-top: 10px;
-        box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
-    }
-
-    .btn-submit:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        .job-detail-card {
-            padding: 40px;
-        }
-    
-        #detail-job-title {
-            font-size: 1.8rem;
+    <style>
+        :root {
+            --primary-dark: #052652;
+            --primary-light: #2D9CDB;
+            --accent: #FF6B6B;
+            --light-bg: #F8FAFF;
+            --dark-text: #2D3748;
+            --light-text: #718096;
         }
 
-        .cta-title {
-            font-size: 1.8rem;
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
         }
 
-        .cta-subtitle {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
+        /* Job Detail Page Background */
         .job-detail-page {
-            padding: 60px 0;
+            padding: 80px 0;
+            background-image: url(/images/job-detail-page.png);
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
         }
-        
+
+        .job-detail-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgb(248 250 255 / 70%) 0%, rgb(248 250 255 / 70%) 100%);
+            z-index: 0;
+        }
+
+        .job-detail-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Job Detail Card */
         .job-detail-card {
-            padding: 30px;
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 6px 11px 40px -14px rgb(63 63 63);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
+        .job-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+        }
+
         #detail-job-title {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            position: relative;
+            padding-bottom: 15px;
         }
-        
+
+        #detail-job-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
+            border-radius: 2px;
+        }
+
         .job-detail-page .job-meta {
-            gap: 10px;
+            display: flex;
+            gap: 20px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
-        
+
         .job-detail-page .job-meta-item {
-            font-size: 0.9rem;
-            padding: 6px 15px;
-        }
-        
-        #detail-job-description {
+            display: flex;
+            align-items: center;
             font-size: 1rem;
+            color: var(--light-text);
+            background: rgba(45, 156, 219, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .job-detail-page .job-meta-item:hover {
+            background: rgba(45, 156, 219, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .job-detail-page .job-meta-item i {
+            margin-right: 8px;
+            color: var(--primary-light);
+        }
+
+        #detail-job-description {
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        #detail-job-description h3,
+        #detail-job-description h4 {
+            color: var(--primary-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #detail-job-description ul,
+        #detail-job-description ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #detail-job-description li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        /* Apply Button */
+        .job-detail-page .btn-apply {
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            margin-top: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(45, 156, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .job-detail-page .btn-apply:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 95, 124, 0.4);
+        }
+
+        /* Back Button */
+        .job-detail-page .btn-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        .job-detail-page .btn-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(-5px);
+        }
+
+        .job-detail-page .btn-link i {
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+
+        /* CTA Section */
+        .job-detail-cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            padding: 60px 0;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-detail-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-title {
-            font-size: 1.6rem;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .cta-subtitle {
-            font-size: 1rem;
-            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* Quick Apply Form */
         .quick-apply-form {
-            padding: 25px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .job-detail-card {
-            padding: 25px 20px;
-        }
-        
-        #detail-job-title {
-            font-size: 1.4rem;
-            padding-bottom: 10px;
-        }
-        
-        .job-detail-page .job-meta {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .job-detail-cta {
-            padding: 50px 0;
-            margin-top: 40px;
+        .quick-apply-form .form-control {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
-        .cta-title {
-            font-size: 1.4rem;
+        .quick-apply-form .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
+        }
+
+        .quick-apply-form .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
+        }
+
+        .quick-apply-form .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
+        }
+
+        /* Apply Modal Styling */
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .modal-header {
-            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: white;
+            border-bottom: none;
+            padding: 25px;
+        }
+
+        .modal-title {
+            font-weight: 600;
         }
 
         .modal-body {
-            padding: 20px;
+            padding: 30px;
         }
-    }
-</style>
+
+        .form-label {
+            font-weight: 500;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 10px 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.2);
+        }
+
+        textarea.form-control {
+            height: auto;
+            min-height: 120px;
+        }
+
+        .btn-view-more {
+            background: transparent;
+            color: var(--primary-light);
+            border: 1px solid var(--primary-light);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            /* margin-top: 10px; */
+            display: inline-flex;
+            align-items: center;
+            width: 21vh;
+            margin: 0;
+        }
+
+        .btn-view-more:hover {
+            background: rgba(45, 156, 219, 0.1);
+            transform: translateY(-2px);
+            color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-view-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-view-more:hover i {
+            transform: translateX(3px);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(5, 38, 82, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 38, 82, 0.4);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .job-detail-card {
+                padding: 40px;
+            }
+
+            #detail-job-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .job-detail-page {
+                padding: 60px 0;
+            }
+
+            .job-detail-card {
+                padding: 30px;
+                border-radius: 15px;
+            }
+
+            #detail-job-title {
+                font-size: 1.6rem;
+            }
+
+            .job-detail-page .job-meta {
+                gap: 10px;
+            }
+
+            .job-detail-page .job-meta-item {
+                font-size: 0.9rem;
+                padding: 6px 15px;
+            }
+
+            #detail-job-description {
+                font-size: 1rem;
+            }
+
+            .cta-title {
+                font-size: 1.6rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .quick-apply-form {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .job-detail-card {
+                padding: 25px 20px;
+            }
+
+            #detail-job-title {
+                font-size: 1.4rem;
+                padding-bottom: 10px;
+            }
+
+            .job-detail-page .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .job-detail-cta {
+                padding: 50px 0;
+                margin-top: 40px;
+            }
+
+            .cta-title {
+                font-size: 1.4rem;
+            }
+
+            .modal-header {
+                padding: 20px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -911,7 +941,8 @@
             <section class="hero-section text-center" data-scroll>
                 <div class="container position-relative">
                     <h1 class="hero-title animate__animated animate__fadeInDown">Let’s Build the Future Together</h1>
-                    <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Lead the next era of digital advertising with cutting-edge solutions and innovative creativity.</p>
+                    <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Lead the next era of
+                        digital advertising with cutting-edge solutions and innovative creativity.</p>
                     <a href="#open-positions"
                         class="btn btn-light btn-lg rounded-pill px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s">View
                         Open Positions</a>
@@ -929,7 +960,9 @@
                                     <i class="fas fa-bolt"></i>
                                 </div>
                                 <h3 class="benefit-title">Creative Work Environment</h3>
-                                <p class="benefit-description">Join a team that's redefining the future of advertising. At Aekads, you’ll work with cutting-edge digital out-of-home (DOOH) technology in a fast-paced, creative environment where new ideas are always welcome.</p>
+                                <p class="benefit-description">Join a team that's redefining the future of advertising.
+                                    At Aekads, you’ll work with cutting-edge digital out-of-home (DOOH) technology in a
+                                    fast-paced, creative environment where new ideas are always welcome.</p>
                             </div>
                         </div>
                         <div class="col-md-4" data-scroll data-scroll-delay="0.1">
@@ -938,7 +971,9 @@
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <h3 class="benefit-title">Career Growth Pathways</h3>
-                                <p class="benefit-description">Your career matters to us. We invest in your growth through hands-on training, mentorship, and clear paths for career advancement. Whether you're a creative, coder, or strategist—there’s space for you to grow.</p>
+                                <p class="benefit-description">Your career matters to us. We invest in your growth
+                                    through hands-on training, mentorship, and clear paths for career advancement.
+                                    Whether you're a creative, coder, or strategist—there’s space for you to grow.</p>
                             </div>
                         </div>
                         <div class="col-md-4" data-scroll data-scroll-delay="0.2">
@@ -947,7 +982,9 @@
                                     <i class="fas fa-heart"></i>
                                 </div>
                                 <h3 class="benefit-title">Balanced Living, Better Working</h3>
-                                <p class="benefit-description">We take care of our team with competitive salaries, comprehensive health coverage, and flexible work options that support your work-life balance.</p>
+                                <p class="benefit-description">We take care of our team with competitive salaries,
+                                    comprehensive health coverage, and flexible work options that support your work-life
+                                    balance.</p>
                             </div>
                         </div>
                     </div>
@@ -973,9 +1010,11 @@
                 style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);">
                 <div class="container text-center text-white">
                     <h2 class="mb-4">Your Future Starts Here</h2>
-                    <p class="mb-4">At our company, we believe in nurturing talent and creating opportunities for passionate individuals. Stay tuned for exciting roles, and feel free to reach out if you'd like to be part of our journey.</p>
+                    <p class="mb-4">At our company, we believe in nurturing talent and creating opportunities for
+                        passionate individuals. Stay tuned for exciting roles, and feel free to reach out if you'd like
+                        to be part of our journey.</p>
                 </div>
-                
+
             </section>
         </main>
 
@@ -1017,18 +1056,21 @@
                             <input type="email" name="Email" class="form-control" placeholder="Email Address" required>
                         </div>
                         <div class="mb-3">
-                            <input type="number" name="mobile_number" class="form-control" placeholder="Phone Number" required>
+                            <input type="number" name="mobile_number" class="form-control" placeholder="Phone Number"
+                                required>
                         </div>
                         <div class="mb-3">
-                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message (Cover Letter)"></textarea>
+                            <textarea name="message" class="form-control" rows="4"
+                                placeholder="Your Message (Cover Letter)"></textarea>
                         </div>
                         <div class="mb-4">
                             <label for="resumeUpload" class="form-label">Upload Resume</label>
-                            <input type="file" name="pdf" class="form-control" id="resumeUpload" required accept=".pdf,.doc,.docx">
+                            <input type="file" name="pdf" class="form-control" id="resumeUpload" required
+                                accept=".pdf,.doc,.docx">
                         </div>
                         <button type="submit" class="btn btn-submit">Submit Application</button>
                     </form>
-                    
+
                     <div id="response" class="mt-3"></div>
 
                 </div>
@@ -1136,22 +1178,22 @@
                 col.className = "col-md-6 col-lg-4";
                 col.setAttribute('data-scroll', '');
                 col.innerHTML = `
-          <div class="career-card animate__animated animate__fadeIn">
+        <div class="career-card animate__animated animate__fadeIn">
             <h3 class="job-title">${job.title}</h3>
             <div class="job-meta">
-              <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
-              <span class="job-meta-item"><i class="fas fa-clock"></i> ${job.work_type}</span>
+                <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                <span class="job-meta-item"><i class="fas fa-clock"></i> ${job.work_type}</span>
             </div>
-            <p class="job-description">${job.short_description} <button class="view-more-btn" data-job-id="${job.id}">View more</button></p>
-            <button class="btn btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal" data-title="${job.title}">
-              Apply Now <i class="fas fa-arrow-right ms-2"></i>
+            <p class="job-description">${job.short_description}</p>
+            <button class="btn btn-view-more" data-job-id="${job.id}">
+                View Details <i class="fas fa-chevron-right ms-2"></i>
             </button>
-          </div>`;
+        </div>`;
                 jobListings.appendChild(col);
             });
 
             // Add event listeners to view more buttons
-            document.querySelectorAll('.view-more-btn').forEach(btn => {
+            document.querySelectorAll('.btn-view-more').forEach(btn => {
                 btn.addEventListener('click', async function (e) {
                     e.preventDefault();
                     const jobId = this.getAttribute('data-job-id');
@@ -1297,8 +1339,8 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-            console.log("formData",formData);
-            
+            console.log("formData", formData);
+
             // Show submitting alert
             Swal.fire({
                 title: 'Submitting...',
