@@ -13,6 +13,11 @@ moreBtn.addEventListener("click", (e) => {
   }
 });
 
+document.getElementById("closePopup").addEventListener("click", function() {
+  document.getElementById("quotePopup").style.display = "none";
+});
+
+
 // Close dropdown when clicking on a dropdown link
 dropdownMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
