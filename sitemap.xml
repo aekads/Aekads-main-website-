@@ -1,74 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://aekads.com/</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Section links -->
-  <url>
-    <loc>https://aekads.com/#section-1</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-2</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-3</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-4</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-5</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-6</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/#section-7</loc>
-    <lastmod>2024-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/terms-of-use.html</loc>
-    <lastmod>2025-04-16T05:51:33+00:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aekads.com/privacy-policy.html</loc>
-    <lastmod>2025-04-16T05:51:33+00:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<url>
+<loc>https://www.aekads.com/</loc>
+<lastmod>2025-04-24T05:33:59+00:00</lastmod>
+<priority>1.00</priority>
+</url>
+<url>
+<loc>https://www.aekads.com/career.html</loc>
+<lastmod>2025-04-24T05:33:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://www.aekads.com/terms-of-use.html</loc>
+<lastmod>2025-04-24T05:33:59+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://www.aekads.com/privacy-policy.html</loc>
+<lastmod>2025-04-24T05:33:59+00:00</lastmod>
+<priority>0.80</priority>
+</url>
 </urlset>
