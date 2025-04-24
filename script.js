@@ -37,6 +37,7 @@ window.addEventListener("scroll", () => {
 function openDropdown() {
   dropdownMenu.style.opacity = "1";
   dropdownMenu.style.transform = "translateY(0)";
+
   dropdownMenu.style.pointerEvents = "auto";
 }
 
@@ -51,6 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const quotePopup = document.getElementById("quotePopup");
   const popupContent = document.querySelector(".popup-content");
   const quoteForm = document.getElementById("quote-form");
+
+  // Show quote popup after 5 seconds
+  setTimeout(() => {
+    quotePopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }, 3000);
 
   // Attach click to all quote buttons
   quoteButtons.forEach((button) => {
@@ -138,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "auto";
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get all slides (both desktop and mobile)
