@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     quotePopup.style.display = "flex";
     document.body.style.overflow = "hidden";
-  }, 3000);
+  }, 5000);
 
   // Attach click to all quote buttons
   quoteButtons.forEach((button) => {
