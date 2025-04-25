@@ -944,8 +944,10 @@
                     <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Lead the next era of
                         digital advertising with cutting-edge solutions and innovative creativity.</p>
                     <a href="#open-positions"
-                        class="btn btn-light btn-lg rounded-pill px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s">View
-                        Open Positions</a>
+                        class="btn btn-light btn-lg rounded-pill px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s"
+                        onclick="scrollToSection('open-positions')">
+                        View Open Positions
+                    </a>
                 </div>
             </section>
 
@@ -1084,33 +1086,51 @@
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <script>
         // Initialize Locomotive Scroll
-        const scroll = new LocomotiveScroll({
-            el: document.querySelector('[data-scroll-container]'),
-            smooth: true,
-            smartphone: {
-                smooth: true
-            },
-            tablet: {
-                smooth: true
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        smartphone: {
+            smooth: true
+        },
+        tablet: {
+            smooth: true
+        }
+    });
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && scroll) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    scroll.scrollTo(target, {
+                        offset: -100, // Adjust this value as needed
+                        duration: 800,
+                        easing: [0.25, 0.0, 0.35, 1.0]
+                    });
+                }
             }
         });
+    });
 
-        // Update scroll when content changes
-        function updateScroll() {
-            scroll.update();
-        }
+    // Update scroll when content changes
+    function updateScroll() {
+        scroll.update();
+    }
 
-        // Function to scroll to top
-        function scrollToTop() {
-            if (scroll) {
-                scroll.scrollTo('top', {
-                    duration: 0,
-                    disableLerp: true
-                });
-            } else {
-                window.scrollTo(0, 0);
-            }
+    // Function to scroll to top
+    function scrollToTop() {
+        if (scroll) {
+            scroll.scrollTo('top', {
+                duration: 0,
+                disableLerp: true
+            });
+        } else {
+            window.scrollTo(0, 0);
         }
+    }
 
         // API Base URL
         const API_BASE_URL = 'https://cms.aekads.com/api';
