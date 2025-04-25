@@ -13,10 +13,6 @@ moreBtn.addEventListener("click", (e) => {
   }
 });
 
-document.getElementById("closePopup").addEventListener("click", function() {
-  document.getElementById("quotePopup").style.display = "none";
-});
-
 
 // Close dropdown when clicking on a dropdown link
 dropdownMenu.querySelectorAll("a").forEach((link) => {
@@ -58,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupContent = document.querySelector(".popup-content");
   const quoteForm = document.getElementById("quote-form");
 
-  // Show quote popup after 5 seconds
+  // Show quote popup after 3 seconds
   setTimeout(() => {
     quotePopup.style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -73,15 +69,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close popup when clicking outside
+  // Close popup when clicking outside the content
   quotePopup.addEventListener("click", function (e) {
     if (e.target === quotePopup) {
       closePopup();
     }
   });
 
+  // Prevent closing when clicking inside the popup content
   popupContent.addEventListener("click", function (e) {
     e.stopPropagation();
+  });
+
+  // ✅ Close popup via #closePopup button
+  document.getElementById("closePopup").addEventListener("click", function () {
+    document.getElementById("quotePopup").style.display = "none";
+    document.body.style.overflow = "auto";
   });
 
   // Close function
@@ -144,12 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
-  function closePopup() {
-    quotePopup.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
