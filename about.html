@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Aek Ads - India's Largest Digital Screen Network. Advertise in premium residential, corporate, and outdoor locations." />
+    <meta name="keywords"
+        content="Aek Ads, Digital Advertising, Outdoor Advertising, India, Residential Advertising, Corporate Advertising" />
+    <meta name="author" content="Aek Ads" />
+
+    <title>Aek Ads - India's Largest Digital Screen Network</title>
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            --accent-color: rgba(255, 102, 51, 1);
+            --text-color: rgba(77, 77, 77, 1);
+            --white: #ffffff;
+            --header-height: 71px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.60);
+            color: rgba(77, 77, 77, 1);
+            padding: 6px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 65px;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(0);
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .ajayy {
+            width: 123.65768432617188px;
+            height: 49.99326705932617px;
+            border-radius: 67.54px;
+            padding-top: 10px;
+            padding-right: 18.33px;
+            padding-bottom: 10px;
+            padding-left: 18.33px;
+            gap: 3.55px;
+            background: rgba(255, 102, 51, 1);
+            color: white !important;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            background-color: #ffffff;
+            color: rgba(77, 77, 77, 1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            /* min-width: 180px; */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        /* Show dropdown on parent hover or when active */
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Style for items inside the dropdown */
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+            flex-direction: row;
+        }
+
+        .header .logoH img {
+            height: 45px;
+        }
+
+        .header .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 28.44px;
+        }
+
+        .header .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .header .navbar .nav-links li a {
+            color: rgba(77, 77, 77, 1);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header .navbar .nav-links li a:hover {
+            color: rgb(41, 41, 41);
+        }
+
+        .header .navbar .nav-links li a.active {
+            color: rgb(41, 41, 41);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1300px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 15.44px;
+            }
+
+            .ajayy {
+                width: 123.65768432617188px;
+                height: 49.99326705932617px;
+                border-radius: 67.54px;
+                padding-top: 14px;
+                padding-right: 18.33px;
+                padding-bottom: 14px;
+                padding-left: 18.33px;
+                gap: 3.55px;
+                background: rgba(255, 102, 51, 1);
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 11.44px;
+            }
+
+            .header .navbar .nav-links li a {
+                color: rgba(77, 77, 77, 1);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+                font-size: 15px;
+            }
+
+            .ajayy {
+                width: 123.65768432617188px;
+                height: 49.99326705932617px;
+                border-radius: 67.54px;
+                padding-top: 12px;
+                padding-right: 16.33px;
+                padding-bottom: 12px;
+                padding-left: 16.33px;
+                gap: 3px;
+                background: rgba(255, 102, 51, 1);
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 8.44px;
+            }
+
+            .header .navbar .nav-links li a {
+                color: rgba(77, 77, 77, 1);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .header {
+                display: none;
+            }
+        }
+
+
+        /* Popup Styles */
+        .quote-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .popup-content {
+            background: rgba(255, 255, 255, 1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .popup-subtitle {
+            font-family: Montserrat;
+            color: rgba(0, 0, 0, 1);
+            margin-bottom: 25px;
+            line-height: 1.4;
+            font-weight: 400;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 1);
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px;
+            border: 0.89px solid rgba(0, 0, 0, 1);
+            /* border-radius: 8px; */
+            font-size: 16px;
+            width: 100% !important;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 67.54px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            width: 100%;
+            max-width: 200px;
+            align-self: center;
+
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(116.21deg, #083775 -3.25%, #1c74a7 107.37%);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+
+            .gradient-text {
+                font-size: 22px;
+            }
+
+            .popup-subtitle {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                gap: 15px;
+                margin-bottom: 15px;
+                flex-direction: column;
+            }
+
+            .form-group {
+                width: 100%;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px 20px;
+                font-size: 15px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-content {
+                padding: 20px 15px;
+            }
+
+            .gradient-text {
+                font-size: 20px;
+            }
+
+            .popup-subtitle {
+                font-size: 14px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .submit-btn {
+                padding: 12px 15px;
+            }
+        }
+
+
+
+        /* Default styles for navbar */
+        .navbar-mobile {
+            display: none;
+        }
+
+        .toggle-btn {
+            font-size: 24px;
+            border: none;
+            background: transparent !important;
+            cursor: pointer;
+            color: white !important;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        @media (max-width: 1000px) {
+            .navbar-mobile {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .mobile-links {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                /* Center vertically */
+                align-items: center;
+                /* Center horizontally */
+                background-color: #fff;
+                position: fixed;
+                top: -100%;
+                /* Start off-screen at the top */
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding: 20px;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                transition: top 0.5s ease-in-out;
+                /* Animate the top property */
+                z-index: 1002;
+            }
+
+            .mobile-links a {
+                padding: 20px;
+                text-decoration: none;
+                color: #333;
+                border-bottom: 1px solid #eee;
+                font-size: 18px;
+                transition: background-color 0.3s ease-in-out;
+                text-align: center;
+                /* Center text inside the links */
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .ajayy {
+                width: 50% !important;
+                height: 61.993267px !important;
+                border-radius: 67.54px;
+                padding-top: 12px;
+                padding-right: 16.33px;
+                padding-bottom: 12px;
+                padding-left: 16.33px;
+                gap: 3px;
+                /* background: rgba(255, 102, 51, 1); */
+                color: white !important;
+            }
+
+            .mobile-links a:hover {
+                background-color: #f5f5f5;
+            }
+
+            .mobile-links a:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-links.active {
+                display: flex;
+                top: 0;
+                /* Slide down to the top of the screen */
+            }
+
+            /* Overlay styles */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            /* Close button styles */
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #333;
+                transition: color 0.3s ease-in-out;
+            }
+
+            .close-btn:hover {
+                color: #000;
+            }
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: var(--header-height);
+        }
+
+        .img-container {
+            padding: 0;
+            height: calc(100vh - var(--header-height));
+            overflow: hidden;
+        }
+
+        .img1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-container {
+            padding: 40px;
+            color: var(--white);
+            height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-circle {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            /* width: 300px; */
+            /* height: 300px; */
+            z-index: 0;
+        }
+
+        .gradient-circle2 {
+            position: absolute;
+            right: 280px;
+            bottom: 25px;
+            z-index: 0;
+        }
+
+        .about-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        .rightText {
+            padding-left: 7%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            width: 70px;
+            height: 70px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .stat-text {
+            flex: 1;
+        }
+
+        .stat-text h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .stat-text p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Timeline Section Styles */
+        .timeline-section {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            bottom: 0;
+            width: 4px;
+            background: repeating-linear-gradient(to bottom,
+                    var(--white),
+                    var(--white) 10px,
+                    transparent 10px,
+                    transparent 20px);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            width: 4px;
+            height: 0;
+            background: repeating-linear-gradient(to bottom,
+                    #B54869,
+                    #EA5E2C 10px,
+                    transparent 10px,
+                    transparent 20px);
+            transform: translateX(-50%);
+            z-index: 1;
+            transition: height 0.9s ease-out;
+        }
+
+
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .timeline-dot {
+            width: 23px;
+            height: 23px;
+            background: radial-gradient(77.24% 77.24% at 15.54% 13.78%, #B54869 0%, #EA5E2C 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .timeline-content h4 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            color: #dcdcdc;
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        .timeline-img {
+            flex: 1;
+            min-width: 0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-img img {
+            width: 40%;
+            border-radius: 10px;
+            height: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1000px) {
+            .about-section {
+                background: var(--primary-gradient);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                padding: 0;
+            }
+        }
+
+        @media (max-width : 768px) {
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 4%;
+                top: 40px;
+                bottom: 0;
+                width: 4px;
+                background: repeating-linear-gradient(to bottom,
+                        var(--white),
+                        var(--white) 10px,
+                        transparent 10px,
+                        transparent 20px);
+                transform: translateX(-50%);
+                z-index: 0;
+            }
+
+            .timeline-progress {
+                position: absolute;
+                left: 4%;
+                top: 40px;
+                width: 4px;
+                height: 0;
+                background: repeating-linear-gradient(to bottom,
+                        #B54869,
+                        #EA5E2C 10px,
+                        transparent 10px,
+                        transparent 20px);
+                transform: translateX(-50%);
+                z-index: 1;
+                transition: height 0.9s ease-out;
+            }
+
+            .timeline-dot {
+                width: 23px;
+                height: 23px;
+                background: radial-gradient(77.24% 77.24% at 15.54% 13.78%, #B54869 0%, #EA5E2C 100%);
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                left: 2%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(121vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(131vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(151vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 350px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(185vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        .footer {
+            background: var(--black-10, #1c1c1c1a);
+            color: #4d4d4d;
+            padding: 40px 0
+        }
+
+        .custom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px
+        }
+
+        p {
+            color: #d2d2d2
+        }
+
+        .footerP {
+            text-align: justify;
+            margin-bottom: 1rem;
+            color: #4d4d4d
+        }
+
+        .footer a {
+            color: #4d4d4d;
+            text-decoration: none
+        }
+
+        .footerP .term {
+            text-decoration: none;
+            cursor: pointer;
+            color: rgba(38, 98, 250, 1)
+        }
+
+        .footerh5 {
+            color: #006499
+        }
+
+        .footer a:hover {
+            text-decoration: underline
+        }
+
+        .footerimg {
+            width: 60%
+        }
+
+        .social-icons a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #4d4d4d;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #fff;
+            transition: all .5s ease
+        }
+
+        .social-icons a:hover {
+            opacity: .8;
+            color: #24262b;
+            background-color: #fff
+        }
+
+        .linkk {
+            line-height: 50px;
+            text-align: start
+        }
+
+        .collink {
+            line-height: 37px
+        }
+
+        .linkk a::before {
+            content: "• ";
+            color: #006499;
+            font-weight: bold;
+            font-size: 1.5em
+        }
+
+        @media (max-width:768px) {
+            .custom-container {
+                text-align: center
+            }
+
+            .social-icons {
+                margin-top: 10px
+            }
+
+            .linkk {
+                line-height: 30px
+            }
+
+            .footerimg {
+                width: 50%
+            }
+
+            .mt-4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 0
+            }
+        }
+
+        @media (max-width:480px) {
+            .footerimg {
+                width: 58%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logoH">
+                <img src="images/Footerlogo.png" alt="AekAds Logo" />
+            </div>
+            <nav class="navbar">
+                <nav class="navbar">
+                    <ul class="nav-links">
+                        <li class="links"><a href="index.html">Home</a></li>
+                        <li class="links"><a href="about.html">About Us</a></li>
+                        <li class="links"><a href="blog.html">Blog</a></li>
+                        <li class="links"><a href="career.html">Career</a></li>
+                        <!-- <li class="links"><a href="index.html#section-4">Our Process</a></li> -->
+                        <!-- <li class="dropdown">
+                            <a href="javascript:void(0)" id="moreBtn">More ▼</a>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <a href="blog.html">Blogs</a>
+                                <a href="index.html#section-7">Contact</a>
+                                <a href="career.html">Career</a>
+                            </div>
+                        </li> -->
+                        <li class="links">
+                            <a class="ajayy" href="#quotePopup">Get Quote</a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <nav class="navbar-mobile">
+        <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
+            &#9776;
+        </button>
+        <div class="mobile-links" id="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="career.html">Career</a>
+            <a class="ajayy" href="javascript:void(0)">Get Quote</a>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </nav>
+
+    <!-- Quote Popup -->
+    <div id="quotePopup" class="quote-popup">
+        <div class="popup-content">
+          <div class="popup-header">
+            <h2 class="gradient-text">GET A QUOTE</h2>
+            
+              <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" id="closePopup" style="cursor: pointer;">
+                <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            
+          </div>
+          <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
+          <form class="quote-form" id="quote-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">*First name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">*Last name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">*Email address</label>
+                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  title="Please enter a valid email address (e.g., example@domain.com)" required />
+                <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
+              </div>
+              <div class="form-group">
+                <label for="phone">*Phone number</label>
+                <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
+                  required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">*Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Main Content -->
+    <div data-scroll-container>
+        <!-- About Section -->
+        <section class="about-section" id="section-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 img-container p-0">
+                        <img src="images/dual-screen-inside lift 2 1.png" alt="Digital Screens" class="img1">
+                    </div>
+                    <div class="col-lg-6 content-container">
+                        <div class="gradient-circle">
+                            <svg width="212" height="189" viewBox="0 0 212 189" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="125.5" cy="125.5" r="125.5" fill="url(#paint0_radial_14249_9391)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_14249_9391" cx="0" cy="0" r="1"
+                                        gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(39.0176 34.593) rotate(46.2137) scale(268.561)">
+                                        <stop stop-color="#B54869" />
+                                        <stop offset="1" stop-color="#EA5E2C" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="gradient-circle2">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="24" fill="url(#paint0_radial_14249_9392)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_14249_9392" cx="0" cy="0" r="1"
+                                        gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(7.46154 6.61538) rotate(46.2137) scale(51.3584)">
+                                        <stop stop-color="#B54869" />
+                                        <stop offset="1" stop-color="#EA5E2C" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h1>Aekads | India's Best Digital Out Of Advertising Company</h1>
+                        <p>
+                            Aekads is revolutionizing Digital OOH advertising in India by enhancing brand visibility
+                            through innovative digital screens placed near lifts in residential, corporate, and
+                            commercial properties, as well as high-traffic outdoor locations across the country.
+                        </p>
+                        <div class="rightText">
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="stat-item">
+                                        <div class="stat-card">
+                                            <svg width="43" height="42" viewBox="0 0 43 42" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_14248_9017)">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M33.0747 38.5067H34.7981C34.7981 39.6554 34.8832 39.6767 35.0747 40.5488H32.7556C32.7556 39.4002 32.8407 39.3789 33.0534 38.5067H33.0747ZM39.1386 37.0603H28.4577C27.6705 37.0603 27.6492 36.9326 27.0109 36.7624V35.6138H40.8832C40.7769 36.7624 40.33 37.039 39.1598 37.039L39.1386 37.0603ZM27.0109 28.1048C27.0109 27.4241 27.2024 27.2327 27.862 27.2327H39.713C41.5003 27.2327 40.862 30.5936 40.862 34.1885H26.9896V28.1048H27.0109ZM25.5641 27.5092C25.5641 39.2938 24.2449 38.5067 31.6279 38.5067C31.2024 39.4002 31.6492 39.0173 31.1386 40.0596C30.5641 41.2083 30.479 39.8469 30.479 41.9953H37.4152V40.5488H36.5641C36.479 39.4214 36.3088 39.7831 36.2875 38.5067C43.3088 38.5067 42.3513 39.0385 42.3513 28.3813C42.3513 26.5732 41.3088 25.7649 39.4577 25.7649H27.9045C26.8407 25.7649 25.6066 26.552 25.6066 27.5092H25.5641Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M7.9257 38.5067H9.6491C9.86187 39.3576 9.94697 39.4002 9.94697 40.5488H7.62783C7.81931 39.698 7.90442 39.6554 7.90442 38.5067H7.9257ZM1.86187 35.6138H15.7342V36.7624C15.0959 36.9114 15.0746 37.0603 14.2874 37.0603H3.60655C2.35123 37.0603 2.03208 36.7837 1.88314 35.635L1.86187 35.6138ZM1.86187 28.3813C1.86187 27.7006 2.35123 27.2114 3.0108 27.2114H14.8619C16.3512 27.2114 15.7129 30.0618 15.7129 34.1673H1.84059V28.3813H1.86187ZM0.415058 28.3813C0.415058 39.0385 -0.542389 38.5067 6.47889 38.5067C6.45761 39.7831 6.2874 39.4214 6.20229 40.5488H5.35123V41.9953H12.2874C12.2874 39.5065 12.0959 41.6975 11.3938 39.4214C11.2661 39.0385 11.4363 39.1662 11.1385 38.5067C18.5427 38.5067 17.2023 39.2938 17.2023 27.5092C17.2023 26.5732 15.947 25.7649 14.9044 25.7649H3.35123C1.50016 25.7649 0.457611 26.5732 0.457611 28.3813H0.415058Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M21.2218 12.7465H21.4984C22.7537 12.7465 22.1367 13.6825 22.6474 14.7673H20.0516C20.5623 13.6825 19.9452 12.7465 21.2005 12.7465H21.2218ZM14.5835 9.85354H28.158C28.1367 10.7895 28.2644 11.3 27.3069 11.3H15.4559C14.4984 11.3 14.6261 10.7682 14.6048 9.85354H14.5835ZM14.5835 2.3233C14.5835 1.66388 14.775 1.45116 15.4346 1.45116H27.2857C28.775 1.45116 28.1367 4.30159 28.1367 8.40706H14.5623V2.3233H14.5835ZM13.1367 1.72769V11.0022C13.1367 13.257 17.4771 12.7465 18.9027 12.7465C18.9027 14.2143 19.0303 14.6184 17.7537 14.7673V16.2138H24.9665V14.7673C23.6899 14.6184 23.8176 14.2143 23.8176 12.7465C30.8388 12.7465 29.5835 13.491 29.5835 1.72769C29.5835 0.791729 28.3282 -0.0166016 27.2857 -0.0166016H15.4346C14.3708 -0.0166016 13.1367 0.791729 13.1367 1.72769Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M20.6474 20.2768H7.6474C7.17932 22.2763 7.37081 22.1912 7.37081 24.6162H8.81762V21.7232H33.0942V24.6162H34.541C34.541 21.6382 34.9666 20.2768 33.6687 20.2768H22.1155V17.3838H20.69V20.2768H20.6474Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M18.6289 33.593H24.1183V32.1465H18.6289V33.593Z"
+                                                        fill="#0B649A" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_14248_9017">
+                                                        <rect width="42" height="42" fill="white"
+                                                            transform="translate(0.371094)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+                                        </div>
+                                        <div class="stat-text">
+                                            <h5>3500+ Screens</h5>
+                                            <p>
+                                                Strategically positioned across 2000+ residential, 1500+ commercial &
+                                                corporate spaces, and 10+ outdoor locations to maximize audience
+                                                engagement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="stat-item">
+                                        <div class="stat-card">
+                                            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M13.4213 17.1847V15.5534C13.4213 12.7689 16.3745 9.81575 19.1449 9.81575H20.7761C23.5465 9.81575 26.4997 12.7689 26.4997 15.5534C26.4997 17.9581 26.556 19.3081 24.5309 21.2207C20.6496 24.9051 13.4213 22.3176 13.4213 17.1847ZM26.2184 21.5582C27.1325 19.8144 27.8638 19.1535 27.8638 16.369C27.8638 13.5846 27.1325 12.9236 26.2184 11.1798C28.2576 11.658 32.828 14.8643 33.8405 16.369C32.828 17.8737 28.2576 21.0801 26.2184 21.5582ZM13.6885 21.5582C11.6494 21.0801 7.07897 17.8737 6.06645 16.369C7.07897 14.8643 11.6494 11.658 13.6885 11.1798C12.7041 13.0643 12.0431 13.3596 12.0431 16.369C12.0431 19.3785 12.7041 19.6738 13.6885 21.5582ZM4.16797 16.369C6.37583 19.6738 13.8291 24.2864 18.8636 24.2864H21.0433C26.2184 24.2864 33.7139 19.4206 35.739 16.369C33.5311 13.0643 26.0778 8.45166 21.0433 8.45166C16.4307 8.45166 14.3916 8.81729 10.44 11.1939C8.34462 12.4596 5.48987 14.3721 4.16797 16.369Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16.7117 16.6504C16.7117 11.6582 23.2369 12.4035 23.2369 16.3692C23.2369 20.7568 16.7117 20.3068 16.7117 16.6504ZM15.3477 16.3692C15.3477 22.4021 24.601 22.4021 24.601 16.3692C24.601 10.3362 15.3477 10.3362 15.3477 16.3692Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M33.8672 12.2769C35.2313 12.6004 35.85 12.2207 37.1719 11.7706C40.0548 10.8003 39.5486 11.3206 39.5907 9.81592C38.2829 9.81592 37.397 10.1956 36.2297 10.5472C35.7375 10.6878 35.2172 10.8284 34.7813 10.9972C33.9656 11.3347 33.9516 11.2925 33.8813 12.2769H33.8672Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M0.371094 22.1067V22.6551C1.10236 23.288 4.46337 22.1348 5.37745 21.6848C6.10872 21.3051 5.99622 21.3754 6.08059 20.4754C4.67431 20.1379 4.64619 20.4192 3.23991 20.8832C2.50864 21.1364 0.371094 21.502 0.371094 22.0926L0.371094 22.1067Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M0.369532 10.0971C1.17111 11.2925 4.41962 12.2769 6.07903 12.2769C6.0509 10.7862 6.55717 11.3065 3.66023 10.3362C2.50708 9.95649 1.33987 9.14085 0.355469 10.0971H0.369532Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M39.2959 22.6551C39.2959 21.3894 34.7396 20.4753 33.8536 20.4753C33.8817 21.966 33.3755 21.4457 36.2724 22.416C36.7927 22.5848 39.2959 23.7801 39.2959 22.6551Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M34.4017 28.3787L35.1892 27.8021C34.7251 26.9161 35.1751 27.3661 34.4157 26.7333C33.0657 25.6083 31.9407 24.3848 30.5907 24.2864C30.3094 25.6083 30.7454 25.6364 33.1642 27.4505C33.7126 27.8583 33.9236 28.0693 34.4017 28.3787Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M4.6875 5.14699L6.75473 6.98922C7.76725 7.74861 7.96413 8.33925 9.37041 8.45175C9.6798 6.94703 9.3001 7.2986 9.10322 7.11578L6.64223 5.18918C5.96722 4.66885 6.13597 4.59854 5.27814 4.37354L4.6875 5.14699Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M13.9807 5.73755C16.1745 5.73755 13.2494 2.64373 12.8979 1.08276H11.815C11.4916 2.62967 13.5869 5.73755 13.9948 5.73755H13.9807Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M25.4297 4.90785C25.4297 5.52661 25.6406 5.51255 25.9641 6.00475C27.2297 5.34379 26.5688 5.73755 27.4969 4.00783C27.5813 3.83907 29.5782 1.08276 28.1297 1.08276C27.061 1.08276 26.7375 2.64373 26.0485 3.90939C25.8375 4.31721 25.4297 4.76722 25.4297 4.89378V4.90785Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M30.5895 8.45165C31.9958 8.33914 32.8255 7.27037 34.2599 6.13128C35.1881 5.38595 34.9068 6.13128 34.949 4.64062C33.6834 4.66875 30.6177 6.90474 30.477 7.67819C30.4208 7.97351 30.4911 7.95945 30.5895 8.45165Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M25.1469 27.563C25.1469 28.5755 26.7782 30.4459 27.0454 31.6553H28.1282C28.4516 30.1084 26.3563 27.0005 25.9485 27.0005C25.4984 27.0005 25.1328 27.1692 25.1328 27.5489L25.1469 27.563Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.2539 31.107C11.2539 31.1633 11.8586 33.0055 13.3352 29.9258C14.6852 27.1273 14.9243 28.1538 13.968 26.7476C12.7024 27.4085 13.3633 27.0148 12.4352 28.7445C12.0836 29.3773 11.2539 30.418 11.2539 31.107Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M4.99453 28.1117C6.34456 28.0835 6.17581 27.8866 7.79303 26.5647C9.59307 25.0881 9.63526 25.6085 9.354 24.3147C7.89147 24.4272 7.79303 25.0038 6.73832 25.7913C6.58363 25.9038 6.37269 26.0725 6.27425 26.1429C4.95234 27.1132 5.02266 26.7757 4.98047 28.1257L4.99453 28.1117Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M19.4238 28.6599C19.4238 32.0631 19.0582 32.3584 19.9722 33.0194C20.8863 32.3865 20.5207 32.1053 20.5207 28.6599C20.5207 27.9005 20.3941 28.1536 19.9722 27.8442C19.5082 28.1536 19.4238 27.8864 19.4238 28.6599Z"
+                                                    fill="#0B649A" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M19.4258 4.09228C19.4258 4.85167 19.5523 4.59854 19.9742 4.90792C20.4383 4.59854 20.5227 4.86573 20.5227 4.09228V0H19.4258V4.09228Z"
+                                                    fill="#0B649A" />
+                                            </svg>
+
+                                        </div>
+                                        <div class="stat-text">
+                                            <h5>1 Cr+ Daily Impressions</h5>
+                                            <p>
+                                                Delivering unmatched visibility, DOOH advertising with Aekads ensures
+                                                your brand reaches the right audience at the right time.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="stat-item">
+                                        <div class="stat-card">
+                                            <svg width="37" height="37" viewBox="0 0 37 37" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_14248_9051)">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.2127 12.1085C10.2127 8.28975 13.6669 4.91918 17.1932 4.91918C21.4031 4.91918 24.4435 7.96704 24.4435 12.6105C24.4435 17.9353 16.9953 21.539 12.3176 16.9313C11.6699 16.2859 11.3281 15.8735 10.9143 14.9771C10.6804 14.4393 10.1947 12.9333 10.1947 12.1085H10.2127ZM5.03125 11.3376C5.03125 16.7162 7.65794 20.9473 10.3206 25.3578C11.3101 26.9713 16.3836 35.8998 17.2112 36.5093C17.445 35.6846 19.9638 31.9017 20.5935 30.8798C23.2561 26.4514 29.9128 17.254 29.9128 12.8974C29.9128 9.23997 29.0312 6.22797 26.3686 3.59246C18.3806 -4.33197 5.04924 2.14025 5.04924 11.3555L5.03125 11.3376Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M28.0768 26.7382C28.0768 25.6804 29.0303 23.8696 30.9553 23.7979C34.7694 23.6724 35.5251 29.553 30.6675 29.553C28.8504 29.553 28.0768 27.5091 28.0768 26.7382ZM26.0078 26.2182C26.0078 28.8896 26.7454 30.0729 28.2207 32.4933C28.9583 33.6945 30.2717 36.3838 31.1892 36.9933C31.4231 35.9714 31.9988 35.4515 32.4846 34.6805C34.1397 31.9195 36.3706 29.3737 36.3706 26.4872C36.3706 20.1405 26.0078 20.2122 26.0078 26.2362V26.2182Z"
+                                                        fill="#0B649A" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M1.91832 25.4475C1.91832 22.3996 5.80438 22.3637 5.80438 25.1965C5.80438 27.9216 1.91832 27.2224 1.91832 25.4475ZM0.371094 25.1965C0.371094 26.9714 3.24965 31.579 4.00528 32.1169C4.34711 30.7902 6.54201 28.1547 7.27964 26.3618C8.59298 23.1705 4.50902 19.8358 1.45055 22.6685C0.730914 23.3319 0.371094 23.8697 0.371094 25.1965Z"
+                                                        fill="#0B649A" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_14248_9051">
+                                                        <rect width="36" height="37" fill="white"
+                                                            transform="translate(0.371094)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+
+                                        </div>
+                                        <div class="stat-text">
+                                            <h5>Connected Across 8 Cities</h5>
+                                            <p>
+                                                Expanding across Gandhinagar, Ahmedabad, Mumbai, Surat, Baroda, Rajkot,
+                                                Udaipur, and Mount Abu, Aekads' DOOH network helps businesses enhance
+                                                brand awareness effortlessly.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section position-relative">
+
+            <div class="gradient-corner-wrapper"
+                style="position: absolute; top: 0; left: 0; z-index: 0; display: flex; gap: 10px;">
+                <!-- Small Circle SVG (to the left of big one) -->
+                <div class="gradient-circle6" style="position: absolute; left: 270px; top: 30px;">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="24" fill="url(#paint0_radial_14254_9427)" />
+                        <defs>
+                            <radialGradient id="paint0_radial_14254_9427" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(7.46154 6.61538) rotate(46.2137) scale(51.3584)">
+                                <stop stop-color="#B54869" />
+                                <stop offset="1" stop-color="#EA5E2C" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Big Elliptical SVG -->
+                <div class="gradient-circle5">
+                    <svg width="260" height="268" viewBox="0 0 260 268" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="47.5" cy="56.5" rx="212.5" ry="211.5" fill="url(#paint0_radial_14254_9425)" />
+                        <defs>
+                            <radialGradient id="paint0_radial_14254_9425" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(-98.9343 -96.7019) rotate(46.0787) scale(453.621 453.707)">
+                                <stop stop-color="#B54869" />
+                                <stop offset="1" stop-color="#EA5E2C" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <style>
+                    .gradient-circle5 {
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        /* width: 434px;
+                        height: 300px; */
+                        z-index: 0;
+                    }
+                </style>
+            </div>
+
+
+            <div class="timeline" style="position: relative; z-index: 1;">
+                <div class="timeline-progress"></div>
+                <h2 class="section-title">Timeline</h2>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-1">
+                        <div class="timeline-content">
+                            <h4>Vertical-Screen Display Launch | February 2023</h4>
+                            <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum
+                                est
+                                a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
+                                lacus,
+                                ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
+                                lectus.
+                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                                himenaeos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-2 timeline-img">
+                        <img src="images/Orbitmall Block E2 1.png" alt="Vertical Display">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-2">
+                        <div class="timeline-content">
+                            <h4>May 2024 | Strategic Growth Initiatives</h4>
+                            <p>Aek Ads launched initiatives to identify high-impact locations for LED displays near
+                                lifts in
+                                premium residential, commercial, and corporate properties in Ahmedabad Marking the
+                                beginning
+                                of its expansion into the PAN India Market.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1 timeline-img">
+                        <img src="images/Aek Ads India Cover 1.png" alt="Growth">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-1">
+                        <div class="timeline-content">
+                            <h4>Aek Signage Player App Development | August 2024</h4>
+                            <p>Launched the Aek Signage Player App, enabling advertisers to control and schedule content
+                                remotely, enhancing operational efficiency and giving clients more control over their ad
+                                campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-2 timeline-img">
+                        <img src="images/Artical Image 1 2.png" alt="App Development">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-2">
+                        <div class="timeline-content">
+                            <h4>September 2024 | Network Expansion Across Key Cities</h4>
+                            <p>Expanded digital screen network, achieving over 1,000 digital screens across major Indian
+                                cities like Ahmedabad, Gandhinagar, Surat, Mount Abu, Jaipur, and Mumbai, establishing a
+                                robust Digital OOH presence in 7 cities and 3 states.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1 timeline-img">
+                        <img src="images/Mount Abu Main Market  Exit BW 1.png" alt="Expansion">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-1">
+                        <div class="timeline-content">
+                            <h4>Portfolio Expansion with Leading Brands | September 2024</h4>
+                            <p>Aek Ads started gaining significant business traction, onboarding high-profile brands
+                                such as
+                                Pantaloons, Hyundai, and Liverpool. This milestone solidified the company's reputation
+                                in
+                                the advertising industry and attracted further business opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-2 timeline-img">
+                        <img src="images/Clients Collage 1.png" alt="Brands">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item row align-items-center">
+                    <div class="col-md-6 order-md-2">
+                        <div class="timeline-content">
+                            <h4>Dual-Screen Display Launch | October 2024</h4>
+                            <p>Aek Ads introduced innovative dual-screen displays, expanding the range of digital
+                                advertising solutions and creating unique engagement options for advertisers and
+                                clients.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1 timeline-img">
+                        <img src="images/Artical Image 2 1.png" alt="Dual Screen">
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+
+            <div class="gradient-corner-wrapper" style="position: absolute; bottom: 0; right: 0; z-index: 0;">
+                <!-- Small Circle SVG (to the left of big one) -->
+                <div class="gradient-circle4" style="position: absolute; right: 360px; bottom: 30px;">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="24" fill="url(#paint0_radial_14249_9392)" />
+                        <defs>
+                            <radialGradient id="paint0_radial_14249_9392" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(7.46154 6.61538) rotate(46.2137) scale(51.3584)">
+                                <stop stop-color="#B54869" />
+                                <stop offset="1" stop-color="#EA5E2C" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Big Elliptical SVG -->
+                <div class="gradient-circle3">
+                    <svg width="288" height="309" viewBox="0 0 288 309" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="212.5" cy="211.5" rx="212.5" ry="211.5" fill="url(#paint0_radial_14249_9387)" />
+                        <defs>
+                            <radialGradient id="paint0_radial_14249_9387" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(66.0657 58.2981) rotate(46.0787) scale(453.621 453.707)">
+                                <stop stop-color="#B54869" />
+                                <stop offset="1" stop-color="#EA5E2C" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <style>
+                    .gradient-circle3 {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        /* width: 434px;
+                        height: 300px; */
+                        z-index: 0;
+                    }
+                </style>
+            </div>
+
+
+        </section>
+
+        <footer class="footer">
+            <div class="custom-container">
+                <div class="row">
+                    <!-- Logo and Description -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <h2 style="margin-top: 4%">
+                            <a href="https://www.aekads.com" target="_blank">
+                                <img src="/images/Footerlogo.png" alt="Digital Screen Display in India"
+                                    class="footerimg" />
+                            </a>
+                        </h2>
+
+                        <p class="footerP">
+                            Bringing stories to residential, corporate, and commercial zones. We integrate your brand
+                            into
+                            the daily
+                            lives of real audiences. Reach where people live, work, and shop. Smart advertising for
+                            smart
+                            cities.
+                        </p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/aekads1/" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/aek_ads/" target="_blank" rel="noopener"
+                                aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/aekads/" target="_blank" rel="noopener"
+                                aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@aek_ads" target="_blank" rel="noopener"
+                                aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <h5 class="footerh5">Quick Links</h5>
+                        <div class="row">
+                            <div class="col-6 linkk">
+                                <a href="about.html">About Us</a><br />
+                                <a href="#section-2">Why AekAds?</a><br />
+                                <a href="#section-3">Dual Screen Tech</a>
+                            </div>
+                            <div class="col-6 linkk">
+                                <a href="#section-4">Our Process</a><br />
+                                <a href="blog.html">Blog</a><br />
+                                <a href="#section-5">Brands That Trust Us</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <h5 class="footerh5">Contact Us</h5>
+                        <div class="collink">
+                            <p class="footerP" style="margin-top: 5%">
+                                <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_12788_6343)">
+                                        <path
+                                            d="M10.9009 8.59457C10.1752 8.59457 9.46278 8.48108 8.78762 8.25796C8.45679 8.14512 8.05009 8.24864 7.84818 8.45602L6.51556 9.46201C4.97009 8.63704 4.01812 7.68537 3.20441 6.15151L4.1808 4.85361C4.43447 4.60028 4.52546 4.23022 4.41645 3.88299C4.19238 3.20429 4.07855 2.49216 4.07855 1.76623C4.07858 1.24182 3.65194 0.815186 3.12756 0.815186H0.951019C0.426636 0.815186 0 1.24182 0 1.7662C0 7.77701 4.89006 12.667 10.9009 12.667C11.4252 12.667 11.8519 12.2404 11.8519 11.716V9.54556C11.8519 9.0212 11.4252 8.59457 10.9009 8.59457Z"
+                                            fill="#006499" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_12788_6343">
+                                            <rect width="11.8519" height="11.8519" fill="white"
+                                                transform="translate(0 0.815186)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                +91 80908 02014
+                            </p>
+                            <p class="footerP">
+                                <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_12788_6348)">
+                                        <path
+                                            d="M11.7468 2.94775L8.15234 6.51903L11.7468 10.0903C11.8117 9.95449 11.8512 9.80435 11.8512 9.64403V3.39403C11.8512 3.23368 11.8117 3.08356 11.7468 2.94775Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M10.8085 2.35229H1.04002C0.879676 2.35229 0.72956 2.39172 0.59375 2.45669L5.1878 7.0276C5.594 7.4338 6.25456 7.4338 6.66076 7.0276L11.2548 2.45669C11.119 2.39172 10.9689 2.35229 10.8085 2.35229Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M0.104398 2.94775C0.0394213 3.08356 0 3.23368 0 3.39403V9.64403C0 9.80437 0.0394213 9.95451 0.104398 10.0903L3.69882 6.51903L0.104398 2.94775Z"
+                                            fill="#006499" />
+                                        <path
+                                            d="M7.66039 7.01001L7.15176 7.51864C6.47493 8.19547 5.37361 8.19547 4.69678 7.51864L4.18817 7.01001L0.59375 10.5813C0.72956 10.6463 0.879676 10.6857 1.04002 10.6857H10.8085C10.9689 10.6857 11.119 10.6463 11.2548 10.5813L7.66039 7.01001Z"
+                                            fill="#006499" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_12788_6348">
+                                            <rect width="11.8519" height="11.8519" fill="white"
+                                                transform="translate(0 0.593262)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                sales@aekads.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="color: #4d4d4d; text-align: center; margin-top: 20px">
+                    Popular Searches
+                </h4>
+                <marquee behavior="scroll" direction="left" scrollamount="3" style="
+            color: #4d4d4d;
+            font-size: 16px;
+            padding: 20px 0;
+            border-top: 1px solid rgb(0 0 0 / 18%);
+            margin-top: 20px;
+          ">
+                    Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads
+                    | Ahmedabad No.1 Digital Advertising Screen Network • Aekads |
+                    Gandhinagar Best And Largest Digital Screen Network • Aekads |
+                    Mumbai Best And Largest Digital Screen Network • Aekads | Surat Best
+                    And Largest Digital Screen Network • Aekads | Vadodara Best And
+                    Largest Digital Screen Network • Aekads | Baroda Best Digital
+                    Outdoor Advertising Company • Aekads | Mount Abu Rajasthan Best And
+                    Largest Digital Screen Network • Aekads | Udaipur Rajasthan Best And
+                    Largest Digital Screen Network
+                </marquee>
+
+                <div class="text-center">
+                    <p class="footerP" style="text-align: center">
+                        <a class="term" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of
+                            Use</a>
+                        |
+                        <a class="term" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy
+                            Policy</a>
+                        | Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+   
+   <script src="script.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
