@@ -547,12 +547,13 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: var(--header-height);
+            /* Remove padding-top */
         }
 
         .img-container {
             padding: 0;
-            height: calc(100vh - var(--header-height));
+            height: 100vh;
+            /* Full viewport height */
             overflow: hidden;
         }
 
@@ -565,7 +566,8 @@
         .content-container {
             padding: 40px;
             color: var(--white);
-            height: calc(100vh - var(--header-height));
+            height: 100vh;
+            /* Full viewport height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -649,6 +651,14 @@
             font-size: 0.875rem;
             line-height: 1.5;
             margin-bottom: 0;
+        }
+
+        @media (max-width: 550px) {
+            .img1 {
+                width: 145%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
 
         /* Timeline Section Styles */
@@ -1033,48 +1043,52 @@
     <!-- Quote Popup -->
     <div id="quotePopup" class="quote-popup">
         <div class="popup-content">
-          <div class="popup-header">
-            <h2 class="gradient-text">GET A QUOTE</h2>
-            
-              <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" id="closePopup" style="cursor: pointer;">
-                <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            
-          </div>
-          <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
-          <form class="quote-form" id="quote-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">*First name</label>
-                <input type="text" id="firstName" name="firstName" required>
-              </div>
-              <div class="form-group">
-                <label for="lastName">*Last name</label>
-                <input type="text" id="lastName" name="lastName" required>
-              </div>
+            <div class="popup-header">
+                <h2 class="gradient-text">GET A QUOTE</h2>
+
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    id="closePopup" style="cursor: pointer;">
+                    <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">*Email address</label>
-                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  title="Please enter a valid email address (e.g., example@domain.com)" required />
-                <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
-              </div>
-              <div class="form-group">
-                <label for="phone">*Phone number</label>
-                <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
-                  required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="message">*Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">SEND MESSAGE</button>
-          </form>
+            <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
+            <form class="quote-form" id="quote-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">*First name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">*Last name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">*Email address</label>
+                        <input type="email" id="email" name="email"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            title="Please enter a valid email address (e.g., example@domain.com)" required />
+                        <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">*Phone number</label>
+                        <input type="tel" id="phone" name="phone" pattern="\d{10}"
+                            title="Please enter a 10-digit phone number" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">*Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
+            </form>
         </div>
-      </div>
+    </div>
 
     <!-- Main Content -->
     <div data-scroll-container>
@@ -1623,8 +1637,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
 
-   
-   <script src="script.js" defer></script>
+
+    <script src="script.js" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
