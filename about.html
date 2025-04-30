@@ -28,11 +28,34 @@
             --header-height: 71px;
         }
 
+        #scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: scroll;
+        }
+
+        #scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+
         body {
             margin: 0;
             padding: 0;
             font-family: "Montserrat", sans-serif;
-            overflow: hidden !important;
+            /* Remove this line: overflow: hidden !important; */
+            /* overflow-x: hidden; */
+            /* Add this instead if needed */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            overflow-y: scroll;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari and Opera */
         }
 
         /* Header Styles */
@@ -2188,7 +2211,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            DOOH refers to digital media used for marketing outside the home, such as digital billboards, kiosks, and screens in malls or public places.
+                            DOOH refers to digital media used for marketing outside the home, such as digital
+                            billboards, kiosks, and screens in malls or public places.
                         </div>
                     </div>
                 </div>
@@ -2202,7 +2226,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            DOOH uses dynamic, real-time digital content, while traditional OOH uses static print formats like banners or posters.
+                            DOOH uses dynamic, real-time digital content, while traditional OOH uses static print
+                            formats like banners or posters.
                         </div>
                     </div>
                 </div>
@@ -2216,7 +2241,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            DOOH refers to digital media used for marketing outside the home, such as digital billboards, kiosks, and screens in malls or public places.
+                            DOOH refers to digital media used for marketing outside the home, such as digital
+                            billboards, kiosks, and screens in malls or public places.
                         </div>
                     </div>
                 </div>
@@ -2230,7 +2256,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Aekads uses dual-screen technology, real-time content updates, and offers short-form content (like Reels) for maximum viewer engagement.
+                            Aekads uses dual-screen technology, real-time content updates, and offers short-form content
+                            (like Reels) for maximum viewer engagement.
                         </div>
                     </div>
                 </div>
@@ -2244,7 +2271,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Our screens are live in premium Residential, Corporate and Commercial locations like Orbit Mall, Gandhinagar, with expansion plans across India.
+                            Our screens are live in premium Residential, Corporate and Commercial locations like Orbit
+                            Mall, Gandhinagar, with expansion plans across India.
                         </div>
                     </div>
                 </div>
@@ -2258,7 +2286,10 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Aekads was founded by Aravind Chaudhari, a visionary entrepreneur passionate about redefining how brands connect with the world. With a strong background in digital innovation and media strategy, Aravind brings fresh thinking and a future-forward approach to the world of DOOH (Digital Out-of-Home) advertising.
+                            Aekads was founded by Aravind Chaudhari, a visionary entrepreneur passionate about
+                            redefining how brands connect with the world. With a strong background in digital innovation
+                            and media strategy, Aravind brings fresh thinking and a future-forward approach to the world
+                            of DOOH (Digital Out-of-Home) advertising.
                         </div>
                     </div>
                 </div>
