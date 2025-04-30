@@ -1530,94 +1530,111 @@
         }
     </style>
 
-<style>
-    /* Map section styling */
-    .map-section {
-        padding: 80px 20px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-    }
-    
-    .map-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.3)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-        background-size: cover;
-        opacity: 0.1;
-    }
-    
-    .container {
-        position: relative;
-        z-index: 2;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .section-subtitle {
-        font-size: 1.2rem;
-        color: #7f8c8d;
-        margin-bottom: 40px;
-        font-weight: 300;
-    }
-    
-    .map-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease;
-    }
-    
-    .map-container:hover {
-        transform: translateY(-5px);
-    }
-    
-    .india-map {
-        width: 100%;
-        height: auto;
-        display: block;
-        border: 1px solid rgba(0,0,0,0.1);
-    }
-    
-    .map-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
-        z-index: 1;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+    <style>
+        /* Map section styling */
         .map-section {
-            padding: 60px 15px;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
         }
-        
-        .section-subtitle {
-            font-size: 1rem;
+
+        .map-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.3)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.1;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .map-section {
-            padding: 40px 10px;
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
         .map-container {
-            border-radius: 8px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
         }
-    }
-</style>
+
+        .map-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .map-head ::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .india-map {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .map-section {
+                padding: 60px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                color: #2c3e50;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+
+        }
+
+        @media (max-width: 480px) {
+            .map-section {
+                padding: 40px 10px;
+            }
+
+
+            .map-container {
+                border-radius: 8px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -2274,8 +2291,15 @@
 
         <section class="map-section">
             <div class="container">
+                <div class="map-head">
+                    <h2 class="section-title">Aekads Connected Cities</h2>
+                </div>
+
+                <br>
                 <div class="map-container">
-                    <img src="images/India Map_Aekads Cities (1).jpg" alt="Map of India highlighting cities: Ahmedabad, Mumbai, Gandhinagar, Mount Abu, Baroda, Udaipur, Rajkot, Surat" class="india-map">
+                    <img src="images/India Map_Aekads Cities (1).jpg"
+                        alt="Map of India highlighting cities: Ahmedabad, Mumbai, Gandhinagar, Mount Abu, Baroda, Udaipur, Rajkot, Surat"
+                        class="india-map">
                 </div>
             </div>
             <div class="map-overlay"></div>
