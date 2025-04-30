@@ -471,9 +471,9 @@
                 gap: 8px;
             }
         }
-    </style>
 
-    <style>
+
+
         :root {
             --primary-dark: #052652;
             --primary-light: #2D9CDB;
@@ -930,9 +930,9 @@
                 padding: 20px;
             }
         }
-    </style>
 
-    <style>
+
+
         /* Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.60);
@@ -1549,7 +1549,9 @@
     <header class="header">
         <div class="container">
             <div class="logoH">
-                <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" />
+                <a href="index.html">
+                    <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" />
+                </a>
             </div>
             <nav class="navbar">
                 <ul class="nav-links">
@@ -1732,7 +1734,7 @@
                     <div class="row">
                         <!-- Logo and Description -->
                         <div class="col-md-4 text-center text-md-start">
-                            <h2 style="margin-top: 4%">
+                            <h2 style="margin-top: 3%">
                                 <a href="https://www.aekads.com" target="_blank">
                                     <img src="/images/Footerlogo.png" alt="Digital Screen Display in India"
                                         class="footerimg" />
@@ -1769,7 +1771,8 @@
                         </div>
 
                         <!-- Quick Links -->
-                        <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <div class="col-md-4 text-center text-md-start mt-4 mt-md-0"
+                            style="margin-top: 25px!important;">
                             <h5 class="footerh5">Quick Links</h5>
                             <div class="row">
                                 <div class="col-6 linkk">
@@ -1786,7 +1789,8 @@
                         </div>
 
                         <!-- Contact Us -->
-                        <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                        <div class="col-md-4 text-center text-md-start mt-4 mt-md-0"
+                            style="margin-top: 25px!important;">
                             <h5 class="footerh5">Contact Us</h5>
                             <div class="collink">
                                 <p class="footerP" style="margin-top: 5%">
@@ -1845,7 +1849,7 @@
                 padding: 20px 0;
                 border-top: 1px solid rgb(0 0 0 / 18%);
                 margin-top: 20px;
-            ">
+              ">
                         Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads
                         | Ahmedabad No.1 Digital Advertising Screen Network • Aekads |
                         Gandhinagar Best And Largest Digital Screen Network • Aekads |
@@ -1933,334 +1937,14 @@
             </div>
         </div>
 
-
-
     </div>
 
-    <script>
-
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && scroll) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        scroll.scrollTo(target, {
-                            offset: 0, // Adjust this value as needed
-                            duration: 800,
-                            easing: [0.25, 0.0, 0.35, 1.0]
-                        });
-                    }
-                }
-            });
-        });
-
-        // Update scroll when content changes
-        function updateScroll() {
-            scroll.update();
-        }
-
-        // Function to scroll to top
-        function scrollToTop() {
-            if (scroll) {
-                scroll.scrollTo('top', {
-                    duration: 0,
-                    disableLerp: true
-                });
-            } else {
-                window.scrollTo(0, 0);
-            }
-        }
-
-        // API Base URL
-        const API_BASE_URL = 'https://cms.aekads.com/api';
-
-        // DOM Elements
-        const jobListings = document.getElementById("job-listings");
-        const applyModal = document.getElementById('applyModal');
-
-        // Function to fetch all jobs
-        async function fetchAllJobs() {
-            try {
-                const response = await fetch(`https://cms.aekads.com/api/Aekadsjobs`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch jobs');
-                }
-                return await response.json();
-            } catch (error) {
-                console.error('Error fetching jobs:', error);
-                showError('Failed to load job listings. Please try again later.');
-                return [];
-            }
-        }
-
-        // Function to fetch job by ID
-        async function fetchJobById(jobId) {
-            try {
-                const response = await fetch(`https://cms.aekads.com/api/Aekadsjobs/${jobId}`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch job details');
-                }
-                return await response.json();
-            } catch (error) {
-                console.error('Error fetching job details:', error);
-                showError('Failed to load job details. Please try again later.');
-                return null;
-            }
-        }
-
-        // Function to render job listings
-        async function renderJobs() {
-            // Show loading state
-            jobListings.innerHTML = `
-        <div class="loading-spinner">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      `;
-
-            const jobs = await fetchAllJobs();
-
-            if (jobs.length === 0) {
-                jobListings.innerHTML = `
-          <div class="col-12">
-            <div class="alert alert-info">No job openings currently available. Please check back later.</div>
-          </div>
-        `;
-                return;
-            }
-
-            jobListings.innerHTML = '';
-
-            jobs.forEach(job => {
-                const col = document.createElement("div");
-                col.className = "col-md-6 col-lg-4";
-                col.setAttribute('data-scroll', '');
-                col.innerHTML = `
-        <div class="career-card animate__animated animate__fadeIn">
-            <h3 class="job-title">${job.title}</h3>
-            <div class="job-meta">
-                <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
-                <span class="job-meta-item"><i class="fas fa-clock"></i> ${job.work_type}</span>
-            </div>
-            <p class="job-description">${job.short_description}</p>
-            <button class="btn btn-view-more" data-job-id="${job.id}">
-                View Details <i class="fas fa-chevron-right ms-2"></i>
-            </button>
-        </div>`;
-                jobListings.appendChild(col);
-            });
-
-            // Add event listeners to view more buttons
-            document.querySelectorAll('.btn-view-more').forEach(btn => {
-                btn.addEventListener('click', async function (e) {
-                    e.preventDefault();
-                    const jobId = this.getAttribute('data-job-id');
-                    await showJobDetail(jobId);
-                });
-            });
-
-            // Update scroll after content loads
-            updateScroll();
-        }
-
-        // Fixed showJobDetail function
-        async function showJobDetail(jobId) {
-            try {
-                // Show loading state
-                const detailPage = document.getElementById('job-detail-page');
-                detailPage.innerHTML = `
-      <div class="loading-spinner">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    `;
-                detailPage.classList.remove('hidden');
-                document.querySelector('main').classList.add('hidden');
-
-                // Scroll to top immediately
-                scrollToTop();
-
-                // Fetch job details
-                const job = await fetchJobById(jobId);
-                if (!job) return;
-
-                // Create job detail elements
-                detailPage.innerHTML = `
-      <div class="job-detail-card" data-scroll>
-        <a href="career.html" class="btn btn-link mt-3">← Back to all jobs</a>
-        <h2 id="detail-job-title" class="job-title">${job.title}</h2>
-        <div class="job-meta">
-          <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> 
-            <span id="detail-job-location">${job.location}</span>
-          </span>
-          <span class="job-meta-item"><i class="fas fa-clock"></i> 
-            <span id="detail-job-type">${job.work_type}</span>
-          </span>
-        </div>
-        <div id="detail-job-description" class="job-description">
-          ${job.description}
-        </div>
-        <button class="btn btn-apply" id="detail-apply-btn" 
-          data-bs-toggle="modal" data-bs-target="#applyModal"
-          data-title="${job.title}">
-          Apply Now <i class="fas fa-arrow-right ms-2"></i>
-        </button>
-      </div>
-    `;
-
-                // Update URL
-                history.pushState(null, '', `?jobId=${jobId}`);
-
-                // Update scroll after content loads
-                updateScroll();
-
-                // Scroll to top again after content is loaded
-                setTimeout(() => {
-                    scrollToTop();
-                }, 100);
-
-            } catch (error) {
-                console.error('Error showing job detail:', error);
-                detailPage.innerHTML = `
-      <div class="error-message">
-        <i class="fas fa-exclamation-circle me-2"></i>
-        Failed to load job details. Please try again later.
-      </div>
-    `;
-            }
-        }
-
-        // Function to show error message
-        function showError(message) {
-            jobListings.innerHTML = `
-        <div class="col-12">
-          <div class="error-message">
-            <i class="fas fa-exclamation-circle me-2"></i>${message}
-          </div>
-        </div>
-      `;
-        }
-
-        // Set job title in modal when apply button is clicked
-        applyModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const jobTitle = button.getAttribute('data-title');
-            document.getElementById('jobTitleInput').textContent = jobTitle;
-            document.getElementById('appliedJobTitle').value = jobTitle;
-        });
-
-        // Initialize job listings
-        renderJobs();
-
-        // Check if we're showing a specific job (for when coming from URL)
-        const urlParams = new URLSearchParams(window.location.search);
-        const jobIdParam = urlParams.get('jobId');
-        if (jobIdParam) {
-            showJobDetail(parseInt(jobIdParam));
-        }
-
-        // Handle back/forward navigation
-        window.addEventListener('popstate', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const jobIdParam = urlParams.get('jobId');
-
-            if (jobIdParam) {
-                showJobDetail(jobIdParam);
-            } else {
-                document.getElementById('job-detail-page').classList.add('hidden');
-                document.querySelector('main').classList.remove('hidden');
-                updateScroll();
-                scrollToTop();
-            }
-        });
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', async function () {
-            // Check if we're showing a specific job (for when coming from URL)
-            const urlParams = new URLSearchParams(window.location.search);
-            const jobIdParam = urlParams.get('jobId');
-
-            if (jobIdParam) {
-                await showJobDetail(jobIdParam);
-            } else {
-                await renderJobs();
-            }
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        const form = document.getElementById("uploadForm");
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            console.log("formData", formData);
 
-            // Show submitting alert
-            Swal.fire({
-                title: 'Submitting...',
-                text: 'Please wait while we upload your application.',
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-
-            try {
-                const res = await fetch("https://cms.aekads.com/upload-to-drive", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Upload Successful!',
-                        text: 'Your application has been submitted successfully.',
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            popup: 'custom-popup',
-                            title: 'custom-title',
-                            confirmButton: 'custom-button'
-                        }
-                    });
-                    form.reset();
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Upload Failed',
-                        text: data.message || 'Something went wrong while uploading.',
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            popup: 'custom-popup',
-                            title: 'custom-title',
-                            confirmButton: 'custom-button-error'
-                        }
-                    });
-                }
-            } catch (err) {
-                console.error(err);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: 'An error occurred while uploading. Please try again.',
-                    confirmButtonText: 'OK'
-                });
-            }
-        });
-    </script>
-    
-
-    <script src="script.js" defer></script>
+    <script src="career.js" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
