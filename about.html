@@ -32,7 +32,7 @@
             margin: 0;
             padding: 0;
             font-family: "Montserrat", sans-serif;
-            overflow-x: hidden;
+            overflow: hidden !important;
         }
 
         /* Header Styles */
@@ -761,7 +761,7 @@
             height: auto;
         }
 
-        .section-title {
+        .section-title1 {
             text-align: center;
             margin-bottom: 40px;
             font-size: 2rem;
@@ -991,6 +991,525 @@
             }
         }
     </style>
+
+    <style>
+        /* Vision & Mission Section Styles */
+        .vision-mission-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-img-container {
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .vm-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vm-content-container {
+            padding: 40px;
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-gradient-circle {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            z-index: 0;
+        }
+
+        .vm-gradient-circle2 {
+            position: absolute;
+            right: 280px;
+            bottom: 25px;
+            z-index: 0;
+        }
+
+        .vision-content,
+        .mission-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vm-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .vm-section-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 1100px) {
+
+            .vision-content,
+            .mission-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .vm-content-container {
+                height: auto;
+                padding: 2rem 1.5rem;
+            }
+
+        }
+
+        @media (max-width: 767.98px) {
+            .vm-section-title {
+                font-size: 1.6rem;
+            }
+
+        }
+
+        @media (max-width: 575.98px) {
+            .vm-section-title {
+                font-size: 1.4rem;
+            }
+
+            .vm-section-content {
+                font-size: 0.9rem;
+            }
+
+            .vision-content,
+            .mission-content {
+                padding: 1.25rem;
+            }
+
+            .vm-img {
+                width: 145%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    </style>
+
+    <style>
+        .presence-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-image {
+            width: 80%;
+            margin: 0 auto;
+            /* This centers the image */
+            display: block;
+            /* Needed for margin auto to work */
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .city-image:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+        }
+
+        .bottom-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            filter: saturate(1) brightness(0.2) contrast(1.1);
+        }
+
+        .section-title2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .city-name {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .city-container {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-row {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 992px) {
+            .section-title2 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+
+            .city-name {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .presence-section {
+                padding: 60px 0 0;
+                min-height: auto;
+            }
+
+            .section-title2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .city-name {
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+
+            .bottom-image {
+                max-height: 300px;
+            }
+
+            .city-image {
+                width: 70%;
+                /* Slightly smaller on mobile */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title2 {
+                font-size: 1.8rem;
+            }
+
+            .city-container {
+                padding: 10px;
+            }
+
+            .bottom-image {
+                max-height: 250px;
+            }
+
+            .city-image {
+                width: 60%;
+                /* Even smaller on very small screens */
+            }
+        }
+    </style>
+
+    <style>
+        .dooh-section {
+            padding: 80px 0;
+            background-color: #00000005;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dooh-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            padding-right: 30px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .dooh-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #000000ab;
+            border-left: 2px solid #8a8a8a;
+            padding-left: 30px;
+            text-align: justify;
+            font-weight: 700;
+        }
+
+        .dooh-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .dooh-title {
+                font-size: 2.2rem;
+                position: static;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .dooh-content p {
+                font-size: 1rem;
+                border-left: none;
+                padding-left: 0;
+                border-top: 2px solid #eee;
+                padding-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dooh-section {
+                padding: 60px 0;
+            }
+
+            .dooh-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .dooh-title {
+                font-size: 1.8rem;
+            }
+
+            .dooh-content p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+        }
+    </style>
+
+    <style>
+        :root {
+            --primary: #254896;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-header::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .faq-question:hover {
+            color: #254896;
+        }
+
+        .faq-question::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, #254896, var(--accent));
+            transition: var(--transition);
+        }
+
+        .faq-question.active::before {
+            height: 100%;
+        }
+
+        .faq-question .icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(67, 97, 238, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-question.active .icon {
+            background: #254896;
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .faq-answer.show {
+            padding: 0 25px 25px;
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-answer-content {
+            padding-top: 10px;
+            color: #39424f;
+            font-weight: 500;
+        }
+
+        .faq-answer-content::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+
+            .faq-answer.show {
+                padding: 0 20px 20px;
+            }
+        }
+
+        /* Animated background elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            filter: blur(80px);
+        }
+
+        .bg-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: -150px;
+            right: -150px;
+            filter: blur(100px);
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1091,13 +1610,13 @@
     </div>
 
     <!-- Main Content -->
-    <div data-scroll-container>
+    <div id="scroll-container" data-scroll-container>
         <!-- About Section -->
         <section class="about-section" id="section-1">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 img-container p-0">
-                        <img src="images/dual-screen-inside lift 2 1.png" alt="Digital Screens" class="img1">
+                        <img src="images/IMG_6267 BW Mobile 2.jpg" alt="Digital Screens" class="img1">
                     </div>
                     <div class="col-lg-6 content-container">
                         <div class="gradient-circle">
@@ -1128,11 +1647,11 @@
                                 </defs>
                             </svg>
                         </div>
-                        <h1>Aekads | India's Best Digital Out Of Advertising Company</h1>
+                        <h1>Aekads | India's Best Digital Out-of-Home Advertising Company</h1>
                         <p>
-                            Aekads is revolutionizing Digital OOH advertising in India by enhancing brand visibility
-                            through innovative digital screens placed near lifts in residential, corporate, and
-                            commercial properties, as well as high-traffic outdoor locations across the country.
+                            Aekads is revolutionizing Digital Out-of-Home Advertising in India by enhancing brand
+                            visibility through innovative digital screens placed near lifts in residential, corporate,
+                            and commercial properties and high-traffic outdoor locations across the country.
                         </p>
                         <div class="rightText">
                             <div class="row gy-4">
@@ -1285,6 +1804,122 @@
             </div>
         </section>
 
+        <!-- Combined Vision & Mission Section -->
+        <section class="vision-mission-section">
+
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    <!-- Right Side - Content (50%) -->
+                    <div class="col-lg-6">
+                        <div class="vm-content-container">
+                            <div class="vision-content">
+                                <h2 class="vm-section-title">Our Vision</h2>
+                                <p class="vm-section-content">
+                                    At Aekads, our vision is to transform the future of outdoor advertising by creating
+                                    a digital ecosystem where brands and audiences connect meaningfully. We aim to lead
+                                    the evolution of DOOH advertising by integrating cutting-edge technology, impactful
+                                    storytelling, and data-driven strategies. Through our dual-screen innovation and
+                                    strategic urban presence, we aspire to make every interaction more immersive, more
+                                    relevant, and more memorable — not just in India, but across global markets.
+                                </p>
+                            </div>
+
+                            <div class="mission-content">
+                                <h2 class="vm-section-title">Our Mission</h2>
+                                <p class="vm-section-content">
+                                    Our mission is to redefine the standards of digital outdoor advertising by
+                                    delivering powerful, dynamic, and result-oriented DOOH campaigns. We are committed
+                                    to helping brands capture attention in high-footfall locations through our
+                                    innovative dual-screen format, engaging content, and smart media strategies. At
+                                    Aekads, we strive to make advertising more creative, more responsive, and more
+                                    effective — all while ensuring a seamless experience for advertisers and a
+                                    meaningful one for audiences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left Side - Image (50%) -->
+                    <div class="col-lg-6 vm-img-container">
+                        <img src="images/dual-screen-inside lift 2 1.png" alt="Vision and Mission" class="vm-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Presence Section -->
+        <section class="presence-section">
+            <div class="container">
+                <h2 class="section-title2">Our Presence</h2>
+
+                <!-- First Row - 4 City Images -->
+                <div class="row center-row">
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989839.png" alt="Ahmedabad" class="img-fluid city-image">
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989847.png" alt="Gandhinagar" class="img-fluid city-image">
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989848.png" alt="Surat" class="img-fluid city-image">
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989849.png" alt="Baroda" class="img-fluid city-image">
+                    </div>
+                </div>
+
+                <!-- Second Row - 3 City Images Centered -->
+                <div class="row center-row">
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989850.png" alt="Mumbai" class="img-fluid city-image">
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989851.png" alt="Mount Abu" class="img-fluid city-image">
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <img src="images/Frame 3989852.png" alt="Udaipur" class="img-fluid city-image">
+                    </div>
+                </div>
+
+                <!-- Bottom Image -->
+                <img src="images/India City Doodle 1.png" alt="India Landscape" class="img-fluid bottom-image">
+            </div>
+        </section>
+
+        <!-- Digital Out of Home Section -->
+        <section class="dooh-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Left Column - Title -->
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                        <h1 class="dooh-title">Digital Out of Home in India</h1>
+                    </div>
+
+                    <!-- Right Column - Content -->
+                    <div class="col-lg-8">
+                        <div class="dooh-content">
+                            <p>
+                                Fueled by Inspiration.<br>
+                                Driven by Innovation. <br>
+                                Powered by Creativity.
+                            </p>
+                            <p>Aekads is redefining the future of Digital Out-of-Home Advertising in India and beyond.
+                                With our innovative dual-screen displays and dynamic content strategy, we don’t just run
+                                ads — we create experiences that stop people in their tracks. From strategic locations
+                                to immersive visuals, Aekads is setting new standards for impactful, intelligent, and
+                                interactive advertising.
+                                We don't follow trends — we set them.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Timeline Section -->
         <section class="timeline-section position-relative">
 
@@ -1335,21 +1970,24 @@
 
             <div class="timeline" style="position: relative; z-index: 1;">
                 <div class="timeline-progress"></div>
-                <h2 class="section-title">Timeline</h2>
+                <h2 class="section-title1">Timeline</h2>
 
                 <!-- Timeline Item 1 -->
                 <div class="timeline-item row align-items-center">
                     <div class="col-md-6 order-md-1">
                         <div class="timeline-content">
-                            <h4>Vertical-Screen Display Launch | February 2023</h4>
-                            <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum
-                                est
-                                a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
-                                lacus,
-                                ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
-                                lectus.
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                himenaeos.
+                            <h4>Vertical Screen Display Launch | February 2023</h4>
+                            <p>Aekads marked its entry into the world of DOOH advertising with the launch of its first
+                                vertical screen display.
+                                This initial deployment set the tone for a bold and modern approach to outdoor
+                                advertising.
+                                Designed to grab attention in high-footfall areas, our vertical displays brought digital
+                                storytelling to the streets.
+                                It represented a critical first step in showcasing the power of motion-led messaging in
+                                public spaces.
+                                This launch laid the foundation for all future innovation and brand trust in Aekads'
+                                capabilities.
+
                             </p>
                         </div>
                     </div>
@@ -1364,11 +2002,17 @@
                     <div class="col-md-6 order-md-2">
                         <div class="timeline-content">
                             <h4>May 2024 | Strategic Growth Initiatives</h4>
-                            <p>Aek Ads launched initiatives to identify high-impact locations for LED displays near
-                                lifts in
-                                premium residential, commercial, and corporate properties in Ahmedabad Marking the
-                                beginning
-                                of its expansion into the PAN India Market.</p>
+                            <p>By May 2024, Aekads had refined its growth vision and began implementing key strategic
+                                initiatives.
+                                We focused on identifying high-traffic commercial zones and building stronger client
+                                relationships.
+                                Internal processes were streamlined to support scale, and campaign measurement tools
+                                were upgraded.
+                                These initiatives helped enhance brand credibility and operational efficiency across
+                                multiple fronts.
+                                This phase was pivotal in transitioning Aekads from a start-up to a rapidly growing DOOH
+                                force.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 order-md-1 timeline-img">
@@ -1382,9 +2026,16 @@
                     <div class="col-md-6 order-md-1">
                         <div class="timeline-content">
                             <h4>Aek Signage Player App Development | August 2024</h4>
-                            <p>Launched the Aek Signage Player App, enabling advertisers to control and schedule content
-                                remotely, enhancing operational efficiency and giving clients more control over their ad
-                                campaigns.</p>
+                            <p>August 2024 saw the development of the proprietary Aek Signage Player App, built for
+                                smart campaign control.
+                                The app enables seamless scheduling, playback, and monitoring of ad content across our
+                                DOOH network.
+                                It empowers advertisers with real-time flexibility and better performance insights.
+                                This tech advancement made managing digital ad campaigns more efficient, interactive,
+                                and data-driven.
+                                With this innovation, Aekads further solidified its position as a tech-first DOOH
+                                company focused on digital signage benefits for businesses.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 order-md-2 timeline-img">
@@ -1398,9 +2049,16 @@
                     <div class="col-md-6 order-md-2">
                         <div class="timeline-content">
                             <h4>September 2024 | Network Expansion Across Key Cities</h4>
-                            <p>Expanded digital screen network, achieving over 1,000 digital screens across major Indian
-                                cities like Ahmedabad, Gandhinagar, Surat, Mount Abu, Jaipur, and Mumbai, establishing a
-                                robust Digital OOH presence in 7 cities and 3 states.</p>
+                            <p>September 2024 marked a significant leap with Aekads expanding into multiple key urban
+                                markets.
+                                We strategically entered metro and Tier-1 cities, placing our screens in high-visibility
+                                Residential, Commercial, and Corporate areas.
+                                This expansion increased our advertising footprint and unlocked new audience segments
+                                for brands.
+                                Our focus was on growth without compromising display quality or viewer engagement.
+                                The move reflected our ambition to create a truly nationwide best DOOH advertising
+                                networks India.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 order-md-1 timeline-img">
@@ -1414,11 +2072,17 @@
                     <div class="col-md-6 order-md-1">
                         <div class="timeline-content">
                             <h4>Portfolio Expansion with Leading Brands | September 2024</h4>
-                            <p>Aek Ads started gaining significant business traction, onboarding high-profile brands
-                                such as
-                                Pantaloons, Hyundai, and Liverpool. This milestone solidified the company's reputation
-                                in
-                                the advertising industry and attracted further business opportunities.</p>
+                            <p>In the same month, Aekads onboarded a series of leading national and regional brands into
+                                our advertising ecosystem.
+                                Our DOOH solutions attracted advertisers across retail, tech, lifestyle, and hospitality
+                                sectors.
+                                This portfolio expansion validated our ability to deliver value to large-scale marketing
+                                campaigns.
+                                It also showcased our dual-screen concept as a premium and effective medium for brand
+                                visibility.
+                                Partnering with top-tier brands elevated Aekads’ industry credibility as one of the top
+                                DOOH advertising companies India.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 order-md-2 timeline-img">
@@ -1431,10 +2095,18 @@
                 <div class="timeline-item row align-items-center">
                     <div class="col-md-6 order-md-2">
                         <div class="timeline-content">
-                            <h4>Dual-Screen Display Launch | October 2024</h4>
-                            <p>Aek Ads introduced innovative dual-screen displays, expanding the range of digital
-                                advertising solutions and creating unique engagement options for advertisers and
-                                clients.
+                            <h4>October 2024 | Dual-Screen Display Launch</h4>
+                            <p>October 2024 witnessed the revolutionary launch of Aekads’ Dual Screen Display
+                                technology.
+                                This innovation introduced dynamic upper-lower screen synergy, ideal for Reels-style and
+                                banner content together.
+                                It redefined how messages are delivered in outdoor environments, making them more
+                                immersive and engaging.
+                                The dual-screen concept became a standout feature that differentiated Aekads in the
+                                cluttered DOOH market.
+                                This launch represents our commitment to continuous innovation and audience-first
+                                advertising design — a true evolution in digital billboard advertising in India.
+
                             </p>
                         </div>
                     </div>
@@ -1490,6 +2162,96 @@
 
 
         </section>
+
+
+        <section class="faq-section">
+            <!-- Animated background elements -->
+            <div class="bg-element bg-1"></div>
+            <div class="bg-element bg-2"></div>
+
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h1>QNA</h1>
+                    <!-- <p>Find answers to common questions about our advertising solutions and services</p> -->
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Who can advertise with Aekads?</span>
+                        <div class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            From local startups to global brands, anyone looking to reach targeted audiences in
+                            high-footfall areas.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are dual-screen ads?</span>
+                        <div class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Aekads features two displays — a large main screen and a smaller one for secondary, dynamic
+                            content like Weather Update, Cricket Score, Live News or QR codes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I run video content or Reels on Aekads screens?</span>
+                        <div class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, our system supports short-form videos, Reels, and animations for better audience
+                            engagement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer creative design services?</span>
+                        <div class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Our team can help you create custom DOOH creatives optimized for screen size,
+                            resolution, and placement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is it possible to show real-time offers or countdowns?</span>
+                        <div class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely. Our tech allows for dynamic content updates, including live countdowns, offers,
+                            and flash sales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <footer class="footer">
             <div class="custom-container">
@@ -1636,6 +2398,40 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Close all answers first
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('show');
+                });
+
+                // Open clicked one if it wasn't active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('show');
+                }
+            });
+        });
+
+        // Add subtle animation to FAQ items on load
+        document.querySelectorAll('.faq-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 100 + (index * 100));
+        });
+    </script>
 
 
     <script src="script.js" defer></script>
