@@ -25,6 +25,90 @@ function handleScroll(currentScrollY) {
 
   lastScrollY = currentScrollY;
 }
+
+// Quote Popup
+document.addEventListener("DOMContentLoaded", function () {
+    const quoteButtons = document.querySelectorAll(".ajayy");
+    const quotePopup = document.getElementById("quotePopup");
+    const popupContent = document.querySelector(".popup-content");
+    const quoteForm = document.getElementById("quote-form");
+  
+    function openPopup() {
+      quotePopup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+  
+    function closePopup() {
+      quotePopup.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  
+    if (quotePopup) {
+  
+      quotePopup.addEventListener("click", function (e) {
+        if (e.target === quotePopup) closePopup();
+      });
+  
+      quoteButtons.forEach((button) => {
+        button.addEventListener("click", openPopup);
+      });
+    }
+  
+    popupContent?.addEventListener("click", (e) => e.stopPropagation());
+  
+    document.getElementById("closePopup")?.addEventListener("click", closePopup);
+  
+    if (quoteForm) {
+      quoteForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(quoteForm);
+        const formObject = {};
+        formData.forEach((value, key) => (formObject[key] = value));
+  
+        try {
+          const response = await fetch(
+            "https://cms.aekads.com/api/send-message",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formObject),
+            }
+          );
+  
+          if (!response.ok) throw new Error(`Server error: ${response.status}`);
+  
+          Swal.fire({
+            title: "Success!",
+            text: "We have received your request for a quote. Our sales representative will contact you soon!",
+            icon: "success",
+            confirmButtonText: "OK",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              confirmButton: "custom-button",
+            },
+          });
+  
+          closePopup();
+          quoteForm.reset();
+        } catch (error) {
+          console.error("Submission error:", error);
+          Swal.fire({
+            title: "Error!",
+            text: "Failed to send message. Please try again.",
+            icon: "error",
+            confirmButtonText: "OK",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              confirmButton: "custom-button-error",
+            },
+          });
+        }
+      });
+    }
+  });
+
 // Locomotive Scroll Init
 document.addEventListener("DOMContentLoaded", function () {
   const scrollContainer = document.querySelector("[data-scroll-container]");
@@ -32,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scroll = new LocomotiveScroll({
       el: scrollContainer,
       smooth: true,
-      lerp: 0.08,
+      lerp: 0.08, 
       getDirection: true,
       repeat: true,
     });
