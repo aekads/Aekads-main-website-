@@ -359,29 +359,35 @@ async function showJobDetail(jobId) {
     const job = await fetchJobById(jobId);
     if (!job) return;
 
-    // Create job detail elements
     detailPage.innerHTML = `
-<div class="job-detail-card" data-scroll>
-<a href="career.html" class="btn btn-link mt-3">← Back to all jobs</a>
-<h2 id="detail-job-title" class="job-title">${job.title}</h2>
-<div class="job-meta">
-  <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> 
-    <span id="detail-job-location">${job.location}</span>
-  </span>
-  <span class="job-meta-item"><i class="fas fa-clock"></i> 
-    <span id="detail-job-type">${job.work_type}</span>
-  </span>
-</div>
-<div id="detail-job-description" class="job-description">
-  ${job.description}
-</div>
-<button class="btn btn-apply" id="detail-apply-btn" 
-  data-bs-toggle="modal" data-bs-target="#applyModal"
-  data-title="${job.title}">
-  Apply Now <i class="fas fa-arrow-right ms-2"></i>
-</button>
-</div>
-`;
+    <div class="job-detail-card" data-scroll>
+      <style>
+        .job-detail-card p {
+          color: #363636 !important;
+          font-weight: 600 !important;
+        }
+      </style>
+      <a href="career.html" class="btn btn-link mt-3">← Back to all jobs</a>
+      <h2 id="detail-job-title" class="job-title">${job.title}</h2>
+      <div class="job-meta">
+        <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> 
+          <span id="detail-job-location">${job.location}</span>
+        </span>
+        <span class="job-meta-item"><i class="fas fa-clock"></i> 
+          <span id="detail-job-type">${job.work_type}</span>
+        </span>
+      </div>
+      <div id="detail-job-description" class="job-description">
+        ${job.description}
+      </div>
+      <button class="btn btn-apply" id="detail-apply-btn" 
+        data-bs-toggle="modal" data-bs-target="#applyModal"
+        data-title="${job.title}">
+        Apply Now <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+    `;
+    
 
     // Update URL
     history.pushState(null, "", `?jobId=${jobId}`);
