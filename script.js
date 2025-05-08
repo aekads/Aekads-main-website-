@@ -69,6 +69,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   popupContent?.addEventListener("click", (e) => e.stopPropagation());
 
+  // Highlight rotation
+  const highlights = document.querySelectorAll(".highlight");
+  let currentIndex = 0;
+  setInterval(() => {
+    highlights.forEach((hl) => hl.classList.remove("active"));
+    currentIndex = (currentIndex + 1) % highlights.length;
+    highlights[currentIndex].classList.add("active");
+  }, 2500);
+
   document.getElementById("closePopup")?.addEventListener("click", closePopup);
 
   if (quoteForm) {
@@ -120,6 +129,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Arrow section toggle
+  document.querySelector(".arrow-icon").addEventListener("click", () => {
+    const section1 = document.querySelector(".section1");
+    const section2 = document.querySelector(".section2");
+
+    scroll.scrollTo(
+      window.scrollY < section1.offsetHeight ? section2 : section1,
+      {
+        offset: 0,
+        duration: 1000,
+        easing: [0.25, 0.0, 0.35, 1.0],
+      }
+    );
+  });
 });
 
 // Slideshow
