@@ -28,7 +28,7 @@ if (moreBtn && dropdownMenu) {
 
 function openDropdown() {
   dropdownMenu.style.opacity = "1";
-  dropdownMenu.style.transform = "translateY(0)";
+  dropdownMenu.style.transform = "translateY(0)"; 
   dropdownMenu.style.pointerEvents = "auto";
 }
 
@@ -311,54 +311,75 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Mobile Menu
-  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
-  const mobileLinks = document.getElementById("mobile-links");
-  const overlay = document.getElementById("overlay");
+ // MOBILE MENU LOGIC
+ const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+ const mobileLinks = document.getElementById("mobile-links");
+ const overlay = document.getElementById("overlay");
 
-  if (mobileMenuIcon && mobileLinks && overlay) {
-    let lastScrollTop = 0;
+ let lastScrollTop = 0;
 
-    scroll.on("scroll", function (args) {
-      const scrollTop = args.scroll.y;
-      mobileMenuIcon.style.opacity = scrollTop > lastScrollTop ? "0" : "1";
-      mobileMenuIcon.style.pointerEvents =
-        scrollTop > lastScrollTop ? "none" : "auto";
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
+ window.addEventListener("scroll", function () {
+   let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    function createCloseButton() {
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "close-btn";
-      closeBtn.innerHTML = "&#10005;";
-      closeBtn.addEventListener("click", function () {
-        mobileLinks.classList.remove("active");
-        overlay.classList.remove("active");
-        mobileMenuIcon.innerHTML = "&#9776;";
-        closeBtn.remove();
-      });
-      return closeBtn;
-    }
+   if (scrollTop > lastScrollTop) {
+     mobileMenuIcon.style.opacity = "0";
+     mobileMenuIcon.style.pointerEvents = "none";
+   } else {
+     mobileMenuIcon.style.opacity = "1";
+     mobileMenuIcon.style.pointerEvents = "auto";
+   }
+   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+ });
 
-    mobileMenuIcon.addEventListener("click", function () {
-      mobileLinks.classList.toggle("active");
-      overlay.classList.toggle("active");
+ function createCloseButton() {
+   const closeBtn = document.createElement("button");
+   closeBtn.className = "close-btn";
+   closeBtn.innerHTML = "&#10005;";
+   closeBtn.addEventListener("click", function () {
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     closeBtn.remove();
+   });
+   return closeBtn;
+ }
 
-      if (mobileLinks.classList.contains("active")) {
-        const closeBtn = createCloseButton();
-        mobileLinks.appendChild(closeBtn);
-        mobileMenuIcon.innerHTML = "&#10005;";
-      } else {
-        mobileLinks.querySelector(".close-btn")?.remove();
-        mobileMenuIcon.innerHTML = "&#9776;";
-      }
-    });
+ mobileMenuIcon.addEventListener("click", function () {
+   mobileLinks.classList.toggle("active");
+   overlay.classList.toggle("active");
 
-    overlay.addEventListener("click", function () {
-      mobileLinks.classList.remove("active");
-      overlay.classList.remove("active");
-      mobileMenuIcon.innerHTML = "&#9776;";
-      mobileLinks.querySelector(".close-btn")?.remove();
-    });
-  }
+   if (mobileLinks.classList.contains("active")) {
+     const closeBtn = createCloseButton();
+     mobileLinks.appendChild(closeBtn);
+     mobileMenuIcon.innerHTML = "&#10005;";
+   } else {
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+     mobileMenuIcon.innerHTML = "&#9776;";
+   }
+ });
+
+ overlay.addEventListener("click", function () {
+   mobileLinks.classList.remove("active");
+   overlay.classList.remove("active");
+   mobileMenuIcon.innerHTML = "&#9776;";
+   const closeBtn = mobileLinks.querySelector(".close-btn");
+   if (closeBtn) closeBtn.remove();
+ });
+
+ // Smooth scroll for all anchors
+ document.querySelectorAll('a[href^="#"]').forEach((link) => {
+   link.addEventListener("click", function (event) {
+     event.preventDefault();
+     const targetElement = document.querySelector(this.getAttribute("href"));
+     if (targetElement) {
+       scroll.scrollTo(targetElement);
+     }
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+   });
+ });
 });
