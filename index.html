@@ -77,12 +77,15 @@
  }
  </script>
 
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WH84TPNF');</script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WH84TPNF');</script>
   <!-- End Google Tag Manager -->
 
 
@@ -1147,6 +1150,7 @@
       }
     }
 
+
     .section3 {
       height: 100vh;
       background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
@@ -1344,7 +1348,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 115vh;
+      height: 121vh;
       background: linear-gradient(116.21deg, #052652 -3.25%, #2d9cdb 107.37%);
       color: white
     }
@@ -1384,7 +1388,7 @@
     }
 
     .info-card img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 10px;
       margin-left: -14%
@@ -1423,7 +1427,7 @@
 
     @media (max-width:1000px) {
       .section4 {
-        height: 140vh
+        height: 160vh
       }
 
       .dual {
@@ -1459,6 +1463,10 @@
     @media (max-width:768px) {
       .section4 {
         height: 342vh
+      }
+
+      .info-card {
+        width: 70%;
       }
 
       .dual {
@@ -2396,13 +2404,16 @@
   <header class="header">
     <div class="container">
       <div class="logoH">
-        <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" />
+        <a href="index.html">
+          <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" />
+        </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
           <li class="links"><a href="#section-0">Home</a></li>
           <li class="links"><a href="about.html">About Us</a></li>
-          <li class="links"><a href="#section-2">Why Aek Ads?</a></li>
+          <!-- <li class="links"><a href="#section-2">Why Aek Ads?</a></li> -->
+          <li class="links"><a href="why-aekads.html">Why Aek Ads?</a></li>
           <li class="links"><a href="#section-3">Dual Screen Tech</a></li>
           <li class="links"><a href="#section-4">Our Process</a></li>
           <li class="dropdown">
@@ -2427,12 +2438,15 @@
     <div class="popup-content">
       <div class="popup-header">
         <h2 class="gradient-text">GET A QUOTE</h2>
-        
-          <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" id="closePopup" style="cursor: pointer;">
-            <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        
+
+        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" id="closePopup"
+          style="cursor: pointer;">
+          <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+
       </div>
       <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
       <form class="quote-form" id="quote-form">
@@ -2467,7 +2481,7 @@
       </form>
     </div>
   </div>
-  
+
 
   <nav class="navbar-mobile">
     <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
@@ -2482,7 +2496,7 @@
       <a href="blog.html">Blog</a>
       <a href="#section-7">Contact</a>
       <a href="career.html">Career</a>
-      <a class="ajayy" href="#quotePopup">Get Quote</a>
+      <a class="ajayy" href="">Get Quote</a>
     </div>
     <div class="overlay" id="overlay"></div>
     <!-- Full-screen overlay -->
@@ -2547,6 +2561,10 @@
     </section>
 
     <section class="section2" id="section-1">
+      <!-- Decorative circles -->
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+
       <br /><br /><br />
 
       <div class="container carouHight">
@@ -2728,10 +2746,12 @@
               <img src="images/image.png" alt="Digital Screen Display in India" class="logo" />
             </div>
             <h2 class="mt-3">
-              Aekads | India's Best Digital Out Of Advertising Company
+              Aekads | India's Best Digital Out Of Home Advertising Company
             </h2>
             <p class="brand-description">
-              Aekads is revolutionizing Digital OOH advertising in India by enhancing brand visibility through innovative digital screens placed near lifts in residential, corporate, and commercial properties, as well as high-traffic outdoor locations across the country.
+              Aekads is revolutionizing Digital OOH advertising in India by enhancing brand visibility through
+              innovative digital screens placed near lifts in residential, corporate, and commercial properties, as well
+              as high-traffic outdoor locations across the country.
             </p>
           </div>
           <div class="col-lg-6 rightText">
@@ -2836,7 +2856,7 @@
                   <div class="stat-text">
                     <h5>1 Cr+ Daily Impressions</h5>
                     <p>
-                      Driving Unmatched Visibility. Maximize Your Brand’s
+                      Driving Unmatched Visibility. Maximize Your Brand's
                       Reach with Our Expansive Network!
                     </p>
                   </div>
@@ -3118,7 +3138,7 @@
         </div>
 
         <div class="row text-center">
-          <div class="col-md-4 mb-4" data-scroll>
+          <div class="col-md-4" data-scroll>
             <div class="info-card">
               <img src="images/whether.png" alt="Digital Screen Display in India" />
             </div>
@@ -3129,7 +3149,7 @@
               carry your umbrella.
             </p>
           </div>
-          <div class="col-md-4 mb-4" data-scroll>
+          <div class="col-md-4" data-scroll>
             <div class="info-card">
               <img src="images/news.png" alt="Digital Screen Display in India" />
             </div>
@@ -3139,15 +3159,14 @@
               and breaking stories, streaming live while you wait by the lift.
             </p>
           </div>
-          <div class="col-md-4 mb-4" data-scroll>
+          <div class="col-md-4" data-scroll>
             <div class="info-card">
-              <img src="images/date&time.png" alt="Digital Screen Display in India" />
+              <img src="images/Group 3989799.png" alt="Digital Screen Display in India" />
             </div>
-            <h4>Date & Time Update</h4>
+            <h4>Promotional Content</h4>
             <p>
-              Time at a glance, is always accurate! Keep track of the date and
-              time in real-time, ensuring you stay on schedule throughout the
-              day.
+              Designed for dynamic ads, announcements, and interactive messages, ensuring maximum engagement while
+              complementing the primary display’s main content.
             </p>
           </div>
         </div>
@@ -3680,15 +3699,19 @@
         <div class="row">
           <!-- Logo and Description -->
           <div class="col-md-4 text-center text-md-start">
-            <h2 style="margin-top: 4%">
+            <h2 style="margin-top: 3%">
               <a href="https://www.aekads.com" target="_blank">
                 <img src="/images/Footerlogo.png" alt="Digital Screen Display in India" class="footerimg" />
               </a>
             </h2>
 
             <p class="footerP">
-              Bringing stories to residential, corporate, and commercial zones. We integrate your brand into the daily
-              lives of real audiences. Reach where people live, work, and shop. Smart advertising for smart cities.
+              Bringing stories to residential, corporate, and commercial zones. We integrate your brand
+              into
+              the daily
+              lives of real audiences. Reach where people live, work, and shop. Smart advertising for
+              smart
+              cities.
             </p>
             <div class="social-icons">
               <a href="https://www.facebook.com/aekads1/" target="_blank" rel="noopener" aria-label="Facebook">
@@ -3704,11 +3727,10 @@
                 <i class="fab fa-youtube"></i>
               </a>
             </div>
-
           </div>
 
           <!-- Quick Links -->
-          <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+          <div class="col-md-4 text-center text-md-start mt-4 mt-md-0" style="margin-top: 25px!important;">
             <h5 class="footerh5">Quick Links</h5>
             <div class="row">
               <div class="col-6 linkk">
@@ -3725,7 +3747,7 @@
           </div>
 
           <!-- Contact Us -->
-          <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+          <div class="col-md-4 text-center text-md-start mt-4 mt-md-0" style="margin-top: 25px!important;">
             <h5 class="footerh5">Contact Us</h5>
             <div class="collink">
               <p class="footerP" style="margin-top: 5%">
@@ -3741,7 +3763,6 @@
                     </clipPath>
                   </defs>
                 </svg>
-
                 +91 80908 02014
               </p>
               <p class="footerP">
@@ -3766,7 +3787,6 @@
                     </clipPath>
                   </defs>
                 </svg>
-
                 sales@aekads.com
               </p>
             </div>
@@ -3777,12 +3797,12 @@
           Popular Searches
         </h4>
         <marquee behavior="scroll" direction="left" scrollamount="3" style="
-              color: #4d4d4d;
-              font-size: 16px;
-              padding: 20px 0;
-              border-top: 1px solid rgb(0 0 0 / 18%);
-              margin-top: 20px;
-            ">
+      color: #4d4d4d;
+      font-size: 16px;
+      padding: 20px 0;
+      border-top: 1px solid rgb(0 0 0 / 18%);
+      margin-top: 20px;
+    ">
           Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads
           | Ahmedabad No.1 Digital Advertising Screen Network • Aekads |
           Gandhinagar Best And Largest Digital Screen Network • Aekads |
@@ -3796,9 +3816,11 @@
 
         <div class="text-center">
           <p class="footerP" style="text-align: center">
-            <a class="term" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+            <a class="term" href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of
+              Use</a>
             |
-            <a class="term" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a class="term" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy
+              Policy</a>
             | Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
           </p>
         </div>
@@ -3809,8 +3831,8 @@
 
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH84TPNF"
-      height="0" width="0" style="display:none;visibility:hidden">
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH84TPNF" height="0" width="0"
+      style="display:none;visibility:hidden">
     </iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
