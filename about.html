@@ -1263,20 +1263,28 @@
 
 
         .dooh-section {
-            padding: 80px 0;
-            background-color: #00000005;
+            padding: 2rem 1.5rem;
+            background: var(--primary-gradient);
 
         }
 
-        .container {
+        .container-dooh {
             max-width: 1200px;
             margin: 0 auto;
+
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .dooh-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #333;
+            color: var(--white);
             margin-bottom: 20px;
             padding-right: 30px;
             position: sticky;
@@ -1286,11 +1294,12 @@
         .dooh-content p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #000000ab;
+            color: rgba(255, 255, 255, 0.9);
             border-left: 2px solid #8a8a8a;
             padding-left: 30px;
             text-align: justify;
             font-weight: 700;
+            /* font-style: italic; */
         }
 
         .dooh-image {
@@ -1321,9 +1330,6 @@
         }
 
         @media (max-width: 768px) {
-            .dooh-section {
-                padding: 60px 0;
-            }
 
             .dooh-title {
                 font-size: 2rem;
@@ -1340,7 +1346,6 @@
                 line-height: 1.7;
             }
         }
-
 
 
         :root {
@@ -2057,7 +2062,7 @@
 
         <!-- Digital Out of Home Section -->
         <section class="dooh-section">
-            <div class="container">
+            <div class="container-dooh">
                 <div class="row">
                     <!-- Left Column - Title -->
                     <div class="col-lg-4 d-flex align-items-center justify-content-center">
@@ -2072,12 +2077,19 @@
                                 Driven by Innovation. <br>
                                 Powered by Creativity.
                             </p>
-                            <p>Aekads is redefining the future of Digital Out-of-Home Advertising in India and beyond.
-                                With our innovative dual-screen displays and dynamic content strategy, we don’t just run
-                                ads — we create experiences that stop people in their tracks. From strategic locations
-                                to immersive visuals, Aekads is setting new standards for impactful, intelligent, and
-                                interactive advertising.
-                                We don't follow trends — we set them.
+                            <p>
+                                <i>
+                                    "Aekads is redefining the future of Digital Out-of-Home Advertising in India and
+                                    beyond.
+                                    With our innovative dual-screen displays and dynamic content strategy, we don’t just
+                                    run
+                                    ads — we create experiences that stop people in their tracks. From strategic
+                                    locations
+                                    to immersive visuals, Aekads is setting new standards for impactful, intelligent,
+                                    and
+                                    interactive advertising.
+                                    We don't follow trends — we set them."
+                                </i>
                             </p>
 
                         </div>
@@ -2440,7 +2452,7 @@
                 <div class="row">
                     <!-- Logo and Description -->
                     <div class="col-md-4 text-center text-md-start">
-                        <h2 style="margin-top: 4%">
+                        <h2 style="margin-top: 3%">
                             <a href="https://www.aekads.com" target="_blank">
                                 <img src="/images/Footerlogo.png" alt="Digital Screen Display in India"
                                     class="footerimg" />
@@ -2476,7 +2488,7 @@
                     </div>
 
                     <!-- Quick Links -->
-                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0" style="margin-top: 25px!important;">
                         <h5 class="footerh5">Quick Links</h5>
                         <div class="row">
                             <div class="col-6 linkk">
@@ -2493,7 +2505,7 @@
                     </div>
 
                     <!-- Contact Us -->
-                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0">
+                    <div class="col-md-4 text-center text-md-start mt-4 mt-md-0" style="margin-top: 25px!important;">
                         <h5 class="footerh5">Contact Us</h5>
                         <div class="collink">
                             <p class="footerP" style="margin-top: 5%">
