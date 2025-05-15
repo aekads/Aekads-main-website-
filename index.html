@@ -758,7 +758,7 @@
       bottom: 0;
       width: 100%;
       height: 100vh;
-      background-image: url('/images/gradientBG.png');
+      background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293198/gradientBG_wvfdwa.png');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: bottom;
@@ -1081,10 +1081,6 @@
       .container.carouselCant {
         height: auto;
         padding: 20px
-      }
-
-      .row.align-items-center {
-        flex-direction: column
       }
 
       .gallery-item {
@@ -1483,7 +1479,7 @@
 
     @media (max-width:768px) {
       .section4 {
-        height: 342vh
+        height: 320vh
       }
 
       .info-card {
@@ -1496,9 +1492,16 @@
       }
 
       .container {
-        padding: 0 20px
+        padding: 0 20px;
+        padding-bottom: 50px;
       }
     }
+
+    @media (max-width: 650px) {
+    .section4 {
+        height: 286vh;
+    }
+}
 
     @media (max-width:600px) {
       .dual {
@@ -1506,6 +1509,12 @@
         margin-top: 0%
       }
     }
+
+    @media (max-width: 550px) {
+    .section4 {
+        height: 270vh;
+    }
+}
 
     @media (max-width:500px) {
       .dual {
@@ -1518,9 +1527,16 @@
       }
 
       .container {
-        padding: 0 15px
+        padding: 0 15px;
+        padding-bottom: 50px;
       }
     }
+
+    @media (max-width: 450px) {
+    .section4 {
+        height: 245vh;
+    }
+}
 
     @media (max-width:411px) {
       .dual {
@@ -1540,7 +1556,7 @@
 
     @media (max-width:400px) {
       .section4 {
-        height: 285vh
+        height: 235vh
       }
     }
 
