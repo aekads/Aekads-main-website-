@@ -1812,7 +1812,13 @@
         </footer>
 
     </div>
-
+<script>
+  // Set the blog title inside <h1 id="detailTitle"> from the page <title>
+  document.addEventListener("DOMContentLoaded", function() {
+    const pageTitle = document.title;
+    document.getElementById("detailTitle").textContent = pageTitle;
+  });
+</script>
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
