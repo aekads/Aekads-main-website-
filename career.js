@@ -28,86 +28,103 @@ function handleScroll(currentScrollY) {
 
 // Quote Popup
 document.addEventListener("DOMContentLoaded", function () {
-    const quoteButtons = document.querySelectorAll(".ajayy");
-    const quotePopup = document.getElementById("quotePopup");
-    const popupContent = document.querySelector(".popup-content");
-    const quoteForm = document.getElementById("quote-form");
-  
-    function openPopup() {
-      quotePopup.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-  
-    function closePopup() {
-      quotePopup.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  
-    if (quotePopup) {
-  
-      quotePopup.addEventListener("click", function (e) {
-        if (e.target === quotePopup) closePopup();
-      });
-  
-      quoteButtons.forEach((button) => {
-        button.addEventListener("click", openPopup);
-      });
-    }
-  
-    popupContent?.addEventListener("click", (e) => e.stopPropagation());
-  
-    document.getElementById("closePopup")?.addEventListener("click", closePopup);
-  
-    if (quoteForm) {
-      quoteForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const formData = new FormData(quoteForm);
-        const formObject = {};
-        formData.forEach((value, key) => (formObject[key] = value));
-  
-        try {
-          const response = await fetch(
-            "https://cms.aekads.com/api/send-message",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(formObject),
-            }
-          );
-  
-          if (!response.ok) throw new Error(`Server error: ${response.status}`);
-  
-          Swal.fire({
-            title: "Success!",
-            text: "We have received your request for a quote. Our sales representative will contact you soon!",
-            icon: "success",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button",
-            },
-          });
-  
-          closePopup();
-          quoteForm.reset();
-        } catch (error) {
-          console.error("Submission error:", error);
-          Swal.fire({
-            title: "Error!",
-            text: "Failed to send message. Please try again.",
-            icon: "error",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button-error",
-            },
-          });
-        }
-      });
-    }
-  });
+  const quoteButtons = document.querySelectorAll(".ajayy");
+  const quotePopup = document.getElementById("quotePopup");
+  const popupContent = document.querySelector(".popup-content");
+  const quoteForm = document.getElementById("quote-form");
+
+  function openPopup() {
+    quotePopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePopup() {
+    quotePopup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  if (quotePopup) {
+
+    quotePopup.addEventListener("click", function (e) {
+      if (e.target === quotePopup) closePopup();
+    });
+
+    quoteButtons.forEach((button) => {
+      button.addEventListener("click", openPopup);
+    });
+  }
+
+  popupContent?.addEventListener("click", (e) => e.stopPropagation());
+
+
+  document.getElementById("closePopup")?.addEventListener("click", closePopup);
+
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      // Get the submit button
+      const submitButton = quoteForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      
+      // Add loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Submitting...
+      `;
+      
+      const formData = new FormData(quoteForm);
+      const formObject = {};
+      formData.forEach((value, key) => (formObject[key] = value));
+
+      try {
+        const response = await fetch(
+          "https://cms.aekads.com/api/send-message",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formObject),
+          }
+        );
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        Swal.fire({
+          title: "Success!",
+          text: "We have received your request for a quote. Our sales representative will contact you soon!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button",
+          },
+        });
+
+        closePopup();
+        quoteForm.reset();
+      } catch (error) {
+        console.error("Submission error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to send message. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button-error",
+          },
+        });
+      } finally {
+        // Restore button to original state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  }
+});
 
 // Locomotive Scroll Init
 document.addEventListener("DOMContentLoaded", function () {
