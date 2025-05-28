@@ -83,6 +83,18 @@ document.addEventListener("DOMContentLoaded", function () {
   if (quoteForm) {
     quoteForm.addEventListener("submit", async function (e) {
       e.preventDefault();
+      
+      // Get the submit button
+      const submitButton = quoteForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      
+      // Add loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Submitting...
+      `;
+      
       const formData = new FormData(quoteForm);
       const formObject = {};
       formData.forEach((value, key) => (formObject[key] = value));
@@ -126,24 +138,13 @@ document.addEventListener("DOMContentLoaded", function () {
             confirmButton: "custom-button-error",
           },
         });
+      } finally {
+        // Restore button to original state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
       }
     });
   }
-
-  // Arrow section toggle
-  document.querySelector(".arrow-icon").addEventListener("click", () => {
-    const section1 = document.querySelector(".section1");
-    const section2 = document.querySelector(".section2");
-
-    scroll.scrollTo(
-      window.scrollY < section1.offsetHeight ? section2 : section1,
-      {
-        offset: 0,
-        duration: 1000,
-        easing: [0.25, 0.0, 0.35, 1.0],
-      }
-    );
-  });
 });
 
 // Slideshow
@@ -248,20 +249,6 @@ function updateActiveLink() {
   }
 }
 
-// ✅ Timeline Progress Update
-function updateTimelineProgress() {
-  const progressLine = document.querySelector(".timeline-progress");
-  const timeline = document.querySelector(".timeline");
-  if (!progressLine || !timeline) return;
-
-  const rect = timeline.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  const totalHeight = timeline.offsetHeight;
-  let visibleHeight = windowHeight - rect.top;
-
-  visibleHeight = Math.min(Math.max(0, visibleHeight), totalHeight);
-  progressLine.style.height = `${visibleHeight}px`;
-}
 
 // Locomotive Scroll Init
 document.addEventListener("DOMContentLoaded", function () {
@@ -278,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scroll.on("scroll", (args) => {
       handleScroll(args.scroll.y);
       updateActiveLink();
-      updateTimelineProgress(); // 👈 Timeline update on scroll
+      // updateTimelineProgress(); // 👈 Timeline update on scroll
     });
 
     setTimeout(() => scroll.update(), 1000);
