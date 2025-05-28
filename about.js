@@ -26,114 +26,22 @@ function handleScroll(currentScrollY) {
   lastScrollY = currentScrollY;
 }
 
-// Quote Popup
-document.addEventListener("DOMContentLoaded", function () {
-    const quoteButtons = document.querySelectorAll(".ajayy");
-    const quotePopup = document.getElementById("quotePopup");
-    const popupContent = document.querySelector(".popup-content");
-    const quoteForm = document.getElementById("quote-form");
-  
-    function openPopup() {
-      quotePopup.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-  
-    function closePopup() {
-      quotePopup.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  
-    if (quotePopup) {
-      setTimeout(openPopup, 5000);
-  
-      quotePopup.addEventListener("click", function (e) {
-        if (e.target === quotePopup) closePopup();
-      });
-  
-      quoteButtons.forEach((button) => {
-        button.addEventListener("click", openPopup);
-      });
-    }
-  
-    popupContent?.addEventListener("click", (e) => e.stopPropagation());
-  
-    // Highlight rotation
-    const highlights = document.querySelectorAll(".highlight");
-    let currentIndex = 0;
-    setInterval(() => {
-      highlights.forEach((hl) => hl.classList.remove("active"));
-      currentIndex = (currentIndex + 1) % highlights.length;
-      highlights[currentIndex].classList.add("active");
-    }, 2500);
-  
-    document.getElementById("closePopup")?.addEventListener("click", closePopup);
-  
-    if (quoteForm) {
-      quoteForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        
-        // Get the submit button
-        const submitButton = quoteForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        
-        // Add loading state
-        submitButton.disabled = true;
-        submitButton.innerHTML = `
-          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          Submitting...
-        `;
-        
-        const formData = new FormData(quoteForm);
-        const formObject = {};
-        formData.forEach((value, key) => (formObject[key] = value));
-  
-        try {
-          const response = await fetch(
-            "https://cms.aekads.com/api/send-message",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(formObject),
-            }
-          );
-  
-          if (!response.ok) throw new Error(`Server error: ${response.status}`);
-  
-          Swal.fire({
-            title: "Success!",
-            text: "We have received your request for a quote. Our sales representative will contact you soon!",
-            icon: "success",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button",
-            },
-          });
-  
-          closePopup();
-          quoteForm.reset();
-        } catch (error) {
-          console.error("Submission error:", error);
-          Swal.fire({
-            title: "Error!",
-            text: "Failed to send message. Please try again.",
-            icon: "error",
-            confirmButtonText: "OK",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              confirmButton: "custom-button-error",
-            },
-          });
-        } finally {
-          // Restore button to original state
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
-        }
-      });
-    }
-  });
+
+
+// ✅ Timeline Progress Update
+function updateTimelineProgress() {
+  const progressLine = document.querySelector(".timeline-progress");
+  const timeline = document.querySelector(".timeline");
+  if (!progressLine || !timeline) return;
+
+  const rect = timeline.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const totalHeight = timeline.offsetHeight;
+  let visibleHeight = windowHeight - rect.top;
+
+  visibleHeight = Math.min(Math.max(0, visibleHeight), totalHeight);
+  progressLine.style.height = `${visibleHeight}px`;
+}
 
 // Locomotive Scroll Init
 document.addEventListener("DOMContentLoaded", function () {
@@ -142,13 +50,15 @@ document.addEventListener("DOMContentLoaded", function () {
     scroll = new LocomotiveScroll({
       el: scrollContainer,
       smooth: true,
-      lerp: 0.08, 
+      lerp: 0.08,
       getDirection: true,
       repeat: true,
     });
 
     scroll.on("scroll", (args) => {
       handleScroll(args.scroll.y);
+
+      updateTimelineProgress(); // 👈 Timeline update on scroll
     });
 
     setTimeout(() => scroll.update(), 1000);
@@ -181,92 +91,224 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Mobile Menu
-  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
-  const mobileLinks = document.getElementById("mobile-links");
-  const overlay = document.getElementById("overlay");
+ // MOBILE MENU LOGIC
+ const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+ const mobileLinks = document.getElementById("mobile-links");
+ const overlay = document.getElementById("overlay");
 
-  if (mobileMenuIcon && mobileLinks && overlay) {
-    let lastScrollTop = 0;
+ let lastScrollTop = 0;
 
-    scroll.on("scroll", function (args) {
-      const scrollTop = args.scroll.y;
-      mobileMenuIcon.style.opacity = scrollTop > lastScrollTop ? "0" : "1";
-      mobileMenuIcon.style.pointerEvents =
-        scrollTop > lastScrollTop ? "none" : "auto";
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
+ window.addEventListener("scroll", function () {
+   let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    function createCloseButton() {
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "close-btn";
-      closeBtn.innerHTML = "&#10005;";
-      closeBtn.addEventListener("click", function () {
-        mobileLinks.classList.remove("active");
-        overlay.classList.remove("active");
-        mobileMenuIcon.innerHTML = "&#9776;";
-        closeBtn.remove();
-      });
-      return closeBtn;
-    }
+   if (scrollTop > lastScrollTop) {
+     mobileMenuIcon.style.opacity = "0";
+     mobileMenuIcon.style.pointerEvents = "none";
+   } else {
+     mobileMenuIcon.style.opacity = "1";
+     mobileMenuIcon.style.pointerEvents = "auto";
+   }
+   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+ });
 
-    mobileMenuIcon.addEventListener("click", function () {
-      mobileLinks.classList.toggle("active");
-      overlay.classList.toggle("active");
+ function createCloseButton() {
+   const closeBtn = document.createElement("button");
+   closeBtn.className = "close-btn";
+   closeBtn.innerHTML = "&#10005;";
+   closeBtn.addEventListener("click", function () {
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     closeBtn.remove();
+   });
+   return closeBtn;
+ }
 
-      if (mobileLinks.classList.contains("active")) {
-        const closeBtn = createCloseButton();
-        mobileLinks.appendChild(closeBtn);
-        mobileMenuIcon.innerHTML = "&#10005;";
-      } else {
-        mobileLinks.querySelector(".close-btn")?.remove();
-        mobileMenuIcon.innerHTML = "&#9776;";
-      }
-    });
+ mobileMenuIcon.addEventListener("click", function () {
+   mobileLinks.classList.toggle("active");
+   overlay.classList.toggle("active");
 
-    overlay.addEventListener("click", function () {
-      mobileLinks.classList.remove("active");
-      overlay.classList.remove("active");
-      mobileMenuIcon.innerHTML = "&#9776;";
-      mobileLinks.querySelector(".close-btn")?.remove();
-    });
-  }
+   if (mobileLinks.classList.contains("active")) {
+     const closeBtn = createCloseButton();
+     mobileLinks.appendChild(closeBtn);
+     mobileMenuIcon.innerHTML = "&#10005;";
+   } else {
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+     mobileMenuIcon.innerHTML = "&#9776;";
+   }
+ });
+
+ overlay.addEventListener("click", function () {
+   mobileLinks.classList.remove("active");
+   overlay.classList.remove("active");
+   mobileMenuIcon.innerHTML = "&#9776;";
+   const closeBtn = mobileLinks.querySelector(".close-btn");
+   if (closeBtn) closeBtn.remove();
+ });
+
+ // Smooth scroll for all anchors
+ document.querySelectorAll('a[href^="#"]').forEach((link) => {
+   link.addEventListener("click", function (event) {
+     event.preventDefault();
+     const targetElement = document.querySelector(this.getAttribute("href"));
+     if (targetElement) {
+       scroll.scrollTo(targetElement);
+     }
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+   });
+ });
 });
 
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
-    if (href !== "#" && scroll) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        scroll.scrollTo(target, {
-          offset: 0, // Adjust this value as needed
-          duration: 800,
-          easing: [0.25, 0.0, 0.35, 1.0],
-        });
-      }
+
+// Dropdown Menu
+const moreBtn = document.getElementById("moreBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+if (moreBtn && dropdownMenu) {
+  moreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownMenu.style.opacity === "1";
+    isOpen ? closeDropdown() : openDropdown();
+  });
+
+  dropdownMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeDropdown);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdownMenu.contains(e.target) && e.target !== moreBtn) {
+      closeDropdown();
     }
   });
+
+  window.addEventListener("scroll", () => {
+    if (dropdownMenu.style.opacity === "1") {
+      closeDropdown();
+    }
+  });
+}
+
+function openDropdown() {
+  dropdownMenu.style.opacity = "1";
+  dropdownMenu.style.transform = "translateY(0)"; 
+  dropdownMenu.style.pointerEvents = "auto";
+}
+
+function closeDropdown() {
+  dropdownMenu.style.opacity = "0";
+  dropdownMenu.style.transform = "translateY(10px)";
+  dropdownMenu.style.pointerEvents = "none";
+}
+
+// Quote Popup
+document.addEventListener("DOMContentLoaded", function () {
+  const quoteButtons = document.querySelectorAll(".ajayy");
+  const quotePopup = document.getElementById("quotePopup");
+  const popupContent = document.querySelector(".popup-content");
+  const quoteForm = document.getElementById("quote-form");
+
+  function openPopup() {
+    quotePopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePopup() {
+    quotePopup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  if (quotePopup) {
+  
+
+    quotePopup.addEventListener("click", function (e) {
+      if (e.target === quotePopup) closePopup();
+    });
+
+    quoteButtons.forEach((button) => {
+      button.addEventListener("click", openPopup);
+    });
+  }
+
+  popupContent?.addEventListener("click", (e) => e.stopPropagation());
+
+
+  document.getElementById("closePopup")?.addEventListener("click", closePopup);
+
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      // Get the submit button
+      const submitButton = quoteForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      
+      // Add loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Submitting...
+      `;
+      
+      const formData = new FormData(quoteForm);
+      const formObject = {};
+      formData.forEach((value, key) => (formObject[key] = value));
+
+      try {
+        const response = await fetch(
+          "https://cms.aekads.com/api/send-message",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formObject),
+          }
+        );
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        Swal.fire({
+          title: "Success!",
+          text: "We have received your request for a quote. Our sales representative will contact you soon!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button",
+          },
+        });
+
+        closePopup();
+        quoteForm.reset();
+      } catch (error) {
+        console.error("Submission error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to send message. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button-error",
+          },
+        });
+      } finally {
+        // Restore button to original state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  }
 });
 
-// Update scroll when content changes
-function updateScroll() {
-  scroll.update();
-}
 
-// Function to scroll to top
-function scrollToTop() {
-  if (scroll) {
-    scroll.scrollTo("top", {
-      duration: 0,
-      disableLerp: true,
-    });
-  } else {
-    window.scrollTo(0, 0);
-  }
-}
+
+
 
 
 
