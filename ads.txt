@@ -202,4 +202,3 @@ adipolo.com, 23015084430, RESELLER
 copper6.com, 766102, RESELLER
 pmbmonetize.com, 23015084430, RESELLER
 adintouch.com, 10040, DIRECT
-vsdf
