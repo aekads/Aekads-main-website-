@@ -1,0 +1,3384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aek-Ads-Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add this style block to activate the font -->
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        #scrollContainer {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #scrollContainer::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100% * var(--num-sections)));
+            }
+        }
+
+        #scrollContainer {
+            animation: scroll 30s linear infinite;
+            display: flex;
+            width: calc(100% * var(--num-sections) * 2);
+        }
+
+        #scrollContainer>div {
+            flex: 0 0 100%;
+        }
+    </style>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            --accent-color: rgba(255, 102, 51, 1);
+            --text-color: rgba(77, 77, 77, 1);
+            --white: #ffffff;
+            --header-height: 71px;
+        }
+
+        #scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: scroll;
+        }
+
+        #scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+            /* Remove this line: overflow: hidden !important; */
+            /* overflow-x: hidden; */
+            /* Add this instead if needed */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            overflow-y: scroll;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari and Opera */
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.60);
+            color: rgba(77, 77, 77, 1);
+            padding: 6px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 65px;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(0);
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .ajayy {
+            width: 123.65768432617188px;
+            height: 49.99326705932617px;
+            border-radius: 67.54px;
+            padding-top: 10px;
+            padding-right: 18.33px;
+            padding-bottom: 10px;
+            padding-left: 18.33px;
+            gap: 3.55px;
+            background: rgba(255, 102, 51, 1);
+            color: white !important;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            background-color: #ffffff;
+            color: rgba(77, 77, 77, 1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            /* min-width: 180px; */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        /* Show dropdown on parent hover or when active */
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Style for items inside the dropdown */
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+            flex-direction: row;
+        }
+
+        .header .logoH img {
+            height: 45px;
+        }
+
+        .header .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 28.44px;
+        }
+
+        .header .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .header .navbar .nav-links li a {
+            color: rgba(77, 77, 77, 1);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header .navbar .nav-links li a:hover {
+            color: rgb(41, 41, 41);
+        }
+
+        .header .navbar .nav-links li a.active {
+            color: rgb(41, 41, 41);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1300px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 15.44px;
+            }
+
+            .ajayy {
+                width: 123.65768432617188px;
+                height: 49.99326705932617px;
+                border-radius: 67.54px;
+                padding-top: 14px;
+                padding-right: 18.33px;
+                padding-bottom: 14px;
+                padding-left: 18.33px;
+                gap: 3.55px;
+                background: rgba(255, 102, 51, 1);
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 11.44px;
+            }
+
+            .header .navbar .nav-links li a {
+                color: rgba(77, 77, 77, 1);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+                font-size: 15px;
+            }
+
+            .ajayy {
+                width: 123.65768432617188px;
+                height: 49.99326705932617px;
+                border-radius: 67.54px;
+                padding-top: 12px;
+                padding-right: 16.33px;
+                padding-bottom: 12px;
+                padding-left: 16.33px;
+                gap: 3px;
+                background: rgba(255, 102, 51, 1);
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .header .navbar .nav-links {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 8.44px;
+            }
+
+            .header .navbar .nav-links li a {
+                color: rgba(77, 77, 77, 1);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .header {
+                display: none;
+            }
+        }
+
+
+        /* Popup Styles */
+        .quote-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .popup-content {
+            background: rgba(255, 255, 255, 1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .popup-subtitle {
+            font-family: Montserrat;
+            color: rgba(0, 0, 0, 1);
+            margin-bottom: 25px;
+            line-height: 1.4;
+            font-weight: 400;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 1);
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px;
+            border: 0.89px solid rgba(0, 0, 0, 1);
+            /* border-radius: 8px; */
+            font-size: 16px;
+            width: 100% !important;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 67.54px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            width: 100%;
+            max-width: 200px;
+            align-self: center;
+
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(116.21deg, #083775 -3.25%, #1c74a7 107.37%);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+
+            .gradient-text {
+                font-size: 22px;
+            }
+
+            .popup-subtitle {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                gap: 15px;
+                margin-bottom: 15px;
+                flex-direction: column;
+            }
+
+            .form-group {
+                width: 100%;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px 20px;
+                font-size: 15px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-content {
+                padding: 20px 15px;
+            }
+
+            .gradient-text {
+                font-size: 20px;
+            }
+
+            .popup-subtitle {
+                font-size: 14px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .submit-btn {
+                padding: 12px 15px;
+            }
+        }
+
+
+
+        /* Default styles for navbar */
+        .navbar-mobile {
+            display: none;
+        }
+
+        .toggle-btn {
+            font-size: 24px;
+            border: none;
+            background: transparent !important;
+            cursor: pointer;
+            color: white !important;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        @media (max-width: 1000px) {
+            .navbar-mobile {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .mobile-links {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                /* Center vertically */
+                align-items: center;
+                /* Center horizontally */
+                background-color: #fff;
+                position: fixed;
+                top: -100%;
+                /* Start off-screen at the top */
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding: 20px;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                transition: top 0.5s ease-in-out;
+                /* Animate the top property */
+                z-index: 1002;
+            }
+
+            .mobile-links a {
+                padding: 20px;
+                text-decoration: none;
+                color: #333;
+                border-bottom: 1px solid #eee;
+                font-size: 18px;
+                transition: background-color 0.3s ease-in-out;
+                text-align: center;
+                /* Center text inside the links */
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .ajayy {
+                width: 50% !important;
+                height: 61.993267px !important;
+                border-radius: 67.54px;
+                padding-top: 12px;
+                padding-right: 16.33px;
+                padding-bottom: 12px;
+                padding-left: 16.33px;
+                gap: 3px;
+                /* background: rgba(255, 102, 51, 1); */
+                color: white !important;
+            }
+
+            .mobile-links a:hover {
+                background-color: #f5f5f5;
+            }
+
+            .mobile-links a:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-links.active {
+                display: flex;
+                top: 0;
+                /* Slide down to the top of the screen */
+            }
+
+            /* Overlay styles */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            /* Close button styles */
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #333;
+                transition: color 0.3s ease-in-out;
+            }
+
+            .close-btn:hover {
+                color: #000;
+            }
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            /* Remove padding-top */
+        }
+
+        .img-container {
+            padding: 0;
+            height: 100vh;
+            /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .img1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-container {
+            padding: 40px;
+            color: var(--white);
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-circle {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            /* width: 300px; */
+            /* height: 300px; */
+            z-index: 0;
+        }
+
+        .gradient-circle2 {
+            position: absolute;
+            right: 280px;
+            bottom: 25px;
+            z-index: 0;
+        }
+
+        .about-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        .rightText {
+            padding-left: 7%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            width: 70px;
+            height: 70px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .stat-text {
+            flex: 1;
+        }
+
+        .stat-text h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .stat-text p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+
+        /* Timeline Section Styles */
+        .timeline-section {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            bottom: 0;
+            width: 4px;
+            background: repeating-linear-gradient(to bottom,
+                    var(--white),
+                    var(--white) 10px,
+                    transparent 10px,
+                    transparent 20px);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            width: 4px;
+            height: 0;
+            background: repeating-linear-gradient(to bottom,
+                    #B54869,
+                    #EA5E2C 10px,
+                    transparent 10px,
+                    transparent 20px);
+            transform: translateX(-50%);
+            z-index: 1;
+            transition: height 0.9s ease-out;
+        }
+
+
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .timeline-dot {
+            width: 23px;
+            height: 23px;
+            background: radial-gradient(77.24% 77.24% at 15.54% 13.78%, #B54869 0%, #EA5E2C 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .timeline-content h4 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            color: #dcdcdc;
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        .timeline-img {
+            flex: 1;
+            min-width: 0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-img img {
+            width: 40%;
+            border-radius: 10px;
+            height: auto;
+        }
+
+        .section-title1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1000px) {
+            .about-section {
+                background: var(--primary-gradient);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                padding: 0;
+            }
+        }
+
+        @media (max-width : 768px) {
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 4%;
+                top: 40px;
+                bottom: 0;
+                width: 4px;
+                background: repeating-linear-gradient(to bottom,
+                        var(--white),
+                        var(--white) 10px,
+                        transparent 10px,
+                        transparent 20px);
+                transform: translateX(-50%);
+                z-index: 0;
+            }
+
+            .timeline-progress {
+                position: absolute;
+                left: 4%;
+                top: 40px;
+                width: 4px;
+                height: 0;
+                background: repeating-linear-gradient(to bottom,
+                        #B54869,
+                        #EA5E2C 10px,
+                        transparent 10px,
+                        transparent 20px);
+                transform: translateX(-50%);
+                z-index: 1;
+                transition: height 0.9s ease-out;
+            }
+
+            .timeline-dot {
+                width: 23px;
+                height: 23px;
+                background: radial-gradient(77.24% 77.24% at 15.54% 13.78%, #B54869 0%, #EA5E2C 100%);
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                left: 2.6%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(121vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .timeline-dot {
+                left: 2%;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(150vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(180vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 350px) {
+
+            .content-container {
+                padding: 40px;
+                color: var(--white);
+                height: calc(190vh - var(--header-height));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+
+        .footer {
+            background: var(--black-10, #1c1c1c1a);
+            color: #4d4d4d;
+            padding: 40px 0
+        }
+
+        .custom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px
+        }
+
+        p {
+            color: #d2d2d2
+        }
+
+        .footerP {
+            text-align: justify;
+            margin-bottom: 1rem;
+            color: #4d4d4d
+        }
+
+        .footer a {
+            color: #4d4d4d;
+            text-decoration: none
+        }
+
+        .footerP .term {
+            text-decoration: none;
+            cursor: pointer;
+            color: rgba(38, 98, 250, 1)
+        }
+
+        .footerh5 {
+            color: #006499
+        }
+
+        .footer a:hover {
+            text-decoration: underline
+        }
+
+        .footerimg {
+            width: 60%
+        }
+
+        .social-icons a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #4d4d4d;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #fff;
+            transition: all .5s ease
+        }
+
+        .social-icons a:hover {
+            opacity: .8;
+            color: #24262b;
+            background-color: #fff
+        }
+
+        .linkk {
+            line-height: 50px;
+            text-align: start
+        }
+
+        .collink {
+            line-height: 37px
+        }
+
+        .linkk a::before {
+            content: "• ";
+            color: #006499;
+            font-weight: bold;
+            font-size: 1.5em
+        }
+
+        @media (max-width:768px) {
+            .custom-container {
+                text-align: center
+            }
+
+            .social-icons {
+                margin-top: 10px
+            }
+
+            .linkk {
+                line-height: 30px
+            }
+
+            .footerimg {
+                width: 50%
+            }
+
+            .mt-4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 0
+            }
+        }
+
+        @media (max-width:480px) {
+            .footerimg {
+                width: 58%
+            }
+        }
+
+
+
+        /* Vision & Mission Section Styles */
+        .vision-mission-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-img-container {
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .vm-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vm-content-container {
+            padding: 40px;
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-gradient-circle {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            z-index: 0;
+        }
+
+        .vm-gradient-circle2 {
+            position: absolute;
+            right: 280px;
+            bottom: 25px;
+            z-index: 0;
+        }
+
+        .vision-content,
+        .mission-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vm-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .vm-section-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        @media (max-width: 1300px) {
+
+            .vision-content,
+            .mission-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .vm-content-container {
+                height: auto;
+                padding: 2rem 1.5rem;
+            }
+
+        }
+
+        @media (max-width: 767.98px) {
+            .vm-section-title {
+                font-size: 1.6rem;
+            }
+
+        }
+
+        @media (max-width: 575.98px) {
+            .vm-section-title {
+                font-size: 1.4rem;
+            }
+
+            .vm-section-content {
+                font-size: 0.9rem;
+            }
+
+            .vision-content,
+            .mission-content {
+                padding: 1.25rem;
+            }
+
+            .vm-img {
+                width: 145%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+
+
+        .presence-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-image {
+            width: 80%;
+            margin: 0 auto;
+            /* This centers the image */
+            display: block;
+            /* Needed for margin auto to work */
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .city-image:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+        }
+
+        .bottom-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            filter: saturate(1) brightness(0.2) contrast(1.1);
+        }
+
+        .section-title2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .city-name {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .city-container {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-row {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 992px) {
+            .section-title2 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+
+            .city-name {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .presence-section {
+                padding: 60px 0 0;
+                min-height: auto;
+            }
+
+            .section-title2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .city-name {
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+
+            .bottom-image {
+                max-height: 300px;
+            }
+
+            .city-image {
+                width: 70%;
+                /* Slightly smaller on mobile */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title2 {
+                font-size: 1.8rem;
+            }
+
+            .city-container {
+                padding: 10px;
+            }
+
+            .bottom-image {
+                max-height: 250px;
+            }
+
+            .city-image {
+                width: 60%;
+                /* Even smaller on very small screens */
+            }
+        }
+
+
+
+        .dooh-section {
+            padding: 2rem 1.5rem;
+            background: var(--primary-gradient);
+
+        }
+
+        .container-dooh {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dooh-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            padding-right: 30px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .dooh-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            border-left: 2px solid #8a8a8a;
+            padding-left: 30px;
+            text-align: justify;
+            font-weight: 700;
+            /* font-style: italic; */
+        }
+
+        .dooh-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .dooh-title {
+                font-size: 2.2rem;
+                position: static;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .dooh-content p {
+                font-size: 1rem;
+                border-left: none;
+                padding-left: 0;
+                border-top: 2px solid #eee;
+                padding-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .dooh-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .dooh-title {
+                font-size: 1.8rem;
+            }
+
+            .dooh-content p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+        }
+
+
+        :root {
+            --primary: #254896;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-header::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .faq-question:hover {
+            color: #254896;
+        }
+
+        .faq-question::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, #254896, var(--accent));
+            transition: var(--transition);
+        }
+
+        .faq-question.active::before {
+            height: 100%;
+        }
+
+        .faq-question .icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(67, 97, 238, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-question.active .icon {
+            background: #254896;
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .faq-answer.show {
+            padding: 0 25px 25px;
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-answer-content {
+            padding-top: 10px;
+            color: #39424f;
+            font-weight: 500;
+        }
+
+        .faq-answer-content::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+
+            .faq-answer.show {
+                padding: 0 20px 20px;
+            }
+        }
+
+        /* Animated background elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            filter: blur(80px);
+        }
+
+        .bg-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: -150px;
+            right: -150px;
+            filter: blur(100px);
+        }
+    </style>
+
+
+    <style>
+        /* Map section styling */
+        .map-section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); */
+        }
+
+        .map-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293219/pexels-bri-schneiter-28802-346529_vsd2wr.jpg');
+            background-size: cover;
+            opacity: 0.25;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .section-title5 {
+            font-size: 2.5rem;
+            background: linear-gradient(208deg, #003d8e -3.25%, #4061a0ad 107.37%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .map-head ::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .india-map {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(to top, rgb(0 0 0 / 75%) 0%, rgb(255 255 255 / 0%) 100%);
+            z-index: 1;
+        }
+
+        @media (max-width : 1400px) {
+            .map-container {
+                max-width: 1100px;
+                margin: 0 auto;
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                transition: transform 0.3s ease;
+            }
+        }
+
+        @media (max-width : 1300px) {
+            .map-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                transition: transform 0.3s ease;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .map-section {
+                height: 100%;
+                ;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .map-section {
+                padding: 60px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                background: linear-gradient(245deg, #052652 -3.25%, #2D9CDB 107.37%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+
+        }
+
+        @media (max-width: 480px) {
+            .map-section {
+                padding: 40px 10px;
+            }
+
+
+            .map-container {
+                border-radius: 8px;
+            }
+        }
+    </style>
+
+
+    <!-- Add smooth scrolling CSS -->
+
+
+
+</head>
+
+<body class="font-sans">
+    <!-- Header -->
+    <!-- Desktop Header -->
+
+    <header class="header">
+    
+    <div class="container">
+      <div class="logoH">
+        <a href="index.html">
+          <img loading="lazy" src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="Digital Screen Display in India" />
+        </a>
+      </div>
+      <nav class="navbar">
+            <ul class="nav-links">
+                        <li class="links"><a href="index.html">Home</a></li>
+                        <li class="links"><a href="about.html">About Us</a></li>
+                             <li class="links"><a href="SAAS.html">SaaS</a></li>
+                        <li class="links"><a href="blog.html">Blog</a></li>
+                        <li class="links"><a href="career.html">Career</a></li>
+                        <!-- <li class="links"><a href="index.html#section-4">Our Process</a></li> -->
+                        <!-- <li class="dropdown">
+                            <a href="javascript:void(0)" id="moreBtn">More ▼</a>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <a href="blog.html">Blogs</a>
+                                <a href="index.html#section-7">Contact</a>
+                                <a href="career.html">Career</a>
+                            </div>
+                        </li> -->
+                        <li class="links">
+                            <a class="ajayy" href="#quotePopup">Get Quote</a>
+                        </li>
+                    </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="quotePopup" class="quote-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2 class="gradient-text">GET A QUOTE</h2>
+
+        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" id="closePopup"
+          style="cursor: pointer;">
+          <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+
+      </div>
+      <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
+      <form class="quote-form" id="quote-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">*First name</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">*Last name</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">*Email address</label>
+            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              title="Please enter a valid email address (e.g., example@domain.com)" required />
+            <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
+          </div>
+          <div class="form-group">
+            <label for="phone">*Phone number</label>
+            <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter a 10-digit phone number"
+              required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">*Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+      </form>
+    </div>
+  </div>
+
+
+  <nav class="navbar-mobile">
+    <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
+      &#9776;
+    </button>
+    <div class="mobile-links" id="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="SAAS.html">SaaS</a>         
+            <a href="blog.html">Blog</a>
+            <a href="career.html">Career</a>
+            <a class="ajayy" href="javascript:void(0)">Get Quote</a>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    <!-- Full-screen overlay -->
+  </nav>
+    <!-- opps-that's pages -->
+
+    <main>
+        <!-- 1 Section -->
+        <section
+            class="bg-gradient-to-r from-[#0B649A] to-[#075A88] text-white relative overflow-hidden min-h-[880px] md:min-h-[700px] lg:min-h-[880px]">
+
+            <div class="relative z-30 pt-16 md:pt-24 lg:pt-[8rem]">
+                <div class="flex justify-center mb-6 md:mb-10">
+                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365190/logo_ch1tlz.png" alt="Logo" class="w-[200px] md:w-[270px]" />
+                </div>
+                <div class="relative z-10 mx-auto flex flex-col md:flex-row items- justify-between gap-6 md:gap-10 
+                    px-4 md:px-8 2xl:pl-[15rem] 2xl:pr-[9rem] pb-8 md:pb-12 lg:pb-7">
+
+                    <div class="w-full md:w-[36%] flex justify-center md:justify-start z-20 order-1 md:order-none">
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365038/Group_mjtxvf.png" alt="Left Ad"
+                            class="w-[200px] md:w-[300px] lg:w-[413px] drop-shadow-xl rounded-lg transition-transform duration-500 hover:rotate-1" />
+                    </div>
+
+                    <div
+                        class="w-full md:w-1/2 text-center justify-center z-40 mb-10 flex flex-col md:mb-16 lg:mb-[211px] order-2 md:order-none">
+                        <h1 class="text-[28px] leading-tight md:text-[38px] lg:text-[42px] font-poppins font-bold mb-4">
+                            Transform the Way You <br />
+                            <span class="relative inline-block">
+                                Communicate with
+                                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365286/Vactor-4_ws8sbp.svg" alt="underline"
+                                    class="absolute -bottom-1 left-[40px] w-[80px] md:left-[50px] md:w-[100px] z-10" />
+                            </span>
+                            <br />
+                            your customers
+                        </h1>
+                        <p class="text-sm md:text-base lg:text-lg text-blue-100 font-poppins">
+                            Screens as a Service (SaaS) – a flexible, scalable <br class="hidden md:block" />
+                            solution for brands, businesses, and institutions
+                        </p>
+                    </div>
+
+                    <div class="w-full md:w-[38%] flex justify-center md:justify-end z-20 order-3 md:order-none">
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365358/right-screen_lejo9j.png" alt="Right Ad" class="lg:w-[200px] md:w-[350px] lg:w-[425px] lg:h-[550px] md:h-[650px] lg:h-[744px]
+                             drop-shadow-xl rounded-lg transition-transform duration-500 hover:rotate-1" />
+                    </div>
+                </div>
+
+                <div class="relative z-10 mt-[-100px] sm:mt-[-150px] md:mt-[-200px] lg:mt-[-230px]">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365123/cut-img_gx764r.png" alt="Feature Background" class="w-full h-full object-cover" />
+                    </div>
+
+                    <div
+                        class="relative z-20 max-w-screen-xl mx-auto py-8 md:py-10 px-4 md:px-6 flex flex-col md:flex-row items-center 
+                        justify-center md:justify-start gap-6 md:gap-10 lg:gap-[77px] 2xl:gap-[120px] text-[#032A50] text-center md:text-left">
+
+                        <div class="flex flex-col md:flex-row items-center gap-4">
+                            <div class="bg-[#F4F4F4] p-3 md:p-4 rounded-lg flex-shrink-0">
+                                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365440/capital-icon_kqg9bw.png" alt="No Capital Investment"
+                                    class="w-7 h-7 md:w-8 md:h-8" />
+                            </div>
+                            <h4 class="text-base md:text-lg lg:text-2xl font-bold leading-tight">
+                                No Capital <br /> Investment
+                            </h4>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-4">
+                            <div class="bg-[#F4F4F4] p-3 md:p-4 rounded-lg flex-shrink-0">
+                                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365488/Centralized_rv6gkv.png" alt="Centralized" class="w-7 h-7 md:w-8 md:h-8" />
+                            </div>
+                            <h4 class="text-base md:text-lg lg:text-2xl font-bold leading-tight">
+                                Centralized <br /> Management
+                            </h4>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-4">
+                            <div class="bg-[#F4F4F4] p-3 md:p-4 rounded-lg flex-shrink-0">
+                                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365519/Scalable_pf7c1z.png" alt="Scalable" class="w-7 h-7 md:w-8 md:h-8" />
+                            </div>
+                            <h4 class="text-base md:text-lg lg:text-2xl font-bold leading-tight">
+                                Scalable & <br /> Smart
+                            </h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section: About -->
+        <section
+            class="relative lg:min-h-screen bg-center flex flex-col justify-center items-center px-6 md:px-16 py-10 font-[Poppins]"
+            style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365609/BG-Pattern_1_m6kdgo.png')">
+
+            <!-- Top Image -->
+            <div class="w-full max-w-[1080px] h-auto mx-auto mb-10">
+                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365821/Touch-Feature_hibuix.png" alt="Touch Feature" class="w-full h-auto object-contain" />
+            </div>
+
+            <!-- Content Wrapper -->
+            <div
+                class="w-full max-w-screen-xl flex flex-col lg:flex-row items-center justify-between gap-10 px-0 md:px-12 lg:px-0">
+
+                <!-- Left Text Content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left space-y-6 px-4">
+                    <h1
+                        class="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                        Screen as a Service
+                    </h1>
+                    <h4
+                        class="text-2xl font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                        Display Solution
+                    </h4>
+                    <p
+                        class="text-[#000000] text-base md:text-lg leading-relaxed tracking-wide text-justify max-w-[700px]">
+                        A flexible, scalable solution for brands, businesses, and institutions to connect with their
+                        audience through dynamic digital displays. From retail to real estate, from corporate to civic
+                        spaces – our plug-and-play screen network delivers impact where it matters.
+                    </p>
+
+                </div>
+
+                <!-- Right Feature Cards -->
+                <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 px-4">
+
+                    <!-- Card -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F4F4F4] rounded-lg shadow-lg flex justify-center items-center w-[75px] h-[75px] p-2">
+                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365440/capital-icon_kqg9bw.png" alt="Zero CapEx"
+                                class="w-[40px] h-[40px] object-contain" />
+                        </div>
+                        <div>
+                            <h4
+                                class="font-bold text-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                Zero CapEx</h4>
+                            <p class="text-[#000000] text-sm mt-1">No need to purchase hardware or hire technicians</p>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F4F4F4] rounded-lg shadow-lg flex justify-center items-center w-[75px] h-[75px] p-2">
+                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365519/Scalable_pf7c1z.png" alt="Instant Scalability"
+                                class="w-[40px] h-[40px] object-contain" />
+                        </div>
+                        <div>
+                            <h4
+                                class="font-bold text-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                Instant Scalability</h4>
+                            <p class="text-[#000000] text-sm mt-1">Add or reduce screens as per your evolving needs</p>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F4F4F4] rounded-lg shadow-lg flex justify-center items-center w-[75px] h-[75px] p-2">
+                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365987/clock_e5fbgh.png" alt="Real-Time Content"
+                                class="w-[30px] h-[35px] object-contain" />
+                        </div>
+                        <div>
+                            <h4
+                                class="font-bold text-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                Real-Time Content</h4>
+                            <p class="text-[#000000] text-sm mt-1">From anywhere, any time</p>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F4F4F4] rounded-lg shadow-lg flex justify-center items-center w-[75px] h-[75px] p-2">
+                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366026/services_o6siss.png" alt="Maintenance-Free"
+                                class="w-[40px] h-[40px] object-contain" />
+                        </div>
+                        <div>
+                            <h4
+                                class="font-bold text-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                Maintenance-Free</h4>
+                            <p class="text-[#000000] text-sm mt-1">We monitor and maintain your screens, end-to-end</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- process-section -->
+        <!-- How It Works Section -->
+
+
+        <section class="relative overflow-hidden py-2 flex flex-col px-6 md:px-16  bg-center font-[Poppins]"
+            style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365609/BG-Pattern_1_m6kdgo.png')">
+
+            <!-- Heading -->
+            <h1 class="text-[50px] md:text-[50px] font-semibold tracking-wide 
+           text-transparent bg-clip-text 
+           bg-gradient-to-b from-[#052652] to-[#2D9CDB] 
+            text-start 2xl:pl-[230px]">
+                How it works
+            </h1>
+
+
+            <!-- Main Content Row -->
+            <div class="flex flex-col lg:flex-row items-center justify-center w-full gap-12">
+
+                <!-- Left Image -->
+                <div class=" lg:w-1/ flex justify-end">
+                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365694/Installation_d9dij6.png" alt="Installation"
+                        class="max-w-[418px ] md:max-w-[418px] xl:max-w-[421px] object-contain lg:h-auto h-[455px]" />
+                </div>
+
+                <!-- Steps Grid -->
+                <div class=" lg:w-[47%] grid grid-cols-1 sm:grid-cols-2 gap-10 lg:mb-[100px]">
+
+                    <!-- Step Card Template -->
+                    <div
+                        class="flex flex-col gap-3 items-center lg:items-start justify-center text-center lg:text-start">
+
+                        <!-- Number Box -->
+                        <div
+                            class="bg-white rounded-lg shadow-xl text-[#124B7D] font-bold text-[38px] w-[81px] h-[81px] flex items-center justify-center">
+                            1
+                        </div>
+
+                        <!-- Text Content -->
+                        <div class="flex flex-col justify-center items-center lg:items-start px-4 sm:px-8 lg:px-0">
+                            <h4
+                                class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[25px] mb-1">
+                                Choose Your Plan
+                            </h4>
+
+                            <p
+                                class="text-[#000000] text-[15px] leading-relaxed lg:w-[265px] flex flex-wrap justify-center lg:justify-start">
+                                <span class="mr-2 lg:mr-4">Pick</span>
+                                <span class="mr-2 lg:mr-4">from</span>
+                                <span class="mr-2 lg:mr-3">flexible</span>
+                                <span class="mr-1 lg:mr-2">subscription</span>
+                                models – per screen, per location, or per duration.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Step 2 -->
+                    <div
+                        class="flex flex-col gap-3 items-center lg:items-start justify-center text-center lg:text-start">
+                        <div
+                            class="bg-white rounded-lg shadow-md text-[#124B7D] font-bold text-[38px] w-[81px] h-[81px] flex items-center justify-center">
+                            2
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start px-4 sm:px-8 lg:px-0">
+                            <h4
+                                class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[24px] mb-1">
+                                We Install the Screens</h4>
+                            <p
+                                class="text-[#000000] text-[15px] leading-relaxed lg:w-[285px] flex flex-wrap justify-center lg:justify-start">
+                                <span class="mr-3 lg:mr-4">We</span>
+                                <span class="mr-3 lg:mr-4">handle</span>
+                                <span class="mr-3 lg:mr-4">installation,</span>
+                                <span class="mr-2 lg:mr-2">setup,</span>
+                                connectivity, and configuration – fully managed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="flex flex-col gap-3 items-center lg:items-start justify-center text-center lg:text-start">
+                        <div
+                            class="bg-white rounded-lg shadow-md text-[#124B7D] font-bold text-[38px] w-[81px] h-[81px] flex items-center justify-center">
+                            3
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start px-4 sm:px-8 lg:px-0">
+                            <h4
+                                class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[24px] mb-1">
+                                You Control the <br class=""> Content
+                            </h4>
+                            <p class="text-[#000000] text-[15px] leading-relaxed lg:w-[285px]">
+                                Use our cloud-based dashboard to upload, schedule, and monitor your content in
+                                real-time.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="flex flex-col gap-3 items-center lg:items-start justify-center text-center lg:text-start">
+                        <div
+                            class="bg-white rounded-lg shadow-md text-[#124B7D] font-bold text-[38px] w-[81px] h-[81px] flex items-center justify-center">
+                            4
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start px-4 sm:px-8 lg:px-0">
+                            <h4
+                                class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[24px] mb-1">
+                                We Take Care of <br> Everything Else
+                            </h4>
+                            <p class="text-[#000000] text-[15px] leading-relaxed lg:w-[285px]">
+                                From maintenance to updates, we ensure peak performance while you stay focused on your
+                                message.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Features-section -->
+            <!-- Features-section -->
+            <section class="relative overflow-hidden pt-8 px-6 md:px-12"
+                style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365609/BG-Pattern_1_m6kdgo.png');">
+
+                <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+
+                    <!-- Left Text Content -->
+                    <div class="w-full lg:w-1/2 flex flex-col gap-[13px]">
+                        <!-- Heading -->
+                        <h2
+                            class="text-[32px] sm:text-[38px] md:text-[38px] lg:text[41px] 2xl:text-[50px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            Vertical Digital Screen
+                        </h2>
+
+                        <!-- Subheading -->
+                        <h4
+                            class="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            Features & Benefits
+                        </h4>
+
+                        <!-- Description -->
+                        <p
+                            class="text-[#000000] text-[15px] sm:text-[16px] leading-relaxed tracking-wide text-justify max-w-[700px]">
+                            Our cutting-edge Dual Screen Display Technology features two vertically stacked screens,
+                            designed to maximize impact and engagement in both commercial and public environments.
+                            Primary screen delivers stunning visuals for advertisements, while the interactive secondary
+                            touchscreen allows real-time user engagement.
+                        </p>
+
+
+                        <!-- Feature Items -->
+                        <ul class="flex flex-col gap-6 pt-3">
+                            <!-- Feature 1 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366253/modern_roslxz.svg" alt="Modern"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-2" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="text-[17px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                        Modern and Eye-Catching Aesthetic
+                                    </h5>
+                                    <p class="text-[#000000] text-[14px] leading-relaxed tracking-normal max-w-[373px]">
+                                        Vertical displays stand out from traditional horizontal ones, offering a sleek,
+                                        premium, and futuristic appearance that draws attention.
+                                    </p>
+
+                                </div>
+                            </li>
+
+                            <!-- Feature 2 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366293/remote_giuvae.svg" alt="Remote"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-2" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="text-[17px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                        Remote Content Management
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Supports centralized or cloud-based CMS systems for real-time updates and
+                                        scheduling.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 3 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366374/money_mwwrcn.svg" alt="Energy"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-2" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="text-[17px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                        Energy-Efficient Technology
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Designed for 24/7 usage with low power consumption and heat output.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 4 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366409/optimized_bndfy9.svg" alt="Optimized"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-2" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="text-[17px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                        Optimized for Portrait Content
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Connect your brand to the right audience with Digital out-of-home (DOOH) media.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 5 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[87px] sm:h-[87px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366454/space_k3pnyz.svg" alt="Space Saving"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-2" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="text-[17px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                                        Space-Saving Design
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Perfect for narrow or high-traffic areas like corridors, pillars, entrances, and
+                                        elevators.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Dual Screen Subsection -->
+
+                        <h1
+                            class="text-[36px] sm:text-[42px] md:text-[46px] lg:text-[48px] font-montserrat font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            Dual Screen
+                        </h1>
+                        <h4
+                            class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            With Touchscreen Compatibility
+                        </h4>
+                        <p
+                            class="text-[#000000] text-[15px] sm:text-[16px] leading-relaxed tracking-wide text-justify max-w-[700px]">
+                            Perfect for lead capture, navigation, or feedback. With inbuilt camera support, dynamic
+                            content
+                            capabilities, and seamless cloud control, this setup transforms traditional display systems
+                            into
+                            smart, interactive hubs.
+                        </p>
+
+                    </div>
+
+                    <!-- Right Image -->
+                    <div class="w-full lg:w-1/2 flex justify-center mt-10 lg:mt-0">
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366520/Group_sw0q9o.png" alt="Vertical Digital Screen"
+                            class="w-full h-auto max-w-[500px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[650px] xl:max-w-[700px] rounded-xl object-contain drop-shadow-xl" />
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="relative overflow-hidden  flex flex-col pt-10 px-6 md:px-16  bg-center 2xl:pl-[240px]">
+
+                <!-- frist  Section -->
+                <div class="relative overflow-hidden">
+                    <!-- Scroll Left Button -->
+                    <button onclick="scrollToLeft()"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 2xl:bg-white rounded-full 2xl:shadow-md p-2 ">
+                        <i class="fa-solid fa-chevron-left text-xl text-[#052652]"></i>
+                    </button>
+                    <!-- scrool-div -->
+                    <div id="scrollContainer" class="flex overflow-x-auto scroll-smooth w-full snap-x snap-mandatory">
+
+                        <!-- scrol-section-1 -->
+                        <!-- scrol-section-1 -->
+
+                        <div class="min-w-full snap-start 2xl:px-4 lg:pl-[7px] lg:pr-[65px]">
+                            <h2
+                                class="text-[50px] font-montserrat font-semibold bg-gradient-to-b from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent ">
+                                For Retail
+                            </h2>
+
+                            <!-- Card Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left px-4 md:px-0 2xl:w-[1275px]">
+
+                                <!-- Card 1: Product Info & Offers -->
+                                <div
+                                    class=" p-5 rounded-lg lg:w-[340px]  2xl:w-[438px]  overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366579/reatail-img-1_uabra1.png" alt="Product Info & Offers"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Product Info & Offers
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Check product details, prices, and special offers easily on the screen. No need
+                                        to
+                                        ask anyone for deals. Stay
+                                        updated with the latest discounts anytime.
+                                    </p>
+                                </div>
+
+                                <!-- Card 2: Store Navigation -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366621/reatail-img-2_e5mxo1.png" alt="Store Navigation"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Store Navigation
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Easily find where products are placed inside the store using the screen. It
+                                        guides
+                                        you to the right section.
+                                        Saves time and makes shopping easier.
+                                    </p>
+                                </div>
+
+                                <!-- Card 3: Order & Pickup Service -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366671/reatail-img-3_cdyqed.png" alt="Order & Pickup Service"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Order & Pickup Service
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Place your order directly from the screen and choose pickup time. No need to
+                                        wait in
+                                        long lines. Quick, easy,
+                                        and convenient shopping experience.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- scrol-section-2 -->
+                        <div class="min-w-full snap-start 2xl:px-4 lg:pl-[7px] lg:pr-[65px]">
+                            <h2
+                                class="font-montserrat text-[50px] md:text-[50px] font-semibold bg-gradient-to-b from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-[1rem]">
+                                For BFSI
+                            </h2>
+                            <!-- Card Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left px-4 md:px-0 2xl:w-[1275px]">
+                                <!-- Card 1: Product Info & Offers -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366709/BFSI-1_wqbno2.png" alt="Product Info & Offers"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Check Bank Services Info
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Check information about bank services like loans, savings, and insurance on the
+                                         screen. Know interest rates, offers, and benefits easily. Get all details
+                                        without
+                                         waiting in line.
+                                    </p>
+                                </div>
+
+                                <!-- Card 2: Store Navigation -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366914/BFSI-2_qfdbet.png" alt="Store Navigation"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        File Applications or Requests
+                                    </h3>
+
+                                    <!-- <p
+                                class="text-[#000000] text-[15px] leading-relaxed lg:w-[265px] flex flex-wrap justify-center lg:justify-start">
+                                <span class="mr-2 lg:mr-4">Pick</span>
+                                <span class="mr-2 lg:mr-4">from</span>
+                                <span class="mr-2 lg:mr-4">flexible</span>
+                                <span class="mr-1 lg:mr-2">subscription</span>
+                                models – per screen, per location, or per duration.
+                            </p> -->
+
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Easily submit requests for loans, credit cards, or account
+                                        <span class="mr-3 lg:mr-5">updates</span>
+                                        <span class="mr-3 lg:mr-5">from</span>
+                                        <span class="mr-3 lg:mr-5">the</span>
+                                        <span class="mr-1 lg:mr-1"></span>
+                                         screen. No need to fill paper forms. Simple, quick, and hassle-free process
+                                    </p>
+                                </div>
+
+                                <!-- Card 3: Order & Pickup Service -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366944/BFSI-3_aagbmo.png" alt="Order & Pickup Service"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Track Application Status
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Check the status of your loan, credit card, or service request directly on the
+                                         screen. Know if it’s approved, pending, or completed. Saves time and effort
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- scrol-section-3 -->
+                        <div class="min-w-full snap-start 2xl:px-4 lg:pl-[7px] lg:pr-[65px]">
+                            <h2
+                                class="text-[50px] font-montserrat font-semibold bg-gradient-to-b from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent ">
+                                For Municipality
+                            </h2>
+
+                            <!-- Card Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left px-4 md:px-0 2xl:w-[1275px]">
+
+
+                                <!-- Card 1: Product Info & Offers -->
+                                <div
+                                    class=" p-5 rounded-lg lg:w-[350px] 2xl:w-[438px]  overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367000/M-1_jnizm1.png" alt="Product Info & Offers"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Pay electricity, water,<br> and property bills via QR
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Easily pay your electricity, water, and property bills using the QR code on the
+                                        screen.  No need to visit offices or stand in lines. Simple, fast, and
+                                        hassle-free
+                                        payments.
+                                    </p>
+                                </div>
+
+                                <!-- Card 2: Store Navigation -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[350px] 2xl:w-[438px]  overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367028/M-2_fcmyjk.png" alt="Store Navigation"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        File complaints for local <br> civic issues
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Quickly file complaints for issues like streetlights, roads, or garbage directly
+                                        from the  screen. Fill the form and submit it online. It’s easy and saves you
+                                        time.
+                                    </p>
+                                </div>
+
+                                <!-- Card 3: Order & Pickup Service -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[350px] 2xl:w-[438px]  overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367061/M-3_nfpdbs.png" alt="Order & Pickup Service"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Check garbage pickup <br>schedules
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Check daily garbage pickup timings and water supply updates on the screen. Stay
+                                         informed about any delays or changes. It helps you plan your day better.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- scrol-section-4 -->
+
+
+                <div class="min-w-full snap-start 2xl:px-4 lg:pl-[7px] lg:pr-[65px]">
+                            <h2
+                                class="text-[50px] font-montserrat font-semibold bg-gradient-to-b from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent ">
+                                For Retail
+                            </h2>
+
+                            <!-- Card Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left px-4 md:px-0 2xl:w-[1275px]">
+
+                                <!-- Card 1: Product Info & Offers -->
+                                <div
+                                    class=" p-5 rounded-lg lg:w-[340px]  2xl:w-[438px]  overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366579/reatail-img-1_uabra1.png" alt="Product Info & Offers"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Product Info & Offers
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Check product details, prices, and special offers easily on the screen. No need
+                                        to
+                                        ask anyone for deals. Stay
+                                        updated with the latest discounts anytime.
+                                    </p>
+                                </div>
+
+                                <!-- Card 2: Store Navigation -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366621/reatail-img-2_e5mxo1.png" alt="Store Navigation"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Store Navigation
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Easily find where products are placed inside the store using the screen. It
+                                        guides
+                                        you to the right section.
+                                        Saves time and makes shopping easier.
+                                    </p>
+                                </div>
+
+                                <!-- Card 3: Order & Pickup Service -->
+                                <div
+                                    class=" p-5 rounded-lg   lg:w-[340px]  2xl:w-[438px] overflow-hidden flex flex-col items-center">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366671/reatail-img-3_cdyqed.png" alt="Order & Pickup Service"
+                                        class="mb-4 rounded-md lg:w-[398px]" />
+                                    <h3
+                                        class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
+                                        Order & Pickup Service
+                                    </h3>
+                                    <p class="text-[15px] text-[#000000] mt-2 text-start">
+                                        Place your order directly from the screen and choose pickup time. No need to
+                                        wait in
+                                        long lines. Quick, easy,
+                                        and convenient shopping experience.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- Scroll Right Button -->
+                    <button onclick="scrollToRight()"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 2xl:bg-white 2xl:mr-[120px] rounded-full 2xl:shadow-md p-2 hover:bg-gray-100">
+                        <i class="fa-solid fa-chevron-right text-xl text-[#052652]"></i>
+                    </button>
+
+                </div>
+            </section>
+
+
+
+
+            <!-- Camera-section -->
+
+            <section class="relative overflow-hidden flex flex-col lg:pt-10  px-6 md:px-12 2xl:pl-[283px]"
+                style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365609/BG-Pattern_1_m6kdgo.png')">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-10 2xl:gap-0">
+
+                    <div class="w-full flex justify-center mt-10 lg:mt-0 lg:h-[790px]">
+
+                        <!-- Desktop / MacBook Image (Visible only on lg and above) -->
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367240/Image-Camera_go27jm.png" alt="Vertical Digital Screen"
+                            class="hidden lg:block w-full max-w-[38rem] rounded-xl" />
+
+                        <!-- Mobile & Tablet Image (Visible on sm/md, hidden on lg+) -->
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367276/img-123_qdb1s8.png" alt="Vertical Digital Screen"
+                            class="block lg:hidden w-full max-w-[28rem] md:max-w-[34rem] rounded-xl" />
+
+                    </div>
+
+
+                    <div class="w-full space-y-6 lg:space-y-1 2xl:mb-[60px] lg:mb-[48px] lg:ml-[-45px]">
+                        <!-- Title -->
+                        <h2
+                            class="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[50px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            Inbuilt Camera
+                        </h2>
+
+                        <!-- Subtitle -->
+                        <h4
+                            class="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+                            For Smart Analytics & Interactivity
+                        </h4>
+
+                        <!-- Description -->
+                        <p
+                            class="text-[#000000] text-[14px] sm:text-[15px] leading-relaxed tracking-wide text-justify max-w-[480px]">
+                            Equipped with a built-in camera for features such as face detection, footfall analytics,
+                            gesture control, or interactive photo/video capture. Ideal for retail, advertising, and
+                            feedback-based applications.
+                        </p>
+
+                        <!-- Feature List -->
+                        <ul class="space-y-5 pt-6 lg:pt-[45px]">
+                            <!-- Feature 1 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367327/Analytics-1_lds7on.svg" alt="Icon"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px]">
+                                        Face Detection & Counting
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        It counts how many people look at the screen, for how long, and at what
+                                        time—helping
+                                        measure ad reach and screen effectiveness.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 2 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367368/Face-Detection_teqm2d.svg" alt="Icon"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px]">
+                                        AI-Based Interaction
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        With AI integration, the camera enables adaptive content playback (e.g.,
+                                        changing
+                                        content based on the viewer’s age group or gender).
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 3 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367409/Ai-based_uicsog.svg" alt="Icon"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px]">
+                                        Privacy-Safe Technology
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Cameras are typically used for non-invasive, anonymous data. They don't record
+                                        or
+                                        store personal identities—ensuring privacy compliance (GDPR, etc.).
+                                    </p>
+                                </div>
+                            </li>
+
+                            <!-- Feature 4 -->
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]">
+                                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751367448/privacy_lb1hot.svg" alt="Icon"
+                                        class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+                                </div>
+                                <div>
+                                    <h5
+                                        class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px]">
+                                        Optimized for Portrait Content
+                                    </h5>
+                                    <p class="text-[14px] text-[#000000] max-w-[373px]">
+                                        Connect your brand to the right audience with Digital out-of-home (DOOH) media.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <style>
+                .footer {
+                    background: var(--black-10, #1c1c1c1a);
+                    color: #4d4d4d;
+                    padding: 40px 0;
+                }
+
+                .custom-container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    padding: 0 30px;
+                }
+
+                .footer a {
+                    color: #4d4d4d;
+                    text-decoration: none;
+                }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+
+                .footerP {
+                    text-align: justify;
+                    margin-bottom: 1rem;
+                    color: #4d4d4d;
+                }
+
+                .footerP .term {
+                    text-decoration: none;
+                    cursor: pointer;
+                    color: rgba(38, 98, 250, 1);
+                }
+
+                .footerh5 {
+                    color: #006499;
+                }
+
+                .footerimg {
+                    width: 60%;
+                }
+
+                .social-icons a {
+                    display: inline-block;
+                    height: 40px;
+                    width: 40px;
+                    background-color: #4d4d4d;
+                    margin: 0 10px 10px 0;
+                    text-align: center;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    color: #fff;
+                    transition: all 0.5s ease;
+                }
+
+                .social-icons a:hover {
+                    opacity: 0.8;
+                    color: #24262b;
+                    background-color: #fff;
+                }
+
+                .linkk {
+                    line-height: 50px;
+                    text-align: start;
+                }
+
+                .collink {
+                    line-height: 37px;
+                }
+
+                .linkk a::before {
+                    content: "• ";
+                    color: #006499;
+                    font-weight: bold;
+                    font-size: 1.5em;
+                }
+
+                /* Responsive footer styles */
+                @media (max-width: 768px) {
+                    .custom-container {
+                        text-align: center;
+                    }
+
+                    .social-icons {
+                        margin-top: 10px;
+                    }
+
+                    .linkk {
+                        line-height: 30px;
+                    }
+
+                    .footerimg {
+                        width: 50%;
+                    }
+
+                    .mt-4 {
+                        margin-top: 1.5rem !important;
+                        margin-bottom: 0;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .footerimg {
+                        width: 58%;
+                    }
+                }
+            </style>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="custom-container">
+            <div class="flex flex-wrap -mx-4">
+                <!-- Logo and Description -->
+                <div class="w-full md:w-1/3 px-4 text-center md:text-left">
+                    <h2 class="mt-3">
+                        <a href="https://www.aekads.com" target="_blank">
+                            <img loading="lazy"
+                                src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+                                alt="Digital Screen Display in India" class="footerimg" />
+                        </a>
+                    </h2>
+                    <p class="footerP">
+                        Bringing stories to residential, corporate, and commercial zones. We integrate your
+                        brand
+                        into
+                        the daily lives of real audiences. Reach where people live, work, and shop. Smart
+                        advertising for
+                        smart cities.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/aekads1/" target="_blank" rel="noopener"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aek_ads/" target="_blank" rel="noopener"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/aekads/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@aek_ads" target="_blank" rel="noopener" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="w-full md:w-1/3 px-4 text-center md:text-left mt-6 md:mt-0">
+                    <h5 class="footerh5">Quick Links</h5>
+                    <div class="flex">
+                        <div class="w-1/2 linkk">
+                            <a href="about.html">About Us</a><br />
+                            <a href="#section-2">Why AekAds?</a><br />
+                            <a href="#section-3">Dual Screen Tech</a>
+                        </div>
+                        <div class="w-1/2 linkk">
+                            <a href="#section-4">Our Process</a><br />
+                            <a href="blog.html">Blog</a><br />
+                            <a href="#section-5">Brands That Trust Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="w-full md:w-1/3 px-4 text-center md:text-left mt-6 md:mt-0">
+                    <h5 class="footerh5">Contact Us</h5>
+                    <div class="collink mt-3">
+                        <p class="footerP flex items-center justify-center md:justify-start gap-2">
+                            <!-- phone icon -->
+                            <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="..." fill="#006499" />
+                            </svg>
+                            +91 80908 02014
+                        </p>
+                        <p class="footerP flex items-center justify-center md:justify-start gap-2">
+                            <!-- email icon -->
+                            <svg width="17" height="18" viewBox="0 0 12 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="..." fill="#006499" />
+                            </svg>
+                            sales@aekads.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="text-[#4d4d4d] text-center mt-5">Popular Searches</h4>
+            <marquee behavior="scroll" direction="left" scrollamount="3"
+                class="text-[#4d4d4d] text-base py-5 border-t border-black/20 mt-5">
+                Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads | Ahmedabad No.1 Digital
+                Advertising Screen Network • ...
+            </marquee>
+
+            <div class="text-center">
+                <p class="footerP text-center">
+                    <a class="term" href="terms-of-use.html" target="_blank">Terms of Use</a> |
+                    <a class="term" href="privacy-policy.html" target="_blank">Privacy Policy</a> |
+                    Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    poppins: ['Poppins', 'sans-serif'],
+                    montserrat: ['Montserrat', 'sans-serif'],
+                },
+            },
+        },
+    };
+       const container = document.getElementById("scrollContainer");
+        let index = 0;
+        let scrollStep = container.offsetWidth;
+        let scrollTimer = null;
+        let isScrolling = false;
+
+        const sections = Array.from(container.children);
+
+        // 🔄 Update scroll step on resize
+        window.addEventListener("resize", () => {
+            scrollStep = container.offsetWidth;
+        });
+
+        // 🟡 Auto Scroll Function
+        function autoScroll() {
+            index = Math.round(container.scrollLeft / scrollStep);
+            index++;
+
+            container.scrollTo({
+                left: index * scrollStep,
+                behavior: "smooth",
+            });
+
+            // ⛔ Stop at last section
+            if (index >= sections.length - 1) {
+                clearInterval(scrollTimer);
+                isScrolling = false;
+            }
+        }
+
+        // ▶️ Start Auto Scroll
+        function startAutoScroll() {
+            if (isScrolling) return;
+            scrollTimer = setInterval(autoScroll, 20000); // every 3s
+            isScrolling = true;
+        }
+
+        // ⏹️ Stop Auto Scroll
+        function stopAutoScroll() {
+            clearInterval(scrollTimer);
+            isScrolling = false;
+        }
+
+        // ▶️ Start auto-scroll initially
+        startAutoScroll();
+
+        // 🖱️ Pause/resume on hover
+        container.addEventListener("mouseenter", stopAutoScroll);
+        container.addEventListener("mouseleave", () => {
+            if (index >= sections.length - 1) return;
+            startAutoScroll();
+        });
+
+  function scrollToLeft() {
+    index = Math.round(container.scrollLeft / scrollStep);
+    if (index > 0) {
+        index--;
+        container.scrollTo({
+            left: index * scrollStep,
+            behavior: "smooth",
+        });
+        stopAutoScroll();
+    }
+}
+
+function scrollToRight() {
+    index = Math.round(container.scrollLeft / scrollStep);
+    if (index < sections.length - 1) {
+        index++;
+        container.scrollTo({
+            left: index * scrollStep,
+            behavior: "smooth",
+        });
+        stopAutoScroll();
+    }
+}
+
+    // Dropdown Menu
+const moreBtn = document.getElementById("moreBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+if (moreBtn && dropdownMenu) {
+  moreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownMenu.style.opacity === "1";
+    isOpen ? closeDropdown() : openDropdown();
+  });
+
+  dropdownMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeDropdown);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdownMenu.contains(e.target) && e.target !== moreBtn) {
+      closeDropdown();
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    if (dropdownMenu.style.opacity === "1") {
+      closeDropdown();
+    }
+  });
+}
+
+function openDropdown() {
+  dropdownMenu.style.opacity = "1";
+  dropdownMenu.style.transform = "translateY(0)"; 
+  dropdownMenu.style.pointerEvents = "auto";
+}
+
+function closeDropdown() {
+  dropdownMenu.style.opacity = "0";
+  dropdownMenu.style.transform = "translateY(10px)";
+  dropdownMenu.style.pointerEvents = "none";
+}
+
+// Quote Popup
+document.addEventListener("DOMContentLoaded", function () {
+  const quoteButtons = document.querySelectorAll(".ajayy");
+  const quotePopup = document.getElementById("quotePopup");
+  const popupContent = document.querySelector(".popup-content");
+  const quoteForm = document.getElementById("quote-form");
+
+  function openPopup() {
+    quotePopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePopup() {
+    quotePopup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  if (quotePopup) {
+    setTimeout(openPopup, 5000);
+
+    quotePopup.addEventListener("click", function (e) {
+      if (e.target === quotePopup) closePopup();
+    });
+
+    quoteButtons.forEach((button) => {
+      button.addEventListener("click", openPopup);
+    });
+  }
+
+  popupContent?.addEventListener("click", (e) => e.stopPropagation());
+
+  // Highlight rotation
+  const highlights = document.querySelectorAll(".highlight");
+  let currentIndex = 0;
+  setInterval(() => {
+    highlights.forEach((hl) => hl.classList.remove("active"));
+    currentIndex = (currentIndex + 1) % highlights.length;
+    highlights[currentIndex].classList.add("active");
+  }, 2500);
+
+  document.getElementById("closePopup")?.addEventListener("click", closePopup);
+
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      // Get the submit button
+      const submitButton = quoteForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      
+      // Add loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Submitting...
+      `;
+      
+      const formData = new FormData(quoteForm);
+      const formObject = {};
+      formData.forEach((value, key) => (formObject[key] = value));
+
+      try {
+        const response = await fetch(
+          "https://cms.aekads.com/api/send-message",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formObject),
+          }
+        );
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        Swal.fire({
+          title: "Success!",
+          text: "We have received your request for a quote. Our sales representative will contact you soon!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button",
+          },
+        });
+
+        closePopup();
+        quoteForm.reset();
+      } catch (error) {
+        console.error("Submission error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to send message. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            confirmButton: "custom-button-error",
+          },
+        });
+      } finally {
+        // Restore button to original state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  }
+});
+
+// Slideshow
+document.addEventListener("DOMContentLoaded", function () {
+  const allSlides = document.querySelectorAll(".slide1");
+  let current = 0;
+
+  function getVisibleSlides() {
+    const isMobile = window.innerWidth <= 700;
+    return Array.from(allSlides).filter((slide) =>
+      isMobile
+        ? slide.classList.contains("mobile-img")
+        : slide.classList.contains("desktop-img")
+    );
+  }
+
+  function showNextSlide() {
+    const visibleSlides = getVisibleSlides();
+    if (visibleSlides.length === 0) return;
+
+    visibleSlides[current]?.classList.remove("active");
+    current = (current + 1) % visibleSlides.length;
+    visibleSlides[current]?.classList.add("active");
+  }
+
+  function initializeSlideshow() {
+    const visibleSlides = getVisibleSlides();
+    visibleSlides.forEach((slide, index) => {
+      slide.classList.remove("active");
+      if (index === 0) slide.classList.add("active");
+    });
+    current = 0;
+  }
+
+  if (allSlides.length > 0) {
+    initializeSlideshow();
+    setInterval(showNextSlide, 2500);
+    window.addEventListener("resize", initializeSlideshow);
+  }
+});
+
+// Header Scroll and Active Links
+let scroll;
+let lastScrollY = window.scrollY;
+const header = document.querySelector(".header");
+let navLinksActive = false;
+
+function handleScroll(currentScrollY) {
+  if (!header) return;
+
+  if (currentScrollY <= 0) {
+    header.classList.remove("header-hidden");
+    header.classList.add("header-visible");
+    return;
+  }
+
+  if (Math.abs(currentScrollY - lastScrollY) < 5) return;
+
+  if (currentScrollY > lastScrollY) {
+    header.classList.remove("header-visible");
+    header.classList.add("header-hidden");
+  } else {
+    header.classList.remove("header-hidden");
+    header.classList.add("header-visible");
+  }
+
+  lastScrollY = currentScrollY;
+}
+
+function updateActiveLink() {
+  const links = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("section[id]");
+  let currentSection = "";
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+    const sectionHeight = rect.height;
+    const sectionId = section.getAttribute("id");
+
+    if (
+      window.scrollY >= sectionTop - 200 &&
+      window.scrollY < sectionTop + sectionHeight - 200
+    ) {
+      currentSection = sectionId;
+    }
+  });
+
+  if (currentSection && !navLinksActive) {
+    links.forEach((link) => {
+      link.classList.remove("active");
+      const href = link.getAttribute("href");
+
+      if (
+        href === `#${currentSection}` ||
+        (currentSection === "section-0" &&
+          (href === "#" || href === "#section-0"))
+      ) {
+        link.classList.add("active");
+      }
+    });
+  }
+}
+
+
+// Locomotive Scroll Init
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollContainer = document.querySelector("[data-scroll-container]");
+  if (scrollContainer) {
+    scroll = new LocomotiveScroll({
+      el: scrollContainer,
+      smooth: true,
+      lerp: 0.08,
+      getDirection: true,
+      repeat: true,
+    });
+
+    scroll.on("scroll", (args) => {
+      handleScroll(args.scroll.y);
+      updateActiveLink();
+      // updateTimelineProgress(); // 👈 Timeline update on scroll
+    });
+
+    setTimeout(() => scroll.update(), 1000);
+  }
+
+  const links = document.querySelectorAll(".nav-links a");
+  if (links.length > 0) {
+    links[0].classList.add("active");
+  }
+
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      navLinksActive = true;
+
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      links.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement && scroll) {
+        scroll.scrollTo(targetElement);
+      }
+
+      setTimeout(() => {
+        navLinksActive = false;
+      }, 1000);
+    });
+  });
+
+ // MOBILE MENU LOGIC
+ const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+ const mobileLinks = document.getElementById("mobile-links");
+ const overlay = document.getElementById("overlay");
+
+ let lastScrollTop = 0;
+
+ window.addEventListener("scroll", function () {
+   let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+   if (scrollTop > lastScrollTop) {
+     mobileMenuIcon.style.opacity = "0";
+     mobileMenuIcon.style.pointerEvents = "none";
+   } else {
+     mobileMenuIcon.style.opacity = "1";
+     mobileMenuIcon.style.pointerEvents = "auto";
+   }
+   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+ });
+
+ function createCloseButton() {
+   const closeBtn = document.createElement("button");
+   closeBtn.className = "close-btn";
+   closeBtn.innerHTML = "&#10005;";
+   closeBtn.addEventListener("click", function () {
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     closeBtn.remove();
+   });
+   return closeBtn;
+ }
+
+ mobileMenuIcon.addEventListener("click", function () {
+   mobileLinks.classList.toggle("active");
+   overlay.classList.toggle("active");
+
+   if (mobileLinks.classList.contains("active")) {
+     const closeBtn = createCloseButton();
+     mobileLinks.appendChild(closeBtn);
+     mobileMenuIcon.innerHTML = "&#10005;";
+   } else {
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+     mobileMenuIcon.innerHTML = "&#9776;";
+   }
+ });
+
+ overlay.addEventListener("click", function () {
+   mobileLinks.classList.remove("active");
+   overlay.classList.remove("active");
+   mobileMenuIcon.innerHTML = "&#9776;";
+   const closeBtn = mobileLinks.querySelector(".close-btn");
+   if (closeBtn) closeBtn.remove();
+ });
+
+ // Smooth scroll for all anchors
+ document.querySelectorAll('a[href^="#"]').forEach((link) => {
+   link.addEventListener("click", function (event) {
+     event.preventDefault();
+     const targetElement = document.querySelector(this.getAttribute("href"));
+     if (targetElement) {
+       scroll.scrollTo(targetElement);
+     }
+     mobileLinks.classList.remove("active");
+     overlay.classList.remove("active");
+     mobileMenuIcon.innerHTML = "&#9776;";
+     const closeBtn = mobileLinks.querySelector(".close-btn");
+     if (closeBtn) closeBtn.remove();
+   });
+ });
+});
+</script>
+</body>
+</html>
+
+
+
