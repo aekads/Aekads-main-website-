@@ -26,10 +26,13 @@
     <style>
         html,
         body {
-            overflow: hidden;
-            height: 100%;
+            overflow-x: hidden;
+            /* horizontal scroll band karna hai to ye raho */
+            height: auto;
+            /* height 100% ki zarurat nahi hai */
             font-family: 'Poppins', sans-serif;
         }
+
 
         #scroll-container {
             min-height: 100vh;
@@ -55,9 +58,7 @@
     </style>
 </head>
 
-<style>
 
-</style>
 
 <body class="font-sans">
 
@@ -77,7 +78,7 @@
                 <ul class="nav-links2">
                     <li class="links"><a href="index.html">Home</a></li>
                     <li class="links"><a href="about.html">About Us</a></li>
-                    <li class="links"><a href="SAAS.html">SaaS</a></li> 
+                    <li class="links"><a href="SAAS.html">SaaS</a></li>
                     <li class="links"><a href="blog.html">Blog</a></li>
                     <li class="links"><a href="career.html">Career</a></li>
                     <!-- <li class="links"><a href="index.html#section-4">Our Process</a></li> -->
@@ -153,8 +154,8 @@
         <div class="mobile-links" id="mobile-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
+            <a href="SAAS.html">SaaS</a> 
             <a href="blog.html">Blog</a>
-             <a href="SAAS.html">SaaS</a>   
             <a href="career.html">Career</a>
             <a class="ajayy" href="javascript:void(0)">Get Quote</a>
             <button class="close-btn" id="mobile-close">&times;</button>
@@ -183,7 +184,7 @@
                         <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751546176/Vector-55_am9pe3.svg"
                             alt="Arrow Vector"
                             class="absolute lg:left-[260px] 2xl:left-[527px] w-10 md:w-[7rem] z-10" />
-                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365038/Group_mjtxvf.png"
+                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751609685/ok2_ezcrql.png"
                             alt="Left Ad"
                             class="w-[200px] md:w-[300px] lg:w-[413px] drop-shadow-xl rounded-lg transition-transform duration-500 hover:rotate-1" />
                     </div>
@@ -338,9 +339,9 @@
                                 class="font-bold text-lg mt-[0px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
                                 Zero CapEx
                             </h4>
-                           <p class="text-[#000000] text-sm mt-1 whitespace-nowrap overflow-hidden text-ellipsis">
-    No need to purchase<br> hardware hire technicians
-</p>
+                            <p class="text-[#000000] text-sm mt-1 whitespace-nowrap overflow-hidden text-ellipsis">
+                                No need to purchase<br> hardware hire technicians
+                            </p>
 
                         </div>
                     </div>
@@ -401,7 +402,7 @@
             style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365609/BG-Pattern_1_m6kdgo.png')">
 
             <!-- Heading -->
-            <h1 class="text-[50px] md:text-[50px] font-semibold tracking-wide 
+            <h1 class="lg:text-[50px] text-[33px] md:text-[50px] font-semibold tracking-wide 
            text-transparent bg-clip-text 
            bg-gradient-to-b from-[#052652] to-[#2D9CDB] 
             text-start 2xl:pl-[255px] opacity-0" data-animate>
@@ -672,7 +673,7 @@
 
                 <!-- Right Image -->
                 <div class="w-full lg:w-1/2 flex justify-center mt-10 lg:mt-0 opacity-0" data-animate>
-                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751366520/Group_sw0q9o.png"
+                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751609685/ok2_ezcrql.png"
                         alt="Vertical Digital Screen"
                         class="w-full h-auto max-w-[500px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[650px] xl:max-w-[700px] rounded-xl object-contain drop-shadow-xl" />
 
@@ -780,7 +781,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check Bank Services Info
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check information about bank services like loans, savings, and insurance on the
                                     screen. Know interest rates, offers, and benefits easily. Get all details
                                     without
@@ -807,7 +809,8 @@
                                 models – per screen, per location, or per duration.
                             </p> -->
 
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Easily submit requests for loans, credit cards, or account
                                     <span class="mr-3 lg:mr-5">updates</span>
                                     <span class="mr-3 lg:mr-5">from</span>
@@ -826,7 +829,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Track Application Status
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check the status of your loan, credit card, or service request directly on the
                                     screen. Know if it’s approved, pending, or completed. Saves time and effort
                                 </p>
@@ -855,7 +859,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Pay electricity, water,<br> and property bills via QR
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Easily pay your electricity, water, and property bills using the QR code on the
                                     screen. No need to visit offices or stand in lines. Simple, fast, and
                                     hassle-free
@@ -872,7 +877,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     File complaints for local <br> civic issues
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Quickly file complaints for issues like streetlights, roads, or garbage directly
                                     from the screen. Fill the form and submit it online. It’s easy and saves you
                                     time.
@@ -888,7 +894,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check garbage pickup <br>schedules
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check daily garbage pickup timings and water supply updates on the screen. Stay
                                     informed about any delays or changes. It helps you plan your day better.
                                 </p>
@@ -919,7 +926,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check Product Availability
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check if milk, curd, ghee, or other dairy products are available on the screen.
                                     Noneed to ask anyone. Get real-time stock updates easily.
                                 </p>
@@ -934,7 +942,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Dairy Farm Doctor Visit
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Dairy farm doctor visit timings easily on the screen. Get quick help for cow health,
                                     farm check-ups, and treatment services.
                                 </p>
@@ -949,7 +958,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     View Prices & Offers
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check the latest prices and special offers on milk, ghee, curd, and more. Stay
                                     updated with daily deals directly on the screen. Simple and quick.
                                 </p>
@@ -980,7 +990,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Track the FIR or <br> application status.
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check if milk, curd, ghee, or other dairy products are available on the screen.
                                     Noneed to ask anyone. Get real-time stock updates easily.
                                 </p>
@@ -995,7 +1006,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     File cybercrime <br> complaints online.
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Dairy farm doctor visit timings easily on the screen. Get quick help for cow health,
                                     farm check-ups, and treatment services.
                                 </p>
@@ -1010,7 +1022,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Access emergency <br> contact numbers.
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check the latest prices and special offers on milk, ghee, curd, and more. Stay
                                     updated with daily deals directly on the screen. Simple and quick.
                                 </p>
@@ -1040,7 +1053,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check doctor availability <br> and timings
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Now check which doctors are available and what their timings are, right on the
                                     screen. No need to wait or ask anyone. Get quick updates about doctors anytime.
                                 </p>
@@ -1055,7 +1069,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Book doctor <br> appointments easily
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     You can easily book a doctor appointment from the screen without standing in line.
                                     Just select the doctor and choose your time. It saves your time and makes the
                                     process simple.
@@ -1071,7 +1086,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Find nearby medical and <br> pharmacy stores
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Quickly find nearby medical stores and pharmacies using the screen. It shows the
                                     nearest locations with maps and directions. Easy help in emergencies or daily needs.
                                 </p>
@@ -1100,7 +1116,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check real-time bus or <br>metro schedules
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check real-time bus and metro schedules easily on the screen. Know exactly when your
                                     bus or train is arriving. Travel becomes smooth and worry-free.
                                 </p>
@@ -1115,7 +1132,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Find platform numbers <br>for buses or trains
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Easily find platform numbers for your bus or train on the screen. No need to search
                                     or ask anyone. Get clear directions for a smooth journey
                                 </p>
@@ -1130,7 +1148,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Locate nearby hotels,<br> restaurants, and ATMs
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Quickly find nearby hotels, restaurants, and ATMs on the screen. Get directions and
                                     details in seconds. Helpful for travelers and daily commuters
                                 </p>
@@ -1159,7 +1178,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Check Class Schedules
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Students can check class schedules, exam dates, and lecture timings directly on the
                                     screen. Stay updated without asking anyone. Simple and time-saving.
                                 </p>
@@ -1174,7 +1194,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Fee Payment
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Pay your school, college, or coaching fees easily from the screen. Just scan the QR
                                     code and complete the payment. Quick, safe, and hassle-free.
                                 </p>
@@ -1189,7 +1210,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Result & Application Status
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check your exam results, admission status, or form updates directly on the screen.
                                     Stay informed anytime without visiting the office. Fast and simple.
                                 </p>
@@ -1218,7 +1240,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Daily Nutrition <br> Information
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Get details about the daily nutritious meals provided for children at Anganwadi
                                     centers. Track application and result status
                                 </p>
@@ -1233,7 +1256,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     See the schedule for <br> health camps & services
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Check the dates and timings for health camps and other services on the screen. Stay
                                     informed about vaccination drives, nutrition programs, and checkups.
                                 </p>
@@ -1248,7 +1272,8 @@
                                     class="font-semibold lg:text-[22px] 2xl:text-[25px] w-full bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-start">
                                     Apply for government <br> welfare scheme
                                 </h3>
-                                <p class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
+                                <p
+                                    class="text-[15px] text-[#000000] mt-2 text-start leading-relaxed tracking-wide text-justify">
                                     Apply for government welfare schemes directly from the screen. Fill out forms for
                                     benefits like pensions, ration cards, or subsidies. Simple, quick, and hassle-free
                                     process.
@@ -1606,7 +1631,7 @@
 
             <!-- Right Side: Full Screenshot Image -->
             <div class="w-full lg:w-[904px] h-screen flex justify-center items-center">
-                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293224/sec8image_rpxj9n.png"
+                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751609589/ok_xukiea.png"
                     alt="Right Full Screenshot" class="rounded-lg  w-full h-full object-contain" />
             </div>
 
