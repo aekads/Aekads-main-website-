@@ -4,6 +4,22 @@
       "src": "/about",
       "dest": "/about.html"
     },
+     {
+      "src": "/index",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/privacy-policy",
+      "dest": "/privacy-policy.html"
+    },
+    {
+      "src": "/SAAS",
+      "dest": "/SAAS.html"
+    },
+    {
+      "src": "/terms-of-use",
+      "dest": "/terms-of-use.html"
+    },
     {
       "src": "/career",
       "dest": "/career.html"
