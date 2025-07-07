@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/about",
+      "dest": "/about.html"
+    },
+    {
+      "src": "/career",
+      "dest": "/career.html"
+    },
+    {
+      "src": "/blog",
+      "dest": "/blog.html"
+    }
+  ]
+}
