@@ -96,9 +96,6 @@
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, "script", "dataLayer", "GTM-WH84TPNF");
-
-
-
     </script>
     <!-- End Google Tag Manager -->
 
@@ -106,7 +103,7 @@
     <style></style>
 </head>
 
-<body class="bg-[#FAFAFA]  dark:bg-gradient-to-r dark:from-[#052652] text-gray-800 dark:text-gray-100">
+<body class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] text-gray-800 dark:text-gray-100">
     <script>
         tailwind.config = {
             theme: {
@@ -117,7 +114,7 @@
                     },
                 },
             },
-            darkMode: 'class', // This enables class-based dark mode
+            darkMode: "class", // This enables class-based dark mode
         };
     </script>
     <!-- Header-section -->
@@ -147,9 +144,9 @@
                         alt="Digital Screen Display in India" />
                 </a>
             </div>
-            <nav class="navbar ">
-                 <ul class="nav-links ">
-                    <li class="links"><a href="ADS.html">Home</a></li>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li class="links"><a href="#section-0">Home</a></li>
                     <li class="links"><a href="about.html">About Us</a></li>
                     <li class="links"><a href="ADS.html">Our Innovation</a></li>
                     <!-- <li class="links"><a href="why-aekads.html">Why Aek Ads?</a></li> -->
@@ -165,71 +162,61 @@
                     </li>
                 </ul>
                 <!-- In your navbar section, add this button -->
-<button id="darkModeToggle"
-    class="ml-4 p-2 rounded-full focus:outline-none transition-colors duration-300 
-           hover:bg-gray-200 dark:hover:bg-gray-700 block">
-
-    <!-- Moon icon (for dark mode) -->
-    <svg id="darkIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 
+                <button id="darkModeToggle"
+                    class="ml-4 p-2 rounded-full focus:outline-none transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 block">
+                    <!-- Moon icon (for dark mode) -->
+                    <svg id="darkIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 
             0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 
             7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
-    </svg>
+                    </svg>
 
-    <!-- Sun icon (for light mode) -->
-    <svg id="lightIcon" class="w-6 h-6 hidden" fill="none" stroke="white" viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 
+                    <!-- Sun icon (for light mode) -->
+                    <svg id="lightIcon" class="w-6 h-6 hidden" fill="none" stroke="white" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 
             6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 
             1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 
             3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path>
-    </svg>
-</button>
-
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Below mobile navabar -->
-    <nav class="navbar-mobile" >
+    <nav class="navbar-mobile">
+        <div class="flex justify-between items-center px-3 p-2">
+            
+            <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
+                &#9776;
+            </button>
 
-      <div class="flex justify-between items-center px-3 p-2">
-
-           <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
-            &#9776;
-        </button>
-
-<button id="darkModeToggleMobile" class="ml-4 p-2 rounded-full focus:outline-none">
-    <svg id="darkIconMobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-        </path>
-    </svg>
-    <svg id="lightIconMobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-        </path>
-    </svg>
-</button>
-
-      
+            <button id="darkModeToggleMobile" class="ml-4 p-2 rounded-full focus:outline-none">
+                <svg id="darkIconMobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                    </path>
+                </svg>
+                <svg id="lightIconMobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                    </path>
+                </svg>
+           </button>
         </div>
-     
-   
+
         <div class="mobile-links" id="mobile-links">
-              <button id="mobile-close-icon" class="absolute top-4 right-4 text-3xl font-bold text-black md:hidden">
-    &times;
-  </button>
-  
+            <button id="mobile-close-icon" class="absolute top-4 right-4 text-3xl font-bold text-black md:hidden">
+                &times;
+            </button>
 
             <a href="about.html">About Us</a>
             <!-- In your navbar section, add this button -->
-          
+
             <a href="#section-2">Our Innovation</a>
             <a href="#section-3">Pricing</a>
             <a href="#section-4">Our Process</a>
@@ -240,108 +227,109 @@
         </div>
         <div class="overlay" id="overlay"></div>
         <!-- Full-screen overlay -->
+         
     </nav>
 
-
     <main id="scroll-container" data-scroll-container style="height: auto">
+        <!-- ✅ Mobile-Only Logo Above Section 1 -->
+<!-- ✅ Fixed Mobile Logo at Top -->
+<div class="fixed top-0 left-0 w-full z-50 block md:hidden bg-[#FAFAFA] dark:bg-[#2D9CDB] py-2 flex justify-center ">
+  <a href="index.html">
+    <img
+      src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+      alt="Logo"
+      class="h-10"
+    />
+  </a>
+</div>
+
         <!-- section-1 -->
-        <section
-            class="min-h-[85vh] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
-            <!-- First Section -->
-            <div class="flex flex-col justify-center items-center lg:pt-[102px] 2xl:pt-[155px]">
-                <!-- Title & Button -->
-                <div class="flex flex-col items-center justify-center px-4 text-center min-h-[240px] lg:min-h-[280px]">
+      <section class="min-h-[85vh] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
 
+        
+  <div class="flex flex-col justify-center items-center lg:pt-[67px]">
+    <!-- Title & Button -->
+    <div class="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 lg:px-16 py-6 2xl:ml-[0px] lg:ml-[60px]">
+      <!-- Left Content -->
+      <div class="text-center lg:text-left w-full lg:w-1/2 2xl:pl-[312px]">
+        <h1 class="text-[24px] lg:text-[45px] 2xl:text-[48px] font-semibold leading-tight font-[Montserrat] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0" data-animate>
+          <span class="sr-only">Aek Ads -</span>
+          <span class="inline-block dark:text-white">Advertise on India's Best</span><br />
+          <span class="inline-block dark:text-white">Digital Screens Network</span>
+        </h1>
+     <button class="mt-6 w-full max-w-[273px] px-6 py-3 rounded-xl shadow-md bg-[#122B39] hover:bg-[#0E1F2C] transition-colors duration-300 text-[#FFF] font-medium dark:bg-[#F4F4F4] dark:text-[#333]">
+                            Start Advertising
+                        </button>
+      </div>
 
-                    <h1 class="text-[24px] lg:text-[50px] font-semibold leading-tight font-[Montserrat] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent 
-                        dark:text-white opacity-0" data-animate>
-                        <span class="sr-only">Aek Ads -</span>
-                        <span class="inline-block dark:text-gray-300">India's Best And Largest</span><br />
-                        <span class="inline-block dark:text-gray-300">Digital Screen Network</span>
-                    </h1>
-                    <button class="mt-6 w-full max-w-[273px] px-6 py-2 
-             rounded-xl shadow-md 
-             bg-[#122b39]  
-             hover:bg-[#0e1f2c] 
-             transition 
-             dark:bg-white dark:text-black text-[#FFF] font-[500]">
-                        Start Advertising
-                    </button>
+      <!-- Right Image -->
+      <div class="w-full lg:w-1/2 flex justify-center">
+        <img src="Touch Dual Screen Mockup 3 2.png" alt="Digital Ad Screen" class="max-w-[300px] md:max-w-[400px] lg:max-w-[460px] 2xl:max-w-[620px] w-full h-auto rounded-[22px]" />
+      </div>
+    </div>
 
-
-
+    <!-- Cards Section -->
+    <div class="w-full px-4 md:px-8 lg:px-16 p-2 lg:ml-[10px] 2xl:ml-[0px]">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="rightText w-full lg:pl-0 2xl:pl-[14%]">
+          <div class="flex flex-col md:flex-row flex-wrap gap-6 opacity-0" data-animate>
+            <!-- Card 1 -->
+            <div class="w-full md:w-[32%]">
+              <div class="stat-item dark:bg-white-800">
+                <div class="stat-card mb-3 flex justify-center">
+                  <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469182/screens_ygzyut.png" alt="3500+ Screens" class="mx-auto" />
                 </div>
-
-                <!-- Cards Section -->
-                <div class="w-full px-4 md:px-8 lg:px-16 p-2 lg:mt-[20px]">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="rightText w-full lg:pl-0 2xl:pl-[14%]">
-                            <div class="flex flex-col md:flex-row flex-wrap gap-6 opacity-0" data-animate>
-                                <!-- Card 1 -->
-                                <div class="w-full md:w-[32%]">
-                                    <div class="stat-item dark:bg-white-800">
-                                        <div class="stat-card mb-3 lg:flex hidden">
-                                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469182/screens_ygzyut.png"
-                                                alt="3500+ Screens" class="mx-auto" />
-                                        </div>
-                                        <div class="stat-text text-center md:text-left ">
-                                            <h5
-                                                class="text-xl lg:text-start font-semibold mb-2 bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
-                                                3500+ Screens
-                                            </h5>
-                                            <p class="text-[#000000] text-sm w-[310px] dark:text-white">
-                                                Across 2000+ Residential, 1500+ Commercial &
-                                                Corporate, and 10+ Outdoor Locations
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2 -->
-                                <div class="w-full md:w-[32%]">
-                                    <div class="stat-item">
-                                        <div class="stat-card mb-3 lg:flex hidden">
-                                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469081/eye_bjmb2j.png"
-                                                alt="1 Cr+ Daily Impressions" class="mx-auto" />
-                                        </div>
-                                        <div class="stat-text text-center md:text-left">
-                                            <h5
-                                                class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white text-xl lg:text-start font-semibold mb-2  dark:text-gray-300">
-                                                1 Cr+ Daily Impressions
-                                            </h5>
-                                            <p class="text-[#000000] text-sm w-[310px]  dark:text-gray-300 ">
-                                                Driving Unmatched Visibility. Maximize Your Brand's
-                                                Reach with Our Expansive Network!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 -->
-                                <div class="w-full md:w-[32%]">
-                                    <div class="stat-item">
-                                        <div class="stat-card mb-3 lg:flex hidden">
-                                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469128/Location_rg3qav.png"
-                                                alt="8 Cities" class="mx-auto" />
-                                        </div>
-                                        <div class="stat-text text-center md:text-left">
-                                            <h5
-                                                class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white text-xl font-semibold mb-2 lg:text-start">
-                                                8 Cities
-                                            </h5>
-                                            <p class="text-[#000000] text-sm w-[310px]  dark:text-gray-300">
-                                                Connected Across 8 Cities: Gandhinagar, Ahmedabad,
-                                                Mumbai, Surat, Baroda, Rajkot, Udaipur & Mount Abu
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-text text-start md:text-left">
+                  <h5 class="text-xl lg:text-start font-semibold mb-2 bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                    3500+ Screens
+                  </h5>
+                  <p class="text-[#000000] text-sm w-full max-w-[310px] lg:mx-auto 2xl:mx-0 md:mx-0 dark:text-white w-[290px]">
+                    Across 2000+ Residential, 1500+ Commercial & Corporate, and 10+ Outdoor Locations
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                <div class="carouHight pt-10">
+            <!-- Card 2 -->
+            <div class="w-full md:w-[32%]">
+              <div class="stat-item">
+                <div class="stat-card mb-3 flex justify-center">
+                  <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469081/eye_bjmb2j.png" alt="1 Cr+ Daily Impressions" class="mx-auto" />
+                </div>
+                <div class="stat-text text-start md:text-left">
+                  <h5 class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white text-xl lg:text-start font-semibold mb-2">
+                    1 Cr+ Daily Impressions
+                  </h5>
+                  <p class="text-[#000000] text-sm w-full max-w-[310px] lg:mx-auto 2xl:mx-0  md:mx-0 dark:text-gray-300">
+                    Driving Unmatched Visibility. Maximize Your Brand's Reach with Our Expansive Network!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="w-full md:w-[32%]">
+              <div class="stat-item">
+                <div class="stat-card mb-3 flex justify-center">
+                  <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469128/Location_rg3qav.png" alt="8 Cities" class="mx-auto" />
+                </div>
+                <div class="stat-text text-start md:text-left">
+                  <h5 class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white text-xl font-semibold mb-2 lg:text-start">
+                    8 Cities
+                  </h5>
+                  <p class="text-[#000000] text-sm w-full max-w-[310px] lg:mx-auto 2xl:mx-0  md:mx-0 dark:text-gray-300">
+                    Connected Across 8 Cities: Gandhinagar, Ahmedabad, Mumbai, Surat, Baroda, Rajkot, Udaipur & Mount Abu
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+                <div class="carouHight">
                     <div class="container-fluid">
                         <div class="gallery-wrapper">
                             <div class="gallery-container">
@@ -467,31 +455,26 @@
                     </div>
                 </div>
             </div>
-        </section>
-
+        </section>   
         <div class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <!-- section-2 Digital OOH-->
-            <section class="section3 dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white"
-                id="section-2">
+            <section class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
                 <div class="container py-5">
                     <div class="row lg:ml-[60px]">
                         <div class="col-lg-6" style="margin-top: 5%" data-scroll>
                             <div class="flex flex-col gap-[10px]">
                                 <!-- Heading -->
-                                <h2 class="text-[32px] sm:text-[38px] md:text-[38px] lg:text[41px] 2xl:text-[50px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white"
+                                <h2 class="text-[32px] sm:text-[38px] md:text-[38px] lg:text[41px] 2xl:text-[50px] font-semibold bg-gradient-to-r 
+                                from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white"
                                     data-animate>
-                                    Digital OOH <br>
+                                    Digital OOH <br />
                                     <span
-                                        class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-gray-300"
+                                        class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text 
+                                        text-transparent opacity-0 dark:text-white"
                                         data-animate>
                                         Advertising Solution
                                     </span>
                                 </h2>
-
-                                <!-- Subheading -->
-                                <!-- <h4 class="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white"
-                                    data-animate>
-                                </h4> -->
 
                                 <!-- Description -->
                                 <p class="text-[#000000] text-base md:text-[18px] leading-relaxed tracking-wide text-justify max-w-[700px] opacity-0 dark:text-gray-300"
@@ -506,217 +489,111 @@
                                 </p>
                             </div>
 
-                            <div class="features-list">
-                                <div class="feature-item">
-                                    <div class="feature-icon opacity-0" data-animate>
-                                        <svg width="39" height="39" viewBox="0 0 39 39" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_13129_6630)">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0.00390625 21.6528C0.00390625 30.1165 7.4805 38.7482 15.6292 38.7482C23.1898 38.7482 27.9781 37.8241 32.6195 30.2215C35.0557 26.2522 35.5177 21.8208 34.3206 17.0744C33.8586 15.2893 33.1236 14.4282 32.7665 12.9161C31.2544 13.3151 31.0444 14.3232 29.7213 15.2053C32.4725 20.3507 31.4854 26.9662 27.5371 31.2506C22.5597 36.627 13.088 36.795 7.71152 31.4396C2.4821 26.2102 2.4401 17.1164 7.71152 11.845C11.9119 7.66568 18.7374 6.7206 24.0088 9.49282C24.8909 8.19072 25.899 7.9597 26.298 6.44758C23.0848 5.69152 18.3174 2.12123 10.4207 5.79653C8.27857 6.80461 6.80845 7.81269 5.25433 9.36681C2.20908 12.3911 0.0249079 17.2004 0.0249079 21.6318L0.00390625 21.6528Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M6.84913 20.8967V22.7869C6.84913 27.5123 11.6585 32.2797 16.3839 32.2797C20.9413 32.2797 23.5035 31.8596 26.5697 27.6173C28.7329 24.635 28.7119 21.6738 27.8088 17.8515C23.9235 18.8806 24.9106 23.0179 24.2385 24.551C21.3403 31.3556 10.2724 30.0955 10.2724 21.2748C10.2724 18.2925 12.1836 16.0874 14.3467 15.0583C16.5099 14.0292 20.2482 15.3733 21.3193 11.404C17.308 10.4799 14.6618 10.5219 11.4695 12.6011C9.0333 14.1972 6.82812 16.9694 6.82812 20.8967H6.84913Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M13.3398 21.2747C13.3398 26.8822 19.5563 26.7351 21.1105 24.1099C22.0975 22.4508 21.2995 21.5477 21.9085 19.9516L31.8843 9.76579C33.4805 8.16966 33.1654 8.86271 35.8326 8.75771C37.5758 8.6947 38.8569 7.91764 38.8569 6.06949C38.8569 4.43136 36.7357 4.41036 35.7696 3.44428C34.5095 2.20518 35.2656 1.40712 33.1444 -0.0209961C28.104 2.64622 32.0103 3.90632 29.8052 6.90956L19.4933 17.1374C18.2962 17.7674 13.3398 16.7383 13.3398 21.2537V21.2747Z"
-                                                    fill="#0B649A" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_13129_6630">
-                                                    <rect width="38.8603" height="38.7481" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                            <ul class="space-y-5 pt-6 lg:pt-[30px] opacity-0" data-animate>
+                                <!-- Feature 1 -->
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px] sm:w-[80px] sm:h-[80px]">
+                                        <img src="/v-img/relevant.svg" alt="Icon"
+                                            class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
                                     </div>
-                                    <div class="feature-text">
-                                        <h5 class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0"
-                                            data-animate>
+                                    <div>
+                                        <h5
+                                            class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px] dark:text-white">
                                             Relevant Targeting
                                         </h5>
-                                        <p class="lg:w-[400px] opacity-0 dark:text-gray-300" data-animate>
-                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam eu turpis molestie, dictum
+                                        <p class="text-[16px] text-[#000000] max-w-[400px] dark:text-gray-300">
+                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+                                            molestie, dictum
                                         </p>
                                     </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon opacity-0" data-animate>
-                                        <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_13129_6648)">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M25.9497 28.4831H11.2171C9.92797 28.4831 8.5161 27.8078 8.5161 26.5392C8.5161 22.1603 8.06593 12.0521 8.92534 8.38938C11.7696 7.01843 20.425 7.61183 24.7834 7.61183C26.5227 7.61183 28.6712 8.328 28.6712 9.92403V25.7616C28.6712 27.5623 27.7504 28.4626 25.9497 28.4626V28.4831ZM10.0712 1.45277V4.54253C4.97617 4.54253 5.42634 5.07454 5.42634 9.55572H2.33657C-0.896422 9.55572 -0.139328 12.6455 1.55902 12.6455H5.42634V16.8811C1.06793 16.8811 1.08839 16.4309 0.00390625 18.0474C0.55638 20.0732 1.08839 19.5821 5.42634 19.5821V23.8382H2.33657C-0.896422 23.8382 -0.139328 26.9279 1.55902 26.9279H5.42634C5.42634 31.5728 5.40587 31.5728 10.0712 31.5728C10.0712 36.2382 9.62104 36.586 11.6263 36.586C13.6725 36.586 13.161 34.0283 13.161 31.5728H17.0283C17.0283 34.9491 16.5167 36.586 18.9722 36.586C20.6296 36.586 20.1385 35.0923 20.1385 31.5728H24.3946C22.1438 36.2586 27.0956 38.0593 27.0956 35.4197V31.5728C31.7609 31.5728 31.7405 31.5933 31.7405 26.9279H35.6078C37.8381 26.9279 37.3675 23.8382 35.6078 23.8382H31.7405V19.5821C36.0784 19.5821 36.6104 20.0732 37.1629 18.0474C36.0784 16.4309 36.0989 16.8811 31.7405 16.8811V12.6455C36.5695 12.6455 37.5107 13.1775 36.7741 9.9445C34.1959 9.3511 34.8302 9.55572 31.7405 9.55572C31.7405 4.78807 31.7609 4.54253 27.0956 4.54253V1.45277C27.0956 0.204585 24.0058 -2.16901 24.0058 4.54253H20.1385V1.45277C20.1385 -0.736666 17.0283 -0.0409585 17.0283 1.84155V4.54253H13.161V1.84155C13.161 -0.0409585 10.0712 -0.736666 10.0712 1.45277Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M12.793 24.6156H24.7837V12.2566H12.793V24.6156Z"
-                                                    fill="#0B649A" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_13129_6648">
-                                                    <rect width="37.1909" height="36.6474" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                </li>
+
+                                <!-- Feature 2 -->
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px] sm:w-[80px] sm:h-[80px]">
+                                        <img src="/v-img/Tech.svg" alt="Icon"
+                                            class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
                                     </div>
-                                    <div class="feature-text opacity-0" data-animate>
-                                        <h5 class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0"
-                                            data-animate>
+                                    <div>
+                                        <h5
+                                            class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px] dark:text-white">
                                             Tech Enabled Screens
                                         </h5>
-                                        <p class="lg:w-[400px] opacity-0 dark:text-gray-300" data-animate>
-                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam eu turpis molestie, dictum
+                                        <p class="text-[16px] text-[#000000] max-w-[400px] dark:text-gray-300">
+                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+                                            molestie, dictum
                                         </p>
                                     </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon opacity-0" data-animate>
-                                        <svg width="40" height="33" viewBox="0 0 40 33" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_13129_6673)">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M13.0048 17.1109V15.4904C13.0048 12.7178 15.9335 9.76957 18.706 9.76957H20.3266C23.0991 9.76957 26.0279 12.7178 26.0279 15.4904C26.0279 17.8919 26.0864 19.2391 24.0754 21.133C20.2095 24.8037 13.0048 22.2264 13.0048 17.1109ZM25.7545 21.465C26.6722 19.7272 27.3946 19.0634 27.3946 16.3104C27.3946 13.5379 26.6527 12.874 25.7545 11.1558C27.7851 11.6244 32.3344 14.8265 33.3497 16.3104C32.3344 17.8138 27.7851 20.9964 25.7545 21.465ZM13.2781 21.465C11.2476 20.9964 6.69827 17.7943 5.68297 16.3104C6.69827 14.807 11.2476 11.6244 13.2781 11.1558C12.3019 13.0302 11.6381 13.3231 11.6381 16.3104C11.6381 19.2977 12.3019 19.6101 13.2781 21.465ZM3.78906 16.2909C5.99537 19.5906 13.4148 24.1789 18.4327 24.1789H20.6C25.7545 24.1789 33.213 19.3367 35.2436 16.2909C33.0373 12.9912 25.6178 8.40283 20.6 8.40283C16.0116 8.40283 13.981 8.7738 10.037 11.1363C7.94786 12.4054 5.11675 14.2993 3.78906 16.2909Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16.2652 16.5836C16.2652 11.6243 22.767 12.3467 22.767 16.3103C22.767 20.6839 16.2652 20.2348 16.2652 16.5836ZM14.918 16.3103C14.918 22.3239 24.1337 22.3239 24.1337 16.3103C24.1337 10.2966 14.918 10.2966 14.918 16.3103Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M33.3477 12.2297C34.6949 12.5616 35.3197 12.1711 36.6278 11.722C39.498 10.7458 38.9903 11.2729 39.0294 9.76953C37.7212 9.76953 36.8426 10.1405 35.6906 10.492C35.2025 10.6286 34.6753 10.7653 34.2458 10.941C33.4453 11.2729 33.4258 11.2339 33.3477 12.2101V12.2297Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0 22.0116V22.5583C0.741944 23.1831 4.06117 22.0507 4.99836 21.5821C5.72078 21.2111 5.62316 21.2697 5.70126 20.3911C4.31499 20.0591 4.27594 20.3325 2.87015 20.8011C2.14773 21.0549 0 21.4064 0 22.0116Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M0 10.0624C0.800519 11.2534 4.04164 12.2297 5.68173 12.2297C5.66221 10.7458 6.15033 11.2534 3.28017 10.2967C2.12821 9.92574 0.956718 9.1057 0 10.0624Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M38.7567 22.5584C38.7567 21.2893 34.2074 20.3911 33.3483 20.3911C33.3679 21.875 32.8798 21.3674 35.7499 22.3241C36.2771 22.4998 38.7567 23.6908 38.7567 22.5584Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M33.8757 28.2597L34.6567 27.6934C34.1881 26.8148 34.6371 27.2639 33.8757 26.6391C32.5285 25.5262 31.4155 24.3156 30.0683 24.1985C29.795 25.5262 30.2245 25.5457 32.6261 27.342C33.1728 27.7325 33.3876 27.9473 33.8562 28.2597H33.8757Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M4.29688 5.14208L6.34698 6.97742C7.36228 7.73889 7.55752 8.32464 8.94379 8.44178C9.25619 6.93837 8.86569 7.28982 8.68997 7.11409L6.22984 5.20066C5.56599 4.69301 5.72219 4.61491 4.88262 4.38062L4.29688 5.16161V5.14208Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M13.5502 5.72798C15.737 5.72798 12.8278 2.64305 12.4763 1.10059H11.4025C11.0706 2.64305 13.1792 5.72798 13.5697 5.72798H13.5502Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M24.9336 4.8884C24.9336 5.49367 25.1484 5.49367 25.4608 5.98179C26.7104 5.31795 26.066 5.72797 26.9837 3.99026C27.0618 3.83406 29.0533 1.08105 27.628 1.08105C26.5737 1.08105 26.2418 2.64304 25.5584 3.89263C25.3436 4.28313 24.9336 4.75173 24.9336 4.86888V4.8884Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M30.0865 8.42234C31.4923 8.30519 32.3124 7.25085 33.7377 6.11841C34.6554 5.37647 34.382 6.11841 34.4211 4.63452C33.1715 4.65405 30.1061 6.8994 29.9694 7.66087C29.9108 7.95375 29.9889 7.93422 30.0865 8.44187V8.42234Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M24.6602 27.4395C24.6602 28.4548 26.2807 30.3097 26.5541 31.5202H27.6279C27.9599 29.9777 25.8512 26.8928 25.4607 26.8928C25.0116 26.8928 24.6602 27.049 24.6602 27.4395Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M10.8359 30.9734C10.8359 31.032 11.4412 32.8478 12.9056 29.8019C14.2528 27.0294 14.4871 28.0447 13.5499 26.6389C12.3003 27.3028 12.9446 26.8927 12.027 28.6304C11.6755 29.2552 10.8359 30.2901 10.8359 30.993V30.9734Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M4.60938 27.9863C5.95659 27.9668 5.80039 27.752 7.40143 26.4438C9.19772 24.9795 9.23677 25.4871 8.96342 24.1985C7.49905 24.3156 7.40143 24.8819 6.36661 25.6629C6.21041 25.78 6.01516 25.9362 5.89802 26.0143C4.57033 26.971 4.64842 26.6391 4.60938 27.9863Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M18.9584 28.5329C18.9584 31.9303 18.6069 32.2036 19.5051 32.8675C20.4227 32.2427 20.0518 31.9498 20.0518 28.5329C20.0518 27.7715 19.9346 28.0253 19.5051 27.7129C19.0365 28.0253 18.9584 27.7519 18.9584 28.5329Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M18.957 4.08777C18.957 4.84924 19.0742 4.59542 19.5037 4.90782C19.9723 4.59542 20.0504 4.86877 20.0504 4.08777V0.00708008H18.957V4.08777Z"
-                                                    fill="#0B649A" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_13129_6673">
-                                                    <rect width="39.0497" height="32.8743" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                </li>
+
+
+                                <!-- Feature 3 -->
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px] sm:w-[80px] sm:h-[80px]">
+                                        <img src="/v-img/eye.svg" alt="Icon"
+                                            class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
                                     </div>
-                                    <div class="feature-text opacity-0" data-animate>
+                                    <div>
                                         <h5
-                                            class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
-                                            Highest View Frequency</h5>
-                                        <p class="lg:w-[400px] dark:text-gray-300">
-                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam eu turpis molestie, dictum
+                                            class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px] dark:text-white">
+                                            Highest View Frequency
+                                        </h5>
+                                        <p class="text-[16px] text-[#000000] max-w-[400px] dark:text-gray-300">
+                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+                                            molestie, dictum
                                         </p>
                                     </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon opacity-0" data-animate>
-                                        <svg width="43" height="43" viewBox="0 0 43 43" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_13129_6718)">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M20.0004 38.616C19.5084 36.4734 22.6818 35.8824 23.0754 37.9018C23.4936 40.0198 20.4186 40.4139 20.0004 38.616ZM5.24069 31.5233C8.73383 30.883 11.735 33.7398 11.5874 37.0645C11.5136 38.9855 10.5296 40.2415 9.59481 41.0295C8.38943 42.0393 5.90488 42.655 5.01929 42.0639C3.78932 41.99 2.48554 40.8571 2.01815 40.2661C1.30476 39.3302 0.738974 38.2466 0.788173 36.6705C0.861972 33.9122 2.82994 32.0159 5.24069 31.4987V31.5233ZM31.267 35.5869C30.8242 33.3211 32.4232 31.5972 34.1944 31.2524C36.4329 30.8091 38.1549 32.3853 38.5239 34.1585C38.9913 36.3996 37.3677 38.1727 35.5965 38.5175C33.3826 38.9362 31.6114 37.3847 31.267 35.6115V35.5869ZM17.7127 29.6516C16.8271 29.5039 15.7693 28.8882 15.2035 28.4941C12.9895 26.9426 11.4644 24.3567 11.5136 21.3275C11.5874 17.5102 14.5147 13.8407 17.8603 13.2497C19.0164 12.7571 20.9352 12.9049 22.1652 13.2004C23.5182 13.5452 24.5759 14.1609 25.4369 14.8751C26.9867 16.1065 28.6349 18.4461 28.5857 21.623C28.5365 25.8097 25.5599 28.9867 21.9684 29.824C20.9106 30.0703 18.5982 30.1934 17.7127 29.6763V29.6516ZM37.7367 19.9976C39.7785 19.2095 40.664 22.288 38.8191 22.9529C36.8757 23.6425 35.7933 20.7611 37.7367 19.9976ZM4.25671 19.9976C6.22467 19.2834 7.28245 22.2387 5.33909 22.9529C3.42032 23.6671 2.28875 20.7365 4.25671 19.9976ZM23.9609 29.9225C24.1823 29.7009 24.3299 29.6762 24.5513 29.5531C29.0284 27.115 30.9226 20.9088 27.6017 16.1311C26.0765 13.9393 24.8219 13.7176 23.8625 12.9788C26.1503 13.0527 28.2659 14.5549 29.2498 15.6632C34.5141 21.6723 29.8648 29.5531 23.9363 29.9225H23.9609ZM7.43005 4.50691C9.61941 4.03899 11.4152 5.59052 11.7842 7.33908C12.2516 9.55556 10.7264 11.378 8.95522 11.7474C4.13371 12.7571 2.63314 5.54127 7.43005 4.50691ZM35.8425 11.4026C34.7109 11.4026 33.2842 10.2944 32.7676 9.70332C29.6926 6.15696 32.497 1.23145 35.7195 0.911291C37.4661 0.0739546 42.1892 1.67474 42.263 6.03382C42.3614 10.9347 36.9249 12.1661 35.8425 11.4026ZM21.2796 3.17702C23.223 2.80761 23.8625 5.86142 21.8454 6.25547C19.8282 6.67413 19.0902 3.57106 21.2796 3.17702ZM30.6766 6.03382C30.6766 7.33908 31.021 8.39806 31.636 9.38316C31.8574 9.72795 32.0542 9.9496 32.2264 10.2451L28.5119 13.9393C28.1183 13.8161 27.7493 13.4713 27.4049 13.2743C27.0359 13.0773 26.5931 12.8803 26.1995 12.7325C24.9449 12.2646 23.3706 12.1661 21.9192 12.1661V7.04355C23.7887 6.60025 24.5021 4.48228 23.223 3.07851C21.2796 0.960546 17.8357 3.91585 19.7544 6.18158C20.148 6.62488 20.5416 6.87115 21.1812 7.01892V12.1414C19.7298 12.1414 18.2292 12.2153 16.9747 12.6833C16.1383 12.9788 15.3757 13.4713 14.6131 13.89L11.6612 10.984C11.9318 10.4914 12.1286 10.2944 12.3746 9.72795C13.2355 7.56072 12.104 4.95021 10.0868 4.06361C5.56048 2.11804 1.59996 7.75775 5.09309 11.2549C5.78188 11.9444 6.86426 12.6094 8.21724 12.6094C9.54561 12.6094 10.3574 12.0429 11.1446 11.5011C11.5628 12.1168 13.8259 13.9393 13.9735 14.5303C13.5553 14.6535 13.3093 15.0721 13.0633 15.3677C12.596 15.9587 12.1532 16.5005 11.8088 17.2147C11.243 18.3476 10.7756 19.6775 10.7756 21.032H7.11026C6.49527 18.3722 2.70694 18.5692 2.46094 21.3275C2.33794 22.6574 3.44492 23.7656 4.9947 23.7656C6.00328 23.7656 7.01186 22.7559 7.08566 21.8447H10.751C10.751 23.741 11.5874 25.7605 12.7436 27.1642C13.1125 27.6322 13.4815 28.1001 13.9489 28.4202L10.259 32.139C8.95522 31.3017 7.92204 30.6121 6.17547 30.6121C4.5027 30.6121 3.05133 31.3017 1.89515 32.3607C1.35396 32.8532 0.98497 33.4935 0.665176 34.1338C-2.08997 39.6504 4.42891 45.4625 9.74241 41.8422L10.9232 40.7586C11.0708 40.5862 11.0954 40.5616 11.243 40.34C12.6698 38.2959 12.719 35.6607 11.4398 33.5674C11.243 33.2226 11.0216 33.001 10.8248 32.7054L14.5393 28.9374C16.9009 30.5382 18.303 30.7106 21.1566 30.7106V35.9316C19.2624 35.9809 18.5736 38.5422 19.8528 39.7982C21.8946 41.8422 25.1663 39.1086 23.3214 36.6951C23.0754 36.3503 22.4604 35.9316 21.8946 35.9316V30.7106C24.7235 30.7106 26.1257 30.5628 28.4873 28.9621L31.5376 31.9666C31.4146 32.1144 31.2916 32.2129 31.1932 32.3853C29.3482 35.1928 31.2424 39.3056 34.9077 39.3056C39.6063 39.3056 41.0576 33.0748 36.9495 30.8584C34.4649 29.5285 32.3494 31.277 32.0788 31.3509L29.1268 28.4449C30.4552 27.5337 31.5376 25.5142 32.005 23.938C32.128 23.4947 32.3494 22.3619 32.3494 21.8201H36.0147C36.1131 23.0761 37.3185 23.741 38.4747 23.741C39.6555 23.741 40.664 22.5589 40.6394 21.3768C40.5656 18.6185 36.6543 18.2244 36.0147 21.0074H32.3494C32.3248 19.6528 31.882 18.323 31.3162 17.1901C31.0702 16.7222 30.7012 16.1557 30.406 15.7371C30.2092 15.4662 30.0862 15.3923 29.8648 15.0968C29.668 14.8258 29.4958 14.6042 29.176 14.5057C29.299 14.0131 30.529 13.0034 30.9472 12.6094C31.4146 12.1414 32.374 11.0578 32.8414 10.7623L34.5387 11.7967C36.3591 12.6833 38.7699 12.3138 40.3442 11.2302C40.8116 10.9347 41.2052 10.5899 41.5496 10.1466C41.6972 9.9496 41.7464 9.90034 41.8694 9.75257C42.0908 9.43242 42.2384 9.16151 42.4598 8.76747C43.9604 5.76291 42.5336 1.92102 39.5571 0.51725C37.9827 -0.221576 35.8425 -0.246203 34.3173 0.51725C33.3334 1.0098 32.497 1.65012 31.882 2.56134C31.2178 3.49718 30.7258 4.72856 30.7258 5.98456L30.6766 6.03382Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M16.0883 25.8343C16.0883 24.9231 16.9246 23.8148 17.3428 23.47C18.007 22.9282 18.8434 22.4603 20.0488 22.4603C22.1889 22.4849 24.0339 24.4059 23.9601 25.8589L16.0883 25.8343ZM19.4338 16.6975C20.959 16.3034 22.1889 17.3624 22.4841 18.4953C23.3697 21.8693 18.3022 22.9775 17.5642 19.7759C17.1952 18.1751 18.2038 17.0176 19.4338 16.6975ZM18.376 22.0416C17.0476 22.3618 15.0305 24.5044 15.3503 26.4007C15.9653 26.7455 18.991 26.5485 19.9996 26.5485C20.9836 26.5485 24.1569 26.6963 24.7719 26.45C25.0671 24.6768 23.5911 22.8051 21.7461 22.017C22.1643 21.5491 23.8863 20.6133 23.2221 18.249C22.8777 16.993 21.6724 15.8848 20.098 15.8848C18.499 15.8848 17.2936 16.9684 16.9246 18.2244C16.531 19.5296 16.9738 20.8595 17.9824 21.6722L18.4006 22.0416H18.376Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M34.4663 8.84146C34.7369 7.78248 35.5979 6.92051 36.9017 6.92051C38.1316 6.94514 39.0664 7.8071 39.2878 8.86609L34.4663 8.84146ZM36.3359 3.25101C37.2461 2.93085 38.0824 3.44803 38.3038 4.16223C38.599 5.04882 38.0578 5.88616 37.3937 6.08318C35.3765 6.74812 34.5401 3.89133 36.3113 3.25101H36.3359ZM33.7283 9.58029C34.6877 9.60491 39.3616 9.75268 40.0012 9.5064C40.4194 8.2504 39.0172 6.822 38.2546 6.52647C38.5498 6.05855 39.5092 5.36898 38.968 3.84207C38.6974 3.07862 37.8364 2.36442 36.8033 2.38905C35.7701 2.41367 35.0075 3.10325 34.7369 3.94058C34.2695 5.31972 35.1305 6.00929 35.4995 6.45259C34.9829 6.84663 34.6877 6.89588 34.1957 7.61008C33.8267 8.15189 33.6299 8.86609 33.7283 9.55566V9.58029Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M3.78923 39.552C4.25662 37.04 8.04495 36.9661 8.58614 39.552H3.78923ZM5.78179 33.8876C7.77436 33.2966 8.38934 36.3258 6.66738 36.7937C4.67481 37.3601 3.83843 34.4541 5.78179 33.8876ZM4.82241 37.2124C3.37104 37.7788 2.68225 39.8229 3.12504 40.1677C3.32184 40.3401 8.95513 40.3893 9.25033 40.1184C9.66852 39.6751 9.07813 38.6161 8.85674 38.2713C8.41394 37.631 8.21715 37.6064 7.57756 37.1385C10.5541 34.2078 5.4374 31.2279 4.10902 34.5033C3.91223 34.9959 3.88763 35.6116 4.08442 36.1041C4.30582 36.6705 4.52722 36.7691 4.82241 37.2124Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M6.64192 9.92502C6.93711 8.472 9.42167 8.44737 9.69226 9.92502H6.64192ZM7.8965 6.18164C9.10187 5.7876 9.61846 7.63466 8.48688 8.00407C7.25691 8.39811 6.69112 6.57568 7.8965 6.18164ZM6.98631 8.32423L6.86331 8.472C6.86331 8.472 6.83871 8.49662 6.81412 8.52125C6.54352 8.76753 6.37132 8.84141 6.14993 9.23545C5.01835 11.1564 6.88791 10.6885 8.19169 10.6885C9.49547 10.6885 11.365 11.1318 10.2335 9.23545C10.1351 9.06306 9.98746 8.89066 9.86446 8.76753L9.39707 8.32423C10.3318 7.26525 9.79066 5.39355 8.19169 5.39355C6.59272 5.39355 6.10073 7.21599 7.01091 8.32423H6.98631Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M33.3561 36.6459C33.7251 35.0943 36.1112 35.2175 36.431 36.6705L33.3561 36.6459ZM34.6845 32.8779C35.9145 32.5823 36.2342 34.4294 35.2011 34.7249C33.9219 35.0943 33.3561 33.198 34.6845 32.8779ZM33.7005 35.0205C33.5037 35.2667 33.0609 35.5376 32.8149 35.9809C32.5935 36.3996 32.4213 36.9168 32.6673 37.3108C32.8395 37.4586 36.8 37.4093 36.923 37.3601C37.6364 37.1138 37.0706 35.9809 36.2834 35.2667L36.0374 34.9958C37.0952 34.3555 36.554 32.1883 34.9551 32.1144C33.3069 32.0405 32.7657 33.9368 33.7005 35.0205Z"
-                                                    fill="#0B649A" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_13129_6718">
-                                                    <rect width="43" height="43" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                </li>
+
+
+                                <!-- Feature 4 -->
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px] sm:w-[80px] sm:h-[80px]">
+                                        <img src="v-img/last mile reach Icon 1.svg" alt="Icon"
+                                            class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
                                     </div>
-                                    <div class="feature-text opacity-0" data-animate>
+                                    <div>
                                         <h5
-                                            class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
-                                            True Last Mile Reach</h5>
-                                        <p class="lg:w-[400px] dark:text-gray-300">
-                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam eu turpis molestie, dictum
+                                            class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px] dark:text-white">
+                                            True Last Mile Reach
+                                        </h5>
+                                        <p class="text-[16px] text-[#000000] max-w-[400px] dark:text-gray-300">
+                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+                                            molestie, dictum
                                         </p>
                                     </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon opacity-0" data-animate>
-                                        <svg width="31" height="44" viewBox="0 0 31 44" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_13129_6749)">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M28.5149 41.7162H2.13512V2.43204C2.13512 2.18434 2.1848 2.1348 2.43319 2.1348H28.3659C28.6143 2.1348 28.6143 2.18434 28.8627 2.23388V39.487C28.8627 39.9328 28.8627 40.3292 28.8627 40.775C28.8627 41.2209 29.0117 41.7658 28.5646 41.7658L28.5149 41.7162ZM2.23447 43.9455H28.7136C29.906 43.9455 30.9492 43.1033 30.9492 42.0135V1.83757C30.9492 0.846797 29.8563 0.00463867 29.2104 0.00463867H1.73768C1.29056 0.00463867 0.694411 0.400948 0.396334 0.797258L0.0982572 1.19357L0.0485777 1.24311C-0.00110177 1.39172 0.0485777 1.14403 -0.0507812 1.44126L0.0982572 42.7566C0.595052 43.4501 1.09185 43.896 2.1848 43.896L2.23447 43.9455Z"
-                                                    fill="#0B649A" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M4.96875 6.64301V12.7858C4.96875 13.1821 5.01843 13.5289 5.21715 13.7766C5.91266 14.6187 7.20433 14.0243 7.20433 12.7858V11.3987C7.20433 10.8043 6.90625 10.9033 7.30369 10.6061L15.6995 24.3779C15.9976 24.9228 16.2957 25.3687 16.6434 25.864C17.5873 27.2511 19.3758 30.3721 20.4191 32.0564L22.3069 35.1773C21.2139 34.9296 20.6675 34.0875 19.3758 34.0875C18.73 34.0875 17.3886 35.3755 19.6739 36.4158L22.3566 37.6543C22.5553 37.7533 22.7043 37.8029 22.903 37.902L25.0393 38.8927C26.3309 38.8927 26.2316 37.1589 26.2316 36.069C26.2316 34.5829 26.4303 32.8985 26.4303 30.917C26.4303 30.1739 24.2941 29.4308 24.2941 31.6105C24.2941 32.0564 24.2444 33.8893 24.0954 34.137C23.847 33.9389 21.2636 29.4804 20.7668 28.7373L14.6562 18.6314C14.3582 18.0865 14.0104 17.6406 13.7123 17.1452C13.5633 16.848 13.4143 16.6498 13.2652 16.3526C13.0665 16.0554 12.9671 15.9068 12.7684 15.56L9.04247 9.26857C9.78766 9.61534 11.1787 10.4575 11.8742 10.4575C12.7684 10.4575 13.4639 9.02087 12.1226 8.37687L6.85657 5.75132C5.96234 5.30547 5.06811 5.6027 5.06811 6.69255L4.96875 6.64301Z"
-                                                    fill="#0B649A" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_13129_6749">
-                                                    <rect width="31" height="44" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                </li>
+
+
+                                <!-- Feature 5 -->
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px] sm:w-[80px] sm:h-[80px]">
+                                        <img src="v-img/large Screens Icon 1.svg" alt="Icon"
+                                            class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
                                     </div>
-                                    <div class="feature-text opacity-0" data-animate>
+                                    <div>
                                         <h5
-                                            class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
-                                            Large Screens</h5>
-                                        <p class="lg:w-[400px] dark:text-gray-300">
-                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam eu turpis molestie, dictum
+                                            class="font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent text-[17px] dark:text-white">
+                                            Large Screens
+                                        </h5>
+                                        <p class="text-[16px] text-[#000000] max-w-[400px] dark:text-gray-300">
+                                            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+                                            molestie, dictum
                                         </p>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+
+                            </ul>
                             <!-- Dual Screen Subsection -->
                             <div class="pt-[50px] flex flex-col gap-[20px]">
                                 <h3 class="text-[36px] sm:text-[42px] md:text-[46px] lg:text-[48px] font-montserrat font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white"
                                     data-animate>
-                                    Dual Screen <br>
+                                    Dual Screen <br />
                                     <span
                                         class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-gray-300"
                                         data-animate>
@@ -741,9 +618,8 @@
 
                         <div class="col-lg-6 text-center ad-image-container p-0 opacity-0" data-animate
                             style="padding: 0px 0px !important">
-                            <img class="single"
-                                src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752468936/km_ukzzkn.png"
-                                alt="Digital Screen Display in India h-[1400px]" />
+                            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752468936/km_ukzzkn.png"
+                                alt="Digital Screen Display in India" />
                         </div>
                     </div>
                 </div>
@@ -751,7 +627,7 @@
 
             <!-- update section -->
             <section
-                class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white  lg:pl-[110px] 2xl:pl-[0px] px-6 md:pr-[5rem] py-8"
+                class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white lg:pl-[110px] 2xl:pl-[0px] px-6 md:pr-[5rem] py-8"
                 data-scroll>
                 <div class="max-w-[1280px] mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center opacity-0" data-animate>
@@ -835,6 +711,9 @@
                                 </div>
                                 <div
                                     class="flex flex-col justify-start items-start lg:items-start pr-4 pl-[0px] sm:px-8 lg:px-0">
+                                    <div>
+                                        
+                                    </div>
                                     <div id="h4-placeholder"></div>
                                     <p
                                         class="text-[#000000] text-[15px] leading-relaxed lg:w-[265px] dark:text-gray-300">
@@ -994,8 +873,11 @@
                             <div class="e-con-inner">
                                 <div
                                     class="elementor-element elementor-element-625df68 elementor-widget elementor-widget-heading">
-                                    <div class="elementor-widget-container"
-                                        style="display: flex;justify-content: center;text-align: center;">
+                                    <div class="elementor-widget-container" style="
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                      ">
                                         <h2 class="brandsH font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0"
                                             data-animate>
                                             Brands that trust us
@@ -1194,7 +1076,7 @@
                         <div
                             class="relative z-10 mt-[183px] bg-white w-full h-[430px] rounded-[22.98px] border border-gray-300 shadow-xl px-6 py-[40px] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-2 mb-2  text-[22px] font-semibold opacity-0 dark:text-black"
+                                <div class="flex items-center gap-2 mb-2 text-[22px] font-semibold opacity-0 dark:text-black"
                                     data-animate>
                                     <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752470069/residenti_i73vkg.svg"
                                         class="w-[2.25rem] h-[40px] opacity-0 bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent"
@@ -1202,7 +1084,6 @@
 
                                     <span
                                         class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#052652] to-[#2D9CDB] dark:!bg-none dark:!text-black">Residential</span>
-
                                 </div>
                                 <div class="text-[30px] font-bold text-gray-900 mb-1 leading-tight opacity-0"
                                     data-animate>
@@ -1244,14 +1125,13 @@
                         <div
                             class="relative z-10 mt-[183px] bg-white w-full h-[430px] rounded-[22.98px] border border-gray-300 shadow-xl px-6 py-[40px] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-2 mb-2  text-[22px] font-semibold opacity-0 dark:text-black"
+                                <div class="flex items-center gap-2 mb-2 text-[22px] font-semibold opacity-0 dark:text-black"
                                     data-animate>
                                     <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752492361/Corporate_mii635.png"
                                         class="w-[2.25rem] h-[40px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent" /><span
                                         class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#052652] to-[#2D9CDB] dark:!bg-none dark:!text-black">
                                         Corporate
                                     </span>
-
                                 </div>
                                 <div class="text-[30px] font-bold text-gray-900 mb-1 leading-tight opacity-0"
                                     data-animate>
@@ -1297,13 +1177,12 @@
                         <div
                             class="relative z-10 mt-[183px] bg-white w-full h-[430px] rounded-[22.98px] border border-gray-300 shadow-xl px-6 py-[40px] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-2 mb-2  text-[22px] font-semibold opacity-0 dark:text-black"
+                                <div class="flex items-center gap-2 mb-2 text-[22px] font-semibold opacity-0 dark:text-black"
                                     data-animate>
                                     <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752470069/residenti_i73vkg.svg"
                                         class="w-[2.25rem] h-[40px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent" />
                                     <span
                                         class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#052652] to-[#2D9CDB] dark:!bg-none dark:!text-black">Residential</span>
-
                                 </div>
                                 <div class="text-[30px] font-bold text-gray-900 mb-1 leading-tight opacity-0"
                                     data-animate>
@@ -1345,14 +1224,13 @@
                         <div
                             class="relative z-10 mt-[183px] bg-white w-full h-[430px] rounded-[22.98px] border border-gray-300 shadow-xl px-6 py-[40px] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-2 mb-2  text-[22px] font-semibold opacity-0"
+                                <div class="flex items-center gap-2 mb-2 text-[22px] font-semibold opacity-0"
                                     data-animate>
                                     <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752492361/Corporate_mii635.png"
                                         class="w-[2.25rem] h-[40px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent" /><span
                                         class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#052652] to-[#2D9CDB] dark:!bg-none dark:!text-black">
                                         Corporate
                                     </span>
-
                                 </div>
                                 <div class="text-[30px] font-bold text-gray-900 mb-1 leading-tight">
                                     ₹2399
@@ -1383,7 +1261,9 @@
                         </div>
                         <div
                             class="left-0 top-1/2 -translate-y-1/2 rotate-[-90deg] origin-left text-[14px] font-medium text-black lg:w-[310px] lg:ml-[330px]">
-                            <p class="lg:flex hidden dark:text-gray-300">*18% GST is applicable</p>
+                            <p class="lg:flex hidden dark:text-gray-300">
+                                *18% GST is applicable
+                            </p>
                             <p class="lg:flex hidden dark:text-gray-300">
                                 *minimum campaign spends is ₹ 21,000/-
                             </p>
@@ -1404,7 +1284,7 @@
 
         <!-- Section 2: Blog Section - Full Viewport Height -->
         <section id="blogs"
-            class="w-full pb-[150px]  flex items-center bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+            class="w-full pb-[150px] flex items-center bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <!-- Blog Header -->
                 <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 opacity-0"
@@ -1469,7 +1349,8 @@
                         });
 
                         mainContainer.innerHTML += `
-          <a href="/blog.html?id=${blog.id}" class="group block dark:text-white">
+          <a href="/blog.html?id=${blog.id
+                            }" class="group block dark:text-white">
             <div class="overflow-hidden rounded-xl">
               <img src="${blog.image_url
                             }" class="rounded-xl h-[280px] w-full object-cover mb-4 group-hover:scale-105 transition-transform duration-500 dark:text-white" alt="${blog.title
@@ -1478,7 +1359,8 @@
             <div class="flex items-center gap-3 font-semibold text-[14px] text-gray-500 mb-3 dark:text-white">
               <span>${formattedDate}</span>
               <span class="w-1 h-1 bg-gray-400 rounded-full dark:text-white "></span>
-              <span class="dark:text-white">${blog.category || "Marketing"}</span>
+              <span class="dark:text-white">${blog.category || "Marketing"
+                            }</span>
             </div>
 <h3 class="font-semibold font-montserrat bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent 
 lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-white">
@@ -1538,19 +1420,20 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
 
         <!-- section-6 GET IN TOUCH-->
         <section id="section-7"
-            class="min-h-screen w-full bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white ">
+            class="min-h-screen w-full bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <div class="flex flex-col md:flex-row h-full">
-
                 <!-- Left: Contact Form -->
                 <div
-                    class="w-full md:w-1/2  py-16 px-6 md:px-12 2xl:px-0 2xl:pl-[18rem] flex items-center justify-center">
+                    class="w-full md:w-1/2 py-16 px-6 md:px-12 2xl:px-0 2xl:pl-[18rem] flex items-center justify-center">
                     <div class="max-w-xl w-full opacity-0" data-animate>
                         <h2
                             class="text-4xl font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-4 text-start md:text-left dark:text-white">
-                            GET IN TOUCH</h2>
+                            GET IN TOUCH
+                        </h2>
                         <p
                             class="bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-8 text-start md:text-left dark:text-gray-300 dark:text-white">
-                            Contact us to book your ad slot.</p>
+                            Contact us to book your ad slot.
+                        </p>
 
                         <form class="space-y-6 opacity-0" data-animate>
                             <!-- First & Last Name -->
@@ -1568,12 +1451,11 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
                                         class="block text-sm font-medium text-[#000000] mb-1 dark:text-white">Last
                                         Name</label>
                                     <!-- Gradient Border Wrapper -->
-                                    <div class="p-[2px] ">
+                                    <div class="p-[2px]">
                                         <input type="text" id="first-name"
                                             class="w-full bg-[#F0F0F0] px-4 py-2 gradient-border focus:outline-none focus:ring-2 focus:ring-blue-400"
                                             required />
                                     </div>
-
                                 </div>
                             </div>
 
@@ -1621,7 +1503,8 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
 
                 <!-- Right: Background Image -->
                 <div class="w-full md:w-1/2 h-screen">
-                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752736937/ok_laxu5a.png" alt="" class=" h-full ">
+                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752736937/ok_laxu5a.png" alt=""
+                        class="h-full" />
                 </div>
 
                 <style>
@@ -1638,7 +1521,6 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
                         /* Chrome, Safari */
                     }
                 </style>
-
             </div>
         </section>
 
@@ -1763,52 +1645,52 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
 </body>
 <!-- Force remove dark mode before anything loads -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const darkModeToggleDesktop = document.getElementById('darkModeToggle');
-    const darkIconDesktop = document.getElementById('darkIcon');
-    const lightIconDesktop = document.getElementById('lightIcon');
+    document.addEventListener("DOMContentLoaded", function () {
+        const darkModeToggleDesktop = document.getElementById("darkModeToggle");
+        const darkIconDesktop = document.getElementById("darkIcon");
+        const lightIconDesktop = document.getElementById("lightIcon");
 
-    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
-    const darkIconMobile = document.getElementById('darkIconMobile');
-    const lightIconMobile = document.getElementById('lightIconMobile');
+        const darkModeToggleMobile = document.getElementById(
+            "darkModeToggleMobile"
+        );
+        const darkIconMobile = document.getElementById("darkIconMobile");
+        const lightIconMobile = document.getElementById("lightIconMobile");
 
-    // Default to false (light mode)
-    let darkMode = localStorage.getItem('darkMode') === 'true';
+        // Default to false (light mode)
+        let darkMode = localStorage.getItem("darkMode") === "true";
 
-    // Apply saved mode or default to light
-    updateMode();
+        // Apply saved mode or default to light
+        updateMode();
 
-    function toggleDarkMode() {
-      darkMode = !darkMode;
-      localStorage.setItem('darkMode', darkMode);
-      updateMode();
-    }
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            localStorage.setItem("darkMode", darkMode);
+            updateMode();
+        }
 
-    function updateMode() {
-      if (darkMode) {
-        document.documentElement.classList.add('dark');
-        // Show sun icons (light mode symbol), hide moon icons
-        darkIconDesktop?.classList.add('hidden');
-        lightIconDesktop?.classList.remove('hidden');
-        darkIconMobile?.classList.add('hidden');
-        lightIconMobile?.classList.remove('hidden');
-      } else {
-        document.documentElement.classList.remove('dark');
-        // Show moon icons (dark mode symbol), hide sun icons
-        darkIconDesktop?.classList.remove('hidden');
-        lightIconDesktop?.classList.add('hidden');
-        darkIconMobile?.classList.remove('hidden');
-        lightIconMobile?.classList.add('hidden');
-      }
-    }
+        function updateMode() {
+            if (darkMode) {
+                document.documentElement.classList.add("dark");
+                // Show sun icons (light mode symbol), hide moon icons
+                darkIconDesktop?.classList.add("hidden");
+                lightIconDesktop?.classList.remove("hidden");
+                darkIconMobile?.classList.add("hidden");
+                lightIconMobile?.classList.remove("hidden");
+            } else {
+                document.documentElement.classList.remove("dark");
+                // Show moon icons (dark mode symbol), hide sun icons
+                darkIconDesktop?.classList.remove("hidden");
+                lightIconDesktop?.classList.add("hidden");
+                darkIconMobile?.classList.remove("hidden");
+                lightIconMobile?.classList.add("hidden");
+            }
+        }
 
-    // Button listeners
-    darkModeToggleDesktop?.addEventListener('click', toggleDarkMode);
-    darkModeToggleMobile?.addEventListener('click', toggleDarkMode);
-  });
+        // Button listeners
+        darkModeToggleDesktop?.addEventListener("click", toggleDarkMode);
+        darkModeToggleMobile?.addEventListener("click", toggleDarkMode);
+    });
 </script>
-
-
 
 <!-- Vishal prajapati -->
 
