@@ -261,19 +261,19 @@ function scrollToTop() {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
+    // API Configuration
     const API_BASE_URL = 'https://cms.aekads.com/api';
     let allPosts = [];
 
+    // DOM Elements
     const blogPostsContainer = document.getElementById('blogPostsContainer');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const blogDetailContainer = document.getElementById('blogDetailContainer');
     const backButton = document.getElementById('backButton');
 
-    function slugify(title) {
-        return title.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, '-');
-    }
-
+    // Core Functions
     async function fetchAllBlogPosts() {
         try {
             const response = await fetch(`${API_BASE_URL}/Aekadsblog`);
@@ -296,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Blog List Rendering
     async function renderBlogPosts() {
         showLoading();
         try {
@@ -314,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createPostHTML(post, isFeatured) {
-        const slug = slugify(post.title);
         return `
             <div class="${isFeatured ? 'featured-post' : 'blog-card'}">
                 <div class="blog-card-img-container">
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="blog-card-content">
                     <h3 class="blog-title">${post.title}</h3>
                     <p class="blog-excerpt">${post.short_description}</p>
-                    <a href="/blog/${slug}" class="read-more view-post-btn" data-post-id="${post.id}" data-slug="${slug}">
+                    <a href="#" class="read-more view-post-btn" data-post-id="${post.id}">
                         Read More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -331,11 +331,13 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
+    // Blog Detail Handling
     async function showBlogDetail(postId) {
         try {
             document.querySelector('main').style.display = 'none';
             blogDetailContainer.style.display = 'block';
 
+            // Show loading state
             document.getElementById('detailContent').innerHTML = `
                 <div class="loading-spinner">
                     <div class="spinner"></div>
@@ -346,14 +348,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const post = await fetchBlogPostById(postId);
             if (!post) return;
 
+            // Update content
             document.title = `${post.title} | AekAds Blog`;
-
             document.getElementById('detailTitle').textContent = post.title;
+
+            // Set image
             const detailImage = document.getElementById('detailImage');
             detailImage.src = post.image_url;
             detailImage.alt = post.title;
+
+            // Load content
             document.getElementById('detailContent').innerHTML = post.description;
 
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (error) {
@@ -367,64 +374,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Event Handlers
     function addPostEventListeners() {
         document.querySelectorAll('.view-post-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const postId = btn.dataset.postId;
-                const slug = btn.dataset.slug;
                 showBlogDetail(postId);
-                history.pushState({ postId }, '', `/blog/${slug}`);
+                history.pushState({ postId }, '', `?id=${postId}`);
             });
         });
     }
 
+    // Consolidated back button handler
     backButton.addEventListener('click', () => {
         blogDetailContainer.style.display = 'none';
         document.querySelector('main').style.display = 'block';
-        history.replaceState(null, '', '/blog');
+        history.replaceState(null, '', window.location.pathname);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    window.addEventListener('popstate', async (event) => {
-        const path = window.location.pathname;
-        const slugMatch = path.match(/\/blog\/(.+)/);
+    window.addEventListener('popstate', (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
 
-        if (slugMatch && allPosts.length > 0) {
-            const slug = slugMatch[1];
-            const post = allPosts.find(p => slugify(p.title) === slug);
-            if (post) {
-                showBlogDetail(post.id);
-                return;
-            }
+        if (postId) {
+            showBlogDetail(postId);
+        } else {
+            blogDetailContainer.style.display = 'none';
+            document.querySelector('main').style.display = 'block';
+            document.title = "AEKADS Blog - Digital Advertising & Technology Insights";
         }
-
-        blogDetailContainer.style.display = 'none';
-        document.querySelector('main').style.display = 'block';
-        document.title = "AEKADS Blog - Digital Advertising & Technology Insights";
     });
 
     // Initial Load
-    (async function () {
-        allPosts = await fetchAllBlogPosts();
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
 
-        const path = window.location.pathname;
-        const slugMatch = path.match(/\/blog\/(.+)/);
+    if (postId) {
+        showBlogDetail(postId);
+    } else {
+        renderBlogPosts();
+    }
 
-        if (slugMatch) {
-            const slug = slugMatch[1];
-            const post = allPosts.find(p => slugify(p.title) === slug);
-            if (post) {
-                showBlogDetail(post.id);
-                return;
-            } else {
-                showError('Blog not found.');
-            }
-        } else {
-            renderBlogPosts();
-        }
-    })();
-
+    // Utility Functions
     function showLoading() {
         loadingSpinner.style.display = 'block';
         blogPostsContainer.innerHTML = '';
