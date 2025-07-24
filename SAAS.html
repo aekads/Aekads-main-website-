@@ -5,19 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aek Ads - India's Best And Largest Digital Screen Network</title>
-
     <!-- ✅ Favicon -->
     <link rel="icon" href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png"
         type="image/png" />
     <link rel="apple-touch-icon"
         href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- Locomotive Scroll CSS (Required) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
-
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -1274,10 +1270,43 @@
             class="relative lg:min-h-screen bg-center flex flex-col justify-center items-center px-6 md:px-16 py-10 font-[Poppins] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
 
             <!-- Top Image -->
-            <div class="w-full max-w-[1080px] h-auto mx-auto mb-10   opacity-0" data-animate>
-                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1751365821/Touch-Feature_hibuix.png"
-                    alt="Touch Feature" class="w-full h-auto object-contain" />
-            </div>
+           <div class="w-full max-w-[1180px] h-auto mx-auto mb-10 opacity-0" data-animate>
+  <video
+    id="featureVideo"
+    class="w-full h-auto object-contain rounded-xl shadow-lg"
+    muted
+    playsinline
+    preload="none"
+  >
+    <source src="https://res.cloudinary.com/dqfnwh89v/video/upload/v1753347708/Dual_Screen_Display_Compressed_piepl5.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("featureVideo");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.currentTime = 0; // Restart video every time it enters
+            video.load();          // Load video
+            video.play();          // Play it
+          } else {
+            video.pause();         // Optional: pause when out of view
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (video) observer.observe(video);
+  });
+</script>
+
 
             <!-- Content Wrapper -->
             <div
