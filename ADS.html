@@ -239,39 +239,93 @@
         </div>
 
         <!-- section-1 -->
-        <section
-            class="min-h-[85vh] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+          <!-- section-1 -->
+          <section
+            class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white lg:pt-[50px] 2xl:pt-[80px]">
 
 
-            <div class="flex flex-col justify-center items-center lg:pt-[67px]">
+            <div class="flex flex-col justify-center items-center">
                 <!-- Title & Button -->
-                <div
-                    class="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 lg:px-16 py-6 2xl:mr-[220px] lg:ml-[60px]">
-                    <!-- Left Content -->
-                    <div class="text-center lg:text-left w-full lg:w-1/2 2xl:pl-[312px]">
-                        <h1 class="text-[24px] lg:text-[45px] 2xl:text-[48px] font-semibold leading-tight font-[Montserrat] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white 
-                        opacity-0" data-animate>
-                            <span class="sr-only">Aek Ads -</span>
-                            <span class="inline-block dark:text-white">Advertise on India's Best</span><br />
-                            <span class="inline-block dark:text-white">Digital Screens Network</span>
-                        </h1>
-                        <button
-                            class="mt-6 w-full max-w-[273px] px-6 py-3 rounded-xl shadow-md bg-[#122B39] hover:bg-[#0E1F2C] transition-colors duration-300 text-[#FFF] 
-                            font-medium dark:bg-[#F4F4F4] dark:text-[#333]  opacity-0" data-animate>
-                            Start Advertising
-                        </button>
-                    </div>
+<div class="relative w-full 2xl:h-[450px] overflow-hidden flex items-center justify-center px-4 py-12 md:py-16 bg-[#FAFAFA]">
+  <!-- ✅ Video Background -->
+  <video autoplay muted loop playsinlinet
+    class="absolute inset-0 w-full h-full object-contain object-[98%_center] z-0 lg:mt-[20px] 2xl:mt-[0px] opacity-0" data-animate>
+    <source src="video-for banner.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-                    <!-- Right Image -->
-                    <div class="w-full lg:w-1/2 flex justify-center  opacity-0" data-animate>
-                        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753179837/Touch_Dual_Screen_Mockup_3_2_w2x3rx.png"
-                            alt="Digital Ad Screen"
-                            class="max-w-[300px] md:max-w-[400px] lg:max-w-[460px] 2xl:max-w-[620px] w-full h-auto rounded-[22px]" />
-                    </div>
-                </div>
+
+ <!-- 🔲 Foreground Content -->
+<div class="relative z-10 w-full flex flex-col justify-start items-start text-left px-4 md:px-8 2xl:ml-[270px]">
+
+  <!-- Heading -->
+  <h1 class="font-semibold font-montserrat text-[26px] sm:text-[32px] lg:text-[40px] 2xl:text-[45px] 2xl:h-[100px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] 
+  bg-clip-text text-transparent leading-tight sm:leading-[3rem] 2xl:ml-[85px] opacity-0" data-animate>
+    Advertise on India's Best<br class="hidden sm:block" />
+    Digital Screens Network
+  </h1>
+
+  <!-- Category Buttons -->
+    <div class="mt-8 ml-[38px] opacity-0" data-animate>
+      <div class="bg-[#C8DCE7] rounded-t-full px-4 md:px-6 py-2 flex flex-wrap justify-start gap-2 md:gap-6 text-sm md:text-base font-medium text-gray-700 lg:w-[425px] 2xl:w-[625px]">
+        <button class="text-black font-semibold border-b-2 border-blue-900 pb-1 px-2 md:px-0">Residential</button>
+        <button class="hover:text-black transition-colors px-2 md:px-0">Corporate</button>
+        <button class="hover:text-black transition-colors px-2 md:px-0">Outdoor</button>
+      </div>
+    </div>
+
+  <!-- Search Section -->
+  <div class=" w-full max-w-full sm:max-w-[500px] 2xl:max-w-[732px] rounded-full p-[2px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] shadow-md opacity-0" data-animate>
+    <div class="flex flex-col sm:flex-row items-stretch bg-white rounded-full overflow-hidden">
+
+      <!-- Dropdown -->
+      <div class="relative w-full lg:w-[250px] 2xl:w-[200px] border-b sm:border-b-0 sm:border-r border-gray-200">
+        <select class="w-full px-4 py-3 bg-white text-gray-600 text-sm md:text-base outline-none appearance-none">
+          <option>Select city</option>
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Bangalore</option>
+          <option>Ahmedabad</option>
+        </select>
+        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="w-full">
+        <input type="text" placeholder="Search..."
+          class="w-full px-4 py-3 outline-none text-sm md:text-base text-gray-700 bg-white" />
+      </div>
+
+      <!-- Search Button -->
+      <button
+        class="px-4 md:px-6 py-3 bg-gradient-to-r from-[#052652] to-[#2D9CDB] hover:opacity-90 transition-opacity flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+        </svg>
+        <span class="sr-only">Search</span>
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
 
                 <!-- Cards Section -->
-                <div class="w-full px-4 md:px-8 lg:px-16 p-2 lg:ml-[10px] 2xl:ml-[0px]">
+                <div class="w-full px-4 md:px-8 lg:px-16 p-2 mt-[20px] lg:ml-[10px] 2xl:ml-[0px]">
                     <div class="flex flex-col md:flex-row items-center">
                         <div class="rightText w-full lg:pl-0 2xl:pl-[14%]">
                             <div class="flex flex-col md:flex-row flex-wrap gap-6 opacity-0" data-animate>
@@ -364,8 +418,8 @@
                             <img class="w-64 h-auto mx-1"
                                 src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293190/Dual_ScreenSHARTHAK_SHRINAND_B_5_dlifsa.jpg"
                                 alt="">
-                            <img class="w-80 h-auto mx-1"
-                                src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293189/Dual_Screen_Shypram_Block_C_2_z2dvio.jpg"
+                            <img class="w-80  h-auto mx-1"
+                                src="  "
                                 alt="">
                             <img class="w-64 h-auto mx-1"
                                 src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293225/Single_Screen_SHAKTI_140_A_LIFT_2_5_ugllby.jpg"
@@ -433,6 +487,7 @@
 
             </div>
         </section>
+
         <div class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <!-- section-2 Digital OOH-->
             <section class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
