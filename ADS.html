@@ -114,24 +114,7 @@
             darkMode: "class", // This enables class-based dark mode
         };
     </script>
-    <!-- Header-section -->
-    <style>
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fadeUp {
-            animation: fadeUp 0.9s ease-out forwards;
-        }
-    </style>
+ 
     <header class="header dark:bg-gray-800">
         <div class="container">
             <div class="logoH">
@@ -228,8 +211,7 @@
     </nav>
 
     <main id="scroll-container" data-scroll-container style="height: auto">
-        <!-- ✅ Mobile-Only Logo Above Section 1 -->
-        <!-- ✅ Fixed Mobile Logo at Top -->
+            <!-- ✅ Fixed Mobile Logo at Top -->
         <div
             class="fixed top-0 left-0 w-full z-50 block md:hidden bg-[#FAFAFA] dark:bg-[#2D9CDB] py-2 flex justify-center ">
             <a href="index.html">
@@ -239,85 +221,84 @@
         </div>
 
         <!-- section-1 -->
-          <!-- section-1 -->
+     <!-- section-1 -->
           <section
-            class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white lg:pt-[50px] 2xl:pt-[80px]">
+            class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
 
 
             <div class="flex flex-col justify-center items-center">
                 <!-- Title & Button -->
-<div class="relative w-full 2xl:h-[450px] overflow-hidden flex items-center justify-center px-4 py-12 md:py-16 bg-[#FAFAFA]">
+<div class="relative w-full h-[450px] overflow-hidden flex items-center justify-center px-4 py-12 md:py-16 bg-[#FAFAFA]">
   <!-- ✅ Video Background -->
   <video autoplay muted loop playsinlinet
-    class="absolute inset-0 w-full h-full object-contain object-[98%_center] z-0 lg:mt-[20px] 2xl:mt-[0px] opacity-0" data-animate>
+    class="absolute inset-0 w-full h-full object-contain object-[98%_center] z-0">
     <source src="video-for banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
 
- <!-- 🔲 Foreground Content -->
-<div class="relative z-10 w-full flex flex-col justify-start items-start text-left px-4 md:px-8 2xl:ml-[270px]">
+  <!-- 🔲 Foreground Content -->
+  <div class="relative z-10 w-full max-w-[80rem] flex flex-col justify-start items-start text-left">
 
-  <!-- Heading -->
-  <h1 class="font-semibold font-montserrat text-[26px] sm:text-[32px] lg:text-[40px] 2xl:text-[45px] 2xl:h-[100px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] 
-  bg-clip-text text-transparent leading-tight sm:leading-[3rem] 2xl:ml-[85px] opacity-0" data-animate>
-    Advertise on India's Best<br class="hidden sm:block" />
-    Digital Screens Network
-  </h1>
+<h1 class="leading-[3rem]  lg:text-[45px] h-[100px] font-semibold 
+font-montserrat bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent leading-[3rem]">
+  Advertise on India's Best<br class="hidden sm:block" />
+  Digital Screens Network
+</h1>
 
-  <!-- Category Buttons -->
-    <div class="mt-8 ml-[38px] opacity-0" data-animate>
-      <div class="bg-[#C8DCE7] rounded-t-full px-4 md:px-6 py-2 flex flex-wrap justify-start gap-2 md:gap-6 text-sm md:text-base font-medium text-gray-700 lg:w-[425px] 2xl:w-[625px]">
+
+
+
+    <div class="mt-8 ml-[38px]">
+      <div class="bg-[#C8DCE7] rounded-t-full px-4 md:px-6 py-2 flex flex-wrap justify-start gap-2 md:gap-6 text-sm md:text-base font-medium text-gray-700 w-[625px]">
         <button class="text-black font-semibold border-b-2 border-blue-900 pb-1 px-2 md:px-0">Residential</button>
         <button class="hover:text-black transition-colors px-2 md:px-0">Corporate</button>
         <button class="hover:text-black transition-colors px-2 md:px-0">Outdoor</button>
       </div>
     </div>
 
-  <!-- Search Section -->
-  <div class=" w-full max-w-full sm:max-w-[500px] 2xl:max-w-[732px] rounded-full p-[2px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] shadow-md opacity-0" data-animate>
-    <div class="flex flex-col sm:flex-row items-stretch bg-white rounded-full overflow-hidden">
-
-      <!-- Dropdown -->
-      <div class="relative w-full lg:w-[250px] 2xl:w-[200px] border-b sm:border-b-0 sm:border-r border-gray-200">
-        <select class="w-full px-4 py-3 bg-white text-gray-600 text-sm md:text-base outline-none appearance-none">
-          <option>Select city</option>
-          <option>Mumbai</option>
-          <option>Delhi</option>
-          <option>Bangalore</option>
-          <option>Ahmedabad</option>
-        </select>
-        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Search Input -->
-      <div class="w-full">
-        <input type="text" placeholder="Search..."
-          class="w-full px-4 py-3 outline-none text-sm md:text-base text-gray-700 bg-white" />
-      </div>
-
-      <!-- Search Button -->
-      <button
-        class="px-4 md:px-6 py-3 bg-gradient-to-r from-[#052652] to-[#2D9CDB] hover:opacity-90 transition-opacity flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+<div class="w-full max-w-[732px] rounded-full p-[2px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] shadow-md">
+  <div class="flex flex-col sm:flex-row items-stretch bg-white rounded-full overflow-hidden">
+    
+    <!-- Dropdown -->
+    <div class="relative w-[200px] border-b sm:border-b-0 sm:border-r border-gray-200">
+      <select class="w-full px-4 py-3 bg-white text-gray-600 text-sm md:text-base outline-none appearance-none">
+        <option>Select city</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Bangalore</option>
+        <option>Ahmedabad</option>
+      </select>
+      <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
         </svg>
-        <span class="sr-only">Search</span>
-      </button>
-
+      </div>
     </div>
-  </div>
 
+    <!-- Search Input -->
+    <div class="w-full sm:w-full">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="w-full px-4 py-3 outline-none text-sm md:text-base text-gray-700 bg-white"
+      />
+    </div>
+
+    <!-- Search Button -->
+    <button class="px-4 md:px-6 py-3 bg-gradient-to-r from-[#052652] to-[#2D9CDB] hover:opacity-90 transition-opacity flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+      </svg>
+      <span class="sr-only">Search</span>
+    </button>
+
+  </div>
 </div>
 
+
+  </div>
 </div>
 
 
@@ -488,6 +469,8 @@
             </div>
         </section>
 
+
+        <!-- vishal -->
         <div class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <!-- section-2 Digital OOH-->
             <section class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
@@ -500,8 +483,7 @@
                                 from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white"
                                     data-animate>
                                     Digital OOH <br />
-                                    <span class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text 
-                                        text-transparent opacity-0 dark:text-white" data-animate>
+                                    <span class="text-[20px] sm:text-[22px] lg:text-[24px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent opacity-0 dark:text-white" data-animate>
                                         Advertising Solution
                                     </span>
                                 </h2>
@@ -1535,7 +1517,7 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
 
                 <!-- Right: Background Image -->
                 <div class="w-full md:w-1/2 h-screen">
-                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753358457/vishal_hcojd7.png" alt=""
+                    <img src="vishal.png" alt=""
                         class="h-full" />
                 </div>
 
@@ -1702,7 +1684,7 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
             updateMode();
         }
 
-        function updateMode() {
+        function updateMode() { 
             if (darkMode) {
                 document.documentElement.classList.add("dark");
                 // Show sun icons (light mode symbol), hide moon icons
