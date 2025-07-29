@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aek Ads - India's Best And Largest Digital Screen Network</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png"
+        type="image/png" />
+    <link rel="apple-touch-icon"
+        href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Locomotive Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              light: '#2D9CDB',
+              dark: '#052652'
+            },
+            secondary: {
+              light: '#F5F5F5',
+              dark: '#1A365D'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-reverse': 'float-reverse 5s ease-in-out infinite',
+            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'float-reverse': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(15px)' },
+            }
+          }
+        },
+      },
+    };
+  </script>
+    <style>
+
+
+        #scroll-container {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Custom scrollbar */
+        .c-scrollbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100vh;
+            background: transparent;
+            z-index: 999;
+        }
+
+        .c-scrollbar_thumb {
+            background-color: #2D9CDB;
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Section divider */
+        .section-divider {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #052652 0%, #2D9CDB 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+            z-index: -1;
+        }
+        
+        /* Animated underline */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Glow effect */
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(45, 156, 219, 0.5);
+        }
+        
+        /* Parallax effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        
+          header {
+    transition: transform 0.3s ease-in-out;
+  }
+
+    </style>
+</head>
+
+<body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
+        <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+    </style>
+  <!-- DARK MODE SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
+      const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
+      const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
+
+      let darkMode = localStorage.getItem("darkMode") === "true";
+      updateMode();
+
+      function toggleDarkMode() {
+        darkMode = !darkMode;
+        localStorage.setItem("darkMode", darkMode);
+        updateMode();
+      }
+
+      function updateMode() {
+        if (darkMode) {
+          document.documentElement.classList.add("dark");
+          darkIcons.forEach(icon => icon.classList.add("hidden"));
+          lightIcons.forEach(icon => icon.classList.remove("hidden"));
+        } else {
+          document.documentElement.classList.remove("dark");
+          darkIcons.forEach(icon => icon.classList.remove("hidden"));
+          lightIcons.forEach(icon => icon.classList.add("hidden"));
+        }
+      }
+
+      toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
+    });
+  </script>
+
+  <!-- HEADER -->
+  <header class="header bg-[#FAFAFA] dark:bg-gray-800/80 backdrop-blur-md  sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
+      
+      <!-- Logo with animation -->
+      <div class="flex-shrink-0">
+        <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+               alt="AEK Ads Logo"
+               class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[15px] font-medium text-gray-700 dark:text-gray-200">
+        <a href="#section-0" class="animated-underline hover:text-primary-light">Home</a>
+        <a href="about.html" class="animated-underline hover:text-primary-light">About Us</a>
+        <a href="ADS.html" class="animated-underline hover:text-primary-light">Our Innovation</a>
+        <a href="ADS.html" class="animated-underline hover:text-primary-light">Pricing</a>
+        <a href="ADS.html" class="animated-underline hover:text-primary-light">Our Process</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-primary-light animated-underline">
+            More
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block bg-white dark:bg-gray-700 mt-2 shadow-xl rounded-md w-40 overflow-hidden transition-all duration-300 origin-top">
+            <a href="blog.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
+            <a href="career.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Career</a>
+          </div>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:rotate-12">
+          <svg id="darkIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="lightIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700 dark:text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div class="fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full" id="mobile-menu-content">
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
+        <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <nav class="flex flex-col space-y-4">
+          <a href="#section-0" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Home</a>
+          <a href="about.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">About Us</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Innovation</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Pricing</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Process</a>
+          <a href="blog.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Blogs</a>
+          <a href="career.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Career</a>
+          
+          <div class="pt-4 border-t dark:border-gray-700">
+            <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full">
+              <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg id="lightIconMobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <span>Toggle Dark Mode</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+    <main id="scroll-container" data-scroll-container>
+
+
+
+    <!-- About Section (Text + Images in Same Line) -->
+    <section
+      class="w-full px-6 md:px-[80px] pt-[17px] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+      <div class="max-w-[74rem] mx-auto flex flex-col lg:flex-row gap-12 items-start lg:items-stretch">
+
+        <!-- Left Content -->
+        <div class="lg:w-1/2 max-w-full space-y-10 text-justify self-stretch">
+          <!-- About Us -->
+          <div>
+            <h2
+              class="text-4xl font-bold inline-block bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-4 dark:text-white opacity-0" data-animate>
+              About us
+            </h2>
+
+            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate>
+              Aek Ads is an emerging force in the AdTech space, transforming how audiences engage with media in the
+              physical world. We combine cutting-edge technology with smart infrastructure to deliver impactful,
+              real-time digital communication in residential societies, public spaces, and urban environments.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-4 dark:text-white opacity-0" data-animate>
+              Our core strength lies in merging interactive experiences, programmatic advertising and data-driven
+              insights across a growing network of digitally connected screens and systems. With a mission to build
+              smarter cities and more engaged communities, Aek Ads offers advertisers, governments, and developers an
+              intelligent platform to connect with people where it matters most — right where they live, move, and
+              interact.
+            </p>
+          </div>
+
+          <!-- Mission -->
+          <div>
+            <h2
+              class="text-3xl font-semibold inline-block bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-3 dark:text-white opacity-0" data-animate>
+              Mission
+            </h2>
+
+            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate>
+              To empower brands, communities, and governments through intelligent digital media infrastructure that
+              blends technology, creativity, and engagement.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-3 dark:text-white  opacity-0" data-animate>
+              We aim to create a seamless bridge between information and promotion — empowering city governance,
+              enriching society communication, and elevating brand storytelling. Through innovation, service, and scale,
+              we aspire to lead the next wave of digital transformation in India’s urban and residential landscapes.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div>
+            <h2
+              class="text-3xl font-semibold inline-block bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-3 dark:text-white opacity-0" data-animate>
+              Vision
+            </h2>
+
+            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate >
+              To be India’s most trusted and innovative AdTech company, redefining the way information and advertising
+              coexist in smart urban spaces.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-3 dark:text-white">
+              We envision a world where public and private spaces are not only informative but also interactive —
+              powered by technology that delivers value to citizens while enabling brands to communicate meaningfully
+              and responsibly.
+            </p>
+          </div>
+        </div>
+<script>
+// ====================== Smooth Scroll + Header Logic ======================
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Locomotive Scroll
+  const scrollContainer = document.querySelector("#scroll-container");
+  const scroll = new LocomotiveScroll({
+    el: scrollContainer,
+    smooth: true,
+    lerp: 0.1,
+    getDirection: true,
+  });
+
+  const header = document.querySelector(".header");
+  const links = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("section[id]");
+  let lastScrollY = 0;
+
+  // Header show/hide on scroll
+  scroll.on("scroll", (args) => {
+    const currentY = args.scroll.y;
+
+    // Hide/show header
+    if (currentY > lastScrollY && currentY > 80) {
+      header.classList.remove("header-visible");
+      header.classList.add("header-hidden");
+    } else {
+      header.classList.remove("header-hidden");
+      header.classList.add("header-visible");
+    }
+
+    lastScrollY = currentY;
+
+    // Highlight active link
+    let currentSection = "";
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute("id");
+
+      if (currentY >= top - 200 && currentY < top + height - 200) {
+        currentSection = id;
+      }
+    });
+
+    links.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // Animate elements on entering viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0");
+        entry.target.classList.add("animate-fadeUp");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+
+  // Update Locomotive after load & images
+  window.addEventListener("load", () => setTimeout(() => scroll.update(), 500));
+  setTimeout(() => scroll.update(), 10000); // safety update
+});
+</script>
+
+<style>
+/* Header visibility animations */
+.header {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.header-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.header-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Active link styling */
+.nav-links a.active {
+  color: #2D9CDB; /* Highlight color */
+  font-weight: bold;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease forwards;
+}
+</style>
+
+        <!-- Right Images (Same height as text) -->
+        <div class="lg:w-1/2 space-y-6 self-stretch flex flex-col justify-between opacity-0" data-animate>
+          <img src="about-img/frame-about-1.png" alt="Lift Ad 1" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
+          <img src="about-img/frame-about-2.png" alt="Lift Ad 2" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
+          <img src="about-img/frame-about-3.png" alt="Lift Ad 3"
+            class="rounded-xl shadow-lg w-full object-cover h-[30%] lg:h-[300px] opacity-0" data-animate />
+        </div>
+      </div>
+    </section>
+
+<script>
+  
+// Locomotive Scroll Init
+document.addEventListener("DOMContentLoaded", function () {
+  // ✅ 1. Locomotive Scroll Initialization
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector("#scroll-container"),
+    smooth: true,
+    lerp: 0.1,
+    getDirection: true,
+  });
+
+  // ✅ 2. Header Hide/Show on Scroll
+ // ✅ Scroll-based Header Hide/Show
+let lastScrollY = window.scrollY;
+const mainHeader = document.getElementById("mainHeader");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    // Scrolling Down
+    mainHeader.classList.add("-translate-y-full");
+    mainHeader.classList.remove("translate-y-0");
+  } else {
+    // Scrolling Up
+    mainHeader.classList.remove("-translate-y-full");
+    mainHeader.classList.add("translate-y-0");
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+
+  // ✅ 3. Make header visible on load
+  header.classList.add("header-visible");
+
+  // ✅ 5. Animate Elements When In View
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0");
+        entry.target.classList.add("animate-fadeUp");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ✅ 6. Update Locomotive Scroll after lazy images load
+  window.addEventListener("load", () => {
+    setTimeout(() => scroll.update(), 500);
+  });
+
+  // ✅ Optional: Update scroll again after 10s for safety
+  setTimeout(() => scroll.update(), 10000);
+});
+
+</script>
+   
+
+<div class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white  bg-[#FAFAFA]">
+ <!-- infascures -->
+      <section
+      class="bg-[#FAFAFA]  pb-16 px-4 md:px-12 lg:px-20 dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white">
+      <div class="2xl:max-w-[74rem]  mx-auto">
+        <!-- Heading and Description -->
+        <h2
+          class="text-[40px] 2xl:text-[50px] lg:text-[35px] font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent w-fit
+           mb-[17px] text-left dark:text-white opacity-0" data-animate>
+          Infrastructure
+        </h2>
+
+
+
+        <p class="text-[#000000] text-base md:text-lg mb-6 dark:text-white opacity-0" data-animate>
+          Aek Ads’ modern, tech-enabled workspace designed to foster innovation. Located in a well-connected
+          urban area at Gandhinagar Gujarat, Aek Ads houses dedicated departments for operations, creative
+          design, R&D, and customer support, ensuring seamless execution of campaigns and technical
+          excellence.
+        </p>
+        <p class="text-[#000000] text-base md:text-lg mb-10 dark:text-white opacity-0" data-animate>
+          Aek Ads is backed by a robust infrastructure designed to support high-performance digital operations
+          and large-scale deployments:
+        </p>
+
+        <!-- Grid for Infrastructure Points -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Display Network -->
+          <div class="flex flex-col sm:flex-row gap-4 items-start w-full h-auto lg:w-[538px] lg:h-[150px]">
+            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781216/Display_kw4wyo.png" alt="Display Network"
+              class="w-full sm:w-[200px] h-auto sm:h-[140px] rounded-lg object-cover opacity-0" data-animate />
+            <div class="opacity-0" data-animate>
+              <h3
+                class="text-[24px] sm:text-[28px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                Display Network:</h3>
+              <p class="text-[#000000] dark:text-white">A growing fleet of digital displays installed across residential
+                societies, corporate
+                parks, and public Spaces PAN India.</p>
+            </div>
+          </div>
+
+          <!-- Command Center -->
+          <div class="flex flex-col sm:flex-row gap-4 items-start w-full h-auto lg:w-[538px] lg:h-[150px] opacity-0" data-animate>
+            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781255/Commnd_qqeap5.png" alt="Command Center"
+              class="w-full sm:w-[200px] h-auto sm:h-[140px] rounded-lg object-cover" />
+            <div>
+              <h3
+                class="text-[22px] sm:text-[23px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                Command Center & Ops Team:</h3>
+              <p class="text-[#000000] dark:text-white">A dedicated operations center monitors all devices, ensuring
+                live status checks,
+                instant content updates, and proactive technical support.</p>
+            </div>
+          </div>
+
+          <!-- Maintenance Team -->
+          <div class="flex flex-col sm:flex-row gap-4 items-start w-full h-auto lg:w-[538px] lg:h-[150px] opacity-0" data-animate >
+            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781287/mainTance_lpfoim.png" alt="Field Maintenance"
+              class="w-full sm:w-[200px] h-auto sm:h-[140px] rounded-lg object-cover" />
+            <div>
+              <h3
+                class="text-[24px] sm:text-[28px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                Field Maintenance Team:</h3>
+              <p class="text-[#000000] dark:text-white">A nationwide team of trained engineers and technicians ensures
+                quick response times and
+                routine servicing across all installation sites.</p>
+            </div>
+          </div>
+
+          <!-- R&D Facility -->
+          <div class="flex flex-col sm:flex-row gap-4 items-start w-full h-auto lg:w-[538px] lg:h-[150px] opacity-0" data-animate>
+            <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781323/producation_bww7c3.png" alt="R&D Facility"
+              class="w-full sm:w-[200px] h-auto sm:h-[140px] rounded-lg object-cover" />
+            <div>
+              <h3
+                class="text-[22px] sm:text-[25px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                R&D and Production Facility:</h3>
+              <p class="text-[#000000] dark:text-white">In-house assembly and research unit for customizing screen
+                hardware, testing new
+                modules, and integrating future-ready technologies.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlights Bar -->
+        <div
+          class="2xl:mt-12 mt-2 grid grid-cols-1 sm:grid-cols-3 gap-6 h-auto sm:h-[150px] bg-[#F4F4F4] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+
+          <!-- Block 1 -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left opacity-0" data-animate>
+            <div class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px]">
+              <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781355/1_aym4bl.svg" alt="Icon"
+                class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+            </div>
+            <h4
+              class="text-base sm:text-lg w-auto sm:w-[152px] text-start sm:text-left lg:text-2xl font-bold 
+              bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent leading-tight dark:text-white">
+              100+ Expert Professionals
+            </h4>
+          </div>
+
+          <!-- Block 2 -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left opacity-0" data-animate>
+            <div class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px]">
+              <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781384/2_ajaftd.svg" alt="Icon"
+                class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+            </div>
+            <h4
+              class="text-base sm:text-lg lg:text-2xl font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent leading-tight w-auto sm:w-[152px] text-start dark:text-white">
+              Large Display Network
+            </h4>
+          </div>
+
+          <!-- Block 3 -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left opacity-0" data-animate>
+            <div class="bg-[#F4F4F4] rounded-lg shadow-xl flex justify-center items-center w-[80px] h-[80px]">
+              <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781412/3_urja7o.svg" alt="Icon"
+                class="w-[50px] h-[50px] sm:w-[67px] sm:h-[67px] object-contain p-[10px]" />
+            </div>
+            <h4
+              class="text-base sm:text-lg w-auto sm:w-[152px] text-start lg:text-2xl font-bold leading-tight bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+              PAN India Presence
+            </h4>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+
+      <!-- infascures -->
+    <section class="py-12 px-4 pt-[115px] md:px-8 max-w-7xl w-full mx-auto ">
+      <!-- Header Section -->
+
+
+      <!-- Header + Description Section -->
+      <div class="mb-10 mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-start 
+  bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0" data-animate>
+          Digital Display Systems
+        </h2>
+
+
+        <p class="text-gray-700 text-base md:text-lg pl-4 text-justify leading-relaxed line-clamp-3 dark:text-white opacity-0" data-animate>
+          Our digital displays are engineered to deliver superior performance, vibrant visuals, and unmatched
+          reliability, making them the preferred choice for businesses across various industries. Whether for indoor or
+          outdoor use, Aek Ads' displays are designed to captivate audiences with crystal-clear imagery and dynamic
+          content.
+        </p>
+      </div>
+
+      <!-- Tagline Section -->
+      <div class="text-center mt-10 opacity-0" data-animate> <!-- 👈 this mt-10 adds the vertical space -->
+        <p class="text-[28px] font-normal italic leading-[100%] tracking-[0] text-start 
+text-transparent bg-gradient-to-r from-[#052652] to-[#2D9CDB] 
+bg-clip-text font-['Montserrat'] dark:text-white">
+          Unmatched Reliability<br>
+          Superior Performance<br>
+          Vibrant Visuals
+        </p>
+
+      </div>
+
+
+      <!-- Display Images -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-end lg:mt-[-100px] opacity-0" data-animate>
+        <!-- Outdoor LED Screen -->
+        <div class="text-center">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781530/2_xo6nnz.png" alt="Outdoor LED Screen" class="w-[280px] h-[260px] object-contain mx-auto">
+        </div>
+
+        <!-- Vertical Screen Display -->
+        <div class="text-center">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781487/1_lhkwcq.png" alt="Vertical Screen Display" class="w-[228px] h-[374px] object-contain mx-auto">
+        </div>
+
+        <!-- Dual Screen Display -->
+        <div class="text-center">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781614/4_wknhcr.png" alt="Dual Screen Display" class="w-[258px] h-[480px] object-contain mx-auto">
+        </div>
+
+        <!-- Digital Standee -->
+        <div class="text-center">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781563/3_qjlgoe.png" alt="Digital Standee" class="w-[247px] h-[506px] object-contain mx-auto">
+        </div>
+      </div>
+      <div
+        class="flex flex-wrap justify-between gap-6 bg-[#f5f5f5] py-[10px] px-[68px] rounded-xl dark:bg-gradient-to-r 
+        dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white opacity-0" data-animate>
+        <h4 class="text-[16px] font-semibold text-[#0056a3] cursor-pointer dark:text-white">Outdoor LED Screen</h4>
+        <h4 class="text-[16px] font-semibold text-[#0056a3] cursor-pointer dark:text-white">Vertical Screen Display</h4>
+        <h4 class="text-[16px] font-semibold text-[#0056a3] cursor-pointer dark:text-white">Dual Screen Display</h4>
+        <h4 class="text-[16px] font-semibold text-[#0056a3] cursor-pointer dark:text-white">Digital Standee</h4>
+      </div>
+
+
+    </section>
+</div>
+  
+    <section
+      class="bg-[#FAFAFA] py-16 px-4 md:px-12 lg:px-20 pt-[140px] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+      <div
+        class="max-w-[88rem] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12 2xl:pl-[120px] opacity-0" data-animate>
+
+        <!-- Left Content -->
+        <div class="lg:w-full 2xl:w-[62%] space-y-6">
+          <!-- Headings with Gradient Text -->
+          <h2
+            class="text-[32px] md:text-[45px] font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent inline-block dark:text-white opacity-0" data-animate>
+            Products & Services
+          </h2>
+
+          <h3
+            class="text-[25px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white opacity-0" data-animate>
+            Advertising Solutions
+          </h3>
+
+          <!-- Paragraphs -->
+          <div class="space-y-4">
+            <p class="text-gray-700 text-base leading-relaxed dark:text-white opacity-0" data-animate
+              style="text-align: justify; text-justify: inter-word;">
+              A revolution in advertising and communication! With over 850+ Screens across India we blanket the
+              landscape, reaching millions every day! Our team of expert professionals ensures that every ad campaign is
+              crafted with precision and delivered with impact. Our large network of screens ensures that your ad
+              campaign shines bright in every corner of India.
+            </p>
+
+            <p class="text-gray-700 text-base leading-relaxed dark:text-white opacity-0" data-animate
+              style="text-align: justify; text-justify: inter-word;">
+              We can provide 1 Cr+ daily impressions with our network of 850+ screens spread around 8 Cities and located
+              at residential, commercial and Outdoor Spaces. With advanced analytics and data tracking tools, we ensure
+              that your message reaches the right audience at the right time.
+            </p>
+          </div>
+
+          <!-- Stats Cards -->
+          <div
+            class="flex flex-wrap gap-4 md:gap-0 mt-6 w-full bg-[#F6F6F6] rounded-lg mt-[10px] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+            <!-- Card 1 -->
+            <div class="flex items-center  p-3 md:p-4 rounded-xl hover:shadow-lg transition-all opacity-0" data-animate>
+              <div class="bg-[#F6F6F6] p-2 md:p-3 rounded-lg  rounded-xl  mr-3">
+                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469182/screens_ygzyut.png"
+                  alt="Screens" class="w-8 h-8" />
+              </div>
+              <h5
+                class="text-lg font-semibold  bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                850+ Screens</h5>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="flex items-center bg-[#F6F6F6] p-3 md:p-4 rounded-xl hover:shadow-lg transition-all dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB]
+               dark:text-white opacity-0" data-animate>
+              <div class="bg-[#F6F6F6] p-2 md:p-3 rounded-lg  rounded-xl  mr-3">
+                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1752469128/Location_rg3qav.png"
+                  alt="Cities" class="w-8 h-8" />
+              </div>
+              <h5
+                class="text-lg font-semibold  bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                8 Cities</h5>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="flex items-center bg-[#F6F6F6] p-3 md:p-4  hover:shadow-lg transition-all dark:bg-gradient-to-r dark:from-[#052652] 
+              dark:to-[#2D9CDB] dark:text-white opacity-0" data-animate>
+              <div class="bg-[#F6F6F6] p-2 md:p-3 rounded-lg  rounded-xl  mr-3 ">
+                <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781662/eye_llv2wp.svg" alt="Impressions" class="w-8 h-8" />
+              </div>
+              <h5
+                class="text-lg font-semibold  bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white">
+                1 Cr+ Daily Impressions</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="2xl:w-[48%] mb-8 lg:mb-0 opacity-0" data-animate>
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753781693/map_pfv0pt.png" alt="India Map with Screens" class="w-full rounded-xl shadow-xl" />
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+
+
+
+
+    <section>
+      <footer class="bg-[rgba(28,28,28,0.1)] text-[#4d4d4d] py-[40px]">
+        <div class="max-w-[1400px] mx-auto px-[30px]">
+          <div class="flex flex-col md:flex-row justify-between gap-10">
+            <!-- Logo and Description -->
+            <div class="text-center md:text-left md:w-1/3">
+              <h2 class="mt-[3%]">
+                <a href="https://www.aekads.com" target="_blank">
+                  <img loading="lazy"
+                    src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+                    alt="Digital Screen Display in India"
+                    class="w-[60%] md:w-[60%] sm:w-[50%] xs:w-[58%] mx-auto md:mx-0" />
+                </a>
+              </h2>
+              <p class="text-justify mb-4 text-[#4d4d4d] dark:text-white">Bringing stories to residential, corporate,
+                and
+                commercial zones. We integrate your brand into the daily lives of real audiences. Reach
+                where people live, work, and shop. Smart advertising for smart cities.</p>
+
+              <div class="flex justify-center md:justify-start flex-wrap gap-2 mt-4">
+                <a href="https://www.facebook.com/aekads1/" target="_blank"
+                  class="w-10 h-10 bg-[#4d4d4d] text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#24262b] transition-all duration-500"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/aek_ads/" target="_blank"
+                  class="w-10 h-10 bg-[#4d4d4d] text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#24262b] transition-all duration-500"><i
+                    class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/aekads/" target="_blank"
+                  class="w-10 h-10 bg-[#4d4d4d] text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#24262b] transition-all duration-500"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@aek_ads" target="_blank"
+                  class="w-10 h-10 bg-[#4d4d4d] text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#24262b] transition-all duration-500"><i
+                    class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="text-center md:text-left md:w-1/3 mt-6 md:mt-0">
+              <h5 class="text-[#006499] font-semibold text-lg mb-4">Quick Links</h5>
+              <div class="flex">
+                <div class="w-1/2 text-start leading-[50px]">
+                  <a href="/about"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">About
+                    Us</a>
+                  <a href="#section-2"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">Why
+                    AekAds?</a>
+                  <a href="#section-3"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">Dual
+                    Screen Tech</a>
+                </div>
+                <div class="w-1/2 text-start leading-[50px]">
+                  <a href="#section-4"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">Our
+                    Process</a>
+                  <a href="/blog"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">Blog</a>
+                  <a href="#section-5"
+                    class="block before:content-['•_'] before:text-[#006499] before:font-bold before:text-xl">Brands
+                    That Trust Us</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="text-center md:text-left md:w-1/3 mt-6 md:mt-0">
+              <h5 class="text-[#006499] font-semibold text-lg mb-4">Contact Us</h5>
+              <p class="text-[#4d4d4d] mt-[5%] flex items-center gap-2 justify-center md:justify-start">
+                <img src="call.svg" alt="Call" class="h-[20px]" />
+                +91 80908 02014
+              </p>
+              <p class="text-[#4d4d4d] flex items-center gap-2 justify-center md:justify-start">
+                <img src="mail.svg" alt="Mail" class="h-[20px]" />
+                sales@aekads.com
+              </p>
+            </div>
+          </div>
+
+          <!-- Marquee -->
+          <h4 class="text-[#4d4d4d] text-center mt-5 font-semibold text-lg">Popular Searches</h4>
+          <marquee behavior="scroll" direction="left" scrollamount="3"
+            class="text-[#4d4d4d] text-base py-5 border-t border-black/20 mt-4">
+            Aekads | Gujarat's Best And Largest Digital Screen Network • Aekads | Ahmedabad No.1 Digital
+            Advertising Screen Network • Aekads | Gandhinagar Best And Largest Digital Screen Network •
+            Aekads | Mumbai Best And Largest Digital Screen Network • Aekads | Surat Best And Largest
+            Digital Screen Network • Aekads | Vadodara Best And Largest Digital Screen Network • Aekads |
+            Baroda Best Digital Outdoor Advertising Company • Aekads | Mount Abu Rajasthan Best And Largest
+            Digital Screen Network • Aekads | Udaipur Rajasthan Best And Largest Digital Screen Network
+          </marquee>
+
+          <!-- Terms and Copyright -->
+          <div class="text-center">
+            <p class="text-[#4d4d4d] text-sm">
+              <a class="text-blue-600 hover:underline" href="/terms-of-use" target="_blank"
+                rel="noopener noreferrer">Terms of Use</a> |
+              <a class="text-blue-600 hover:underline" href="/privacy-policy" target="_blank"
+                rel="noopener noreferrer">Privacy Policy</a> |
+              Copyright @2025, Elekgo Technology Pvt. Ltd. All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </footer>
+
+    </section>
+
+  </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      const mobileMenuContent = document.getElementById('mobile-menu-content');
+      
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenuOverlay.classList.add('opacity-100');
+          mobileMenuContent.classList.remove('translate-x-full');
+        }, 10);
+      });
+      
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuContent.classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      });
+      
+      mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuContent.classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      });
+      
+      // Counter animation
+      function animateCounters() {
+        const counters = document.querySelectorAll('[data-count]');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-count');
+          const count = +counter.innerText;
+          const increment = target / speed;
+          
+          if(count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounters, 1);
+          } else {
+            counter.innerText = target;
+          }
+        });
+      }
+      
+     
+      // Start counter animation when stats section is in view
+      ScrollTrigger.create({
+        trigger: ".bg-gray-50",
+        start: "top 70%",
+        onEnter: animateCounters
+      });
+    </script>
+</body>
+</html>
