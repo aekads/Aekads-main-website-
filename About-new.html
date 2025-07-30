@@ -317,8 +317,76 @@
 
 
     <!-- About Section (Text + Images in Same Line) -->
+
+
+<script>
+  
+// Locomotive Scroll Init
+document.addEventListener("DOMContentLoaded", function () {
+  // ✅ 1. Locomotive Scroll Initialization
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector("#scroll-container"),
+    smooth: true,
+    lerp: 0.1,
+    getDirection: true,
+  });
+
+  // ✅ 2. Header Hide/Show on Scroll
+ // ✅ Scroll-based Header Hide/Show
+let lastScrollY = window.scrollY;
+const mainHeader = document.getElementById("mainHeader");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    // Scrolling Down
+    mainHeader.classList.add("-translate-y-full");
+    mainHeader.classList.remove("translate-y-0");
+  } else {
+    // Scrolling Up
+    mainHeader.classList.remove("-translate-y-full");
+    mainHeader.classList.add("translate-y-0");
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+
+  // ✅ 3. Make header visible on load
+  header.classList.add("header-visible");
+
+  // ✅ 5. Animate Elements When In View
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0");
+        entry.target.classList.add("animate-fadeUp");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ✅ 6. Update Locomotive Scroll after lazy images load
+  window.addEventListener("load", () => {
+    setTimeout(() => scroll.update(), 500);
+  });
+
+  // ✅ Optional: Update scroll again after 10s for safety
+  setTimeout(() => scroll.update(), 10000);
+});
+
+</script>
+   
+<div class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white  bg-[#FAFAFA]">
     <section
-      class="w-full px-6 md:px-[80px] pt-[17px] bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+      class="w-full px-6 md:px-[80px] pt-[17px] ">
       <div class="max-w-[74rem] mx-auto flex flex-col lg:flex-row gap-12 items-start lg:items-stretch">
 
         <!-- Left Content -->
@@ -330,12 +398,12 @@
               About us
             </h2>
 
-            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate>
+            <p class="text-black leading-relaxed dark:text-white opacity-0" data-animate>
               Aek Ads is an emerging force in the AdTech space, transforming how audiences engage with media in the
               physical world. We combine cutting-edge technology with smart infrastructure to deliver impactful,
               real-time digital communication in residential societies, public spaces, and urban environments.
             </p>
-            <p class="text-gray-700 leading-relaxed mt-4 dark:text-white opacity-0" data-animate>
+            <p class="text-black leading-relaxed mt-4 dark:text-white opacity-0" data-animate>
               Our core strength lies in merging interactive experiences, programmatic advertising and data-driven
               insights across a growing network of digitally connected screens and systems. With a mission to build
               smarter cities and more engaged communities, Aek Ads offers advertisers, governments, and developers an
@@ -351,11 +419,11 @@
               Mission
             </h2>
 
-            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate>
+            <p class="text-black leading-relaxed dark:text-white opacity-0" data-animate>
               To empower brands, communities, and governments through intelligent digital media infrastructure that
               blends technology, creativity, and engagement.
             </p>
-            <p class="text-gray-700 leading-relaxed mt-3 dark:text-white  opacity-0" data-animate>
+            <p class="text-black leading-relaxed mt-3 dark:text-white  opacity-0" data-animate>
               We aim to create a seamless bridge between information and promotion — empowering city governance,
               enriching society communication, and elevating brand storytelling. Through innovation, service, and scale,
               we aspire to lead the next wave of digital transformation in India’s urban and residential landscapes.
@@ -369,11 +437,11 @@
               Vision
             </h2>
 
-            <p class="text-gray-700 leading-relaxed dark:text-white opacity-0" data-animate >
+            <p class="text-black leading-relaxed dark:text-white opacity-0" data-animate >
               To be India’s most trusted and innovative AdTech company, redefining the way information and advertising
               coexist in smart urban spaces.
             </p>
-            <p class="text-gray-700 leading-relaxed mt-3 dark:text-white">
+            <p class="text-black leading-relaxed mt-3 dark:text-white">
               We envision a world where public and private spaces are not only informative but also interactive —
               powered by technology that delivers value to citizens while enabling brands to communicate meaningfully
               and responsibly.
@@ -483,84 +551,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <!-- Right Images (Same height as text) -->
         <div class="lg:w-1/2 space-y-6 self-stretch flex flex-col justify-between opacity-0" data-animate>
-          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753782630/frame-about-1_hdrgfh.png" alt="Lift Ad 1" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
-          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753782668/frame-about-2_mjcfkf.png" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
-          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1753782701/frame-about-3_lxqffg.png" alt="Lift Ad 3"
+          <img src="about-img/frame-about-1.png" alt="Lift Ad 1" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
+          <img src="about-img/frame-about-2.png" alt="Lift Ad 2" class="rounded-xl shadow-lg w-full object-cover opacity-0" data-animate />
+          <img src="about-img/frame-about-3.png" alt="Lift Ad 3"
             class="rounded-xl shadow-lg w-full object-cover h-[30%] lg:h-[300px] opacity-0" data-animate />
         </div>
       </div>
     </section>
-
-<script>
-  
-// Locomotive Scroll Init
-document.addEventListener("DOMContentLoaded", function () {
-  // ✅ 1. Locomotive Scroll Initialization
-  const scroll = new LocomotiveScroll({
-    el: document.querySelector("#scroll-container"),
-    smooth: true,
-    lerp: 0.1,
-    getDirection: true,
-  });
-
-  // ✅ 2. Header Hide/Show on Scroll
- // ✅ Scroll-based Header Hide/Show
-let lastScrollY = window.scrollY;
-const mainHeader = document.getElementById("mainHeader");
-
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
-
-  if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    // Scrolling Down
-    mainHeader.classList.add("-translate-y-full");
-    mainHeader.classList.remove("translate-y-0");
-  } else {
-    // Scrolling Up
-    mainHeader.classList.remove("-translate-y-full");
-    mainHeader.classList.add("translate-y-0");
-  }
-
-  lastScrollY = currentScrollY;
-});
-
-
-  // ✅ 3. Make header visible on load
-  header.classList.add("header-visible");
-
-  // ✅ 5. Animate Elements When In View
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove("opacity-0");
-        entry.target.classList.add("animate-fadeUp");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  document.querySelectorAll('[data-animate]').forEach(el => {
-    observer.observe(el);
-  });
-
-  // ✅ 6. Update Locomotive Scroll after lazy images load
-  window.addEventListener("load", () => {
-    setTimeout(() => scroll.update(), 500);
-  });
-
-  // ✅ Optional: Update scroll again after 10s for safety
-  setTimeout(() => scroll.update(), 10000);
-});
-
-</script>
-   
-
-<div class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white  bg-[#FAFAFA]">
  <!-- infascures -->
       <section
-      class="bg-[#FAFAFA]  pb-16 px-4 md:px-12 lg:px-20 dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white">
+      class=" pb-16 px-4 md:px-12 lg:px-20">
       <div class="2xl:max-w-[74rem]  mx-auto">
         <!-- Heading and Description -->
         <h2
@@ -702,7 +702,7 @@ window.addEventListener("scroll", () => {
         </h2>
 
 
-        <p class="text-gray-700 text-base md:text-lg pl-4 text-justify leading-relaxed line-clamp-3 dark:text-white opacity-0" data-animate>
+        <p class="text-black text-base md:text-lg pl-4 text-justify leading-relaxed line-clamp-3 dark:text-white opacity-0" data-animate>
           Our digital displays are engineered to deliver superior performance, vibrant visuals, and unmatched
           reliability, making them the preferred choice for businesses across various industries. Whether for indoor or
           outdoor use, Aek Ads' displays are designed to captivate audiences with crystal-clear imagery and dynamic
@@ -756,10 +756,9 @@ bg-clip-text font-['Montserrat'] dark:text-white">
 
 
     </section>
-</div>
   
     <section
-      class="bg-[#FAFAFA] py-16 px-4 md:px-12 lg:px-20 pt-[140px] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
+      class=" py-16 px-4 md:px-12 lg:px-20 pt-[140px]">
       <div
         class="max-w-[88rem] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12 2xl:pl-[120px] opacity-0" data-animate>
 
@@ -778,7 +777,7 @@ bg-clip-text font-['Montserrat'] dark:text-white">
 
           <!-- Paragraphs -->
           <div class="space-y-4">
-            <p class="text-gray-700 text-base leading-relaxed dark:text-white opacity-0" data-animate
+            <p class="text-black text-base leading-relaxed dark:text-white opacity-0" data-animate
               style="text-align: justify; text-justify: inter-word;">
               A revolution in advertising and communication! With over 850+ Screens across India we blanket the
               landscape, reaching millions every day! Our team of expert professionals ensures that every ad campaign is
@@ -786,7 +785,7 @@ bg-clip-text font-['Montserrat'] dark:text-white">
               campaign shines bright in every corner of India.
             </p>
 
-            <p class="text-gray-700 text-base leading-relaxed dark:text-white opacity-0" data-animate
+            <p class="text-black text-base leading-relaxed dark:text-white opacity-0" data-animate
               style="text-align: justify; text-justify: inter-word;">
               We can provide 1 Cr+ daily impressions with our network of 850+ screens spread around 8 Cities and located
               at residential, commercial and Outdoor Spaces. With advanced analytics and data tracking tools, we ensure
@@ -844,6 +843,7 @@ bg-clip-text font-['Montserrat'] dark:text-white">
       </div>
     </section>
 
+</div>
 
 
 
