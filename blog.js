@@ -261,7 +261,6 @@ function scrollToTop() {
 }
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     // API Configuration
     const API_BASE_URL = 'https://cms.aekads.com/api';
@@ -273,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const blogDetailContainer = document.getElementById('blogDetailContainer');
     const backButton = document.getElementById('backButton');
 
-    // Core Functions
+    // ✅ Fetch all blog posts
     async function fetchAllBlogPosts() {
         try {
             const response = await fetch(`${API_BASE_URL}/Aekadsblog`);
@@ -285,9 +284,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    async function fetchBlogPostById(postId) {
+    // ✅ Fetch blog post by slug
+    async function fetchBlogPostBySlug(slug) {
         try {
-            const response = await fetch(`${API_BASE_URL}/Aekadsblog/${postId}`);
+            const response = await fetch(`${API_BASE_URL}/Aekadsblog/${slug}`);
             if (!response.ok) throw new Error('Failed to fetch post');
             return await response.json();
         } catch (error) {
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Blog List Rendering
+    // ✅ Render all blog cards
     async function renderBlogPosts() {
         showLoading();
         try {
@@ -314,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ✅ Create blog card HTML
     function createPostHTML(post, isFeatured) {
         return `
             <div class="${isFeatured ? 'featured-post' : 'blog-card'}">
@@ -323,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="blog-card-content">
                     <h3 class="blog-title">${post.title}</h3>
                     <p class="blog-excerpt">${post.short_description}</p>
-                    <a href="#" class="read-more view-post-btn" data-post-id="${post.id}">
+                    <a href="#" class="read-more view-post-btn" data-post-slug="${post.slug}">
                         Read More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -331,13 +332,12 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
-    // Blog Detail Handling
-    async function showBlogDetail(postId) {
+    // ✅ Show blog detail view by slug
+    async function showBlogDetail(slug) {
         try {
             document.querySelector('main').style.display = 'none';
             blogDetailContainer.style.display = 'block';
 
-            // Show loading state
             document.getElementById('detailContent').innerHTML = `
                 <div class="loading-spinner">
                     <div class="spinner"></div>
@@ -345,24 +345,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
 
-            const post = await fetchBlogPostById(postId);
+            const post = await fetchBlogPostBySlug(slug);
             if (!post) return;
 
-            // Update content
             document.title = `${post.title} | AekAds Blog`;
             document.getElementById('detailTitle').textContent = post.title;
 
-            // Set image
             const detailImage = document.getElementById('detailImage');
             detailImage.src = post.image_url;
             detailImage.alt = post.title;
 
-            // Load content
             document.getElementById('detailContent').innerHTML = post.description;
 
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
         } catch (error) {
             document.getElementById('detailContent').innerHTML = `
                 <div class="error-state">
@@ -374,19 +369,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Event Handlers
+    // ✅ Attach event listeners to blog post buttons
     function addPostEventListeners() {
         document.querySelectorAll('.view-post-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const postId = btn.dataset.postId;
-                showBlogDetail(postId);
-                history.pushState({ postId }, '', `?id=${postId}`);
+                const postSlug = btn.dataset.postSlug;
+                showBlogDetail(postSlug);
+                history.pushState({ postSlug }, '', `?slug=${postSlug}`);
             });
         });
     }
 
-    // Consolidated back button handler
+    // ✅ Back button behavior
     backButton.addEventListener('click', () => {
         blogDetailContainer.style.display = 'none';
         document.querySelector('main').style.display = 'block';
@@ -394,12 +389,13 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ✅ Handle browser back/forward navigation
     window.addEventListener('popstate', (event) => {
         const urlParams = new URLSearchParams(window.location.search);
-        const postId = urlParams.get('id');
+        const slug = urlParams.get('slug');
 
-        if (postId) {
-            showBlogDetail(postId);
+        if (slug) {
+            showBlogDetail(slug);
         } else {
             blogDetailContainer.style.display = 'none';
             document.querySelector('main').style.display = 'block';
@@ -407,17 +403,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initial Load
+    // ✅ Initial load logic
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+    const postSlug = urlParams.get('slug');
 
-    if (postId) {
-        showBlogDetail(postId);
+    if (postSlug) {
+        showBlogDetail(postSlug);
     } else {
         renderBlogPosts();
     }
 
-    // Utility Functions
+    // ✅ Utility functions
     function showLoading() {
         loadingSpinner.style.display = 'block';
         blogPostsContainer.innerHTML = '';
