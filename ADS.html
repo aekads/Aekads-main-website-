@@ -1111,8 +1111,10 @@
 
             
   <!-- Section (unchanged structure + Tailwind classes) -->
+  
+  <!-- Section (unchanged structure + Tailwind classes) -->
   <section class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white py-8 w-full flex justify-center items-center">
-    <div class="w-[95%] lg:w-[90%] 2xl:w-[70%] px-4 overflow-hidden hide-scrollbar">
+    <div class="w-[95%] lg:w-[90%] 2xl:w-[75%] px-4 overflow-hidden hide-scrollbar">
          <!-- Main Section Title -->
     <h2 class="text-center text-[20px] sm:text-[22px] md:text-[24px] font-semibold text-[#052652] bg-[#D5D5D5] inline-block px-6 py-2 rounded-lg mb-10 ">
       
@@ -1121,7 +1123,8 @@
       <!-- NOTE: We keep id=card-slider; JS duplicates its children for the seamless loop -->
       <div id="card-slider" class="flex will-change-transform">
         <!-- Slide 1 -->
-        <div class="min-w-full grid md:grid-cols-3 gap-4 p-2 slide-item">
+       <div class="min-w-full flex md:grid md:grid-cols-3 gap-4 p-2 slide-item">
+
           <div class="card p-3 transition-transform duration-500 transform bg-transparent border-none flex flex-col items-center text-center">
             <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1754397224/Emergency_tnk3rf.png" alt="Emergency Contact" class="w-full rounded-md mb-3" />
             <h3 class="text-xl md:text-[22px] text-start w-full font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-1 dark:text-white">
@@ -1154,7 +1157,8 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="min-w-full grid md:grid-cols-3 gap-4 p-2 slide-item">
+<div class="min-w-full flex md:grid md:grid-cols-3 gap-4 p-2 slide-item">
+
           <div class="card p-3 transition-transform duration-500 transform bg-transparent border-none flex flex-col items-center text-center">
             <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1754397305/Punch_In-Out_qvfwrf.png" alt="Worker Punch In-Out" class="w-full rounded-md mb-3" />
             <h3 class="text-xl md:text-[22px] font-semibold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-1 text-start w-full dark:text-white">
@@ -1219,42 +1223,39 @@
 
 
    <style>
-    :root {
-      /* change this to control speed (s) */
-      --scroll-duration: 20s;
-    }
+   :root {
+  --scroll-duration: 20s;
+}
 
-    /* Smooth continuous horizontal scroll that moves by 50% (because we duplicate content) */
-    @keyframes scrollX {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+@keyframes scrollX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-    /* apply animation to the inner flex wrapper */
-    .continuous-scroll {
-      display: flex;
-      width: max-content; /* allow content to dictate width */
-      animation: scrollX var(--scroll-duration) linear infinite;
-      will-change: transform;
-    }
+.continuous-scroll {
+  display: flex;
+  width: max-content;
+  animation: scrollX var(--scroll-duration) linear infinite;
+  will-change: transform;
+}
 
-    /* maintain same slide width behaviour you had (each slide is full container width) */
-    #card-slider > .slide-item {
-      min-width: 100%;
-      box-sizing: border-box;
-    }
+#card-slider > .slide-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
 
-    /* Hide scrollbar cross-browser */
-    .hide-scrollbar {
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
-    }
-    .hide-scrollbar::-webkit-scrollbar { display: none; } /* Chrome/Safari/Opera */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
-    /* Respect user's motion preferences */
-    @media (prefers-reduced-motion: reduce) {
-      .continuous-scroll { animation: none; }
-    }
+@media (prefers-reduced-motion: reduce) {
+  .continuous-scroll { animation: none; }
+}
+
   </style>
 
         </div>
@@ -2276,3 +2277,4 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
 <!-- Vishal prajapati -->
 
 </html>
+
