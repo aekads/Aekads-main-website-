@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aek Ads - Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  
+  /* Notification styles - Left side below header */
+  .notification-container {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 400px;
+  }
+  
+  .notification {
+    padding: 16px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    transform: translateX(-110%);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    opacity: 0;
+  }
+  
+  .notification.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .notification.hide {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+  
+  .notification.success {
+    background: #4CAF50;
+    border-left: 4px solid #2E7D32;
+  }
+  
+  .notification.error {
+    background: #F44336;
+    border-left: 4px solid #C62828;
+  }
+  
+  .notification.warning {
+    background: #FF9800;
+    border-left: 4px solid #EF6C00;
+  }
+  
+  .notification-icon {
+    margin-right: 12px;
+    font-size: 20px;
+  }
+  
+  .notification-close {
+    margin-left: auto;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  .notification-close:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .notification-container {
+      top: 70px;
+      left: 10px;
+      width: calc(100% - 20px);
+    }
+  }
+</style>
+</head>
+
+<body class="flex min-h-screen bg-white">
+  <!-- Left Section -->
+  <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-14 md:px-20 lg:px-24 xl:px-28 2xl:px-32 py-12">
+    <h1 class="2xl:text-[36px] font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-3">
+      Sign up in seconds
+    </h1>
+    <p class="text-black mb-8">Use your email or another service to continue with Aek Ads</p>
+    
+    <form id="signupForm">
+      <!-- Email Field -->
+      <label class="mb-2 text-sm font-medium text-black">Email</label>
+      <input id="email" type="email" placeholder="Example@email.com"
+        class="mb-4 w-full px-4 py-3 rounded-lg border bg-[#F7FBFF] border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
+
+      <!-- Password Field -->
+    <div class="relative mb-2">
+  <label class="mb-2 text-sm font-medium text-black">Password</label>
+  <div class="relative">
+    <input id="password" type="password" placeholder="At least 8 characters" minlength="8"
+      class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
+    <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 pt-3" id="togglePassword">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+      <!-- Sign Up Button -->
+      <button id="signupBtn" type="submit"
+        class="w-full bg-gray-800 text-white py-3 mt-6 rounded-lg hover:bg-gray-900 transition-colors duration-200 mb-5 font-medium">
+        Continue
+      </button>
+    </form>                                                                                                              
+                                                                              
+    <!-- OR Divider -->                                                     
+    <div class="flex items-center my-6">                                    
+      <div class="flex-grow h-px bg-gray-300"></div>      
+      <span class="mx-4 text-gray-500 text-sm font-medium">Or</span>            
+      <div class="flex-grow h-px bg-gray-300"></div>
+    </div>
+
+    <!-- Google Sign In -->
+    <button
+      class="w-full border border-gray-300 bg-[#F3F9FA] py-3 flex items-center justify-center rounded-lg hover:bg-gray-50 transition font-medium">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="w-5 h-5 mr-3" />
+      Sign in with Google
+    </button>
+
+    <!-- Already have account -->
+    <p class="mt-6 text-center text-sm text-gray-600">
+      Already have an account? <a href="/login.html" class="text-blue-600 hover:underline font-medium">Log in</a>
+    </p>
+
+    <!-- Terms -->
+    <p class="mt-8 text-xs text-gray-400 text-center">
+      By continuing, you agree to Aek Ads' <a href="#" class="underline">Terms of Use</a>. Read our <a href="#" class="underline">Privacy Policy</a>.
+    </p>
+  </div>
+
+  <!-- Right Image Section -->
+  <div class="hidden lg:flex lg:w-1/2 h-screen bg-gray-100 items-center justify-center">
+    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1754890076/Art_1_pdd8uq.png" alt="Elevator Ad Display" class="w-full h-full object-cover" />
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    
+    togglePassword.addEventListener('click', function() {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      
+      // Update the eye icon
+      if (type === 'text') {
+        this.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+          </svg>
+        `;
+      } else {
+        this.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        `;
+      }
+    });
+  });
+// Notification system
+function showNotification(type, message, duration = 5000) {
+  // Create container if it doesn't exist
+  let container = document.querySelector('.notification-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'notification-container';
+    document.body.appendChild(container);
+  }
+
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.innerHTML = `
+    <span class="notification-icon">
+      ${type === 'success' ? '✓' : type === 'error' ? '✗' : '⚠'}
+    </span>
+    <span class="notification-message">${message}</span>
+    <span class="notification-close">&times;</span>
+  `;
+
+  // Add to container
+  container.appendChild(notification);
+
+  // Trigger show animation
+  setTimeout(() => notification.classList.add('show'), 10);
+
+  // Close button handler
+  const closeBtn = notification.querySelector('.notification-close');
+  closeBtn.addEventListener('click', () => {
+    closeNotification(notification);
+  });
+
+  // Auto-hide after duration
+  if (duration > 0) {
+    setTimeout(() => {
+      closeNotification(notification);
+    }, duration);
+  }
+
+  function closeNotification(notification) {
+    notification.classList.remove('show');
+    notification.classList.add('hide');
+    setTimeout(() => {
+      notification.remove();
+      // Remove container if no notifications left
+      if (container && container.children.length === 0) {
+        container.remove();
+      }
+    }, 400);
+  }
+}
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+  const signupForm = document.getElementById('signupForm');
+  
+  signupForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const signupBtn = document.getElementById('signupBtn');
+    
+    // Basic validation
+    if (!email || !password) {
+      showNotification('error', 'Email and password are required');
+      return;
+    }
+    
+    if (password.length < 8) {
+      showNotification('error', 'Password must be at least 8 characters');
+      return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showNotification('error', 'Please enter a valid email address');
+      return;
+    }
+    
+    signupBtn.disabled = true;
+    signupBtn.textContent = 'Processing...';
+    
+    try {
+      const response = await axios.post('https://cms.aekads.com/api/websitesales/register', {
+        email,
+        password
+      });
+      
+      localStorage.setItem('otpVerificationEmail', email);
+      
+      showNotification('success', 'Registration successful! Redirecting to OTP verification...');
+      
+      setTimeout(() => {
+        window.location.href = 'otp.html';
+      }, 2000);
+      
+    } catch (error) {
+      let errorMessage = 'Registration failed. Please try again.';
+      
+      if (error.response) {
+        if (error.response.status === 409) {
+          errorMessage = 'This email is already registered.';
+        } else {
+          errorMessage = error.response.data.error || errorMessage;
+        }
+      } else if (error.request) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      }
+      
+      showNotification('error', errorMessage);
+    } finally {
+      signupBtn.disabled = false;
+      signupBtn.textContent = 'Continue';
+    }
+  });
+});
+  </script>
+</body>
+</html>

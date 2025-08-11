@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aek Ads - OTP Verification</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    input[type="text"]::-webkit-inner-spin-button,
+    input[type="text"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .otp-box:focus {
+      border-color: #2D9CDB;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(45, 156, 219, 0.3);
+    }
+  </style>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="flex min-h-screen bg-white">
+  <!-- Notification Container -->
+  <div id="notification-container" class="fixed top-20 left-4 z-50 w-80"></div>
+
+  <!-- Left: OTP Section -->
+  <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-14 md:px-20 lg:px-24 xl:px-28 2xl:px-32 py-12">
+    <h1 class="text-[24px] md:text-[28px] lg:text-[30px] font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent mb-2">
+      OTP Verification
+    </h1>
+    <p id="emailDisplay" class="text-gray-700 mb-8">
+      Enter the verification code we just sent to your email
+    </p>
+
+    <!-- OTP Boxes -->
+    <form id="otpForm">
+      <div class="flex gap-3 justify-between mb-6 max-w-[360px]">
+        <input type="text" maxlength="1" name="otp1"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+        <input type="text" maxlength="1" name="otp2"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+        <input type="text" maxlength="1" name="otp3"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+        <input type="text" maxlength="1" name="otp4"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+        <input type="text" maxlength="1" name="otp5"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+        <input type="text" maxlength="1" name="otp6"
+          class="otp-box w-12 h-12 border border-gray-300 rounded-lg text-center text-xl font-medium" required />
+      </div>
+
+      <!-- Resend Link -->
+      <p class="text-sm text-gray-600 mb-6">
+        Didn't receive code? <a href="#" id="resendLink" class="text-blue-600 hover:underline font-medium">Resend</a>
+      </p>
+
+      <!-- Verify Button -->
+      <button type="submit" id="verifyBtn"
+        class="w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition-colors duration-200 font-medium">
+        Verify
+      </button>
+    </form>
+  </div>
+
+  <!-- Right: Ad Image -->
+  <div class="hidden lg:flex lg:w-1/2 h-screen bg-gray-100 items-center justify-center">
+    <img src="Art (1).png" alt="Elevator Ad Display" class="w-full h-full object-cover" />
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
