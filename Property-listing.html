@@ -555,20 +555,30 @@
     </div>
 
     <!-- Selected Properties Bar (fixed at bottom) -->
-    <div id="targetPopup" class="fixed bottom-0 h-[135px] left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between z-50 shadow-lg">
-      <div class="flex items-center gap-2">
-        <span class="font-medium text-gray-800 dark:text-white whitespace-nowrap">Selected Properties:</span>
-        <div id="targetList" class="flex items-center gap-4 overflow-x-auto py-2 max-w-[calc(100vw-250px)]">
-          <!-- Selected properties will appear here -->
-        </div>
-      </div>
-      <div class="flex gap-2">
-      
-        <button id="createCampaignBtn" class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap">
-          Create Campaign (0)
-        </button>
-      </div>
+    <div id="targetPopup"
+  class="fixed bottom-0 left-0 right-0 bg-[#f0f9ff] border-t border-gray-200 p-3 flex items-center justify-between z-50 shadow-lg hidden h-[140px]">
+
+  <!-- Left: Selected Property Images + Info -->
+  <div class="flex items-center gap-2">
+    <div id="targetList"
+      class="flex items-center gap-4 overflow-x-auto max-w-[calc(100vw-250px)] scrollbar-hide">
+      <!-- JS will append items here -->
     </div>
+  </div>
+
+  <!-- Right: Buttons -->
+  <div class="flex gap-2">
+    <button id="clearSelectionBtn"
+      class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 whitespace-nowrap">
+      Clear All
+    </button>
+    <button id="createCampaignBtn"
+      class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md whitespace-nowrap">
+      Create Campaign (0)
+    </button>
+  </div>
+</div>
+
 
 
       <!-- Footer Section -->
@@ -737,59 +747,46 @@ function updateButtonState(property, button) {
     button.classList.add("from-blue-800", "to-blue-400");
   }
 }
-function renderTargetPopup() {
-  const popupId = "targetPopup";
-  const existingPopup = document.getElementById(popupId);
 
-  // If no selected property → hide/remove popup
-  if (!selectedTargets || selectedTargets.length === 0) {
-    if (existingPopup) existingPopup.remove();
+
+function renderTargetPopup() {
+  const targetPopup = document.getElementById("targetPopup");
+  const targetList = document.getElementById("targetList");
+  const createCampaignBtn = document.getElementById("createCampaignBtn");
+
+  targetList.innerHTML = "";
+
+  if (selectedTargets.length === 0) {
+    targetPopup.classList.add("hidden");
     return;
   }
 
-  // If popup not exist → create it
-  if (!existingPopup) {
-    document.body.insertAdjacentHTML("beforeend", `
-      <div id="targetPopup" class="fixed bottom-0 h-[135px] left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between z-50 shadow-lg">
-        <div class="flex items-center gap-2">
-          <span class="font-medium text-gray-800 dark:text-white whitespace-nowrap">Selected Properties:</span>
-          <div id="targetList" class="flex items-center gap-4 overflow-x-auto py-2 max-w-[calc(100vw-250px)]"></div>
-        </div>
-        <div class="flex gap-2">
-          <button id="createCampaignBtn" class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap">
-            Create Campaign (0)
-          </button>
-        </div>
-      </div>
-    `);
-  }
+  // First row: Total count
+  const totalItem = document.createElement("div");
+  totalItem.className = "flex items-center gap-2 text-sm font-medium text-gray-800 whitespace-nowrap";
+  totalItem.textContent = `Total ${selectedTargets.length} property`;
+  targetList.appendChild(totalItem);
 
-  // Limit images to max 2, show +X more if needed                              
-  const maxImages = 2;
-  const displayedProperties = selectedTargets.slice(0, maxImages);
-  const remainingCount = selectedTargets.length - maxImages;
-
-  const targetList = document.getElementById("targetList");
-  targetList.innerHTML = displayedProperties.map(p => `
-    <div class="flex items-center gap-2 border border-gray-300 rounded-md px-2 py-1">
-      <img src="${p.imagelink}" class="w-10 h-10 object-cover rounded">
-      <span class="text-gray-800 dark:text-white">${p.name}</span>
-    </div>
-  `).join("");
-
-  if (remainingCount > 0) {
-    targetList.innerHTML += `
-      <div class="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white rounded-full">
-        +${remainingCount}
+  // Second row: Targeting details
+  selectedTargets.forEach(p => {
+    const item = document.createElement("div");
+    item.className = "flex items-center gap-2 whitespace-nowrap";
+    item.innerHTML = `
+      <img src="${p.imagelink || 'https://via.placeholder.com/40'}"
+           class="w-8 h-8 rounded-full object-cover">
+      <div class="text-xs text-gray-600">
+        Targeting: ${p.screens} Screens | ${p.towers} Towers | ${p.flats} flats
+        <span class="text-gray-500">Approx. Reach ${p.reach}</span>
       </div>
     `;
-  }
+    targetList.appendChild(item);
+  });
 
-  // Update button count
-  document.getElementById("createCampaignBtn").textContent = 
-    `Create Campaign (${selectedTargets.length})`;
+  // Update campaign button text
+  createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
+
+  targetPopup.classList.remove("hidden");
 }
-
 
 
 
