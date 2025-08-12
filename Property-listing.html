@@ -555,7 +555,7 @@
     </div>
 
     <!-- Selected Properties Bar (fixed at bottom) -->
-    <div id="targetPopup" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between z-50 shadow-lg">
+    <div id="targetPopup" class="fixed bottom-0 h-[135px] left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between z-50 shadow-lg">
       <div class="flex items-center gap-2">
         <span class="font-medium text-gray-800 dark:text-white whitespace-nowrap">Selected Properties:</span>
         <div id="targetList" class="flex items-center gap-4 overflow-x-auto py-2 max-w-[calc(100vw-250px)]">
@@ -985,8 +985,11 @@ document.addEventListener("DOMContentLoaded", function () {
       clone.querySelector(".card-image").src = property.imagelink || "https://via.placeholder.com/100";
       clone.querySelector(".card-name").textContent = property.propertyname;
       clone.querySelector(".card-location").textContent = `${property.address}, ${property.city}`;
-      clone.querySelector(".card-details").textContent = `Zone: ${property.zone || "N/A"}, Screens: ${property.screenids.join(", ")}`;
-      clone.querySelector(".card-reach").textContent = `Map: ${property.maplink ? 'Available' : 'N/A'}`;
+    const screenCount = property.screenids.length || 0;
+clone.querySelector(".card-details").textContent =
+  `Zone: ${property.zone || "N/A"}, ${screenCount} Screen${screenCount !== 1 ? 's' : ''}`;
+
+      // clone.querySelector(".card-reach").textContent = `Map: ${property.maplink ? 'Available' : 'N/A'}`;
 
       const button = clone.querySelector("button");
       updateButtonState(property, button);
@@ -1027,59 +1030,86 @@ document.addEventListener("DOMContentLoaded", function () {
       button.classList.remove("bg-red-600");
     }
   }
-
- function renderTargetPopup() {
+function renderTargetPopup() {
   const targetPopup = document.getElementById("targetPopup");
-  const targetList = document.getElementById("targetList");
-  const createCampaignBtn = document.getElementById("createCampaignBtn");
 
-  targetList.innerHTML = "";
-
-  if (selectedTargets.length === 0) {
+  // Hide section if no properties selected
+  if (!selectedTargets || selectedTargets.length === 0) {
     targetPopup.classList.add("hidden");
+    targetPopup.innerHTML = ""; // Clear old data
     return;
   }
 
   // Calculate totals
-  const propertyCount = selectedTargets.length;
-  const totalScreens = selectedTargets.reduce((sum, p) => sum + (p.screens || 0), 0);
+  const propertyCount = selectedTargets.reduce((sum, p) => sum + (p.count || 1), 0);
 
-  // Update label with only counts
-  targetPopup.querySelector("span.font-medium").textContent =
-    `Selected Properties: ${propertyCount} | Targeting: ${totalScreens} Screens`;
+  const totalScreens = selectedTargets.reduce((sum, p) => {
+    const screens = Array.isArray(p.screenids) ? p.screenids.length : 0;
+    return sum + (screens * (p.count || 1));
+  }, 0);
 
-  // Create property cards in scroll list
-  selectedTargets.forEach(p => {
-    const item = document.createElement("div");
-    item.className = "flex items-center gap-2 bg-white dark:bg-gray-700 p-3 rounded-lg shadow-sm min-w-max border border-gray-200 dark:border-gray-600";
-    item.innerHTML = `
-      <img src="${p.imagelink || 'https://via.placeholder.com/40'}" class="w-10 h-10 rounded-md object-cover">
-      <div>
-        <p class="text-sm font-medium text-gray-800 dark:text-white">${p.propertyname}</p>
-        <p class="text-xs text-gray-500 dark:text-gray-300">${p.location || 'N/A'} | ${p.screens || 0} Screens</p>
+  const totalTowers = selectedTargets.reduce((sum, p) => {
+    const towers = p.towers || 0;
+    return sum + (towers * (p.count || 1));
+  }, 0);
+
+  const totalFlats = selectedTargets.reduce((sum, p) => {
+    const flats = p.flats || 0;
+    return sum + (flats * (p.count || 1));
+  }, 0);
+
+  const totalReach = selectedTargets.reduce((sum, p) => {
+    const reach = p.reach || 0;
+    return sum + (reach * (p.count || 1));
+  }, 0);
+
+  // Handle images
+  let imagesHTML = "";
+  if (selectedTargets.length === 1) {
+    imagesHTML = `<img src="${selectedTargets[0].imagelink}" alt="Property Image" class="w-12 h-12 object-cover rounded-md">`;
+  } else if (selectedTargets.length > 1) {
+    const img1 = selectedTargets[0].imagelink || "";
+    const img2 = selectedTargets[1].imagelink || "";
+    imagesHTML = `
+      <div class="flex -space-x-2">
+        <img src="${img1}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">
+        <img src="${img2}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">
       </div>
-      <button class="remove-target-btn ml-2 text-red-500 hover:text-red-700" data-id="${p.propertyname}">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-      </button>
     `;
-    targetList.appendChild(item);
-  });
+  }
 
-  // Update button text
-  createCampaignBtn.textContent = `Create Campaign (${propertyCount})`;
+  // Set popup content
+  targetPopup.innerHTML = `
+    <div class="flex items-center justify-between w-full gap-4 animate-fadeIn">
+      <div class="flex items-center gap-3">
+        ${imagesHTML}
+        <div>
+          <div class="font-medium text-gray-800 dark:text-white mb-1">
+            Total ${propertyCount} property
+          </div>
+          <div class="text-blue-700 dark:text-blue-400 text-sm">
+            Targeting: ${totalScreens} Screens | ${totalTowers} Towers | ${totalFlats} flats 
+            <span class="ml-2">Approx. Reach ${totalReach}</span>
+          </div>
+        </div>
+      </div>
+      <button id="createCampaignBtn" 
+        class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap">
+        Create Campaign (${propertyCount})
+      </button>
+    </div>
+  `;
 
-  // Add remove button functionality
-  document.querySelectorAll('.remove-target-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const propertyName = e.currentTarget.getAttribute('data-id');
-      removeFromTarget(propertyName);
-    });
+  // Button event
+  document.getElementById("createCampaignBtn").addEventListener("click", () => {
+    // Your campaign creation logic here
   });
 
   targetPopup.classList.remove("hidden");
 }
+
+
+
 
   // function updateLocoScroll() {
   //   requestAnimationFrame(() => {
