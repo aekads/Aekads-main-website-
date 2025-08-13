@@ -685,6 +685,25 @@
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
 <script>
+  let lastScrollTop = 0;
+  const header = document.getElementById("mainHeader");
+
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 75) {
+      // Scrolling down → hide header
+      header.style.transform = "translateY(-100%)";
+    } else {
+      // Scrolling up → show header
+      header.style.transform = "translateY(0)";
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll
+  });
+</script> 
+  
+<script>
 // Global state
 let selectedTargets = [];
 let allProperties = [];
