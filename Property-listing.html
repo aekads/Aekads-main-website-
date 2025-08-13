@@ -566,17 +566,6 @@
     </div>
   </div>
 
-  <!-- Right: Buttons -->
-  <div class="flex gap-2">
-    <button id="clearSelectionBtn"
-      class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 whitespace-nowrap">
-      Clear All
-    </button>
-    <button id="createCampaignBtn"
-      class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md whitespace-nowrap">
-      Create Campaign (0)
-    </button>
-  </div>
 </div>
 
 
@@ -696,64 +685,47 @@
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
 <script>
-  // Clear selection button
-document.getElementById("clearSelectionBtn").addEventListener("click", () => {
-  selectedTargets = [];
-  renderTargetPopup();
-  document.getElementById("targetPopup").classList.add("hidden");
-  
-  // Reset all buttons
-  document.querySelectorAll('#propertyList button').forEach(btn => {
-    btn.textContent = "+ Add to Target";
-    btn.classList.remove("bg-red-600", "from-red-600", "to-red-400");
-    btn.classList.add("bg-gradient-to-r", "from-blue-800", "to-blue-400");
-  });
-});
-</script>
-
-<script>
-// Selected properties storage
+// Global state
 let selectedTargets = [];
+let allProperties = [];
+const cityDataCache = {};
 
 // Function to toggle property selection
 function toggleTarget(property, button) {
   const exists = selectedTargets.find(p => p.propertyname === property.propertyname);
 
   if (exists) {
-    // Remove from selection
     selectedTargets = selectedTargets.filter(p => p.propertyname !== property.propertyname);
   } else {
-    // Add to selection
     selectedTargets.push(property);
   }
   
-  // Update button state immediately
   updateButtonState(property, button);
-  
-  // Update and show/hide the target popup
   renderTargetPopup();
+  saveSelectionToURL();
 }
 
 // Function to update the button's appearance
 function updateButtonState(property, button) {
+  if (!button) return;
+  
   const isSelected = selectedTargets.some(p => p.propertyname === property.propertyname);
   if (isSelected) {
     button.textContent = "× Remove";
-    button.classList.remove("from-blue-800", "to-blue-400");
-    button.classList.add("from-red-600", "to-red-400");
+    button.classList.remove("bg-gradient-to-r", "from-blue-800", "to-blue-400");
+    button.classList.add("bg-red-600");
   } else {
     button.textContent = "+ Add to Target";
-    button.classList.remove("from-red-600", "to-red-400");
-    button.classList.add("from-blue-800", "to-blue-400");
+    button.classList.add("bg-gradient-to-r", "from-blue-800", "to-blue-400");
+    button.classList.remove("bg-red-600");
   }
 }
 
-
+// Function to render the dynamic target popup
 function renderTargetPopup() {
   const targetPopup = document.getElementById("targetPopup");
   const targetList = document.getElementById("targetList");
-  const createCampaignBtn = document.getElementById("createCampaignBtn");
-
+  
   targetList.innerHTML = "";
 
   if (selectedTargets.length === 0) {
@@ -761,156 +733,141 @@ function renderTargetPopup() {
     return;
   }
 
-  // First row: Total count
-  const totalItem = document.createElement("div");
-  totalItem.className = "flex items-center gap-2 text-sm font-medium text-gray-800 whitespace-nowrap";
-  totalItem.textContent = `Total ${selectedTargets.length} property`;
-  targetList.appendChild(totalItem);
+  const totalScreens = selectedTargets.reduce((sum, p) => sum + (p.screenids ? p.screenids.length : 0), 0);
+  const totalTowers = selectedTargets.reduce((sum, p) => sum + (p.towers || 0), 0);
+  const totalFlats = selectedTargets.reduce((sum, p) => sum + (p.flats || 0), 0);
+  const totalReach = selectedTargets.reduce((sum, p) => sum + (p.reach || 0), 0);
 
-  // Second row: Targeting details
-  selectedTargets.forEach(p => {
-    const item = document.createElement("div");
-    item.className = "flex items-center gap-2 whitespace-nowrap";
-    item.innerHTML = `
-      <img src="${p.imagelink || 'https://via.placeholder.com/40'}"
-           class="w-8 h-8 rounded-full object-cover">
-      <div class="text-xs text-gray-600">
-        Targeting: ${p.screens} Screens | ${p.towers} Towers | ${p.flats} flats
-        <span class="text-gray-500">Approx. Reach ${p.reach}</span>
+  const summaryDiv = document.createElement("div");
+  summaryDiv.className = "flex items-center justify-between w-full gap-4 animate-fadeIn";
+  
+  const contentDiv = document.createElement("div");
+  contentDiv.className = "flex items-center gap-3";
+  
+  let imagesHTML = "";
+  if (selectedTargets.length > 0) {
+    imagesHTML = `<div class="flex -space-x-2">`;
+    imagesHTML += `<img src="${selectedTargets[0].imagelink || 'https://via.placeholder.com/40'}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">`;
+    if (selectedTargets.length > 1) {
+      imagesHTML += `<img src="${selectedTargets[1].imagelink || 'https://via.placeholder.com/40'}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">`;
+    }
+    imagesHTML += `</div>`;
+  }
+  
+  contentDiv.innerHTML = `
+    ${imagesHTML}
+    <div>
+      <div class="font-medium text-gray-800 mb-1">
+        Total ${selectedTargets.length} properties
       </div>
-    `;
-    targetList.appendChild(item);
+      <div class="text-blue-700 text-sm">
+        Targeting: ${totalScreens} Screens | ${totalTowers} Towers | ${totalFlats} flats 
+        <span class="ml-2">Approx. Reach ${totalReach}</span>
+      </div>
+    </div>
+  `;
+  
+const createCampaignBtn = document.createElement("button");
+createCampaignBtn.id = "createCampaignBtn";
+createCampaignBtn.className = "fixed bottom-15 right-5 z-50 px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap";
+createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
+
+// document.body.appendChild(createCampaignBtn);
+
+// document.body.appendChild(createCampaignBtn);
+
+  const newBtn = createCampaignBtn.cloneNode(true);
+  const oldBtn = document.getElementById("createCampaignBtn");
+  if (oldBtn) {
+    oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+  } else {
+    summaryDiv.appendChild(newBtn);
+  }
+  
+  newBtn.addEventListener("click", () => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      alert("Please log in to create a campaign.");
+      saveSelectionToURL();
+      window.location.href = "/login.html";
+      return;
+    }
+    if (selectedTargets.length === 0) {
+      alert("Please add at least one property to create a campaign");
+      return;
+    }
+    console.log("Creating campaign with:", selectedTargets);
+    alert(`Campaign creation started with ${selectedTargets.length} properties!`);
+    clearSelection();
   });
+  
+  summaryDiv.appendChild(contentDiv);
+  summaryDiv.appendChild(newBtn);
 
-  // Update campaign button text
-  createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
-
+  targetList.appendChild(summaryDiv);
   targetPopup.classList.remove("hidden");
 }
 
-
-
-
-// Function to remove property from target list
-function removeFromTarget(propertyName) {
-  // Remove from selected targets
-  selectedTargets = selectedTargets.filter(p => p.propertyname !== propertyName);
-
-  // Update all "Add to Target" buttons in the property list
-  document.querySelectorAll('#propertyList button').forEach(btn => {
-    const card = btn.closest('.flex');
-    if (card) {
-      const name = card.querySelector('.card-name').textContent;
-      if (name === propertyName) {
-        updateButtonState({ propertyname: name }, btn);
-      }
-    }
-  });
-  
-  // Update the popup
+// Function to clear selection
+function clearSelection() {
+  selectedTargets = [];
   renderTargetPopup();
+  document.getElementById("targetPopup").classList.add("hidden");
+  
+  document.querySelectorAll('#propertyList button').forEach(btn => {
+    updateButtonState({ propertyname: btn.closest('.flex').querySelector('.card-name').textContent }, btn);
+  });
+  saveSelectionToURL();
 }
 
-// Initialize create campaign button
-// Initialize create campaign button with authentication check
-document.getElementById("createCampaignBtn").addEventListener("click", () => {
-  // Check if user is logged in
-  const token = localStorage.getItem('authToken');
-
-  if (!token) {
-    // Not logged in → Redirect to login
-    alert("Please log in to create a campaign.");
-    window.location.href = "/login.html"; // Change to your actual login page
-    return;
-  }
-
-  if (selectedTargets.length === 0) {
-    alert("Please add at least one property to create a campaign");
-    return;
-  }
-
-  console.log("Creating campaign with:", selectedTargets);
-  alert(`Campaign creation started with ${selectedTargets.length} properties!`);
-
-  // Clear selection after creation
-  selectedTargets = [];
-  renderTargetPopup();
-  document.getElementById("targetPopup").classList.add("hidden");
-
-  // Reset all buttons
-  document.querySelectorAll('#propertyList button').forEach(btn => {
-    updateButtonState({ propertyname: btn.closest('.flex').querySelector('.card-name').textContent }, btn);
-  });
-});
-
-// Initialize clear selection button
-document.getElementById("clearSelectionBtn").addEventListener("click", () => {
-  selectedTargets = [];
-  renderTargetPopup();
-  document.getElementById("targetPopup").classList.add("hidden");
-  
-  // Reset all buttons
-  document.querySelectorAll('#propertyList button').forEach(btn => {
-    updateButtonState({ propertyname: btn.closest('.flex').querySelector('.card-name').textContent }, btn);
-  });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.getElementById("mainHeader");
-  let lastScrollY = 0;
-
-  // Locomotive Scroll init
-  // const locoScroll = new LocomotiveScroll({
-  //   el: document.querySelector("#scroll-container"),
-  //   smooth: true,
-  //   lerp: 0.1,
-  //   getDirection: true,
-  //   multiplier: 1,
-  //   smartphone: { smooth: true },
-  //   tablet: { smooth: true }
-  // });
-
-  // locoScroll.on("scroll", (obj) => {
-  //   const currentScrollY = obj.scroll.y;
-  //   if (currentScrollY > lastScrollY && currentScrollY > 100) {
-  //     header.classList.add("-translate-y-full");
-  //     header.classList.remove("translate-y-0");
-  //   } else {
-  //     header.classList.remove("-translate-y-full");
-  //     header.classList.add("translate-y-0");
-  //   }
-  //   lastScrollY = currentScrollY;
-  // });
-
-  header.classList.add("translate-y-0");
-
+// Function to save selection to URL
+function saveSelectionToURL() {
+  const propertyNames = selectedTargets.map(p => p.propertyname);
   const params = new URLSearchParams(window.location.search);
-  const city = params.get("city");
-  const searchQuery = params.get("search");
+  if (propertyNames.length > 0) {
+    params.set('selectedProperties', propertyNames.join(','));
+  } else {
+    params.delete('selectedProperties');
+  }
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState({}, '', newUrl);
+}
 
+// Function to restore selection from URL
+function restoreSelectionFromURL(allProperties) {
+  const params = new URLSearchParams(window.location.search);
+  const selectedNames = params.get('selectedProperties');
+  
+  if (selectedNames && allProperties.length > 0) {
+    const namesArray = selectedNames.split(',');
+    selectedTargets = allProperties.filter(p => namesArray.includes(p.propertyname));
+    renderTargetPopup();
+  }
+}
+
+// Main DOM Content Loaded event listener
+document.addEventListener("DOMContentLoaded", function () {
   const citySelect = document.getElementById("citySelect");
   const areaSelect = document.getElementById("areaSelect");
   const searchInput = document.getElementById("searchInput");
   const propertyList = document.getElementById("propertyList");
   const template = document.getElementById("propertyCardTemplate");
 
-  let allProperties = [];
-  let allZones = [];
-  let selectedTargets = [];
+  const params = new URLSearchParams(window.location.search);
+  const initialCity = params.get("city");
+  const initialSearchQuery = params.get("search");
 
-  // Load city dropdown
-  const availableCities = ["Gandhinagar","Ahmedabad","Mumbai","Surat","Baroda","Rajkot","Udaipur","Mount Abu"];
+  const availableCities = ["Gandhinagar", "Ahmedabad", "Mumbai", "Surat", "Baroda", "Rajkot", "Udaipur", "Mount Abu"];
   availableCities.forEach(c => {
     const option = document.createElement("option");
     option.value = c;
     option.textContent = c;
-    if (c === city) option.selected = true;
+    if (c === initialCity) option.selected = true;
     citySelect.appendChild(option);
   });
 
-  if (city) {
-    loadCityData(city, searchQuery);
+  if (initialCity) {
+    loadCityData(initialCity, initialSearchQuery);
   }
 
   citySelect.addEventListener("change", () => {
@@ -919,9 +876,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   areaSelect.addEventListener("change", () => {
     const zone = areaSelect.value;
-    const filtered = zone
-      ? allProperties.filter(p => p.zone === zone)
-      : allProperties;
+    const filtered = zone ? allProperties.filter(p => p.zone === zone) : allProperties;
     renderProperties(filtered);
   });
 
@@ -936,44 +891,57 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   async function loadCityData(selectedCity, search = "") {
-    try {
-      propertyList.innerHTML = "<p>Loading properties...</p>";
-      const res = await fetch(`https://cms.aekads.com/api/websitesales/city-info/${selectedCity}`);
-      const data = await res.json();
+    let propertiesToRender = [];
 
-      if (!data.success) throw new Error(data.error);
-
-      allProperties = data.properties;
-      allZones = data.zones;
-
-      if (search) {
-        allProperties = allProperties.filter(p =>
-          p.propertyname.toLowerCase().includes(search.toLowerCase()) ||
-          p.address.toLowerCase().includes(search.toLowerCase()) ||
-          p.zone.toLowerCase().includes(search.toLowerCase())
-        );
+    // Check if city data is in cache
+    if (cityDataCache[selectedCity]) {
+      propertiesToRender = cityDataCache[selectedCity];
+    } else {
+      try {
+        propertyList.innerHTML = "<p>Loading properties...</p>";
+        const res = await fetch(`https://cms.aekads.com/api/websitesales/city-info/${selectedCity}`);
+        const data = await res.json();
+  
+        if (!data.success) throw new Error(data.error);
+        
+        propertiesToRender = data.properties;
+        cityDataCache[selectedCity] = propertiesToRender;
+      } catch (error) {
+        console.error("Error fetching city data:", error);
+        propertyList.innerHTML = `<p class="text-red-500">Error loading properties: ${error.message}</p>`;
+        return;
       }
-
-      areaSelect.innerHTML = `<option value="">All Areas</option>`;
-      allZones.forEach(zone => {
-        const option = document.createElement("option");
-        option.value = zone;
-        option.textContent = zone;
-        areaSelect.appendChild(option);
-      });
-
-      renderProperties(allProperties);
-    } catch (error) {
-      console.error("Error fetching city data:", error);
-      propertyList.innerHTML = `<p class="text-red-500">Error loading properties: ${error.message}</p>`;
     }
+    
+    // Combine new properties with existing ones from other cities
+    const newAllProperties = [...new Set([...allProperties, ...propertiesToRender])];
+    allProperties = newAllProperties;
+
+    // Filter properties based on search query
+    const filteredProperties = search ? propertiesToRender.filter(p =>
+      p.propertyname.toLowerCase().includes(search.toLowerCase()) ||
+      p.address.toLowerCase().includes(search.toLowerCase()) ||
+      p.zone.toLowerCase().includes(search.toLowerCase())
+    ) : propertiesToRender;
+
+    // Populate area dropdown for the current city
+    const allZones = [...new Set(propertiesToRender.map(p => p.zone).filter(Boolean))];
+    areaSelect.innerHTML = `<option value="">All Areas</option>`;
+    allZones.forEach(zone => {
+      const option = document.createElement("option");
+      option.value = zone;
+      option.textContent = zone;
+      areaSelect.appendChild(option);
+    });
+
+    renderProperties(filteredProperties);
+    restoreSelectionFromURL(allProperties);
   }
 
   function renderProperties(properties) {
     propertyList.innerHTML = "";
     if (!properties.length) {
       propertyList.innerHTML = "<p>No properties found matching your criteria.</p>";
-      // updateLocoScroll();
       return;
     }
 
@@ -983,11 +951,8 @@ document.addEventListener("DOMContentLoaded", function () {
       clone.querySelector(".card-image").src = property.imagelink || "https://via.placeholder.com/100";
       clone.querySelector(".card-name").textContent = property.propertyname;
       clone.querySelector(".card-location").textContent = `${property.address}, ${property.city}`;
-    const screenCount = property.screenids.length || 0;
-clone.querySelector(".card-details").textContent =
-  `Zone: ${property.zone || "N/A"}, ${screenCount} Screen${screenCount !== 1 ? 's' : ''}`;
-
-      // clone.querySelector(".card-reach").textContent = `Map: ${property.maplink ? 'Available' : 'N/A'}`;
+      const screenCount = property.screenids?.length || 0;
+      clone.querySelector(".card-details").textContent = `Zone: ${property.zone || "N/A"}, ${screenCount} Screen${screenCount !== 1 ? 's' : ''}`;
 
       const button = clone.querySelector("button");
       updateButtonState(property, button);
@@ -1002,118 +967,7 @@ clone.querySelector(".card-details").textContent =
 
     propertyList.appendChild(fragment);
     initAnimations();
-    // updateLocoScroll();
   }
-
-  function toggleTarget(property, button) {
-    const exists = selectedTargets.find(p => p.propertyname === property.propertyname);
-    if (exists) {
-      selectedTargets = selectedTargets.filter(p => p.propertyname !== property.propertyname);
-    } else {
-      selectedTargets.push(property);
-    }
-    updateButtonState(property, button);
-    renderTargetPopup();
-  }
-
-  function updateButtonState(property, button) {
-    const isSelected = selectedTargets.some(p => p.propertyname === property.propertyname);
-    if (isSelected) {
-      button.textContent = "× Remove";
-      button.classList.remove("bg-gradient-to-r", "from-blue-800", "to-blue-400");
-      button.classList.add("bg-red-600");
-    } else {
-      button.textContent = "+ Add to Target";
-      button.classList.add("bg-gradient-to-r", "from-blue-800", "to-blue-400");
-      button.classList.remove("bg-red-600");
-    }
-  }
-function renderTargetPopup() {
-  const targetPopup = document.getElementById("targetPopup");
-
-  // Hide section if no properties selected
-  if (!selectedTargets || selectedTargets.length === 0) {
-    targetPopup.classList.add("hidden");
-    targetPopup.innerHTML = ""; // Clear old data
-    return;
-  }
-
-  // Calculate totals
-  const propertyCount = selectedTargets.reduce((sum, p) => sum + (p.count || 1), 0);
-
-  const totalScreens = selectedTargets.reduce((sum, p) => {
-    const screens = Array.isArray(p.screenids) ? p.screenids.length : 0;
-    return sum + (screens * (p.count || 1));
-  }, 0);
-
-  const totalTowers = selectedTargets.reduce((sum, p) => {
-    const towers = p.towers || 0;
-    return sum + (towers * (p.count || 1));
-  }, 0);
-
-  const totalFlats = selectedTargets.reduce((sum, p) => {
-    const flats = p.flats || 0;
-    return sum + (flats * (p.count || 1));
-  }, 0);
-
-  const totalReach = selectedTargets.reduce((sum, p) => {
-    const reach = p.reach || 0;
-    return sum + (reach * (p.count || 1));
-  }, 0);
-
-  // Handle images
-  let imagesHTML = "";
-  if (selectedTargets.length === 1) {
-    imagesHTML = `<img src="${selectedTargets[0].imagelink}" alt="Property Image" class="w-12 h-12 object-cover rounded-md">`;
-  } else if (selectedTargets.length > 1) {
-    const img1 = selectedTargets[0].imagelink || "";
-    const img2 = selectedTargets[1].imagelink || "";
-    imagesHTML = `
-      <div class="flex -space-x-2">
-        <img src="${img1}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">
-        <img src="${img2}" alt="Property Image" class="w-10 h-10 object-cover rounded-full border-2 border-white">
-      </div>
-    `;
-  }
-
-  // Set popup content
-  targetPopup.innerHTML = `
-    <div class="flex items-center justify-between w-full gap-4 animate-fadeIn">
-      <div class="flex items-center gap-3">
-        ${imagesHTML}
-        <div>
-          <div class="font-medium text-gray-800 dark:text-white mb-1">
-            Total ${propertyCount} property
-          </div>
-          <div class="text-blue-700 dark:text-blue-400 text-sm">
-            Targeting: ${totalScreens} Screens | ${totalTowers} Towers | ${totalFlats} flats 
-            <span class="ml-2">Approx. Reach ${totalReach}</span>
-          </div>
-        </div>
-      </div>
-      <button id="createCampaignBtn" 
-        class="px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap">
-        Create Campaign (${propertyCount})
-      </button>
-    </div>
-  `;
-
-  // Button event
-  document.getElementById("createCampaignBtn").addEventListener("click", () => {
-    // Your campaign creation logic here
-  });
-
-  targetPopup.classList.remove("hidden");
-}
-
-
-
-
-  // function updateLocoScroll() {
-  //   requestAnimationFrame(() => {
-  //     if (locoScroll) locoScroll.update();
-  //   });
-  // }
 
   function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
@@ -1128,6 +982,8 @@ function renderTargetPopup() {
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
   }
+
+  document.getElementById("clearSelectionBtn").addEventListener("click", clearSelection);
 });
 </script>
 
