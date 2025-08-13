@@ -10,26 +10,52 @@ document.addEventListener("DOMContentLoaded", function () {
     getDirection: true,
   });
 
+  // ✅ Smooth scroll for "Our Innovation"
+  document.querySelector('a[href="#section-5"]').addEventListener("click", function (e) {
+    e.preventDefault(); // stop default jump
+    scroll.scrollTo("#section-5", {
+      offset: -80, // adjust for fixed header height
+      duration: 800,
+      easing: [0.25, 0.00, 0.35, 1.00]
+    });
+  });
+
+    // ✅ Smooth scroll for "Our Innovation"
+  document.querySelector('a[href="#section-2"]').addEventListener("click", function (e) {
+    e.preventDefault(); // stop default jump
+    scroll.scrollTo("#section-2", {
+      offset: -80, // adjust for fixed header height
+      duration: 800,
+      easing: [0.25, 0.00, 0.35, 1.00]
+    });
+  });
+
+    // ✅ Smooth scroll for "Our Innovation"
+  document.querySelector('a[href="#section-7"]').addEventListener("click", function (e) {
+    e.preventDefault(); // stop default jump
+    scroll.scrollTo("#section-7", {
+      offset: -80, // adjust for fixed header height
+      duration: 800,
+      easing: [0.25, 0.00, 0.35, 1.00]
+    });
+  });
+
   // ✅ Header Hide/Show on Scroll
   scroll.on("scroll", (obj) => {
     const currentScrollY = obj.scroll.y;
 
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scroll Down
       header.classList.add("-translate-y-full");
       header.classList.remove("translate-y-0");
     } else {
-      // Scroll Up
       header.classList.remove("-translate-y-full");
       header.classList.add("translate-y-0");
     }
 
     lastScrollY = currentScrollY;
-
-    updateActiveLink(currentScrollY); // Also update active nav
+    updateActiveLink(currentScrollY);
   });
 
-  // ✅ Set initial header state
   header.classList.add("translate-y-0");
 
   // ✅ Animate elements on view
@@ -47,13 +73,20 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
-  // ✅ Update Locomotive after lazy loading
   window.addEventListener("load", () => {
     setTimeout(() => scroll.update(), 500);
   });
 
-  setTimeout(() => scroll.update(), 10000); // Safety update
+  setTimeout(() => scroll.update(), 10000);
 });
+
+
+
+
+
+
+
+
 
 // ✅ Active Link Highlighter
 function updateActiveLink(currentScrollY = window.scrollY) {
