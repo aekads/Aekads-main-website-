@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Store token and redirect
         if (response.data.token) {
           localStorage.setItem('authToken', response.data.token);
-          window.location.href = '/dashboard.html'; // Change to your dashboard URL
+          window.location.href = '/Property-listing.html'; // Change to your dashboard URL
         }
       } catch (error) {
         verifyBtn.disabled = false;
