@@ -784,43 +784,76 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(suggestionBox);
   }
 
-  function positionSuggestionBox() {
-    if (!suggestionBox) return;
-    const rect = searchInput.getBoundingClientRect();
-    suggestionBox.style.position = 'absolute';
-    suggestionBox.style.top = (rect.bottom + window.scrollY + 6) + 'px';
-    suggestionBox.style.left = (rect.left + window.scrollX) + 'px';
-    suggestionBox.style.width = rect.width + 'px';
-    suggestionBox.style.zIndex = 2147483647;
-  }
+  // --- helpers kept at top-level so we can add/remove cleanly
+const _handlers = {
+  onResize: null,
+  onAnyScrollHide: null,
+};
 
-  function showSuggestions(list, cityName) {
-    if (!list || !list.length) { closeSuggestions(); return; }
-    createSuggestionBox();
-    positionSuggestionBox();
-    suggestionBox.firstChild.textContent = `Ad screens available in ${cityName}`;
-    list.forEach(itemText => {
-      const item = document.createElement('div');
-      item.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100 dark:text-black';
-      item.textContent = itemText;
-      item.addEventListener('click', () => {
-        const city = citySelect.value || "Ahmedabad";
-        window.location.href = `Property-listing.html?city=${encodeURIComponent(city)}&zone=${encodeURIComponent(itemText)}`;
-      });
-      suggestionBox.appendChild(item);
+function positionSuggestionBox() {
+  if (!suggestionBox) return;
+  const rect = searchInput.getBoundingClientRect();
+  suggestionBox.style.position = 'absolute';
+  suggestionBox.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+  suggestionBox.style.left = (rect.left + window.scrollX) + 'px';
+  suggestionBox.style.width = rect.width + 'px';
+  suggestionBox.style.zIndex = 2147483647;
+}
+
+function showSuggestions(list, cityName) {
+  if (!list || !list.length) { closeSuggestions(); return; }
+  createSuggestionBox();
+  positionSuggestionBox();
+  suggestionBox.firstChild.textContent = `Ad screens available in ${cityName}`;
+
+  list.forEach(itemText => {
+    const item = document.createElement('div');
+    item.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100 dark:text-black';
+    item.textContent = itemText;
+    item.addEventListener('click', () => {
+      const city = citySelect.value || "Ahmedabad";
+      window.location.href = `Property-listing.html?city=${encodeURIComponent(city)}&zone=${encodeURIComponent(itemText)}`;
     });
-    window.addEventListener('resize', positionSuggestionBox);
-    window.addEventListener('scroll', positionSuggestionBox, true);
-  }
+    suggestionBox.appendChild(item);
+  });
 
-  function closeSuggestions() {
-    if (suggestionBox) {
-      suggestionBox.remove();
-      suggestionBox = null;
-      window.removeEventListener('resize', positionSuggestionBox);
-      window.removeEventListener('scroll', positionSuggestionBox, true);
-    }
+  // --- attach listeners (named) ---
+  // 1) keep box aligned on resize
+  _handlers.onResize = positionSuggestionBox;
+  window.addEventListener('resize', _handlers.onResize);
+
+  // 2) hide on any page/container scroll, mouse wheel, or touch scroll
+  _handlers.onAnyScrollHide = (e) => {
+    if (!suggestionBox) return;
+    // if user is scrolling *inside* the suggestion box, don't close
+    if (e && suggestionBox.contains(e.target)) return;
+    closeSuggestions();
+  };
+
+  // capture 'scroll' on document so it works for custom scroll containers too
+  document.addEventListener('scroll', _handlers.onAnyScrollHide, true);
+  document.addEventListener('wheel', _handlers.onAnyScrollHide, { passive: true });
+  document.addEventListener('touchmove', _handlers.onAnyScrollHide, { passive: true });
+}
+
+function closeSuggestions() {
+  if (!suggestionBox) return;
+  suggestionBox.remove();
+  suggestionBox = null;
+
+  // remove listeners safely
+  if (_handlers.onResize) {
+    window.removeEventListener('resize', _handlers.onResize);
+    _handlers.onResize = null;
   }
+  if (_handlers.onAnyScrollHide) {
+    document.removeEventListener('scroll', _handlers.onAnyScrollHide, true);
+    document.removeEventListener('wheel', _handlers.onAnyScrollHide, { passive: true });
+    document.removeEventListener('touchmove', _handlers.onAnyScrollHide, { passive: true });
+    _handlers.onAnyScrollHide = null;
+  }
+}
+
 
   searchInput.addEventListener('focus', () => {
     showSuggestions(currentZones, citySelect.value || 'Ahmedabad');
@@ -1408,7 +1441,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
             <!-- section-2 Digital OOH-->
             <section id="section-3" class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
-                <div class="container py-5 2xl:pr-[70px] 2xl:ml-[220px]">
+                <div class="container py-5 2xl:pr-[70px] ">
                     <div class="row lg:ml-[60px] 2xl:ml-[0px]">
                         <div class="col-lg-6" style="margin-top: 5%" data-scroll>
                             <div class="flex flex-col gap-[10px]">
