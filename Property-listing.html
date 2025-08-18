@@ -803,24 +803,28 @@ createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
     summaryDiv.appendChild(newBtn);
   }
   
-  newBtn.addEventListener("click", () => {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      alert("Please log in to create a campaign.");
-      saveSelectionToURL();
-      window.location.href = "/login.html";
-      return;
-    }
-    if (selectedTargets.length === 0) {
-      alert("Please add at least one property to create a campaign");
-      return;
-    }
-    console.log("Creating campaign with:", selectedTargets);
-    alert(`Campaign creation started with ${selectedTargets.length} properties!`);
-    clearSelection();
-  });
+newBtn.addEventListener("click", () => {
+  const token = localStorage.getItem('authToken');                         
+  if (!token) {
+    alert("Please log in to create a campaign.");
+    saveSelectionToURL();
+    window.location.href = "/login.html";
+    return;
+  }
+
+  if (selectedTargets.length === 0) {
+    alert("Please add at least one property to create a campaign");
+    return;
+  }
+
+  // Save selection for next page
+  localStorage.setItem("selectedTargets", JSON.stringify(selectedTargets)); 
+
+  // Redirect to campaign form page
+  window.location.href = "/create-campaign.html";
+});
   
-  summaryDiv.appendChild(contentDiv);
+  summaryDiv.appendChild(contentDiv); 
   summaryDiv.appendChild(newBtn);
 
   targetList.appendChild(summaryDiv);
@@ -866,7 +870,7 @@ function restoreSelectionFromURL(allProperties) {
 
 // Main DOM Content Loaded event listener
 document.addEventListener("DOMContentLoaded", function () {
-  const citySelect = document.getElementById("citySelect");
+const citySelect = document.getElementById("citySelect");
   const areaSelect = document.getElementById("areaSelect");
   const searchInput = document.getElementById("searchInput");
   const propertyList = document.getElementById("propertyList");
@@ -875,6 +879,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
   const initialCity = params.get("city");
   const initialSearchQuery = params.get("search");
+  const initialZone = params.get("zone"); // ✅ new
 
   const availableCities = ["Gandhinagar", "Ahmedabad", "Mumbai", "Surat", "Baroda", "Rajkot", "Udaipur", "Mount Abu"];
   availableCities.forEach(c => {
@@ -886,7 +891,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   if (initialCity) {
-    loadCityData(initialCity, initialSearchQuery);
+    loadCityData(initialCity, initialSearchQuery, initialZone); // ✅ pass zone
   }
 
   citySelect.addEventListener("change", () => {
@@ -909,10 +914,10 @@ document.addEventListener("DOMContentLoaded", function () {
     renderProperties(filtered);
   });
 
-  async function loadCityData(selectedCity, search = "") {
+  async function loadCityData(selectedCity, search = "", zone = "") {
     let propertiesToRender = [];
 
-    // Check if city data is in cache
+    // Check cache
     if (cityDataCache[selectedCity]) {
       propertiesToRender = cityDataCache[selectedCity];
     } else {
@@ -920,9 +925,8 @@ document.addEventListener("DOMContentLoaded", function () {
         propertyList.innerHTML = "<p>Loading properties...</p>";
         const res = await fetch(`https://cms.aekads.com/api/websitesales/city-info/${selectedCity}`);
         const data = await res.json();
-  
         if (!data.success) throw new Error(data.error);
-        
+
         propertiesToRender = data.properties;
         cityDataCache[selectedCity] = propertiesToRender;
       } catch (error) {
@@ -931,25 +935,33 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
     }
-    
-    // Combine new properties with existing ones from other cities
-    const newAllProperties = [...new Set([...allProperties, ...propertiesToRender])];
-    allProperties = newAllProperties;
 
-    // Filter properties based on search query
-    const filteredProperties = search ? propertiesToRender.filter(p =>
-      p.propertyname.toLowerCase().includes(search.toLowerCase()) ||
-      p.address.toLowerCase().includes(search.toLowerCase()) ||
-      p.zone.toLowerCase().includes(search.toLowerCase())
-    ) : propertiesToRender;
+    allProperties = propertiesToRender;
 
-    // Populate area dropdown for the current city
+    // ✅ Apply filters
+    let filteredProperties = [...propertiesToRender];
+
+    if (search) {
+      filteredProperties = filteredProperties.filter(p =>
+        p.propertyname.toLowerCase().includes(search.toLowerCase()) ||
+        p.address.toLowerCase().includes(search.toLowerCase()) ||
+        p.zone.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (zone) {
+      filteredProperties = filteredProperties.filter(p => p.zone && p.zone.toLowerCase() === zone.toLowerCase());
+      areaSelect.value = zone; // auto-select zone
+    }
+
+    // Populate zone dropdown
     const allZones = [...new Set(propertiesToRender.map(p => p.zone).filter(Boolean))];
     areaSelect.innerHTML = `<option value="">All Areas</option>`;
-    allZones.forEach(zone => {
+    allZones.forEach(z => {
       const option = document.createElement("option");
-      option.value = zone;
-      option.textContent = zone;
+      option.value = z;
+      option.textContent = z;
+      if (z === zone) option.selected = true; // ✅ preselect zone
       areaSelect.appendChild(option);
     });
 
@@ -987,6 +999,7 @@ document.addEventListener("DOMContentLoaded", function () {
     propertyList.appendChild(fragment);
     initAnimations();
   }
+
 
   function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
