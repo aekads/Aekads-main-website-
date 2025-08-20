@@ -19,18 +19,67 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">  -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary-dark: #052652;
-            --primary-light: #2D9CDB;
-            --accent: #FF6B6B;
-            --light-bg: #F8FAFF;
-            --dark-text: #2D3748;
-            --light-text: #718096;
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+    </style>
+
+    <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              light: '#2D9CDB',
+              dark: '#052652'
+            },
+            secondary: {
+              light: '#F5F5F5',
+              dark: '#1A365D'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-reverse': 'float-reverse 5s ease-in-out infinite',
+            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'float-reverse': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(15px)' },
+            }
+          }
+        },
+      },
+    };
+  </script>
+
+    <style>
+     
         /* Main scroll container */
         [data-scroll-container] {
             min-height: 100vh;
@@ -88,27 +137,32 @@
             cursor: -webkit-grabbing;
             cursor: grabbing;
         }
+:root {
+  --primary-blue: #052652;
+  --secondary-blue: #2D9CDB;
+  --accent-orange: #FF6633;
+  --dark-gray: #1A1A1A;
+  --medium-gray: #4D4D4D;
+  --light-gray: #F5F5F5;
+  --white: #FFFFFF;
+  --black-10: rgba(28, 28, 28, 0.1);
+}
 
-        :root {
-            --primary-blue: #052652;
-            --secondary-blue: #2D9CDB;
-            --accent-orange: #FF6633;
-            --dark-gray: #1A1A1A;
-            --medium-gray: #4D4D4D;
-            --light-gray: #F5F5F5;
-            --white: #FFFFFF;
-            --black-10: rgba(28, 28, 28, 0.1);
-        }
+/* Base */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  line-height: 1.6;
+  margin: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark-gray);
-            background-color: var(--white);
-            line-height: 1.6;
-            margin: 0;
-            /* padding-top: 65px; */
-        }
-
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(to bottom, var(--primary-blue), #1a365d);
+  color: var(--white);
+}
         /* Blog Container */
         .blog-container {
             max-width: 1400px;
@@ -324,17 +378,53 @@
         }
 
         /* Featured Post */
-        .featured-post {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
+/* Root Theme Colors */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --text-light: #333333;
+  --text-dark: #f1f1f1;
+  --bg-light: #f9f9f9;
+  --bg-dark: #121212;
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-dark: rgba(255, 255, 255, 0.15);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --white: var(--bg-dark);
+  --black: var(--bg-light);
+  --text-light: var(--text-dark);
+  --bg-light: var(--bg-dark);
+  --border-light: var(--border-dark);
+  --shadow-light: var(--shadow-dark);
+}
+
+/* Featured Post */
+.featured-post {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--white); 
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+/* Inside text */
+.featured-post h2,
+.featured-post p {
+  margin: 0;
+  padding: 16px;
+  color: var(--text-light);
+}
+
 
         .featured-post .blog-card-img-container {
             aspect-ratio: unset;
@@ -666,327 +756,7 @@
         }
 
 
-
-        /* Header Styles */
-        .header {
-            background: rgba(255, 255, 255, 0.60);
-            color: rgba(77, 77, 77, 1);
-            padding: 11px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 65px;
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
-            transform: translateY(0);
-        }
-
-        .header-hidden {
-            transform: translateY(-100%);
-        }
-
-        .ajayy {
-            width: 123.65768432617188px;
-            height: 49.99326705932617px;
-            border-radius: 67.54px;
-            padding-top: 10px;
-            padding-right: 18.33px;
-            padding-bottom: 10px;
-            padding-left: 18.33px;
-            gap: 3.55px;
-            background: rgba(255, 102, 51, 1);
-            color: white !important;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            position: absolute;
-            background-color: #ffffff;
-            color: rgba(77, 77, 77, 1);
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-        }
-
-        .dropdown:hover .dropdown-content,
-        .dropdown:focus-within .dropdown-content {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: #333;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f5f5f5;
-            color: #000;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-            flex-direction: row;
-        }
-
-        .header .logoH img {
-            height: 45px;
-        }
-
-        .header .navbar .nav-links2 {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            gap: 28.44px;
-        }
-
-        .header .navbar .nav-links2 li {
-            margin-left: 20px;
-        }
-
-        .header .navbar .nav-links2 li a {
-            color: rgba(77, 77, 77, 1);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .header .navbar .nav-links2 li a:hover {
-            color: rgb(41, 41, 41);
-        }
-
-        .header .navbar .nav-links2 li a.active {
-            color: rgb(41, 41, 41);
-            font-weight: 600;
-        }
-
-        @media (max-width: 1300px) {
-            .header .navbar .nav-links2 {
-                list-style: none;
-                display: flex;
-                margin: 0;
-                padding: 0;
-                gap: 15.44px;
-            }
-
-            .ajayy {
-                width: 123.65768432617188px;
-                height: 49.99326705932617px;
-                border-radius: 67.54px;
-                padding-top: 14px;
-                padding-right: 18.33px;
-                padding-bottom: 14px;
-                padding-left: 18.33px;
-                gap: 3.55px;
-                background: rgba(255, 102, 51, 1);
-                color: white !important;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .header .navbar .nav-links {
-                list-style: none;
-                display: flex;
-                margin: 0;
-                padding: 0;
-                gap: 11.44px;
-            }
-
-            .header .navbar .nav-links li a {
-                color: rgba(77, 77, 77, 1);
-                text-decoration: none;
-                font-weight: 500;
-                transition: color 0.3s ease;
-                font-size: 15px;
-            }
-
-            .ajayy {
-                width: 123.65768432617188px;
-                height: 49.99326705932617px;
-                border-radius: 67.54px;
-                padding-top: 12px;
-                padding-right: 16.33px;
-                padding-bottom: 12px;
-                padding-left: 16.33px;
-                gap: 3px;
-                background: rgba(255, 102, 51, 1);
-                color: white !important;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .header .navbar .nav-links {
-                list-style: none;
-                display: flex;
-                margin: 0;
-                padding: 0;
-                gap: 8.44px;
-            }
-
-            .header .navbar .nav-links li a {
-                color: rgba(77, 77, 77, 1);
-                text-decoration: none;
-                font-weight: 500;
-                transition: color 0.3s ease;
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 1000px) {
-            .header {
-                display: none;
-            }
-        }
-
-
-
-        /* Default styles for navbar */
-        .navbar-mobile {
-            display: none;
-        }
-
-        .toggle-btn {
-            font-size: 24px;
-            border: none;
-            background: transparent !important;
-            cursor: pointer;
-            color: white !important;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1001;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        @media (max-width: 1000px) {
-            .navbar-mobile {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-            }
-
-            .mobile-links {
-                display: none;
-                flex-direction: column;
-                justify-content: center;
-                /* Center vertically */
-                align-items: center;
-                /* Center horizontally */
-                background-color: #fff;
-                position: fixed;
-                top: -100%;
-                /* Start off-screen at the top */
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                padding: 20px;
-                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-                transition: top 0.5s ease-in-out;
-                /* Animate the top property */
-                z-index: 1002;
-            }
-
-            .mobile-links a {
-                padding: 20px;
-                text-decoration: none;
-                color: #333;
-                border-bottom: 1px solid #eee;
-                font-size: 18px;
-                transition: background-color 0.3s ease-in-out;
-                text-align: center;
-                /* Center text inside the links */
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .ajayy {
-                width: 50% !important;
-                height: 61.993267px !important;
-                border-radius: 67.54px;
-                padding-top: 12px;
-                padding-right: 16.33px;
-                padding-bottom: 12px;
-                padding-left: 16.33px;
-                gap: 3px;
-                /* background: rgba(255, 102, 51, 1); */
-                color: white !important;
-            }
-
-            .mobile-links a:hover {
-                background-color: #f5f5f5;
-            }
-
-            .mobile-links a:last-child {
-                border-bottom: none;
-            }
-
-            .mobile-links.active {
-                display: flex;
-                top: 0;
-                /* Slide down to the top of the screen */
-            }
-
-            /* Overlay styles */
-            .overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 1001;
-                transition: opacity 0.3s ease-in-out;
-            }
-
-            .overlay.active {
-                display: block;
-                opacity: 1;
-            }
-
-            /* Close button styles */
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: #333;
-                transition: color 0.3s ease-in-out;
-            }
-
-            .close-btn:hover {
-                color: #000;
-            }
-        }
-
-
-        .footer {
+.footer {
             background: var(--black-10, #1c1c1c1a);
             color: #4d4d4d;
             padding: 40px 0
@@ -1490,105 +1260,253 @@
     </style>
 </head>
 
-<body>
-    <!-- Existing Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logoH">
-                <a href="index.html">
-                    <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="Digital Screen Display in India" />
-                </a>
-            </div>
-            <nav class="navbar">
-                <ul class="nav-links2">
-                    <li class="links"><a href="/index">Home</a></li>
-                    <li class="links"><a href="/about">About Us</a></li>
-                         <!-- <li class="links"><a href="SAAS.html">SaaS</a></li> -->
-                    <li class="links"><a href="/blog">Blog</a></li>
-                    <li class="links"><a href="/career">Career</a></li>
-                    <!-- <li class="links"><a href="/index#section-4">Our Process</a></li> -->
-                    <!-- <li class="dropdown">
-                        <a href="javascript:void(0)" id="moreBtn">More ▼</a>
-                        <div class="dropdown-content" id="dropdownMenu">
-                            <a href="/blog">Blogs</a>
-                            <a href="/index#section-7">Contact</a>
-                            <a href="/career">Career</a>
-                        </div>
-                    </li> -->
-                    <li class="links">
-                        <a class="ajayy" href="#quotePopup">Get Quote</a>
-                    </li>
-                </ul>
-            </nav>
+<body class="font-sans bg-[#FAFAFA] dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
+    <!-- DARK MODE SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
+            const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
+            const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
+
+            let darkMode = localStorage.getItem("darkMode") === "true";
+            updateMode();
+
+            function toggleDarkMode() {
+                darkMode = !darkMode;
+                localStorage.setItem("darkMode", darkMode);
+                updateMode();
+            }
+
+            function updateMode() {
+                if (darkMode) {
+                    document.documentElement.classList.add("dark");
+                    darkIcons.forEach(icon => icon.classList.add("hidden"));
+                    lightIcons.forEach(icon => icon.classList.remove("hidden"));
+                } else {
+                    document.documentElement.classList.remove("dark");
+                    darkIcons.forEach(icon => icon.classList.remove("hidden"));
+                    lightIcons.forEach(icon => icon.classList.add("hidden"));
+                }
+            }
+
+            toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            
+            if (mobileMenuButton && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('mobile-menu-closed');
+                        mobileMenu.classList.add('mobile-menu-open');
+                        mobileMenuOverlay.classList.remove('hidden');
+                    }, 10);
+                });
+                
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    mobileMenuOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                });
+                
+                mobileMenuOverlay.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    mobileMenuOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                });
+            }
+        });
+    </script>
+                <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+              
+        /* Animated underline */
+        .animated-underline {
+            position: relative;
+            /* display: inline-block;  */
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Glow effect */
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(45, 156, 219, 0.5);
+        }
+        
+        /* Parallax effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        
+          header {
+    transition: transform 0.3s ease-in-out;
+  }
+    </style>                                      
+  <!-- HEADER -->   
+<header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 p-3">
+      
+      <!-- Logo with animation -->
+    <div class="flex-shrink-0">
+        <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+               alt="AEK Ads Logo"
+               class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
+        <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
+        <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
+        <a href="#section-2" class="animated-underline hover:text-primary-light">Our Innovation</a>
+        <a href="#section-5" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="#section-7" class="animated-underline hover:text-primary-light">Pricing</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-primary-light animated-underline">
+            More
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block bg-white dark:bg-gray-700 mt-2 shadow-xl rounded-md w-40 overflow-hidden transition-all duration-300 origin-top">
+            <a href="blog.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
+            <a href="career.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Career</a>
+          </div>
         </div>
-    </header>
 
-    <div id="quotePopup" class="quote-popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <h2 class="gradient-text">GET A QUOTE</h2>
-
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    id="closePopup" style="cursor: pointer;">
-                    <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-
-            </div>
-            <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
-            <form class="quote-form" id="quote-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">*First name</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">*Last name</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">*Email address</label>
-                        <input type="email" id="email" name="email"
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                            title="Please enter a valid email address (e.g., example@domain.com)" required />
-                        <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">*Phone number</label>
-                        <input type="tel" id="phone" name="phone" pattern="\d{10}"
-                            title="Please enter a 10-digit phone number" required />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">*Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">SEND MESSAGE</button>
-            </form>
-        </div>
-    </div>
-
-    <nav class="navbar-mobile">
-        <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
-            &#9776;
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:rotate-12">
+          <svg id="darkIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="lightIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
         </button>
-        <div class="mobile-links" id="mobile-links">
-            <a href="/index">Home</a>
-            <a href="/about">About Us</a>
-             <!-- <a href="/SAAS">SaaS</a>    -->
-            <a href="/blog">Blog</a>
-            <a href="/career">Career</a>
-            <a class="ajayy" href="javascript:void(0)">Get Quote</a>
-        </div>
-        <div class="overlay" id="overlay"></div>
-        <!-- Full-screen overlay -->
-    </nav>
+           <button id="menuButton" class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+  
+      </nav>
 
-    <div id="scroll-container" data-scroll-container>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700 dark:text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>                                                                                                                                                 
+<script>
+  const header = document.getElementById("mainHeader");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      // Scrolling Down → Hide Header
+      header.classList.add("-translate-y-full");
+    } else {
+      // Scrolling Up → Show Header
+      header.classList.remove("-translate-y-full");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div class="fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full" id="mobile-menu-content">
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1755166663/Aek_Ads_Tricolor_Logo_dfjzgi.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
+        <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <nav class="flex flex-col space-y-4">
+          <a href="ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Home</a>
+          <a href="about.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">About Us</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Our Innovation</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Pricing</a>
+          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Our Process</a>
+          <a href="blog.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Blogs</a>
+          <a href="career.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Career</a>
+          
+          <div class="pt-4 border-t dark:border-gray-700">
+            <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full dark:text-black">
+              <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg id="lightIconMobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <span>Toggle Dark Mode</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+    <man id="scroll-container" data-scroll-container>
         <!-- Blog Hero Section -->
         <section class="blog-hero">
             <div class="blog-container">
@@ -1612,7 +1530,7 @@
 
 
             <!-- Feedback Form Section -->
-            <div class="feedback-section">
+            <div class="feedback-section dark:text-blue-300">
                 <div class="feedback-container">
                     <h3>Share Your Feedback</h3>
                     <p>We value your opinion! Please take a moment to let us know how we can improve our content.</p>
@@ -1810,7 +1728,7 @@
             </div>
         </footer>
 
-    </div>
+    </man>
 <script>
   // Set the blog title inside <h1 id="detailTitle"> from the page <title>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1821,8 +1739,8 @@
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="blog.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="blog.js" defer></script> 
+    <!-- <script src="script.js" defer></script>  -->
 
 <!--     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
