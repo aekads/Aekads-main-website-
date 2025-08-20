@@ -395,6 +395,8 @@
       </div>
     </div>
   </div>
+
+
 <!-- Sidebar -->
 <div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-40 mt-[75px] border-l border-gray-100">
     <div class="p-6 h-full flex flex-col">
@@ -413,15 +415,15 @@
         </div>
 
         <!-- Logged in state - Hidden by default -->
-        <div id="userSection" class="hidden flex-col items-center space-y-3 w-full">
+        <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
                  class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
                  alt="Profile" />
             <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
-          <p class="font-semibold text-gray-900">Vishal Sharma</p>
-          <p class="text-sm text-gray-500">vishal@example.com</p>
+          <p class="font-semibold text-gray-900"></p>
+          <p class="text-sm text-gray-500"></p>
           <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
             View profile
           </button>
@@ -467,11 +469,7 @@
           <span class="font-medium">Help Center</span>
           
         </a>
-      </div>
-
-    
-        
-        <div id="logoutSection" class="hidden mt-2">
+        <div id="logoutSection" class="mt-2">
           <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -480,78 +478,123 @@
           </button>
         </div>
       </div>
+
+    
+        
+      </div>
     </div>
   </div>
 
   <!-- Overlay (optional) -->
   <div id="overlay" class="fixed inset-0 bg-black opacity-30 hidden z-30"></div>
-    <script>
-    const menuButton = document.getElementById("menuButton");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
 
-    // Simulate login state
-    const isLoggedIn = false; // change to true to simulate logged in
+  // Toggle Sidebar
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
 
-    // Toggle Sidebar
-    menuButton.addEventListener("click", () => {
-      sidebar.classList.toggle("translate-x-full");
-      overlay.classList.toggle("hidden");
-    });
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  });
 
-    overlay.addEventListener("click", () => {
-      sidebar.classList.add("translate-x-full");
-      overlay.classList.add("hidden");
-    });
+  // ---- Manage login state ----
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
 
-    // Show appropriate section based on login
-    document.getElementById("loginSection").style.display = isLoggedIn ? "none" : "flex";
-    document.getElementById("userSection").style.display = isLoggedIn ? "flex" : "none";
-  </script>
+  const loginSection = document.getElementById("loginSection");
+  const userSection = document.getElementById("userSection");
+  const logoutSection = document.getElementById("logoutSection");
+
+  if (authToken && userId && userEmail) {
+    // ✅ User is logged in
+    loginSection.style.display = "none";
+    userSection.classList.remove("hidden");
+    logoutSection.classList.remove("hidden");
+
+    // Fill user details
+    userSection.querySelector("p.font-semibold").textContent = `AekAds`;
+    userSection.querySelector("p.text-sm").textContent = userEmail;
+  } else {
+    // ❌ User not logged in
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+  }
+
+  // ---- Logout functionality ----
+  logoutSection.querySelector("button").addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+
+    // Reset sidebar
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+
+    // Redirect to login page
+    window.location.href = "/login.html";
+  });
+</script>
+
+
 
   <main id="scroll-container" data-scroll-container>
     <div class="dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] w-full dark:text-white mt-[-41px] bg-[#FAFAFA] h-full min-h-[calc(100vh-75px)] pb-[120px]">
-      <section class="max-w-full mx-auto mt-10">
-        <!-- Filters -->
-        <div class="flex flex-wrap gap-4 items-center p-4 bg-[#FAFAFA] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-          
-          <select id="citySelect" 
-            class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
-            <option value="">Select city</option>
-          </select>
+   <section class="max-w-full mx-auto mt-10">
+  <!-- Filters -->
+  <div
+    class="flex flex-wrap gap-4 items-center p-4 bg-[#FAFAFA] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+    <select id="citySelect"
+      class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
+      <option value="">Select city</option>
+    </select>
 
-          <select id="areaSelect" 
-            class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
-            <option value="">Select Area</option>
-          </select>
+    <select id="areaSelect"
+      class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
+      <option value="">Select Area</option>
+    </select>
 
-          <input type="text" id="searchInput" placeholder="Search ..." 
-            class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-[#F5F5F5] dark:bg-gray-700 text-gray-700 dark:text-white w-full sm:w-[300px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
-        </div>
+    <input type="text" id="searchInput" placeholder="Search ..."
+      class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-[#F5F5F5] dark:bg-gray-700 text-gray-700 dark:text-white w-full sm:w-[300px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
+  </div>
 
-        <!-- Property Cards Container -->
-        <div id="propertyList" class="p-4 space-y-4 flex flex-col justify-center items-center"></div>
+  <!-- Property Cards Container -->
+  <div id="propertyList" class="p-4 space-y-4 flex flex-col justify-center items-center"></div>
 
-        <!-- Template -->
-        <template id="propertyCardTemplate">
-          <div class="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-lg shadow p-4 md:items-center space-y-4 md:space-y-0 md:space-x-4 w-full max-w-6xl">
-            
-            <img src="" alt="Property Image" 
-                 class="w-full md:w-28 md:h-28 object-cover rounded-md card-image">
-            
-            <div class="flex-grow">
-              <h2 class="text-lg font-semibold text-gray-800 dark:text-white card-name">Property name</h2>
-              <p class="text-gray-500 dark:text-gray-300 card-location">Location</p>
-              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 card-details"></p>
-              <p class="text-sm font-medium mt-1 text-black dark:text-white card-reach"></p>
-            </div>
-            
-            <button class="w-full md:w-auto px-4 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-500 transition">
-              + Add to Target
-            </button>
-          </div>
-        </template>
-      </section>
+  <!-- Template -->
+  <template id="propertyCardTemplate">
+    <div
+      class="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-lg shadow p-4 md:items-center space-y-4 md:space-y-0 md:space-x-4 w-full max-w-6xl">
+
+      <img src="" alt="Property Image"
+        class="w-full md:w-28 md:h-28 object-cover rounded-md card-image">
+
+      <div class="flex-grow">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-white card-name">Property name</h2>
+        <p class="text-gray-500 dark:text-gray-300 card-location">Location</p>
+        
+        <!-- 🔥 Added property type -->
+        <p class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-1 card-type">Type: Mall</p>
+
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 card-details"></p>
+        <p class="text-sm font-medium mt-1 text-black dark:text-white card-reach"></p>
+      </div>
+
+      <button
+        class="w-full md:w-auto px-4 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-500 transition">
+        + Add to Target
+      </button>
+    </div>
+  </template>
+</section>
     </div>
 
     <!-- Selected Properties Bar (fixed at bottom) -->
@@ -795,7 +838,8 @@ createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
 
 // document.body.appendChild(createCampaignBtn);
 
-  const newBtn = createCampaignBtn.cloneNode(true);
+  
+const newBtn = createCampaignBtn.cloneNode(true);
   const oldBtn = document.getElementById("createCampaignBtn");
   if (oldBtn) {
     oldBtn.parentNode.replaceChild(newBtn, oldBtn);
@@ -804,8 +848,11 @@ createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
   }
   
 newBtn.addEventListener("click", () => {
-  const token = localStorage.getItem('authToken');                         
-  if (!token) {
+  const token = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
+
+  if (!token || !userId || !userEmail) {
     alert("Please log in to create a campaign.");
     saveSelectionToURL();
     window.location.href = "/login.html";
@@ -818,12 +865,12 @@ newBtn.addEventListener("click", () => {
   }
 
   // Save selection for next page
-  localStorage.setItem("selectedTargets", JSON.stringify(selectedTargets)); 
+  localStorage.setItem("selectedTargets", JSON.stringify(selectedTargets));
 
   // Redirect to campaign form page
   window.location.href = "/create-campaign.html";
 });
-  
+
   summaryDiv.appendChild(contentDiv); 
   summaryDiv.appendChild(newBtn);
 
@@ -969,7 +1016,7 @@ const citySelect = document.getElementById("citySelect");
     restoreSelectionFromURL(allProperties);
   }
 
-  function renderProperties(properties) {
+    function renderProperties(properties) {
     propertyList.innerHTML = "";
     if (!properties.length) {
       propertyList.innerHTML = "<p>No properties found matching your criteria.</p>";
@@ -982,8 +1029,13 @@ const citySelect = document.getElementById("citySelect");
       clone.querySelector(".card-image").src = property.imagelink || "https://via.placeholder.com/100";
       clone.querySelector(".card-name").textContent = property.propertyname;
       clone.querySelector(".card-location").textContent = `${property.address}, ${property.city}`;
+
+      // 🔥 Show property_type
+      clone.querySelector(".card-type").textContent = `Type: ${property.property_type || "N/A"}`;
+
       const screenCount = property.screenids?.length || 0;
-      clone.querySelector(".card-details").textContent = `Zone: ${property.zone || "N/A"}, ${screenCount} Screen${screenCount !== 1 ? 's' : ''}`;
+      clone.querySelector(".card-details").textContent =
+        `Zone: ${property.zone || "N/A"}, ${screenCount} Screen${screenCount !== 1 ? 's' : ''}`;
 
       const button = clone.querySelector("button");
       updateButtonState(property, button);
