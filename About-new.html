@@ -216,12 +216,12 @@
       toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
     });
   </script>
-  <!-- HEADER -->
-  <header class="header bg-[#FAFAFA] dark:bg-gray-800/80 backdrop-blur-md  sticky top-0 z-50 transition-all duration-300">
+  <!-- HEADER -->   
+<header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
     <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
       
       <!-- Logo with animation -->
-      <div class="flex-shrink-0">
+    <div class="flex-shrink-0">
         <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
           <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
                alt="AEK Ads Logo"
@@ -230,12 +230,12 @@
       </div>
 
       <!-- Navigation -->
-      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[15px] font-medium text-gray-700 dark:text-gray-200">
+      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
         <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
-        <a href="/ADS" class="animated-underline hover:text-primary-light">About Us</a>
-        <a href="/ADS" class="animated-underline hover:text-primary-light">Our Innovation</a>
-        <a href="/ADS" class="animated-underline hover:text-primary-light">Pricing</a>
-        <a href="/ADS" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
+        <a href="#section-2" class="animated-underline hover:text-primary-light">Our Innovation</a>
+        <a href="#section-5" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="#section-7" class="animated-underline hover:text-primary-light">Pricing</a>
 
         <!-- Dropdown -->
         <div class="relative group">
@@ -262,14 +262,14 @@
                   d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
         </button>
-
-           <button class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
+           <button id="menuButton" class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round"
         d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </button>
+  
       </nav>
 
       <!-- Mobile menu button -->
@@ -279,45 +279,336 @@
         </svg>
       </button>
     </div>
-  </header>
+  </header>    
 
-  <!-- MOBILE NAV -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
-    <div class="fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full" id="mobile-menu-content">
-      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
-        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
-        <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-      <div class="p-4">
-        <nav class="flex flex-col space-y-4">
-          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Home</a>
-          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">About Us</a>
-          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Innovation</a>
-          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Pricing</a>
-          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Process</a>
-          <a href="blog.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Blogs</a>
-          <a href="career.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Career</a>
-          
-          <div class="pt-4 border-t dark:border-gray-700">
-            <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full">
-              <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-              </svg>
-              <svg id="lightIconMobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-              </svg>
-              <span>Toggle Dark Mode</span>
-            </button>
+
+<!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:text-white  dark:bg-[#17537B] shadow-xl transform translate-x-full transition-transform duration-300 z-40 mt-[75px] border-l border-gray-100 dark:border-[#17537B]">
+    <div class="p-6 h-full flex flex-col">
+      <!-- Profile Area -->
+      <div id="profileArea" class="flex flex-col items-center mb-8">
+        <!-- Default state - Not logged in -->
+        <div id="loginSection" class="flex flex-col items-center space-y-4 w-full">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
           </div>
-        </nav>
+         <a href="/login.html"><button class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium w-full transition-colors duration-200 dark:text-white">
+            Log in 
+          </button></a> 
+        </div>
+
+        <!-- Logged in state - Hidden by default -->
+        <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
+                 class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
+                 alt="Profile" />
+            <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
+          </div>
+          <p class="font-semibold text-gray-900"></p>
+          <p class="text-sm text-gray-500"></p>
+          <button class="text-sm text-blue-600 hover:text-blue-800 font-medium dark:text-white">
+            View profile
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Links -->
+      <div class="flex-1 space-y-1 text-gray-800">
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg    group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span class="font-medium dark:text-white">My Campaigns</span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+          <span class="font-medium dark:text-white">Drafts</span>
+          <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-medium dark:text-white">Edit Profile</span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+          <span class="font-medium dark:text-white">Billing & Payments</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700  group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <span class="font-medium dark:text-white hover:text-black">Help Center</span>
+          
+        </a>
+        <div id="logoutSection" class="mt-2">
+          <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg  hover:text-black text-gray-700  hover:text-black group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span class="font-medium dark:text-white ">Log out</span>
+          </button>
+        </div>
+      </div>
+
+    
+        
       </div>
     </div>
   </div>
+
+
+
+<!-- MOBILE NAV -->
+<div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
+  <!-- Background Overlay -->
+  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+
+  <!-- Sidebar -->
+  <div id="mobile-menu-content" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:text-[#FFFFFF] dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center p-4 ">
+      <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
+      <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="p-4 overflow-y-auto no-scrollbar h-[calc(100%-64px)] scroll-smooth">
+      <nav class="flex flex-col space-y-4">
+
+        <!-- Profile Area -->
+        <div id="profileArea" class="flex flex-col items-center mb-8">
+          <!-- Default state -->
+          <div id="loginSection" class="flex flex-col items-center space-y-4 w-full">
+            <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <a href="/login.html">
+              <button class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium w-full transition-colors duration-200">
+                Log in
+              </button>
+            </a>
+          </div>
+
+          <!-- Logged in state (hidden by default) -->
+          <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
+                   class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
+                   alt="Profile" />
+              <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
+            </div>
+            <p class="font-semibold text-gray-900 dark:text-white">John Doe</p>
+            <p class="text-sm text-gray-500 dark:text-white">johndoe@email.com</p>
+            <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
+              View profile
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Links -->
+        <div class="flex-1 space-y-1 text-gray-800">
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <span class="font-medium dark:text-white">My Campaigns</span>
+          </a>
+
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            </svg>
+            <span class="font-medium dark:text-white">Drafts</span>
+          </a>
+
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="font-medium dark:text-white">Edit Profile</span>
+          </a>
+
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+            <span class="font-medium dark:text-white">Billing & Payments</span>
+          </a>
+
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <span class="font-medium dark:text-white">Help Center</span>
+          </a>
+
+     
+        </div>
+
+        <!-- Static Links -->
+<hr>
+<a href="about.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422A12.083 12.083 0 0112 21a12.083 12.083 0 01-6.16-10.422L12 14z" />
+  </svg>
+  <span class="font-medium dark:text-white">About Us</span>
+</a>
+
+<a href="ADS.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L6 9l-3.75 8h15L18 9l-3.75 8h-4.5z" />
+  </svg>
+  <span class="font-medium dark:text-white">Our Innovation</span>
+</a>
+
+<a href="ADS.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-2.21 0-4 1.79-4 4v4h8v-4c0-2.21-1.79-4-4-4z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 20h12v-2H6v2z" />
+  </svg>
+  <span class="font-medium dark:text-white">Pricing</span>
+</a>
+
+<a href="ADS.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 12h18M3 17h18" />
+  </svg>
+  <span class="font-medium dark:text-white">Our Process</span>
+</a>
+
+<a href="blog.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h7l2 2h5a2 2 0 012 2v12a2 2 0 01-2 2z" />
+  </svg>
+  <span class="font-medium dark:text-white">Blogs</span>
+</a>
+
+<a href="career.html" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z" />
+  </svg>
+  <span class="font-medium dark:text-white">Career</span>
+</a>
+
+
+        <!-- Dark Mode -->
+        <div class="pt-4 border-t dark:border-gray-700">
+          <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full dark:text-black">
+            <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg id="lightIconMobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <span class="dark:text-white">Toggle Dark Mode</span>
+          </button>
+        </div>
+        <!-- Logout -->
+          <div id="logoutSection" class="mt-2">
+            <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              <span class="font-medium dark:text-white">Log out</span>
+            </button>
+          </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- HIDE SCROLLBAR CSS -->
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE, Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+</style>
+  <!-- Overlay (optional) -->
+  <div id="overlay" class="fixed inset-0 bg-black opacity-30 hidden z-30"></div>
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  // Toggle Sidebar
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  });
+
+  // ---- Manage login state ----
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
+
+  const loginSection = document.getElementById("loginSection");
+  const userSection = document.getElementById("userSection");
+  const logoutSection = document.getElementById("logoutSection");
+
+  if (authToken && userId && userEmail) {
+    // ✅ User is logged in
+    loginSection.style.display = "none";
+    userSection.classList.remove("hidden");
+    logoutSection.classList.remove("hidden");
+
+    // Fill user details
+    userSection.querySelector("p.font-semibold").textContent = `AekAds`;  
+    userSection.querySelector("p.text-sm").textContent = userEmail;
+  } else {
+    // ❌ User not logged in
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+  }
+
+  // ---- Logout functionality ----
+  logoutSection.querySelector("button").addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+
+    // Reset sidebar
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+
+    // Redirect to login page
+    window.location.href = "/login.html";
+  });
+</script>
+
 
     <main id="scroll-container" data-scroll-container>
     <!-- About Section (Text + Images in Same Line) -->
