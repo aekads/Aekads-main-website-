@@ -17,6 +17,9 @@
     <!-- GSAP for advanced animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- ✅ Add SweetAlert2 in your HTML head -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
     <!-- Locomotive Scroll CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
@@ -168,94 +171,73 @@
 </head>
 
 <body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300 ">
-
-    <!-- DARK MODE SCRIPT -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
-            const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
-            const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
-
-            let darkMode = localStorage.getItem("darkMode") === "true";
-            updateMode();
-
-            function toggleDarkMode() {
-                darkMode = !darkMode;
-                localStorage.setItem("darkMode", darkMode);
-                updateMode();
+        <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
 
-            function updateMode() {
-                if (darkMode) {
-                    document.documentElement.classList.add("dark");
-                    darkIcons.forEach(icon => icon.classList.add("hidden"));
-                    lightIcons.forEach(icon => icon.classList.remove("hidden"));
-                } else {
-                    document.documentElement.classList.remove("dark");
-                    darkIcons.forEach(icon => icon.classList.remove("hidden"));
-                    lightIcons.forEach(icon => icon.classList.add("hidden"));
-                }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
-            
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuClose = document.getElementById('mobile-menu-close');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            
-            if (mobileMenuButton && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.remove('mobile-menu-closed');
-                        mobileMenu.classList.add('mobile-menu-open');
-                        mobileMenuOverlay.classList.remove('hidden');
-                    }, 10);
-                });
-                
-                mobileMenuClose.addEventListener('click', () => {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    mobileMenu.classList.add('mobile-menu-closed');
-                    mobileMenuOverlay.classList.add('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
-                });
-                
-                mobileMenuOverlay.addEventListener('click', () => {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    mobileMenu.classList.add('mobile-menu-closed');
-                    mobileMenuOverlay.classList.add('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
-                });
-            }
-        });
-    </script>
-                                                    
-  <!-- HEADER -->   
-<header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+    </style>
+  <!-- DARK MODE SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
+      const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
+      const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
+
+      let darkMode = localStorage.getItem("darkMode") === "true";
+      updateMode();
+
+      function toggleDarkMode() {
+        darkMode = !darkMode;
+        localStorage.setItem("darkMode", darkMode);
+        updateMode();
+      }
+
+      function updateMode() {
+        if (darkMode) {
+          document.documentElement.classList.add("dark");
+          darkIcons.forEach(icon => icon.classList.add("hidden"));
+          lightIcons.forEach(icon => icon.classList.remove("hidden"));
+        } else {
+          document.documentElement.classList.remove("dark");
+          darkIcons.forEach(icon => icon.classList.remove("hidden"));
+          lightIcons.forEach(icon => icon.classList.add("hidden"));
+        }
+      }
+
+      toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
+    });
+  </script>
+  <!-- HEADER -->
+  <header class="header bg-[#FAFAFA] dark:bg-gray-800/80 backdrop-blur-md  sticky top-0 z-50 transition-all duration-300">
     <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
       
       <!-- Logo with animation -->
-      <div class="flex-shrink-0">
+       <div class="flex-shrink-0">
         <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
           <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
                alt="AEK Ads Logo"
                class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
         </a>
       </div>
-
       <!-- Navigation -->
-      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
+      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[15px] font-medium text-gray-700 dark:text-gray-200">
         <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
-        <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
+        <a href="/ADS" class="animated-underline hover:text-primary-light">About Us</a>
         <a href="/ADS" class="animated-underline hover:text-primary-light">Our Innovation</a>
         <a href="/ADS" class="animated-underline hover:text-primary-light">Pricing</a>
-        <a href="/SAAS" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="/ADS" class="animated-underline hover:text-primary-light">Our Process</a>
 
         <!-- Dropdown -->
         <div class="relative group">
@@ -282,14 +264,14 @@
                   d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
         </button>
-           <button id="menuButton" class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
+
+           <button class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round"
         d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </button>
-  
       </nav>
 
       <!-- Mobile menu button -->
@@ -299,14 +281,14 @@
         </svg>
       </button>
     </div>
-  </header>                                                                                                                                                 
+  </header>
 
   <!-- MOBILE NAV -->
   <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
     <div class="fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full" id="mobile-menu-content">
       <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
-        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
+        <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1755166663/Aek_Ads_Tricolor_Logo_dfjzgi.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
         <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -315,16 +297,16 @@
       </div>
       <div class="p-4">
         <nav class="flex flex-col space-y-4">
-          <a href="ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Home</a>
-          <a href="about.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">About Us</a>
-          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Our Innovation</a>
-          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Pricing</a>
-          <a href="ADS.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Our Process</a>
-          <a href="blog.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Blogs</a>
-          <a href="career.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">Career</a>
+          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Home</a>
+          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">About Us</a>
+          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Innovation</a>
+          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Pricing</a>
+          <a href="/ADS" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Our Process</a>
+          <a href="blog.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Blogs</a>
+          <a href="career.html" class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Career</a>
           
           <div class="pt-4 border-t dark:border-gray-700">
-            <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full dark:text-black">
+            <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full">
               <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
               </svg>
@@ -338,158 +320,6 @@
       </div>
     </div>
   </div>
-
-
-<!-- Sidebar -->
-<div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-40 mt-[75px] border-l border-gray-100">
-    <div class="p-6 h-full flex flex-col">
-      <!-- Profile Area -->
-      <div id="profileArea" class="flex flex-col items-center mb-8">
-        <!-- Default state - Not logged in -->
-        <div id="loginSection" class="flex flex-col items-center space-y-4 w-full">
-          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </div>
-         <a href="/login.html"><button class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium w-full transition-colors duration-200">
-            Log in 
-          </button></a> 
-        </div>
-
-        <!-- Logged in state - Hidden by default -->
-        <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
-                 class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
-                 alt="Profile" />
-            <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
-          </div>
-          <p class="font-semibold text-gray-900"></p>
-          <p class="text-sm text-gray-500"></p>
-          <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
-            View profile
-          </button>
-        </div>
-      </div>
-
-      <!-- Menu Links -->
-      <div class="flex-1 space-y-1 text-gray-800">
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-          <span class="font-medium">My Campaigns</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-          </svg>
-          <span class="font-medium">Drafts</span>
-          <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span class="font-medium">Edit Profile</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-          </svg>
-          <span class="font-medium">Billing & Payments</span>
-        </a>
-
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <span class="font-medium">Help Center</span>
-          
-        </a>
-        <div id="logoutSection" class="mt-2">
-          <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg>
-            <span class="font-medium">Log out</span>
-          </button>
-        </div>
-      </div>
-
-    
-        
-      </div>
-    </div>
-  </div>
-
-  <!-- Overlay (optional) -->
-  <div id="overlay" class="fixed inset-0 bg-black opacity-30 hidden z-30"></div>
-<script>
-  const menuButton = document.getElementById("menuButton");
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-
-  // Toggle Sidebar
-  menuButton.addEventListener("click", () => {
-    sidebar.classList.toggle("translate-x-full");
-    overlay.classList.toggle("hidden");
-  });
-
-  overlay.addEventListener("click", () => {
-    sidebar.classList.add("translate-x-full");
-    overlay.classList.add("hidden");
-  });
-
-  // ---- Manage login state ----
-  const authToken = localStorage.getItem("authToken");
-  const userId = localStorage.getItem("userId");
-  const userEmail = localStorage.getItem("userEmail");
-
-  const loginSection = document.getElementById("loginSection");
-  const userSection = document.getElementById("userSection");
-  const logoutSection = document.getElementById("logoutSection");
-
-  if (authToken && userId && userEmail) {
-    // ✅ User is logged in
-    loginSection.style.display = "none";
-    userSection.classList.remove("hidden");
-    logoutSection.classList.remove("hidden");
-
-    // Fill user details
-    userSection.querySelector("p.font-semibold").textContent = `AekAds`;
-    userSection.querySelector("p.text-sm").textContent = userEmail;
-  } else {
-    // ❌ User not logged in
-    loginSection.style.display = "flex";
-    userSection.classList.add("hidden");
-    logoutSection.classList.add("hidden");
-  }
-
-  // ---- Logout functionality ----
-  logoutSection.querySelector("button").addEventListener("click", () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("userEmail");
-
-    // Reset sidebar
-    
-    loginSection.style.display = "flex";
-    userSection.classList.add("hidden");
-    logoutSection.classList.add("hidden");
-
-    // Redirect to login page
-    window.location.href = "/login.html";
-  });
-</script>
-
-
-  
 
     <main id="scroll-container" data-scroll-container>
     <!-- About Section (Text + Images in Same Line) -->
@@ -557,594 +387,725 @@ window.addEventListener("scroll", () => {
 });
 
 </script>
-
+    <style>
+        .video-nav-btn {
+            background-color: rgba(0, 100, 153, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .video-nav-btn:hover {
+            background-color: rgba(0, 100, 153, 1);
+        }
+        .video-nav-btn.prev {
+            left: 10px;
+        }
+        .video-nav-btn.next {
+            right: 10px;
+        }
+        .video-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            z-index: 10;
+        }
+    </style>
 <!-- below more pages -->
-<!-- pages-1 -->
-<section id="formPage" class="bg-white dark:bg-gray-900 overflow-hidden ">
-    <div class="max-w-7xl mx-auto p-1 h-full">    
-        <div class="grid grid-cols-1 md:grid-cols-2 border shadow border-gray-200">
-            <!-- Left Panel: Form -->
-            <div class="bg-white p-6 space-y-2 rounded-lg overflow-y-auto">
-                <button id="backToSelectionBtn" class="flex items-center gap-2 text-gray-600 dark:text-gray-300 bg-[#EEEEEE] dark:bg-gray-800 p-1 rounded-lg text-[#4D4D4D] dark:text-gray-200 mb-6 hover:underline">
-                    ← Back to screen selection
-                </button>
-                
-                <!-- Campaign Name -->
-                <div>
-                    <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Campaign name</label>
-                    <input type="text" id="campaignName" required
-                        class="w-full px-3 py-2  border border-gray-400 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-0 focus:border-blue-600 outline-none">
-                </div>
+  <!-- <div id="message-box" class="fixed top-4 right-4 z-50 max-w-sm hidden"></div> -->
 
-                <!-- Media Upload -->
-                <div>
-                    <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Media:</label>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                        Supported Media Specification:<br>
-                        Pixel Size: 1080 W × 1920 H | Duration: 10 Sec | File format: .MP4
-                    </p>
-                    <label
-                        class="flex items-center justify-center border border-[#006499] rounded-sm w-[50%] py-3 cursor-pointer text-[#006499] font-semibold hover:bg-blue-50 dark:hover:bg-gray-600 transition bg-white dark:bg-gray-700">
-                        <input type="file" id="mediaFile" accept="video/mp4" class="hidden">
-                        <span class="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12" />
-                            </svg>
-                            Click To Upload
-                        </span>
-                    </label>
-                    <div id="fileNameDisplay" class="text-xs mt-2 text-gray-500 dark:text-gray-400"></div>
-                </div>
-
-                <!-- Start Date + Duration -->
-                <div class="grid grid-cols-2 gap-4">
-                    <!-- Start Date -->
+    <section id="formPage" class="bg-white dark:bg-gray-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto p-1 h-full">    
+            <div class="grid grid-cols-1 md:grid-cols-2 border shadow border-gray-200">
+                <!-- Left Panel: Form -->
+                <div class="bg-white p-6 space-y-2 rounded-lg overflow-y-auto">
+                    <button id="backToSelectionBtn" class="flex items-center gap-2 text-gray-600 dark:text-gray-300 bg-[#EEEEEE] dark:bg-gray-800 p-1 rounded-lg text-[#4D4D4D] dark:text-gray-200 mb-6 hover:underline">
+                        ← Back to screen selection
+                    </button>
+                    
+                    <!-- Campaign Name -->
                     <div>
-                        <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Start Date</label>
-                        <input type="date" id="startDate" required
-                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:border-[#006499] focus:ring-0 outline-none">
+                        <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Campaign name</label>
+                        <input type="text" id="campaignName" required
+                            class="w-full px-3 py-2  border border-gray-400 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-0 focus:border-blue-600 outline-none">
                     </div>
 
-                    <!-- Run For -->
+                    <!-- Media Upload -->
                     <div>
-                        <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Run for</label>
-                        <div class="flex items-center">
-                            <input type="number" value="30" id="duration"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:border-[#006499] focus:ring-0 outline-none">
-                            <span class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300 border border-l-0 border-gray-300 dark:border-gray-600 rounded-r-md">
-                                Days
+                        <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Media:</label>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                            Supported Media Specification:<br>
+                            Pixel Size: 1080 W × 1920 H | Duration: 10 Sec | File format: .MP4<br>
+                            <span class="font-semibold">You can upload up to 10 videos</span>
+                        </p>
+                        <label
+                            class="flex items-center justify-center border border-[#006499] rounded-sm w-[50%] py-3 cursor-pointer text-[#006499] font-semibold hover:bg-blue-50 dark:hover:bg-gray-600 transition bg-white dark:bg-gray-700">
+                            <input type="file" id="mediaFile" accept="video/mp4" multiple class="hidden">
+                            <span class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12" />
+                                </svg>
+                                Click To Upload
                             </span>
+                        </label>
+                        <div id="fileNameDisplay" class="text-xs mt-2 text-gray-500 dark:text-gray-400"></div>
+                    </div>
+
+                    <!-- Start Date + Duration -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Start Date -->
+                        <div>
+                            <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Start Date</label>
+                            <input type="date" id="startDate" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:border-[#006499] focus:ring-0 outline-none">
                         </div>
-                        <p id="endDateDisplay" class="text-xs text-red-500 mt-1">ends on: dd/mm/yyyy</p>
-                    </div>
-                </div>
 
-                <!-- Package Selection -->
-                <div>
-                    <div class="flex items-center justify-between">
-                        <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Select package name</label>
-                        <button id="viewPackageDetailsBtn"></button> 
+                        <!-- Run For -->
+                        <div>
+                            <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Run for</label>
+                            <div class="flex items-center">
+                                <input type="number" value="30" id="duration"
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:border-[#006499] focus:ring-0 outline-none">
+                                <span class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300 border border-l-0 border-gray-300 dark:border-gray-600 rounded-r-md">
+                                    Days
+                                </span>
+                            </div>
+                            <p id="endDateDisplay" class="text-xs text-red-500 mt-1">ends on: dd/mm/yyyy</p>
+                        </div>
                     </div>
-                    <div class="mt-2 space-y-3" id="packageSelection">
-                        <!-- Packages will be dynamically inserted here -->
-                    </div>
-                    <p id="packageWarning" class="text-xs text-red-500 mt-1 hidden">Note: The selected plan will be applied to all properties regardless of their type</p>
-                </div>
 
-                <!-- Targeting Summary -->
-                <div>
-                    <h2 class="font-medium dark:text-gray-200">Targeting:</h2>
-                    <!-- Gradient Border Wrapper (1px) -->
-                    <div class="p-[1px] rounded-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB]">
-                        <div id="targetingSummary" class="rounded-lg p-4 bg-white dark:bg-gray-700">
-                            <div id="targetingContent" class="space-y-2 text-sm dark:text-gray-300">
-                                <div id="propertyTypeSummary" class="text-xs text-gray-500 dark:text-gray-400"></div>
+                    <!-- Package Selection -->
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label class="block mb-1 text-sm font-medium dark:text-gray-200">*Select package name</label>
+                            <button id="viewPackageDetailsBtn"></button> 
+                        </div>
+                        <div class="mt-2 space-y-3" id="packageSelection">
+                            <!-- Packages will be dynamically inserted here -->
+                        </div>
+                        <p id="packageWarning" class="text-xs text-red-500 mt-1 hidden">Note: The selected plan will be applied to all properties regardless of their type</p>
+                    </div>
+
+                    <!-- Targeting Summary -->
+                    <div>
+                        <h2 class="font-medium dark:text-gray-200">Targeting:</h2>
+                        <!-- Gradient Border Wrapper (1px) -->
+                        <div class="p-[1px] rounded-lg bg-gradient-to-r from-[#052652] to-[#2D9CDB]">
+                            <div id="targetingSummary" class="rounded-lg p-4 bg-white dark:bg-gray-700">
+                                <div id="targetingContent" class="space-y-2 text-sm dark:text-gray-300">
+                                    <div id="propertyTypeSummary" class="text-xs text-gray-500 dark:text-gray-400"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Cost + Balance -->
-                <div class="border border-[#006499] rounded-sm text-sm w-full bg-white dark:bg-gray-700">
-                    <!-- Campaign Cost -->
-                 <div class="grid grid-cols-2 border-b border-[#006499]">
-  <div class="px-4 py-3 bg-[#006499] text-white text-center flex justify-center items-center">Campaign Cost</div>
-  <div id="campaignCost" class="px-4 py-3 text-right text-[#006499] font-semibold">₹ 0</div>
-</div>
+                    
+                    <!-- Cost + Balance -->
+                    <div class="border border-[#006499] rounded-sm text-sm w-full bg-white dark:bg-gray-700">
+                        <!-- Campaign Cost -->
+                     <div class="grid grid-cols-2 border-b border-[#006499]">
+          <div class="px-4 py-3 bg-[#006499] text-white text-center flex justify-center items-center">Campaign Cost</div>
+          <div id="campaignCost" class="px-4 py-3 text-right text-[#006499] font-semibold">₹ 0</div>
+        </div>
 
-                    <!-- Available Balance -->
-                    <div class="grid grid-cols-2">
-                        <div class="px-4 py-3 bg-[#006499] text-white text-center">Available Balance</div>
-                        <div class="px-4 py-3 text-[#006499] font-semibold text-center">
-                            ₹ 1000
-                            <a href="#" class="ml-2 text-xs text-[#006499] hover:underline">Add Fund</a>
+                        <!-- Available Balance -->
+                        <div class="grid grid-cols-2">
+                            <div class="px-4 py-3 bg-[#006499] text-white text-center">Available Balance</div>
+                            <div class="px-4 py-3 text-[#006499] font-semibold text-center">
+                                ₹ 1000
+                                <a href="#" class="ml-2 text-xs text-[#006499] hover:underline">Add Fund</a>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Next Button -->
+                    <div class="mt-6 flex justify-center">
+                      <button id="saveCampaignBtn"
+          class="px-10 py-2 bg-[#006499] text-white rounded-full font-semibold hover:bg-blue-800 transition">
+          Next
+        </button>
+                      
                     </div>
                 </div>
 
-                <!-- Next Button -->
-                <div class="mt-6 flex justify-center">
-                  <button id="saveCampaignBtn"
-  class="px-10 py-2 bg-[#006499] text-white rounded-full font-semibold hover:bg-blue-800 transition">
-  Next
-</button>
-              
+                <!-- Right Panel: Preview -->
+                <div class="bg-[#E5E5E5] dark:bg-gray-800 p-6 space-y-6 overflow-y-auto">
+                    <!-- Media Preview -->
+                    <div id="mediaPreview" 
+                        class="relative flex items-center justify-center border rounded-md bg-[#D9D9D9] dark:bg-gray-700 h-[500px] overflow-hidden">
+                        <span class="text-gray-600 dark:text-gray-300">Media Preview</span>
+                        
+                        <!-- Navigation buttons (hidden by default) -->
+                        <button id="prevVideoBtn" class="video-nav-btn prev hidden">←</button>
+                        <button id="nextVideoBtn" class="video-nav-btn next hidden">→</button>
+                        
+                        <!-- Video counter (hidden by default) -->
+                        <div id="videoCounter" class="video-counter hidden">1/0</div>
+                    </div>
+                    
+                    <!-- Selected Package Details -->
+                    <!-- <div id="selectedPackageDetails" class="hidden bg-white dark:bg-gray-700 p-4 rounded-md shadow hidden">
+                        <h3 class="font-bold text-lg mb-2 dark:text-gray-200">Package Details</h3>
+                        <div id="packageDetailsContent" class="text-sm dark:text-gray-300"></div>
+                    </div> -->
                 </div>
             </div>
-
-            <!-- Right Panel: Preview -->
-            <div class="bg-[#E5E5E5] dark:bg-gray-800 p-6 space-y-6 overflow-y-auto">
-                <!-- Media Preview -->
-                <div id="mediaPreview" 
-                    class="flex items-center justify-center border rounded-md bg-[#D9D9D9] dark:bg-gray-700 h-[500px] overflow-hidden">
-                    <span class="text-gray-600 dark:text-gray-300">Media Preview</span>
+        </div>
+        
+        <!-- Package Details Modal -->
+        <div id="packageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold dark:text-gray-200">Package Details</h3>
+                    <button id="closePackageModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
                 
-                <!-- Selected Package Details -->
-                <div id="selectedPackageDetails" class="hidden bg-white dark:bg-gray-700 p-4 rounded-md shadow">
-                    <h3 class="font-bold text-lg mb-2 dark:text-gray-200">Package Details</h3>
-                    <div id="packageDetailsContent" class="text-sm dark:text-gray-300"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="allPackageDetails">
+                    <!-- Packages will be dynamically inserted here -->
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Package Details Modal -->
-    <div id="packageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold dark:text-gray-200">Package Details</h3>
-                <button id="closePackageModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+    </section>
+
+    <script>
+        // A simple custom message box function to avoid using `alert()`
+       // A simple custom message box function to avoid using `alert()`
+        function showMessage(message, type) {
+          const messageBox = document.getElementById("message-box");
+          if (!messageBox) return;
+
+          messageBox.textContent = message;
+          messageBox.className = `p-4 mt-4 rounded-md text-white ${
+            type === 'success' ? 'bg-green-500' :
+            type === 'error'   ? 'bg-red-500' :
+                                 'bg-gray-500'
+          }`;
+          messageBox.style.display = 'block';
+          setTimeout(() => {
+            messageBox.style.display = 'none';
+          }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          // ===== DOM Elements =====
+          const startDateInput = document.getElementById('startDate');
+          const durationInput = document.getElementById('duration');
+          const endDateDisplay = document.getElementById('endDateDisplay');
+          const mediaFileInput = document.getElementById('mediaFile');
+          const fileNameDisplay = document.getElementById('fileNameDisplay');
+          const mediaPreview = document.getElementById('mediaPreview');
+          const targetingContent = document.getElementById('targetingContent');
+          const propertyTypeSummary = document.getElementById('propertyTypeSummary');
+          const campaignCostEl = document.getElementById('campaignCost');
+          const packageSelection = document.getElementById('packageSelection');
+          const viewPackageDetailsBtn = document.getElementById('viewPackageDetailsBtn');
+          const packageModal = document.getElementById('packageModal');
+          const closePackageModal = document.getElementById('closePackageModal');
+          const allPackageDetails = document.getElementById('allPackageDetails');
+          const packageWarning = document.getElementById('packageWarning');
+          const saveCampaignBtn = document.getElementById('saveCampaignBtn');
+          const prevVideoBtn = document.getElementById('prevVideoBtn');
+          const nextVideoBtn = document.getElementById('nextVideoBtn');
+          const videoCounter = document.getElementById('videoCounter');
+
+          // ===== Pricing Plans =====
+          const pricingPlans = {
+            Platinum: {
+              price: { Residential: 2399, Corporate: 3999 }, // per screen / month
+              playsPerDay: 1080,
+              loopTime: 60,
+              timing: "06:00AM to 11:59PM",
+              description: "Premium visibility with maximum plays"
+            },
+            Gold: {
+              price: { Residential: 1599, Corporate: 2399 }, // per screen / month
+              playsPerDay: 540,
+              loopTime: 120,
+              timing: "06:00AM to 11:59PM",
+              description: "Standard visibility with balanced plays"
+            }
+          };
+
+          // ===== Application State =====
+          let selectedPackage = { name: "Gold" }; // Default to Gold package
+          let propertyTypeCounts = { Residential: 0, Corporate: 0 };
+          const selectedTargets = JSON.parse(localStorage.getItem('selectedTargets') || "[]");
+          
+          // Multiple videos state
+          let uploadedVideos = [];
+          let currentVideoIndex = 0;
+
+          // Cache of latest totals (to use when saving)
+          let latestTotals = null;   // { ...totals, subtotal, gst, grandTotal }
+          let latestComputed = null; // { days, months, endDateISO }
+
+          // ===== Utility Functions =====
+          const formatINR = (n) => new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(Math.round(n));
+
+          function calculatePropertyTypeCounts() {
+            propertyTypeCounts = { Residential: 0, Corporate: 0 };
+            selectedTargets.forEach(p => {
+              const screens = p.screenids?.length || 0;
+              if (p.type === 'Residential') {
+                propertyTypeCounts.Residential += screens;
+              } else if (p.type === 'Corporate') {
+                propertyTypeCounts.Corporate += screens;
+              }
+            });
+            updatePropertyTypeSummary();
+          }
+
+          function updatePropertyTypeSummary() {
+            const parts = [];
+            if (propertyTypeCounts.Residential > 0) {
+              parts.push(`${propertyTypeCounts.Residential} Residential screen${propertyTypeCounts.Residential > 1 ? 's' : ''}`);
+            }
+            if (propertyTypeCounts.Corporate > 0) {
+              parts.push(`${propertyTypeCounts.Corporate} Corporate screen${propertyTypeCounts.Corporate > 1 ? 's' : ''}`);
+            }
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="allPackageDetails">
-                <!-- Packages will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
-</section>
-<script>
+            if (parts.length) {
+              propertyTypeSummary.innerHTML = `Selected includes: ${parts.join(', ')}`;
+              packageWarning?.classList?.remove?.('hidden');
+            } else {
+              propertyTypeSummary.innerHTML = '';
+              packageWarning?.classList?.add?.('hidden');
+            }
+          }
 
-// A simple custom message box function to avoid using `alert()`
-function showMessage(message, type) {
-  const messageBox = document.getElementById("message-box");
-  if (!messageBox) return;
+          function formatDate(date) {
+            const d = String(date.getDate()).padStart(2, '0');
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}/${m}/${y}`;
+          }
 
-  messageBox.textContent = message;
-  messageBox.className = `p-4 mt-4 rounded-md text-white ${
-    type === 'success' ? 'bg-green-500' :
-    type === 'error'   ? 'bg-red-500' :
-                         'bg-gray-500'
-  }`;
-  messageBox.style.display = 'block';
-  setTimeout(() => {
-    messageBox.style.display = 'none';
-  }, 5000);
+          function toISODateOnly(d) {
+            // returns YYYY-MM-DD
+            const x = new Date(d.getTime() - d.getTimezoneOffset()*60000);
+            return x.toISOString().slice(0,10);
+          }
+
+          // ===== Core Functions =====
+          function updateEndDate() {
+            const startDate = new Date(startDateInput.value);
+            const duration = parseInt(durationInput.value) || 0;
+            if (!isNaN(startDate.getTime())) {
+              const endDate = new Date(startDate);
+              endDate.setDate(startDate.getDate() + duration);
+              endDateDisplay.textContent = `ends on: ${formatDate(endDate)}`;
+              latestComputed = {
+                days: duration,
+                months: duration / 30,
+                endDateISO: toISODateOnly(endDate)
+              };
+            }
+          }
+
+          function handleMediaUpload(e) {
+            const files = Array.from(e.target.files);
+            
+            // Validate number of files
+            if (uploadedVideos.length + files.length > 10) {
+              showMessage("Maximum 10 videos allowed", 'error');
+              return;
+            }
+            
+            // Filter only video files
+            const videoFiles = files.filter(file => file.type.startsWith('video/'));
+            
+            if (videoFiles.length === 0) {
+              showMessage("Please select valid video files", 'error');
+              return;
+            }
+            
+            // Add new videos to the uploadedVideos array
+            videoFiles.forEach(file => {
+              const url = URL.createObjectURL(file);
+              uploadedVideos.push({
+                file: file,
+                url: url,
+                name: file.name
+              });
+            });
+            
+            // Update file name display
+            fileNameDisplay.textContent = `Files: ${uploadedVideos.map(v => v.name).join(', ')}`;
+            
+            // Show the first video if we just added our first videos
+            if (uploadedVideos.length > 0 && currentVideoIndex === 0) {
+              currentVideoIndex = 0;
+              showCurrentVideo();
+            }
+            
+            // Show navigation if we have multiple videos
+            updateVideoNavigation();
+          }
+
+          function showCurrentVideo() {
+            if (uploadedVideos.length === 0) {
+              mediaPreview.innerHTML = '<span class="text-gray-600 dark:text-gray-300">Media Preview</span>';
+              return;
+            }
+            
+            const currentVideo = uploadedVideos[currentVideoIndex];
+            mediaPreview.innerHTML = `
+              <video src="${currentVideo.url}" controls autoplay loop class="w-full h-full object-contain rounded-lg"></video>
+            `;
+            
+            // Add navigation buttons and counter
+            mediaPreview.appendChild(prevVideoBtn);
+            mediaPreview.appendChild(nextVideoBtn);
+            mediaPreview.appendChild(videoCounter);
+            
+            // Update counter
+            videoCounter.textContent = `${currentVideoIndex + 1}/${uploadedVideos.length}`;
+          }
+
+          function updateVideoNavigation() {
+            if (uploadedVideos.length > 1) {
+              prevVideoBtn.classList.remove('hidden');
+              nextVideoBtn.classList.remove('hidden');
+              videoCounter.classList.remove('hidden');
+            } else {
+              prevVideoBtn.classList.add('hidden');
+              nextVideoBtn.classList.add('hidden');
+              videoCounter.classList.add('hidden');
+            }
+          }
+
+          function navigateVideos(direction) {
+            if (uploadedVideos.length <= 1) return;
+            
+            if (direction === 'next') {
+              currentVideoIndex = (currentVideoIndex + 1) % uploadedVideos.length;
+            } else {
+              currentVideoIndex = (currentVideoIndex - 1 + uploadedVideos.length) % uploadedVideos.length;
+            }
+            
+            showCurrentVideo();
+          }
+
+          function renderPackages() {
+            let html = '';
+            for (const [packageName, details] of Object.entries(pricingPlans)) {
+              const isSelected = selectedPackage.name === packageName;
+              const priceLine = `Residential: ₹${formatINR(details.price.Residential)} • Corporate: ₹${formatINR(details.price.Corporate)}`;
+              html += `
+                <label class="flex items-center rounded-lg justify-between border ${isSelected ? 'border-[#006499]' : 'border-gray-400 dark:border-gray-600'} 
+                rounded-sm px-3 py-2 cursor-pointer bg-white dark:bg-gray-700">
+                  <div class="flex items-center gap-2">
+                    <input type="radio" name="package" value="${packageName}" class="text-blue-600 focus:ring-0" ${isSelected ? 'checked' : ''}>
+                    <div>
+                      <span class="text-sm font-medium dark:text-gray-200">${packageName}</span>
+                      <div class="text-xs text-gray-500 dark:text-gray-400">
+                        ${priceLine} &nbsp;|&nbsp; ${details.playsPerDay} plays/day • ${details.loopTime}s loop
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              `;
+            }
+            packageSelection.innerHTML = html;
+
+            document.querySelectorAll('input[name="package"]').forEach(radio => {
+              radio.addEventListener('change', function() {
+                selectedPackage.name = this.value;
+                updateSelectedPackageDetails();
+                renderTargeting();
+              });
+            });
+          }
+
+          function renderAllPackageDetails() {
+            let html = '';
+            for (const [packageName, details] of Object.entries(pricingPlans)) {
+              html += `
+                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h4 class="text-lg font-bold mb-3 dark:text-gray-200">${packageName} Package</h4>
+                  <div class="space-y-4 border border-gray-200 dark:border-gray-600 rounded-md p-3">
+                    <div class="flex justify-between items-start mb-2">
+                      <h5 class="font-medium dark:text-gray-200">${packageName}</h5>
+                      <div class="text-right">
+                        <div class="text-[#006499] font-bold text-sm">Residential: ₹${formatINR(details.price.Residential)} / screen / month</div>
+                        <div class="text-[#006499] font-bold text-sm">Corporate: ₹${formatINR(details.price.Corporate)} / screen / month</div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                      <div class="flex justify-between"><span>Plays Per Day:</span><span class="font-medium">${details.playsPerDay}</span></div>
+                      <div class="flex justify-between"><span>Loop Time:</span><span class="font-medium">${details.loopTime} Sec</span></div>
+                      <div class="flex justify-between"><span>Timing:</span><span class="font-medium">${details.timing}</span></div>
+                      <div class="pt-2 text-xs">${details.description}</div>
+                    </div>
+                    <button class="mt-3 w-full py-1 bg-[#006499] text-white rounded text-sm hover:bg-blue-700 transition select-package-btn" data-package="${packageName}">
+                      Select Package
+                    </button>
+                  </div>
+                </div>
+              `;
+            }
+            allPackageDetails.innerHTML = html;
+
+            document.querySelectorAll('.select-package-btn').forEach(btn => {
+              btn.addEventListener('click', function() {
+                selectedPackage.name = this.dataset.package;
+                const r = document.querySelector(`input[value="${selectedPackage.name}"]`);
+                if (r) r.checked = true;
+                packageModal.classList.add('hidden');
+                updateSelectedPackageDetails();
+                renderTargeting();
+              });
+            });
+          }
+
+         function updateSelectedPackageDetails() {
+  // no longer needed, div removed
+  return;
 }
 
+          // ===== Main Cost Calculation (with GST 18%) =====
+          function renderTargeting() {
+            if (!selectedTargets.length) {
+              targetingContent.innerHTML = "<p class='text-red-500'>No properties selected.</p>";
+              campaignCostEl.innerHTML = "<span class='text-[#006499] font-semibold'>₹ 0</span>";
+              latestTotals = null;
+              return;
+            }
 
-// This section is now just for context, the changes are in the saveCampaign function.
-document.addEventListener('DOMContentLoaded', function() {
-  // ===== DOM Elements =====
-  const startDateInput = document.getElementById('startDate');
-  const durationInput = document.getElementById('duration');
-  const endDateDisplay = document.getElementById('endDateDisplay');
-  const mediaFileInput = document.getElementById('mediaFile');
-  const fileNameDisplay = document.getElementById('fileNameDisplay');
-  const mediaPreview = document.getElementById('mediaPreview');
-  const targetingContent = document.getElementById('targetingContent');
-  const propertyTypeSummary = document.getElementById('propertyTypeSummary');
-  const campaignCostEl = document.getElementById('campaignCost');
-  const packageSelection = document.getElementById('packageSelection');
-  const viewPackageDetailsBtn = document.getElementById('viewPackageDetailsBtn');
-  const packageModal = document.getElementById('packageModal');
-  const closePackageModal = document.getElementById('closePackageModal');
-  const allPackageDetails = document.getElementById('allPackageDetails');
-  const selectedPackageDetails = document.getElementById('selectedPackageDetails');
-  const packageDetailsContent = document.getElementById('packageDetailsContent');
-  const packageWarning = document.getElementById('packageWarning');
-  const saveCampaignBtn = document.getElementById('saveCampaignBtn'); // NEW
+            const totals = {
+              residential: { screens: 0, cost: 0 },
+              corporate: { screens: 0, cost: 0 },
+              totalScreens: 0,
+              totalTowers: 0,
+              totalFlats: 0,
+              totalReach: 0
+            };
 
-  // ===== Pricing Plans =====
-  const pricingPlans = {
-    Platinum: {
-      price: { Residential: 2399, Corporate: 3999 }, // per screen / month
-      playsPerDay: 1080,
-      loopTime: 60,
-      timing: "06:00AM to 11:59PM",
-      description: "Premium visibility with maximum plays"
-    },
-    Gold: {
-      price: { Residential: 1599, Corporate: 2399 }, // per screen / month
-      playsPerDay: 540,
-      loopTime: 120,
-      timing: "06:00AM to 11:59PM",
-      description: "Standard visibility with balanced plays"
-    }
-  };
+            const days = parseInt(durationInput.value) || 30;
+            const months = days / 30; // fraction of month
+            const plan = pricingPlans[selectedPackage.name];
 
-  // ===== Application State =====
-  let selectedPackage = { name: "Gold" }; // Default to Gold package
-  let propertyTypeCounts = { Residential: 0, Corporate: 0 };
-  const selectedTargets = JSON.parse(localStorage.getItem('selectedTargets') || "[]");
+            selectedTargets.forEach(property => {
+              const screens = property.screenids?.length || 0;
+              totals.totalScreens += screens;
+              totals.totalTowers += property.towers || 0;
+              totals.totalFlats += property.flats || 0;
+              totals.totalReach += property.reach || 0;
 
-  // Cache of latest totals (to use when saving)
-  let latestTotals = null;   // { ...totals, subtotal, gst, grandTotal }
-  let latestComputed = null; // { days, months, endDateISO }
+              // ✅ Using property.property_type (your fix)
+              if (property.property_type === 'Residential') {
+                totals.residential.screens += screens;
+                totals.residential.cost += screens * plan.price.Residential * months;
+              } else if (property.property_type === 'Corporate') {
+                totals.corporate.screens += screens;
+                totals.corporate.cost += screens * plan.price.Corporate * months;
+              }
+            });
 
-  // ===== Utility Functions =====
-  const formatINR = (n) => new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(Math.round(n));
+            // Round costs
+            totals.residential.cost = Math.round(totals.residential.cost);
+            totals.corporate.cost = Math.round(totals.corporate.cost);
+            const subtotal = totals.residential.cost + totals.corporate.cost;
 
-  function calculatePropertyTypeCounts() {
-    propertyTypeCounts = { Residential: 0, Corporate: 0 };
-    selectedTargets.forEach(p => {
-      const screens = p.screenids?.length || 0;
-      if (p.type === 'Residential') {
-        propertyTypeCounts.Residential += screens;
-      } else if (p.type === 'Corporate') {
-        propertyTypeCounts.Corporate += screens;
-      }
-    });
-    updatePropertyTypeSummary();
-  }
+            // ===== GST (18%) =====
+            const gst = Math.round(subtotal * 0.18);
+            const grandTotal = subtotal + gst;
 
-  function updatePropertyTypeSummary() {
-    const parts = [];
-    if (propertyTypeCounts.Residential > 0) {
-      parts.push(`${propertyTypeCounts.Residential} Residential screen${propertyTypeCounts.Residential > 1 ? 's' : ''}`);
-    }
-    if (propertyTypeCounts.Corporate > 0) {
-      parts.push(`${propertyTypeCounts.Corporate} Corporate screen${propertyTypeCounts.Corporate > 1 ? 's' : ''}`);
-    }
-    
-    if (parts.length) {
-      propertyTypeSummary.innerHTML = `Selected includes: ${parts.join(', ')}`;
-      packageWarning?.classList?.remove?.('hidden');
-    } else {
-      propertyTypeSummary.innerHTML = '';
-      packageWarning?.classList?.add?.('hidden');
-    }
-  }
+            // remember for saving
+            latestTotals = { ...totals, subtotal, gst, grandTotal };
 
-  function formatDate(date) {
-    const d = String(date.getDate()).padStart(2, '0');
-    const m = String(date.getMonth() + 1).padStart(2, '0');
-    const y = date.getFullYear();
-    return `${d}/${m}/${y}`;
-  }
-
-  function toISODateOnly(d) {
-    // returns YYYY-MM-DD
-    const x = new Date(d.getTime() - d.getTimezoneOffset()*60000);
-    return x.toISOString().slice(0,10);
-  }
-
-  // ===== Core Functions =====
-  function updateEndDate() {
-    const startDate = new Date(startDateInput.value);
-    const duration = parseInt(durationInput.value) || 0;
-    if (!isNaN(startDate.getTime())) {
-      const endDate = new Date(startDate);
-      endDate.setDate(startDate.getDate() + duration);
-      endDateDisplay.textContent = `ends on: ${formatDate(endDate)}`;
-      latestComputed = {
-        days: duration,
-        months: duration / 30,
-        endDateISO: toISODateOnly(endDate)
-      };
-    }
-  }
-
-  function handleMediaUpload(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    fileNameDisplay.textContent = `File: ${file.name}`;
-    const url = URL.createObjectURL(file);
-    if (file.type.startsWith('video/')) {
-      mediaPreview.innerHTML = `
-        <video src="${url}" controls autoplay loop class="w-full h-full object-contain rounded-lg"></video>
-      `;
-    } else if (file.type.startsWith('image/')) {
-      mediaPreview.innerHTML = `
-        <img src="${url}" class="w-full h-full object-contain rounded-lg" alt="Uploaded media">
-      `;
-    } else {
-      mediaPreview.innerHTML = `<p class="text-red-500">Unsupported file type</p>`;
-    }
-  }
-
-  function renderPackages() {
-    let html = '';
-    for (const [packageName, details] of Object.entries(pricingPlans)) {
-      const isSelected = selectedPackage.name === packageName;
-      const priceLine = `Residential: ₹${formatINR(details.price.Residential)} • Corporate: ₹${formatINR(details.price.Corporate)}`;
-      html += `
-        <label class="flex items-center rounded-lg justify-between border ${isSelected ? 'border-[#006499]' : 'border-gray-400 dark:border-gray-600'} 
-        rounded-sm px-3 py-2 cursor-pointer bg-white dark:bg-gray-700">
-          <div class="flex items-center gap-2">
-            <input type="radio" name="package" value="${packageName}" class="text-blue-600 focus:ring-0" ${isSelected ? 'checked' : ''}>
-            <div>
-              <span class="text-sm font-medium dark:text-gray-200">${packageName}</span>
-              <div class="text-xs text-gray-500 dark:text-gray-400">
-                ${priceLine} &nbsp;|&nbsp; ${details.playsPerDay} plays/day • ${details.loopTime}s loop
+            // Update summary card
+            targetingContent.innerHTML = `
+              <div class="flex gap-5">
+                <div class="flex -space-x-2">
+                  ${selectedTargets.slice(0, 2).map(p => `
+                    <img src="${p.imagelink || 'https://via.placeholder.com/100'}" 
+                         class="w-[50px] h-[50px] rounded-2xl object-cover border shadow-md">
+                  `).join('')}
+                </div>
+                <div>
+                  <p class="font-medium">Total ${selectedTargets.length} Property</p>
+                  <p>${totals.totalScreens} Screens | ${totals.totalTowers} Towers | ${totals.totalFlats} Flats</p>
+                  <p>Estimated Reach: ${formatINR(totals.totalReach)}</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </label>
-      `;
-    }
-    packageSelection.innerHTML = html;
+            `;
 
-    document.querySelectorAll('input[name="package"]').forEach(radio => {
-      radio.addEventListener('change', function() {
-        selectedPackage.name = this.value;
-        updateSelectedPackageDetails();
-        renderTargeting();
-      });
-    });
+            // Display cost with GST breakdown
+            if (totals.residential.screens > 0 && totals.corporate.screens > 0) {
+              campaignCostEl.innerHTML = `
+                <div class="text-right ">
+                  <div class="text-[#006499] font-semibold text-lg">₹ ${formatINR(grandTotal)}</div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    <div>Subtotal: ₹ ${formatINR(subtotal)}</div>
+                    <div>GST (18%): ₹ ${formatINR(gst)}</div>
+                    <div class="mt-2">Residential (${totals.residential.screens} screens): ₹ ${formatINR(totals.residential.cost)}</div>
+                    <div>Corporate (${totals.corporate.screens} screens): ₹ ${formatINR(totals.corporate.cost)}</div>
+                  </div>
+                </div>
+              `;
+            } else {
+              campaignCostEl.innerHTML = `
+                <div class="text-right flex justify-between px-10">
+                  <div class="text-[#006499] font-semibold text-lg  mt-2">₹ ${formatINR(grandTotal)}</div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    <div>Subtotal: ₹ ${formatINR(subtotal)}</div>
+                    <div>GST (18%): ₹ ${formatINR(gst)}</div>
+                  </div>
+                </div>
+              `;
+            }
+          }
+
+          // Function to save the campaign data
+      async function saveCampaign() {
+  const token = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
+
+  if (!token) {
+    Swal.fire("⚠️ Login Required", "Please log in first.", "error");
+    return;
+  }
+  if (!userEmail) {
+    Swal.fire("⚠️ User Info Missing", "Please log in again.", "error");
+    return;
   }
 
-  function renderAllPackageDetails() {
-    let html = '';
-    for (const [packageName, details] of Object.entries(pricingPlans)) {
-      html += `
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-          <h4 class="text-lg font-bold mb-3 dark:text-gray-200">${packageName} Package</h4>
-          <div class="space-y-4 border border-gray-200 dark:border-gray-600 rounded-md p-3">
-            <div class="flex justify-between items-start mb-2">
-              <h5 class="font-medium dark:text-gray-200">${packageName}</h5>
-              <div class="text-right">
-                <div class="text-[#006499] font-bold text-sm">Residential: ₹${formatINR(details.price.Residential)} / screen / month</div>
-                <div class="text-[#006499] font-bold text-sm">Corporate: ₹${formatINR(details.price.Corporate)} / screen / month</div>
-              </div>
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-              <div class="flex justify-between"><span>Plays Per Day:</span><span class="font-medium">${details.playsPerDay}</span></div>
-              <div class="flex justify-between"><span>Loop Time:</span><span class="font-medium">${details.loopTime} Sec</span></div>
-              <div class="flex justify-between"><span>Timing:</span><span class="font-medium">${details.timing}</span></div>
-              <div class="pt-2 text-xs">${details.description}</div>
-            </div>
-            <button class="mt-3 w-full py-1 bg-[#006499] text-white rounded text-sm hover:bg-blue-700 transition select-package-btn" data-package="${packageName}">
-              Select Package
-            </button>
-          </div>
-        </div>
-      `;
-    }
-    allPackageDetails.innerHTML = html;
+  // ✅ Collect values
+  const campaignName = document.getElementById("campaignName")?.value.trim();
+  const startDate = document.getElementById("startDate")?.value;
+  const duration = parseInt(document.getElementById("duration")?.value, 10);
+  const selectedPackageRadio = document.querySelector("input[name='package']:checked");
 
-    document.querySelectorAll('.select-package-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        selectedPackage.name = this.dataset.package;
-        const r = document.querySelector(`input[value="${selectedPackage.name}"]`);
-        if (r) r.checked = true;
-        packageModal.classList.add('hidden');
-        updateSelectedPackageDetails();
-        renderTargeting();
-      });
-    });
+  if (!campaignName || uploadedVideos.length === 0 || !startDate || !duration || !selectedPackageRadio) {
+    Swal.fire("⚠️ Missing Fields", "Please fill all required fields.", "error");
+    return;
+  }
+    // Update the state based on the selected radio button
+    selectedPackage.name = selectedPackageRadio.value;
+
+  // ✅ Prepare FormData
+  const formData = new FormData();
+  formData.append("campaign_name", campaignName);
+  uploadedVideos.forEach((video) => formData.append("media", video.file));
+  formData.append("start_date", startDate);
+  formData.append("duration_days", duration);
+  formData.append("user_email", userEmail);
+  formData.append("package_name", selectedPackage.name); // Use the updated state
+
+  // End date
+  let endDate = "";
+  if (startDate && duration) {
+    const d = new Date(startDate);
+    d.setDate(d.getDate() + duration);
+    endDate = d.toISOString().split("T")[0];
+    formData.append("end_date", endDate);
   }
 
-  function updateSelectedPackageDetails() {
-    const d = pricingPlans[selectedPackage.name];
-    packageDetailsContent.innerHTML = `
-      <div class="mb-3">
-        <h4 class="font-bold dark:text-gray-200">${selectedPackage.name} Package</h4>
-        <div class="text-[#006499] font-bold text-sm">Residential: ₹${formatINR(d.price.Residential)} / screen / month</div>
-        <div class="text-[#006499] font-bold text-sm">Corporate: ₹${formatINR(d.price.Corporate)} / screen / month</div>
-      </div>
-      <div class="text-sm space-y-2">
-        <div class="flex justify-between"><span class="text-gray-600 dark:text-gray-300">Plays Per Day:</span><span class="font-medium">${d.playsPerDay}</span></div>
-        <div class="flex justify-between"><span class="text-gray-600 dark:text-gray-300">Loop Time:</span><span class="font-medium">${d.loopTime} Sec</span></div>
-        <div class="flex justify-between"><span class="text-gray-600 dark:text-gray-300">Timing:</span><span class="font-medium">${d.timing}</span></div>
-        <div class="pt-2 text-xs text-gray-500 dark:text-gray-400">${d.description}</div>
-      </div>
-      <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600 text-xs text-red-500">
-        Note: This plan applies to all selected properties. Pricing is per screen and depends on the property type.
-      </div>
-    `;
-    selectedPackageDetails.classList.remove('hidden');
-  }
+  formData.append("totals", JSON.stringify(latestTotals));
+  formData.append("selected_targets", JSON.stringify(selectedTargets));
 
-  // ===== Main Cost Calculation (with GST 18%) =====
-  function renderTargeting() {
-    if (!selectedTargets.length) {
-      targetingContent.innerHTML = "<p class='text-red-500'>No properties selected.</p>";
-      campaignCostEl.innerHTML = "<span class='text-[#006499] font-semibold'>₹ 0</span>";
-      latestTotals = null;
-      return;
-    }
-
-    const totals = {
-      residential: { screens: 0, cost: 0 },
-      corporate: { screens: 0, cost: 0 },
-      totalScreens: 0,
-      totalTowers: 0,
-      totalFlats: 0,
-      totalReach: 0
-    };
-
-    const days = parseInt(durationInput.value) || 30;
-    const months = days / 30; // fraction of month
-    const plan = pricingPlans[selectedPackage.name];
-
-    selectedTargets.forEach(property => {
-      const screens = property.screenids?.length || 0;
-      totals.totalScreens += screens;
-      totals.totalTowers += property.towers || 0;
-      totals.totalFlats += property.flats || 0;
-      totals.totalReach += property.reach || 0;
-
-      // ✅ Using property.property_type (your fix)
-      if (property.property_type === 'Residential') {
-        totals.residential.screens += screens;
-        totals.residential.cost += screens * plan.price.Residential * months;
-      } else if (property.property_type === 'Corporate') {
-        totals.corporate.screens += screens;
-        totals.corporate.cost += screens * plan.price.Corporate * months;
+  try {
+    // ✅ Show processing alert
+    Swal.fire({
+      title: "Saving Campaign...",
+      text: "Please wait while we process your campaign.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
       }
     });
 
-    // Round costs
-    totals.residential.cost = Math.round(totals.residential.cost);
-    totals.corporate.cost = Math.round(totals.corporate.cost);
-    const subtotal = totals.residential.cost + totals.corporate.cost;
+    const res = await fetch("https://cms.aekads.com/api/websitesales/campaigns", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+      body: formData
+    });
 
-    // ===== GST (18%) =====
-    const gst = Math.round(subtotal * 0.18);
-    const grandTotal = subtotal + gst;
-
-    // remember for saving
-    latestTotals = { ...totals, subtotal, gst, grandTotal };
-
-    // Update summary card
-    targetingContent.innerHTML = `
-      <div class="flex gap-5">
-        <div class="flex -space-x-2">
-          ${selectedTargets.slice(0, 2).map(p => `
-            <img src="${p.imagelink || 'https://via.placeholder.com/100'}" 
-                 class="w-[50px] h-[50px] rounded-2xl object-cover border shadow-md">
-          `).join('')}
-        </div>
-        <div>
-          <p class="font-medium">Total ${selectedTargets.length} Property</p>
-          <p>${totals.totalScreens} Screens | ${totals.totalTowers} Towers | ${totals.totalFlats} Flats</p>
-          <p>Estimated Reach: ${formatINR(totals.totalReach)}</p>
-        </div>
-      </div>
-    `;
-
-    // Display cost with GST breakdown
-    if (totals.residential.screens > 0 && totals.corporate.screens > 0) {
-      campaignCostEl.innerHTML = `
-        <div class="text-right ">
-          <div class="text-[#006499] font-semibold text-lg">₹ ${formatINR(grandTotal)}</div>
-          <div class="text-xs text-gray-500 mt-1">
-            <div>Subtotal: ₹ ${formatINR(subtotal)}</div>
-            <div>GST (18%): ₹ ${formatINR(gst)}</div>
-            <div class="mt-2">Residential (${totals.residential.screens} screens): ₹ ${formatINR(totals.residential.cost)}</div>
-            <div>Corporate (${totals.corporate.screens} screens): ₹ ${formatINR(totals.corporate.cost)}</div>
-          </div>
-        </div>
-      `;
-    } else {
-      campaignCostEl.innerHTML = `
-        <div class="text-right flex justify-between px-10">
-          <div class="text-[#006499] font-semibold text-lg  mt-2">₹ ${formatINR(grandTotal)}</div>
-          <div class="text-xs text-gray-500 mt-1">
-            <div>Subtotal: ₹ ${formatINR(subtotal)}</div>
-            <div>GST (18%): ₹ ${formatINR(gst)}</div>
-          </div>
-        </div>
-      `;
-    }
-  }
-
-  // Function to save the campaign data
-  async function saveCampaign() {
-    const token = localStorage.getItem("authToken");
-    const userId = localStorage.getItem("userId");
-    const userEmail = localStorage.getItem("userEmail");
-
-    if (!token) {
-      showMessage("Please log in first.", 'error');
-      return;
-    }
-    if (!userEmail) {
-      showMessage("User info missing. Please log in again.", 'error');
-      return;
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message || `Server returned ${res.status} error`);
     }
 
-    // ✅ Collect values from inputs
-    const campaignName = document.getElementById("campaignName")?.value.trim();
-    const mediaFile = document.getElementById("mediaFile")?.files[0];
-    const startDate = document.getElementById("startDate")?.value;
-    const duration = parseInt(document.getElementById("duration")?.value, 10);
-    const selectedPackage = document.querySelector("input[name='package']:checked");
+    const data = await res.json();
 
-    // ✅ All fields are now validated before sending
-    if (!campaignName || !mediaFile || !startDate || !duration || !selectedPackage) {
-      showMessage("Please fill all required fields.", 'error');
-      return;
-    }
+    // ✅ Success alert
+    Swal.fire("✅ Success", "Campaign created successfully!", "success");
 
-    // ✅ Create FormData with all correct field names and data
-    const formData = new FormData();
-    formData.append("campaign_name", campaignName);
-    formData.append("media", mediaFile);
-    formData.append("start_date", startDate);
-    formData.append("duration_days", duration);
-    formData.append("user_email", userEmail);
-    formData.append("package_name", selectedPackage.value);
+    console.log("Saved campaign:", data);
+
+    // Reset form after success
+    uploadedVideos = [];
+    currentVideoIndex = 0;
+    fileNameDisplay.textContent = '';
+    showCurrentVideo();
+    updateVideoNavigation();
+    document.getElementById("campaignName").value = '';
+    document.getElementById("startDate").value = toISODateOnly(new Date());
+    document.getElementById("duration").value = '30';
     
-    // ✅ Calculate end date and append it just once
-    let endDate = "";
-    if (startDate && duration) {
-      const d = new Date(startDate);
-      d.setDate(d.getDate() + duration);
-      endDate = d.toISOString().split("T")[0]; // YYYY-MM-DD
-      formData.append("end_date", endDate);
-    }
-
-    // ✅ Append latestTotals and selectedTargets
-    // These variables are now being captured and sent to the backend
-    formData.append("totals", JSON.stringify(latestTotals));
-    formData.append("selected_targets", JSON.stringify(selectedTargets));
+    // **THE FIX:** Explicitly set the state and re-render the packages to ensure only one is selected.
+    selectedPackage.name = "Gold";
+    renderPackages(); 
     
-    try {
-      const res = await fetch("http://localhost:3000/api/campaigns", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${token}`
-        },
-        body: formData
-      });
+    updateSelectedPackageDetails();
+    renderTargeting();
 
-      const data = await res.json();
-      if (res.ok) {
-        showMessage("✅ Campaign created successfully!", 'success');
-        console.log("Saved campaign:", data);
-      } else {
-        showMessage(data.message || "❌ Error saving campaign", 'error');
-      }
-    } catch (err) {
-      console.error("Error:", err);
-      showMessage("⚠️ Server error", 'error');
-    }
+  } catch (err) {
+    console.error("Error:", err);
+
+    // ✅ Error alert
+    Swal.fire("❌ Error", err.message || "Server error occurred.", "error");
   }
- 
+}
+           
 
-  // ===== Event Listeners =====
-  startDateInput.addEventListener('change', updateEndDate);
-  durationInput.addEventListener('input', () => { updateEndDate(); renderTargeting(); });
-  mediaFileInput.addEventListener('change', handleMediaUpload);
-  viewPackageDetailsBtn.addEventListener('click', (e) => { e.preventDefault(); packageModal.classList.remove('hidden'); });
-  closePackageModal.addEventListener('click', () => packageModal.classList.add('hidden'));
-  packageModal.addEventListener('click', (e) => { if (e.target === packageModal) packageModal.classList.add('hidden'); });
-  saveCampaignBtn.addEventListener('click', saveCampaign);
+          // ===== Event Listeners =====
+          startDateInput.addEventListener('change', updateEndDate);
+          durationInput.addEventListener('input', () => { updateEndDate(); renderTargeting(); });
+          mediaFileInput.addEventListener('change', handleMediaUpload);
+          viewPackageDetailsBtn.addEventListener('click', (e) => { e.preventDefault(); packageModal.classList.remove('hidden'); });
+          closePackageModal.addEventListener('click', () => packageModal.classList.add('hidden'));
+          packageModal.addEventListener('click', (e) => { if (e.target === packageModal) packageModal.classList.add('hidden'); });
+          saveCampaignBtn.addEventListener('click', saveCampaign);
+          prevVideoBtn.addEventListener('click', () => navigateVideos('prev'));
+          nextVideoBtn.addEventListener('click', () => navigateVideos('next'));
 
-  // ===== Initialization =====
-  const today = new Date();
-  startDateInput.value = toISODateOnly(today);
-  if (!durationInput.value) durationInput.value = 30;
+          // ===== Initialization =====
+          const today = new Date();
+          startDateInput.value = toISODateOnly(today);
+          if (!durationInput.value) durationInput.value = 30;
 
-  calculatePropertyTypeCounts();
-  renderPackages();
-  renderAllPackageDetails();
-  updateEndDate();
-  renderTargeting();
-  updateSelectedPackageDetails();
+          calculatePropertyTypeCounts();
+          renderPackages();
+          renderAllPackageDetails();
+          updateEndDate();
+          renderTargeting();
+          updateSelectedPackageDetails();
 
-  console.log("Selected Targets:", selectedTargets);
-});
-
-
-</script>
+          console.log("Selected Targets:", selectedTargets);
+        });
+    </script>
 </body>
 </html>
