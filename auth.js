@@ -102,46 +102,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // OTP form submission
-    document.getElementById('otpForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const otpBoxes = document.querySelectorAll('.otp-box');
-      const otp = Array.from(otpBoxes).map(box => box.value).join('');
-      const email = localStorage.getItem('otpEmail') || getUrlParameter('email');
-      
-      if (otp.length !== 6) {
-        showNotification('Please enter a complete 6-digit OTP', 'error');
-        return;
-      }
-      
-      try {
-        const verifyBtn = document.getElementById('verifyBtn');
-        verifyBtn.disabled = true;
-        verifyBtn.innerHTML = 'Verifying...';
-        
-        const response = await axios.post('https://cms.aekads.com/api/websitesales/verify-otp', {
-          email: email,
-          otp: otp
-        });
-        
-        showNotification(response.data.message, 'success');
-        
-        // Store token and redirect
-        if (response.data.token) {
-          localStorage.setItem('authToken', response.data.token);
-          window.location.href = '/Property-listing.html'; // Change to your dashboard URL
-        }
-      } catch (error) {
-        verifyBtn.disabled = false;
-        verifyBtn.innerHTML = 'Verify';
-        
-        if (error.response) {
-          showNotification(error.response.data.error, 'error');
-        } else {
-          showNotification('Network error. Please try again.', 'error');
-        }
-      }
+// OTP form submission
+document.getElementById('otpForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const otpBoxes = document.querySelectorAll('.otp-box');
+  const otp = Array.from(otpBoxes).map(box => box.value).join('');
+  const email = localStorage.getItem('otpEmail') || getUrlParameter('email');
+
+  if (otp.length !== 6) {
+    showNotification('Please enter a complete 6-digit OTP', 'error');
+    return;
+  }
+
+  try {
+    const verifyBtn = document.getElementById('verifyBtn');
+    verifyBtn.disabled = true;
+    verifyBtn.innerHTML = 'Verifying...';
+
+    const response = await axios.post('https://cms.aekads.com/api/websitesales/verify-otp', {
+      email: email,
+      otp: otp
     });
+
+    showNotification(response.data.message, 'success');
+
+    // ✅ Store token, userId, and email
+    if (response.data.token) {
+      localStorage.setItem('authToken', response.data.token);
+      localStorage.setItem('userId', response.data.id || response.data.id); // depends on API field
+      localStorage.setItem('userEmail', response.data.email || email);
+
+      // redirect after login
+      window.location.href = '/Property-listing.html'; 
+    }
+  } catch (error) {
+    verifyBtn.disabled = false;
+    verifyBtn.innerHTML = 'Verify';
+
+    if (error.response) {
+      showNotification(error.response.data.error, 'error');
+    } else {
+      showNotification('Network error. Please try again.', 'error');
+    }
+  }
+});
+
     
     // Resend OTP link
     document.getElementById('resendLink').addEventListener('click', async function(e) {
