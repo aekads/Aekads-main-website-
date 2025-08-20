@@ -458,15 +458,15 @@
         </div>
 
         <!-- Logged in state - Hidden by default -->
-        <div id="userSection" class="hidden flex-col items-center space-y-3 w-full">
+        <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
                  class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
                  alt="Profile" />
             <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
-          <p class="font-semibold text-gray-900">Vishal Sharma</p>
-          <p class="text-sm text-gray-500">vishal@example.com</p>
+          <p class="font-semibold text-gray-900"></p>
+          <p class="text-sm text-gray-500"></p>
           <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
             View profile
           </button>
@@ -512,11 +512,7 @@
           <span class="font-medium">Help Center</span>
           
         </a>
-      </div>
-
-    
-        
-        <div id="logoutSection" class="hidden mt-2">
+        <div id="logoutSection" class="mt-2">
           <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -525,34 +521,71 @@
           </button>
         </div>
       </div>
+
+    
+        
+      </div>
     </div>
   </div>
 
   <!-- Overlay (optional) -->
   <div id="overlay" class="fixed inset-0 bg-black opacity-30 hidden z-30"></div>
-    <script>
-    const menuButton = document.getElementById("menuButton");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
 
-    // Simulate login state
-    const isLoggedIn = false; // change to true to simulate logged in
+  // Toggle Sidebar
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
 
-    // Toggle Sidebar
-    menuButton.addEventListener("click", () => {
-      sidebar.classList.toggle("translate-x-full");
-      overlay.classList.toggle("hidden");
-    });
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  });
 
-    overlay.addEventListener("click", () => {
-      sidebar.classList.add("translate-x-full");
-      overlay.classList.add("hidden");
-    });
+  // ---- Manage login state ----
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
 
-    // Show appropriate section based on login
-    document.getElementById("loginSection").style.display = isLoggedIn ? "none" : "flex";
-    document.getElementById("userSection").style.display = isLoggedIn ? "flex" : "none";
-  </script>
+  const loginSection = document.getElementById("loginSection");
+  const userSection = document.getElementById("userSection");
+  const logoutSection = document.getElementById("logoutSection");
+
+  if (authToken && userId && userEmail) {
+    // ✅ User is logged in
+    loginSection.style.display = "none";
+    userSection.classList.remove("hidden");
+    logoutSection.classList.remove("hidden");
+
+    // Fill user details
+    userSection.querySelector("p.font-semibold").textContent = `AekAds`;
+    userSection.querySelector("p.text-sm").textContent = userEmail;
+  } else {
+    // ❌ User not logged in
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+  }
+
+  // ---- Logout functionality ----
+  logoutSection.querySelector("button").addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+
+    // Reset sidebar
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+
+    // Redirect to login page
+    window.location.href = "/login.html";
+  });
+</script>
 
 
     <main id="scroll-container" data-scroll-container style="height: auto" class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
@@ -1200,27 +1233,27 @@ function closeSuggestions() {
 </h2>
 
 
-  <div class="max-w-[84rem] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pt-5 opacity-0 "data-animate >
+  <div class="max-w-[84rem] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pt-5 opacity-0"data-animate >
        <!-- Residential Card -->
-    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center h-[450px] w-full"
-         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1754399211/residential_apxam3.png'); background-size: cover; background-position: center;">
-      <button class="bg-gray-800 text-white text-sm px-4 py-2 mb-[100px] rounded-md hover:bg-gray-700">
+    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center  h-[500px] w-full"
+         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1755681116/Residential-Card_lz6oac.png'); background-size: cover; background-position: center;">
+      <button class="bg-gray-800 text-white text-sm px-2 py-2 mb-[180px] rounded-md hover:bg-gray-700">
         Browse Screens
       </button>
     </div>
 
     <!-- Corporate Card -->
-    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center h-[450px] w-full"
-         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1754399266/corporate_cheyxi.png'); background-size: cover; background-position: center;">
-      <button class="bg-gray-800 text-white text-sm px-4 py-2 mb-[100px] rounded-md hover:bg-gray-700">
+    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center  h-[500px] w-full"
+         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1755681089/Corporate-Card_bnfrtr.png'); background-size: cover; background-position: center;">
+      <button class="bg-gray-800 text-white text-sm px-2 py-2 mb-[180px] rounded-md hover:bg-gray-700">
         Browse Screens
       </button>
     </div>
 
     <!-- Outdoor Card -->
-    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center h-[450px] w-full"
-         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1754399289/outdoor_ltb9el.png'); background-size: cover; background-position: center;">
-      <button class="bg-gray-800 text-white text-sm px-4 py-2 mb-[100px] rounded-md hover:bg-gray-700">
+    <div class="rounded-2xl overflow-hidden flex items-center justify-center p-6 text-center  h-[500px] w-full"
+         style="background-image: url('https://res.cloudinary.com/dqfnwh89v/image/upload/v1755681083/Outdoor-Card_xiugp1.png'); background-size: cover; background-position: center;">
+      <button class="bg-gray-800 text-white text-sm px-2 py-2 mb-[180px] rounded-md hover:bg-gray-700">
         Browse Screens
       </button>
     </div>
