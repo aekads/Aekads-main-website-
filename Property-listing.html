@@ -596,12 +596,12 @@
 
     <!-- Selected Properties Bar (fixed at bottom) -->
     <div id="targetPopup"
-  class="fixed bottom-0 left-0 right-0 bg-[#f0f9ff] border-t border-gray-200 p-3 flex items-center justify-between z-50 shadow-lg hidden h-[140px]">
+  class="fixed bottom-0 left-0 right-0 bg-[#f0f9ff] border-t border-gray-200 p-3 flex items-center z-50 shadow-lg hidden h-[140px]">
 
   <!-- Left: Selected Property Images + Info -->
-  <div class="flex items-center gap-2">
+  <div class="flex justify-between gap-2 w-full">
     <div id="targetList"
-      class="flex items-center gap-4 overflow-x-auto max-w-[calc(100vw-250px)] scrollbar-hide">
+      class="flex items-center gap-4 overflow-x-auto w-full px-10 scrollbar-hide">
       <!-- JS will append items here -->
     </div>
   </div>
@@ -796,7 +796,7 @@ function renderTargetPopup() {
   const totalReach = selectedTargets.reduce((sum, p) => sum + (p.reach || 0), 0);
 
   const summaryDiv = document.createElement("div");
-  summaryDiv.className = "flex items-center justify-between w-full gap-4 animate-fadeIn";
+  summaryDiv.className = "flex justify-between w-full gap-4 animate-fadeIn";
   
   const contentDiv = document.createElement("div");
   contentDiv.className = "flex items-center gap-3";
@@ -824,46 +824,60 @@ function renderTargetPopup() {
     </div>
   `;
   
-  const createCampaignBtn = document.createElement("button");
-  createCampaignBtn.id = "createCampaignBtn";
-  // Update class and text
-createCampaignBtn.className = "px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap";
+const createCampaignBtn = document.createElement("button");
+createCampaignBtn.id = "createCampaignBtn";
+// Update class and text
+createCampaignBtn.className =
+  "px-6 py-2 bg-gradient-to-r from-blue-800 to-blue-400 text-white rounded-md hover:shadow-md transition whitespace-nowrap";
 createCampaignBtn.textContent = `Create Campaign (${selectedTargets.length})`;
-  createCampaignBtn.addEventListener("click", () => {
-    const token = localStorage.getItem("authToken");
-    const userId = localStorage.getItem("userId");
-    const userEmail = localStorage.getItem("userEmail");
 
-    if (!token || !userId || !userEmail) {
-      // Save both selections + filters in sessionStorage
-      sessionStorage.setItem("selectedTargets", JSON.stringify(selectedTargets));
-      sessionStorage.setItem("filters", JSON.stringify({
+createCampaignBtn.addEventListener("click", () => {
+  const token = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
+
+  if (!token || !userId || !userEmail) {
+    // Save both selections + filters in sessionStorage
+    sessionStorage.setItem("selectedTargets", JSON.stringify(selectedTargets));
+    sessionStorage.setItem(
+      "filters",
+      JSON.stringify({
         city: document.getElementById("citySelect")?.value || "",
         zone: document.getElementById("areaSelect")?.value || "",
-        search: document.getElementById("searchInput")?.value || ""
-      }));
-      sessionStorage.setItem("redirectAfterLogin", window.location.pathname + window.location.search);
+        search: document.getElementById("searchInput")?.value || "",
+      })
+    );
+    sessionStorage.setItem(
+      "redirectAfterLogin",
+      window.location.pathname + window.location.search
+    );
 
-      alert("Please log in to create a campaign.");
-      window.location.href = "/login.html";
-      return;
-    }
+    alert("Please log in to create a campaign.");
+    window.location.href = "/login.html";
+    return;
+  }
 
-    if (selectedTargets.length === 0) {
-      alert("Please add at least one property to create a campaign");
-      return;
-    }
+  if (selectedTargets.length === 0) {
+    alert("Please add at least one property to create a campaign");
+    return;
+  }
 
-    // Still keep only in sessionStorage
-    localStorage.setItem("selectedTargets", JSON.stringify(selectedTargets));
-    window.location.href = "/create-campaign.html";
-  });
+  // Still keep only in sessionStorage
+  localStorage.setItem("selectedTargets", JSON.stringify(selectedTargets));
+  window.location.href = "/create-campaign.html";
+});
 
-  summaryDiv.appendChild(contentDiv); 
-  summaryDiv.appendChild(createCampaignBtn);
-  targetList.innerHTML = '';
-  targetList.appendChild(summaryDiv);
-  targetPopup.classList.remove("hidden");
+// ✅ Create wrapper for right alignment
+const btnWrapper = document.createElement("div");
+btnWrapper.className = "flex justify-end mt-3";
+btnWrapper.appendChild(createCampaignBtn);
+
+summaryDiv.appendChild(contentDiv);
+summaryDiv.appendChild(btnWrapper); // append wrapper instead of button directly
+targetList.innerHTML = "";
+targetList.appendChild(summaryDiv);
+targetPopup.classList.remove("hidden");
+
 }
 
 // Function to clear selection
