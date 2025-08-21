@@ -128,14 +128,21 @@ document.getElementById('otpForm').addEventListener('submit', async function(e) 
     showNotification(response.data.message, 'success');
 
     // ✅ Store token, userId, and email
-    if (response.data.token) {
-      localStorage.setItem('authToken', response.data.token);
-      localStorage.setItem('userId', response.data.id || response.data.id); // depends on API field
-      localStorage.setItem('userEmail', response.data.email || email);
+  if (response.data.token) {
+  localStorage.setItem('authToken', response.data.token);
+  localStorage.setItem('userId', response.data.id || response.data.userId);
+  localStorage.setItem('userEmail', response.data.email || email);
 
-      // redirect after login
-      window.location.href = '/Property-listing.html'; 
-    }
+  // ✅ Check if user had pending redirect (like from Create Campaign)
+  const redirectPath = sessionStorage.getItem("redirectAfterLogin");
+  if (redirectPath) {
+    sessionStorage.removeItem("redirectAfterLogin"); // clear after use
+    window.location.href = redirectPath; 
+  } else {
+    // Default fallback → property listing
+    window.location.href = '/Property-listing.html'; 
+  }
+}
   } catch (error) {
     verifyBtn.disabled = false;
     verifyBtn.innerHTML = 'Verify';
