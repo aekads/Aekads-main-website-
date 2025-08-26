@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aek Ads - India's Best And Largest Digital Screen Network</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png"
+    type="image/png" />
+  <link rel="apple-touch-icon"
+    href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <!-- Locomotive Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              light: '#2D9CDB',
+              dark: '#052652'
+            },
+            secondary: {
+              light: '#F5F5F5',
+              dark: '#1A365D'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-reverse': 'float-reverse 5s ease-in-out infinite',
+            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'float-reverse': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(15px)' },
+            }
+          }
+        },
+      },
+    };
+  </script>                                        
+<style>
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeUp {
+    animation: fadeUp 0.9s ease-out forwards;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar-track {
+    background: #1a365d;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2D9CDB;
+  }
+</style>
+   <style>                                                 
+
+
+        #scroll-container {
+            /* min-height: 100vh;  */
+            position: relative;
+        }
+
+        /* Custom scrollbar */
+        .c-scrollbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100vh;
+            background: transparent;
+            z-index: 999;
+        }
+
+        .c-scrollbar_thumb {
+            background-color: #2D9CDB;
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Section divider */
+        .section-divider {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #052652 0%, #2D9CDB 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+            z-index: -1;
+        }
+        
+        /* Animated underline */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Glow effect */
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(45, 156, 219, 0.5);
+        }
+        
+        /* Parallax effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        
+          header {
+    transition: transform 0.3s ease-in-out;
+  }
+
+    </style>
+        <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
+
+    <!-- DARK MODE SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
+            const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
+            const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
+
+            let darkMode = localStorage.getItem("darkMode") === "true";
+            updateMode();
+
+            function toggleDarkMode() {
+                darkMode = !darkMode;
+                localStorage.setItem("darkMode", darkMode);
+                updateMode();
+            }
+
+            function updateMode() {
+                if (darkMode) {
+                    document.documentElement.classList.add("dark");
+                    darkIcons.forEach(icon => icon.classList.add("hidden"));
+                    lightIcons.forEach(icon => icon.classList.remove("hidden"));
+                } else {
+                    document.documentElement.classList.remove("dark");
+                    darkIcons.forEach(icon => icon.classList.remove("hidden"));
+                    lightIcons.forEach(icon => icon.classList.add("hidden"));
+                }
+            }
+
+            toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            
+            if (mobileMenuButton && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('mobile-menu-closed');
+                        mobileMenu.classList.add('mobile-menu-open');
+                        mobileMenuOverlay.classList.remove('hidden');
+                    }, 10);
+                });
+                
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    mobileMenuOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                });
+                
+                mobileMenuOverlay.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    mobileMenuOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                });
+            }
+        });
+    </script>
+                                                    
+  <!-- HEADER-Deskop -->   
+<header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
+      
+      <!-- Logo with animation -->
+    <div class="flex-shrink-0">
+        <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
+          <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
+               alt="AEK Ads Logo"
+               class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
+        <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
+        <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
+               <a href="/ADS" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="/ADS" class="animated-underline hover:text-primary-light">Pricing</a>
+            <a href="/SAAS" class="animated-underline hover:text-primary-light">Saas</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-primary-light animated-underline">
+            More
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block bg-white dark:bg-gray-700 mt-2 shadow-xl rounded-md w-40 overflow-hidden transition-all duration-300 origin-top">
+            <a href="blog.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
+            <a href="career.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Career</a>
+          </div>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:rotate-12">
+          <svg id="darkIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="lightIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+           <button id="menuButton" class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-2">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+  
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700 dark:text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>                                                                                                                                                 
+
+<style>
+  /* Hide scrollbar but keep scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE + Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+</style>
+  <!-- MOBILE NAV -->
+<!-- MOBILE NAV -->
+<div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
+  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+  <div id="mobile-menu-content" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full overflow-y-auto no-scrollbar">
+    <div class="flex justify-between items-center p-4">
+      <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="AEK Ads Logo" class="w-32 dark:brightness-150">
+      <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="p-4">
+      <nav class="flex flex-col space-y-4">
+        <!-- Profile Area -->
+        <div id="profileArea-11" class="flex flex-col items-center mb-8">
+          <!-- Default state - Not logged in -->
+          <div id="loginSection-11" class="flex flex-col items-center space-y-4 w-full">
+            <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <a href="/login.html">
+              <button class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium w-full transition-colors duration-200">
+                Log in 
+              </button>
+            </a> 
+          </div>
+
+          <!-- Logged in state - Hidden by default -->
+          <div id="userSection-11" class="hidden flex-col items-center space-y-3 w-full">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
+                   class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
+                   alt="Profile" />
+              <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
+            </div>
+            <p class="font-semibold text-gray-900 dark:text-white"></p>
+            <p class="text-sm text-gray-500 dark:text-white"></p>
+            <button class="text-sm text-blue-600 hover:text-blue-800 font-medium dark:text-white">
+              View profile
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="flex-1 space-y-1 text-gray-800">
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <span class="font-medium dark:text-white">My Campaigns</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            </svg>
+            <span class="font-medium dark:text-white">Drafts</span>
+            <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="font-medium dark:text-white">Edit Profile</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+            <span class="font-medium dark:text-white">Billing & Payments</span>
+          </a>
+
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <span class="font-medium dark:text-white">Help Center</span>
+          </a>
+        </div>
+
+        <hr>
+        <a href="about.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">About Us</span>
+        </a>
+
+        <a href="ADS.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">Our Innovation</span>
+        </a>
+
+        <a href="ADS.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">Pricing</span>
+        </a>
+
+        <a href="ADS.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">Our Process</span>
+        </a>
+
+        <a href="blog.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">Blogs</span>
+        </a>
+
+        <a href="career.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="font-medium dark:text-white">Career</span>
+        </a>
+          
+        <div class="pt-4 border-t dark:border-gray-700">
+          <button id="darkModeToggleMobile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full dark:text-black">
+            <svg id="darkIconMobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg id="lightIconMobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <span>Toggle Dark Mode</span>
+          </button>
+        </div>
+
+        <div id="logoutSection-11" class="hidden mt-2">
+          <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span class="font-medium dark:text-white">Log out</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Update mobile navigation based on login state
+  function updateMobileAuthUI(authToken, userId, userEmail) {
+    const loginSection = document.getElementById("loginSection-11");
+    const userSection = document.getElementById("userSection-11");
+    const logoutSection = document.getElementById("logoutSection-11");
+
+    if (authToken && userId && userEmail) {
+      // User is logged in
+      loginSection.style.display = "none";
+      userSection.classList.remove("hidden");
+      logoutSection.classList.remove("hidden");
+      
+      // Fill user details
+      userSection.querySelector("p.text-sm").textContent = userEmail;
+    } else {
+      // User not logged in
+      loginSection.style.display = "flex";
+      userSection.classList.add("hidden");
+      logoutSection.classList.add("hidden");
+    }
+  }
+
+  // Initialize mobile auth UI when DOM is loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const authToken = localStorage.getItem("authToken");
+    const userId = localStorage.getItem("userId");
+    const userEmail = localStorage.getItem("userEmail");
+    
+    updateMobileAuthUI(authToken, userId, userEmail);
+    
+    // Add logout functionality for mobile
+    const mobileLogoutBtn = document.querySelector("#logoutSection-11 button");
+    if (mobileLogoutBtn) {
+      mobileLogoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userEmail");
+        
+        // Update UI
+        updateMobileAuthUI(null, null, null);
+        
+        // Close mobile menu
+        document.getElementById("mobile-menu-close").click();
+        
+        // Redirect to login page
+        window.location.href = "/login.html";
+      });
+    }
+  });
+</script>
+<!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:bg-[#2075AE] shadow-xl
+ transform translate-x-full transition-transform duration-300 z-40 mt-[75px]  ">
+    <div class="p-6 h-full flex flex-col">
+      <!-- Profile Area -->
+      <div id="profileArea" class="flex flex-col items-center mb-8">
+        <!-- Default state - Not logged in -->
+        <div id="loginSection" class="flex flex-col items-center space-y-4 w-full">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+         <a href="/login.html"><button class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium w-full transition-colors duration-200">
+            Log in 
+          </button></a> 
+        </div>
+
+        <!-- Logged in state - Hidden by default -->
+        <div id="userSection" class="hidden flex-col items-start ml-[80px] space-y-3 w-full flex justify-start">
+
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80" 
+                 class="w-20 h-20 rounded-full object-cover border-2 border-gray-200" 
+                 alt="Profile" />
+            <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
+          </div>
+          <p class="font-semibold text-gray-900  dark:text-white"></p>
+          <p class="text-sm text-gray-500 dark:text-white"></p>
+          <button class="text-sm text-blue-600 hover:text-blue-800 font-medium  dark:text-white">
+            View profile
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Links -->
+      <div class="flex-1 space-y-1 text-gray-800 ">
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span class="font-medium dark:text-white">My Campaigns</span>
+        </a>
+        
+    <a href="draftCampaign.html" 
+   class="flex items-center space-x-3 px-4 py-3 rounded-lg group">
+
+  <!-- Gradient Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="url(#gradientStroke)" stroke-width="1.8">
+    <defs><linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#052652"/><stop offset="100%" stop-color="#2D9CDB"/>
+      </linearGradient>
+    </defs>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+  </svg>
+  <!-- Gradient Text -->
+  <span class="font-medium bg-gradient-to-r from-[#052652] to-[#2D9CDB] text-transparent bg-clip-text">
+    Drafts
+  </span>
+</a>
+
+        
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-medium dark:text-white">Edit Profile</span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+          <span class="font-medium dark:text-white">Billing & Payments</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <span class="font-medium dark:text-white">Help Center</span>
+          
+        </a>
+        <div id="logoutSection" class="hidden mt-2">
+          <button class="flex items-center space-x-3 w-full px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span class="font-medium dark:text-white">Log out</span>
+          </button>
+        </div>
+      </div>
+
+    
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay (optional) -->
+  <div id="overlay" class="fixed inset-0 bg-black opacity-30 hidden z-30"></div>
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  // Toggle Sidebar
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  });
+
+  // ---- Manage login state ----
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
+
+  const loginSection = document.getElementById("loginSection");
+  const userSection = document.getElementById("userSection");
+  const logoutSection = document.getElementById("logoutSection");
+
+  if (authToken && userId && userEmail) {
+    // ✅ User is logged in
+    loginSection.style.display = "none";
+    userSection.classList.remove("hidden");
+    logoutSection.classList.remove("hidden");
+
+    // Fill user details
+
+    userSection.querySelector("p.text-sm").textContent = userEmail;
+  } else {
+    // ❌ User not logged in
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+  }
+
+  // ---- Logout functionality ----
+  logoutSection.querySelector("button").addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+
+    // Reset sidebar
+    loginSection.style.display = "flex";
+    userSection.classList.add("hidden");
+    logoutSection.classList.add("hidden");
+
+    // Redirect to login page
+    window.location.href = "/login.html";
+  });
+</script>
+
+  <main id="scroll-container" data-scroll-container>
+    <div class="max-w-7xl mx-auto ">
+        <!-- Header -->
+     
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 mt-10">
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex items-center">
+                    <div class="rounded-full bg-indigo-100 p-3 mr-4">
+                        <i class="fas fa-file text-indigo-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Drafts</p>
+                        <h3 class="text-2xl font-bold text-gray-800" id="totalDrafts">0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex items-center">
+                    <div class="rounded-full bg-green-100 p-3 mr-4">
+                        <i class="fas fa-tv text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Screens</p>
+                        <h3 class="text-2xl font-bold text-gray-800" id="totalScreens">0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex items-center">
+                    <div class="rounded-full bg-blue-100 p-3 mr-4">
+                        <i class="fas fa-money-bill-wave text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Value</p>
+                        <h3 class="text-2xl font-bold text-gray-800" id="totalValue">₹0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex items-center">
+                    <div class="rounded-full bg-purple-100 p-3 mr-4">
+                        <i class="fas fa-business-time text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Avg. Duration</p>
+                        <h3 class="text-2xl font-bold text-gray-800" id="avgDuration">0 days</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drafts Table -->
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-lg font-semibold text-gray-800">All Draft Campaigns</h2>
+                <div class="relative">
+                    <input type="text" placeholder="Search drafts..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-left text-gray-600 uppercase text-sm">
+                            <th class="px-6 py-3 font-medium">Start Date</th>
+                            <th class="px-6 py-3 font-medium">End Date</th>
+                            <th class="px-6 py-3 font-medium">Order Value</th>
+                            <th class="px-6 py-3 font-medium">Package</th>
+                            <th class="px-6 py-3 font-medium text-center">More</th>
+                        </tr>
+                    </thead>
+                    <tbody id="draftTableBody" class="text-gray-700">
+                        <!-- Data will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="draftContainer" class="p-6">
+                <!-- Loading/error messages will appear here -->
+            </div>
+        </div>
+    </div>
+
+  </main>
+<script>
+    async function fetchDrafts() {
+        const token = localStorage.getItem("authToken");
+        const userEmail = localStorage.getItem("userEmail");
+        const container = document.getElementById("draftContainer");
+        const tableBody = document.getElementById("draftTableBody");
+        
+        // Clear previous content
+        container.innerHTML = '';
+        tableBody.innerHTML = '';
+
+        if (!token || !userEmail) {
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4">
+                        <i class="fas fa-exclamation-triangle text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Authentication Required</h3>
+                    <p class="text-gray-600">Please log in to view your campaign drafts.</p>
+                    <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Log In</button>
+                </div>
+            `;
+            return;
+        }
+
+        // Show loading state
+        container.innerHTML = `
+            <div class="text-center py-8">
+                <div class="inline-flex items-center justify-center">
+                    <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full loader"></div>
+                </div>
+                <p class="mt-4 text-gray-600">Loading your campaign drafts...</p>
+            </div>
+        `;
+
+        try {
+            const res = await fetch("https://cms.aekads.com/api/websitesales/campaigns/drafts", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "x-user-email": userEmail
+                }
+            });
+
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || "Failed to fetch drafts");
+
+            // Clear loading state
+            container.innerHTML = '';
+
+            if (data.count === 0 || !data.drafts || data.drafts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-inbox text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">No Drafts Found</h3>
+                        <p class="text-gray-600">You don't have any draft campaigns yet.</p>
+                        <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Create Your First Draft</button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update stats
+            updateStats(data.drafts);
+
+            // Populate the table
+            data.drafts.forEach(draft => {
+                const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
+                const row = document.createElement('tr');
+                row.className = 'border-t border-gray-200 hover:bg-gray-50';
+                
+               row.innerHTML = `
+    <td class="px-6 py-4 whitespace-nowrap">
+        ${draft.start_date ? new Date(draft.start_date).toISOString().split("T")[0] : '—'}
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+        ${draft.end_date ? new Date(draft.end_date).toISOString().split("T")[0] : '—'}
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">${draft.campaign_name || '—'}</td>
+    <td class="px-6 py-4 whitespace-nowrap">
+        <span class="status-badge ${draft.package_name?.toLowerCase() === 'platinum' ? 'package-platinum' : 'package-gold'}">
+            ${draft.package_name || '—'}
+        </span>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap text-center">
+        <button 
+            onclick='viewDraft(${JSON.stringify(draft)})' 
+            class="text-indigo-600 hover:text-indigo-900 font-medium">
+            View...
+        </button>
+        
+    </td>
+`;
+tableBody.appendChild(row);
+
+            });
+
+        } catch (err) {
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4">
+                        <i class="fas fa-exclamation-circle text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Error Loading Drafts</h3>
+                    <p class="text-gray-600">${err.message}</p>
+                    <button onclick="fetchDrafts()" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Try Again</button>
+                </div>
+            `;
+        }
+    }
+
+    // ✅ keep this outside forEach
+   function viewDraft(draft) {
+  localStorage.setItem("selectedDraft", JSON.stringify(draft));
+  window.location.href = "create-campaign.html";
+} 
+
+    function updateStats(drafts) {
+        // Update the stats cards with real data
+        document.getElementById('totalDrafts').textContent = drafts.length;
+        
+        let totalScreens = 0;
+        let totalValue = 0;
+        let totalDuration = 0;
+        
+        drafts.forEach(draft => {
+            const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
+            totalScreens += totals?.totalScreens || 0;
+            totalValue += totals?.grandTotal || 0;
+            
+            // Calculate duration if we have both start and end dates
+            if (draft.start_date && draft.end_date) {
+                const start = new Date(draft.start_date);
+                const end = new Date(draft.end_date);
+                const duration = (end - start) / (1000 * 60 * 60 * 24); // Convert to days
+                totalDuration += duration;
+            }
+        });
+        
+        document.getElementById('totalScreens').textContent = totalScreens;
+        document.getElementById('totalValue').textContent = `₹${totalValue.toLocaleString()}`;
+        
+        const avgDuration = drafts.length > 0 ? Math.round(totalDuration / drafts.length) : 0;
+        document.getElementById('avgDuration').textContent = `${avgDuration} day${avgDuration !== 1 ? 's' : ''}`;
+    }
+
+    // Fetch drafts when page loads
+    document.addEventListener('DOMContentLoaded', fetchDrafts);
+</script>
+
+
+
+</body>
+</html>
