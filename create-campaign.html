@@ -1733,24 +1733,29 @@ async function saveCampaign() {
     }
 
     // Update wallet locally
-    userBalance = Math.max(0, userBalance - campaignCost);
-    updateBalanceDisplay(userBalance);
+// Update wallet locally
+userBalance = Math.max(0, userBalance - campaignCost);
+updateBalanceDisplay(userBalance);
 
-    Swal.fire("✅ Success", "Campaign created successfully!", "success");
-    console.log("Saved campaign:", data);
+Swal.fire("✅ Success", "Campaign created successfully!", "success").then(() => {
+  console.log("Saved campaign:", data);
+  // Redirect to property listing
+  window.location.href = "Property-listing.html";
+});
 
-    // Reset form
-    uploadedVideos = [];
-    currentVideoIndex = 0;
-    if (typeof fileNameDisplay !== "undefined") fileNameDisplay.textContent = "";
-    if (typeof showCurrentVideo === "function") showCurrentVideo();
-    if (typeof updateVideoNavigation === "function") updateVideoNavigation();
-    document.getElementById("campaignName").value = "";
-    document.getElementById("startDate").value = toISODateOnly(new Date());
-    document.getElementById("duration").value = "30";
-    selectedPackage.name = "Gold";
-    if (typeof renderPackages === "function") renderPackages();
-    if (typeof renderTargeting === "function") renderTargeting();
+// Reset form
+uploadedVideos = [];
+currentVideoIndex = 0;
+if (typeof fileNameDisplay !== "undefined") fileNameDisplay.textContent = "";
+if (typeof showCurrentVideo === "function") showCurrentVideo();
+if (typeof updateVideoNavigation === "function") updateVideoNavigation();
+document.getElementById("campaignName").value = "";
+document.getElementById("startDate").value = toISODateOnly(new Date());
+document.getElementById("duration").value = "30";
+selectedPackage.name = "Gold";
+if (typeof renderPackages === "function") renderPackages();
+if (typeof renderTargeting === "function") renderTargeting();
+
 
   } catch (err) {
     console.error("❌ Error:", err);
