@@ -735,8 +735,11 @@
     </select>
 
     <select id="areaSelect"
-      class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
-      <option value="">Select Area</option>
+      class="px-4 py-2 rounded-lg bg-[#F1FAFF] dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white focus:outline-none
+       focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">Select Area
+     
+     
+       <option value="">All Area</option>
 </select>
 
     <input type="text" id="searchInput" placeholder="Search ..."
@@ -915,7 +918,7 @@ const cityDataCache = {};
   if (storedTargets) {
     try {
       selectedTargets = JSON.parse(storedTargets);
-      renderTargetPopup();
+      // renderTargetPopup(); 
     } catch {
       sessionStorage.removeItem("selectedTargets");
     }
@@ -1206,11 +1209,10 @@ document.addEventListener("DOMContentLoaded", function () {
         cityDataCache[selectedCity] = propertiesToRender;
       } catch (error) {
         console.error("Error fetching city data:", error);
-        propertyList.innerHTML = `<p class="text-red-500">Error loading properties: ${error.message}</p>`;
+        propertyList.innerHTML = `<p class=" text-[35px] bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent font-bold mb-4">Select City and Area</p>`;
         return;
       }
     }
-
     allProperties = propertiesToRender;
 
     // Apply filters immediately to the fetched data
