@@ -417,7 +417,7 @@
 
         <!-- Menu Links -->
         <div class="flex-1 space-y-1 text-gray-800">
-          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+          <a href="/campaigns.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
@@ -611,7 +611,7 @@
 
       <!-- Menu Links -->
       <div class="flex-1 space-y-1 text-gray-800 ">
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+        <a href="/campaigns.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
           </svg>
@@ -1093,12 +1093,17 @@ function saveSelectionToURL() {
 function restoreSelectionFromURL(allProperties) {
   const params = new URLSearchParams(window.location.search);
   const selectedNames = params.get('selectedProperties');
-  
+
   if (selectedNames && allProperties.length > 0) {
     const namesArray = selectedNames.split(',');
-    const newSelections = allProperties.filter(p => namesArray.includes(p.propertyname) && !selectedTargets.some(t => t.propertyname === p.propertyname));
+    const newSelections = allProperties.filter(p =>
+      namesArray.includes(p.propertyname) &&
+      !selectedTargets.some(t => t.propertyname === p.propertyname)
+    );
     selectedTargets.push(...newSelections);
-    renderTargetPopup();
+
+    // ❌ Do NOT call renderTargetPopup()
+    // ❌ Do NOT update button state yet
   }
 }
 
@@ -1201,7 +1206,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       try {
         propertyList.innerHTML = "<p>Loading properties...</p>";
-        const res = await fetch(`https://cms.aekads.com/api/websitesales/city-info/${selectedCity}`);
+        const res = await fetch(`https://aekteam.onrender.com/api/websitesales/city-info/${selectedCity}`);
         const data = await res.json();
         if (!data.success) throw new Error(data.error);
 
