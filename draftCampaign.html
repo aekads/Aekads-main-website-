@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aek Ads - India's Best And Largest Digital Screen Network</title>
+  <title>Aek Ads - Campaign Drafts</title>
   <!-- Favicon -->
   <link rel="icon" href="https://res.cloudinary.com/dqfnwh89v/image/upload/v1724408615/qxvvfcf7ftgklhl2k03v.png"
     type="image/png" />
@@ -26,6 +26,10 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- SweetAlert for beautiful alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -43,12 +47,18 @@
             secondary: {
               light: '#F5F5F5',
               dark: '#1A365D'
+            },
+            gradient: {
+              start: '#052652',
+              end: '#2D9CDB'
             }
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
             'float-reverse': 'float-reverse 5s ease-in-out infinite',
             'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fade-in': 'fadeIn 0.5s ease-in-out',
+            'slide-up': 'slideUp 0.7s ease-out',
           },
           keyframes: {
             float: {
@@ -58,173 +68,166 @@
             'float-reverse': {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(15px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
             }
           }
         },
       },
     };
-  </script>                                        
-<style>
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+  </script>
+  
+  <style>
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    .animate-fadeUp {
+      animation: fadeUp 0.9s ease-out forwards;
     }
-  }
-
-  .animate-fadeUp {
-    animation: fadeUp 0.9s ease-out forwards;
-  }
-  
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  /* Dark mode scrollbar */
-  .dark ::-webkit-scrollbar-track {
-    background: #1a365d;
-  }
-  .dark ::-webkit-scrollbar-thumb {
-    background: #2D9CDB;
-  }
-</style>
-   <style>                                                 
-
-
-        #scroll-container {
-            /* min-height: 100vh;  */
-            position: relative;
-        }
-
-        /* Custom scrollbar */
-        .c-scrollbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 8px;
-            height: 100vh;
-            background: transparent;
-            z-index: 999;
-        }
-
-        .c-scrollbar_thumb {
-            background-color: #2D9CDB;
-            border-radius: 4px;
-            width: 100%;
-        }
-        
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        /* Card hover effect */
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        /* Section divider */
-        .section-divider {
-            position: relative;
-            height: 150px;
-            overflow: hidden;
-        }
-        .section-divider::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 100%;
-            background: linear-gradient(135deg, #052652 0%, #2D9CDB 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
-            z-index: -1;
-        }
-        
-        /* Animated underline */
-        .animated-underline {
-            position: relative;
-            display: inline-block;
-        }
-        .animated-underline::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, #052652 0%, #2D9CDB 100%);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-        .animated-underline:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        
-        /* Glow effect */
-        .glow-effect {
-            box-shadow: 0 0 15px rgba(45, 156, 219, 0.5);
-        }
-        
-        /* Parallax effect */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        
-          header {
-    transition: transform 0.3s ease-in-out;
-  }
-
-    </style>
-        <style>
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fadeUp {
-            animation: fadeUp 0.9s ease-out forwards;
-        }
-    </style>
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #052652, #2D9CDB);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, #2D9CDB, #052652);
+    }
+    
+    /* Dark mode scrollbar */
+    .dark ::-webkit-scrollbar-track {
+      background: #1a202c;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #2D9CDB, #052652);
+    }
+    
+    /* Glassmorphism effect */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .dark .glass-effect {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Gradient border */
+    .gradient-border {
+      position: relative;
+      background: white;
+      border-radius: 0.5rem;
+      z-index: 1;
+    }
+    
+    .dark .gradient-border {
+      background: #1a365d;
+    }
+    
+    .gradient-border::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #052652, #2D9CDB, #052652);
+      border-radius: 0.6rem;
+      z-index: -1;
+      animation: border-pulse 3s ease infinite;
+    }
+    
+    @keyframes border-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    /* Shimmer loading effect */
+    .shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    
+    .dark .shimmer {
+      background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
+      background-size: 200% 100%;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    
+    /* Status badges */
+    .status-badge {
+      @apply px-3 py-1 rounded-full text-xs font-semibold;
+    }
+    
+    .package-platinum {
+      @apply bg-gradient-to-r from-gray-700 to-gray-500 text-white;
+    }
+    
+    .package-gold {
+      @apply bg-gradient-to-r from-yellow-600 to-yellow-400 text-white;
+    }
+    
+    /* Table row hover effect */
+    .table-row-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .table-row-hover:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    /* Button styles */
+    .btn-primary {
+      @apply bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl;
+    }
+    
+    .btn-secondary {
+      @apply bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl;
+    }
+    
+    /* Stats card hover effect */
+    .stat-card {
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
 </head>
 
-<body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
+<body class="font-poppins  dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white
+transition-colors duration-300">
 
     <!-- DARK MODE SCRIPT -->
     <script>
@@ -299,7 +302,7 @@
       
       <!-- Logo with animation -->
     <div class="flex-shrink-0">
-        <a href="index.html" class="hover:opacity-90 transition-opacity duration-300">
+      <a href="/ADS" class="hover:opacity-90 transition-opacity duration-300">
           <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
                alt="AEK Ads Logo"
                class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
@@ -310,8 +313,9 @@
       <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
         <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
         <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
-               <a href="/ADS" class="animated-underline hover:text-primary-light">Our Process</a>
-        <a href="/ADS" class="animated-underline hover:text-primary-light">Pricing</a>
+        <!-- <a href="#section-2" class="animated-underline hover:text-primary-light">Our Innovation</a> -->
+        <a href="#section-5" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="#section-7" class="animated-underline hover:text-primary-light">Pricing</a>
             <a href="/SAAS" class="animated-underline hover:text-primary-light">Saas</a>
 
         <!-- Dropdown -->
@@ -323,7 +327,7 @@
             </svg>
           </button>
           <div class="absolute hidden group-hover:block bg-white dark:bg-gray-700 mt-2 shadow-xl rounded-md w-40 overflow-hidden transition-all duration-300 origin-top">
-            <a href="blog.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
+            <a href="/blog" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
             <a href="career.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Career</a>
           </div>
         </div>
@@ -456,7 +460,7 @@
         </div>
 
         <hr>
-        <a href="about.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+        <a href="/About-new" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -470,21 +474,21 @@
           <span class="font-medium dark:text-white">Our Innovation</span>
         </a>
 
-        <a href="ADS.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+        <a href="#section-5" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
           <span class="font-medium dark:text-white">Pricing</span>
         </a>
 
-        <a href="ADS.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+        <a href="#section-7" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
           <span class="font-medium dark:text-white">Our Process</span>
         </a>
 
-        <a href="blog.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
+        <a href="/blog" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors dark:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -618,22 +622,13 @@
           <span class="font-medium dark:text-white">My Campaigns</span>
         </a>
         
-    <a href="draftCampaign.html" 
-   class="flex items-center space-x-3 px-4 py-3 rounded-lg group">
-
-  <!-- Gradient Icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="url(#gradientStroke)" stroke-width="1.8">
-    <defs><linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#052652"/><stop offset="100%" stop-color="#2D9CDB"/>
-      </linearGradient>
-    </defs>
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-  </svg>
-  <!-- Gradient Text -->
-  <span class="font-medium bg-gradient-to-r from-[#052652] to-[#2D9CDB] text-transparent bg-clip-text">
-    Drafts
-  </span>
-</a>
-
+        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+          <span class="font-medium dark:text-white">Drafts</span>
+          <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
+        </a>
         
         <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -732,246 +727,321 @@
   });
 </script>
 
-  <main id="scroll-container" data-scroll-container>
-    <div class="max-w-7xl mx-auto px-10">
-        <!-- Header -->
-     
-        <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 mt-10">
-            <div class="bg-white rounded-xl shadow p-6">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-indigo-100 p-3 mr-4">
-                        <i class="fas fa-file text-indigo-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-sm">Total Drafts</p>
-                        <h3 class="text-2xl font-bold text-gray-800" id="totalDrafts">0</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-green-100 p-3 mr-4">
-                        <i class="fas fa-tv text-green-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-sm">Total Screens</p>
-                        <h3 class="text-2xl font-bold text-gray-800" id="totalScreens">0</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-blue-100 p-3 mr-4">
-                        <i class="fas fa-money-bill-wave text-blue-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-sm">Total Value</p>
-                        <h3 class="text-2xl font-bold text-gray-800" id="totalValue">₹0</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-purple-100 p-3 mr-4">
-                        <i class="fas fa-business-time text-purple-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-sm">Avg. Duration</p>
-                        <h3 class="text-2xl font-bold text-gray-800" id="avgDuration">0 days</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Drafts Table -->
-        <div class="bg-white rounded-xl shadow overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                <h2 class="text-lg font-semibold text-gray-800">All Draft Campaigns</h2>
-                <div class="relative">
-                    <input type="text" placeholder="Search drafts..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                </div>
-            </div>
-            
-            <div class="table-container">
-                <table class="w-full">
-                    <thead>
-                        <tr class="text-left text-gray-600 uppercase text-sm">
-                            <th class="px-6 py-3 font-medium">Start Date</th>
-                            <th class="px-6 py-3 font-medium">End Date</th>
-                            <th class="px-6 py-3 font-medium">Order Value</th>
-                            <th class="px-6 py-3 font-medium">Package</th>
-                            <th class="px-6 py-3 font-medium text-center">More</th>
-                        </tr>
-                    </thead>
-                    <tbody id="draftTableBody" class="text-gray-700">
-                        <!-- Data will be inserted here by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div id="draftContainer" class="p-6">
-                <!-- Loading/error messages will appear here -->
-            </div>
-        </div>
+    <main id="scroll-container" data-scroll-container  class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white min-h-screen">
+    <!-- Animated background elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float dark:bg-blue-800"></div>
+    <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float-reverse dark:bg-indigo-800"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float dark:bg-purple-800"></div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8 relative z-10">
+    <!-- Header -->
+    <div class="mb-8 text-center">
+       <h1 class="text-3xl font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent">
+       <span class="font-bold bg-gradient-to-r from-[#052652] to-[#2D9CDB] bg-clip-text text-transparent dark:text-white"> Your Campaign Drafts</span> 
+    </h1>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">Manage and edit your campaign drafts before publishing</p>
     </div>
+    
+    <!-- Main content card -->
+    <div class="glass-effect rounded-2xl p-6 mb-8 backdrop-blur-sm">
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+          <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-3">
+            <i class="fas fa-file text-blue-600 dark:text-blue-400 text-xl"></i>
+          </div>
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Drafts</div>
+          <div class="text-2xl font-bold text-gray-800 dark:text-white" id="totalDrafts">0</div>
+        </div>
+        
+        <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+          <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-full mb-3">
+            <i class="fas fa-tv text-green-600 dark:text-green-400 text-xl"></i>
+          </div>
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Screens</div>
+          <div class="text-2xl font-bold text-gray-800 dark:text-white" id="totalScreens">0</div>
+        </div>
+        
+        <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+          <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-3">
+            <i class="fas fa-indian-rupee-sign text-purple-600 dark:text-purple-400 text-xl"></i>
+          </div>
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Value</div>
+          <div class="text-2xl font-bold text-gray-800 dark:text-white" id="totalValue">₹0</div>
+        </div>
+        
+        <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+          <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full mb-3">
+            <i class="fas fa-clock text-orange-600 dark:text-orange-400 text-xl"></i>
+          </div>
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Avg. Duration</div>
+          <div class="text-2xl font-bold text-gray-800 dark:text-white" id="avgDuration">0 days</div>
+        </div>
+      </div>
+      
+      <!-- Drafts Table -->
+      <div class="overflow-hidden rounded-2xl shadow-md">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Start Date</th>
+              <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">End Date</th>
+              <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Campaign Name</th>
+              <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Package</th>
+              <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700" id="draftTableBody">
+            <!-- Draft rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Container for messages/loading/empty states -->
+      <div id="draftContainer" class="mt-8"></div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="text-center mt-10">
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Ready to create a new campaign?</p>
+     
+    </div>
+  </div>
 
-  </main>
-<script>
+  <script>
+    // Global flag to track if we're in edit mode
+    let isEditMode = false;
+    let currentDraftId = null;
+
     async function fetchDrafts() {
-        const token = localStorage.getItem("authToken");
-        const userEmail = localStorage.getItem("userEmail");
-        const container = document.getElementById("draftContainer");
-        const tableBody = document.getElementById("draftTableBody");
-        
-        // Clear previous content
-        container.innerHTML = '';
-        tableBody.innerHTML = '';
+      const token = localStorage.getItem("authToken");
+      const userEmail = localStorage.getItem("userEmail");
+      const container = document.getElementById("draftContainer");
+      const tableBody = document.getElementById("draftTableBody");
+      
+      // Clear previous content
+      container.innerHTML = '';
+      tableBody.innerHTML = '';
 
-        if (!token || !userEmail) {
-            container.innerHTML = `
-                <div class="text-center py-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4">
-                        <i class="fas fa-exclamation-triangle text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">Authentication Required</h3>
-                    <p class="text-gray-600">Please log in to view your campaign drafts.</p>
-                    <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Log In</button>
-                </div>
-            `;
-            return;
-        }
-
-        // Show loading state
+      if (!token || !userEmail) {
         container.innerHTML = `
-            <div class="text-center py-8">
-                <div class="inline-flex items-center justify-center">
-                    <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full loader"></div>
-                </div>
-                <p class="mt-4 text-gray-600">Loading your campaign drafts...</p>
+          <div class="text-center py-12 glass-effect rounded-2xl">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6 dark:bg-red-900/30 dark:text-red-400">
+              <i class="fas fa-exclamation-triangle text-2xl"></i>
             </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Authentication Required</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">Please log in to view your campaign drafts.</p>
+            <button class="btn-primary">Log In</button>
+          </div>
         `;
+        return;
+      }
 
-        try {
-            const res = await fetch("https://cms.aekads.com/api/websitesales/campaigns/drafts", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "x-user-email": userEmail
-                }
-            });
+      // Show loading state
+      container.innerHTML = `
+        <div class="text-center py-12">
+          <div class="inline-flex items-center justify-center mb-6">
+            <div class="w-14 h-14 border-4 border-blue-600 border-t-transparent rounded-full loader animate-spin"></div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-lg">Loading your campaign drafts...</p>
+        </div>
+      `;
 
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.message || "Failed to fetch drafts");
+      try {
+        const res = await fetch("https://cms.aekads.com/api/websitesales/campaigns/drafts", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "x-user-email": userEmail
+          }
+        });
 
-            // Clear loading state
-            container.innerHTML = '';
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || "Failed to fetch drafts");
 
-            if (data.count === 0 || !data.drafts || data.drafts.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-8">
-                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
-                            <i class="fas fa-inbox text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-medium text-gray-900 mb-2">No Drafts Found</h3>
-                        <p class="text-gray-600">You don't have any draft campaigns yet.</p>
-                        <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Create Your First Draft</button>
-                    </div>
-                `;
-                return;
-            }
+        // Clear loading state
+        container.innerHTML = '';
 
-            // Update stats
-            updateStats(data.drafts);
-
-            // Populate the table
-            data.drafts.forEach(draft => {
-                const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
-                const row = document.createElement('tr');
-                row.className = 'border-t border-gray-200 hover:bg-gray-50';
-                
-               row.innerHTML = `
-    <td class="px-6 py-4 whitespace-nowrap">
-        ${draft.start_date ? new Date(draft.start_date).toISOString().split("T")[0] : '—'}
-    </td>
-    <td class="px-6 py-4 whitespace-nowrap">
-        ${draft.end_date ? new Date(draft.end_date).toISOString().split("T")[0] : '—'}
-    </td>
-    <td class="px-6 py-4 whitespace-nowrap">${draft.campaign_name || '—'}</td>
-    <td class="px-6 py-4 whitespace-nowrap">
-        <span class="status-badge ${draft.package_name?.toLowerCase() === 'platinum' ? 'package-platinum' : 'package-gold'}">
-            ${draft.package_name || '—'}
-        </span>
-    </td>
-    <td class="px-6 py-4 whitespace-nowrap text-center">
-        <button 
-            onclick='viewDraft(${JSON.stringify(draft)})' 
-            class="text-indigo-600 hover:text-indigo-900 font-medium">
-            View...
-        </button>
-        
-    </td>
-`;
-tableBody.appendChild(row);
-
-            });
-
-        } catch (err) {
-            container.innerHTML = `
-                <div class="text-center py-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4">
-                        <i class="fas fa-exclamation-circle text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">Error Loading Drafts</h3>
-                    <p class="text-gray-600">${err.message}</p>
-                    <button onclick="fetchDrafts()" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Try Again</button>
-                </div>
-            `;
+        if (data.count === 0 || !data.drafts || data.drafts.length === 0) {
+          container.innerHTML = `
+            <div class="text-center py-12 glass-effect rounded-2xl">
+              <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 text-blue-600 mb-6 dark:bg-blue-900/30 dark:text-blue-400">
+                <i class="fas fa-inbox text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">No Drafts Found</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">You don't have any draft campaigns yet.</p>
+              <button onclick="window.location.href='create-campaign.html'" class="btn-primary">
+                Create Your First Draft
+              </button>
+            </div>
+          `;
+          return;
         }
+
+        // Update stats
+        updateStats(data.drafts);
+
+        // Populate the table
+        data.drafts.forEach(draft => {
+          const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
+          const row = document.createElement('tr');
+          row.className = 'table-row-hover';
+          
+          row.innerHTML = `
+            <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+              ${draft.start_date ? new Date(draft.start_date).toISOString().split("T")[0] : '—'}
+            </td>
+            <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+              ${draft.end_date ? new Date(draft.end_date).toISOString().split("T")[0] : '—'}
+            </td>
+            <td class="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+              ${draft.campaign_name || '—'}
+            </td>
+            <td class="px-6 py-5 whitespace-nowrap">
+              <span class="status-badge ${draft.package_name?.toLowerCase() === 'platinum' ? 'package-platinum' : 'package-gold'}">
+                ${draft.package_name || '—'}
+              </span>
+            </td>
+            <td class="px-6 py-5 whitespace-nowrap text-sm">
+              <div class="flex space-x-3">
+                <button 
+                  onclick='editDraft(${JSON.stringify(draft).replace(/'/g, "\\'")})' 
+                  class="text-indigo-600 hover:text-indigo-900 font-medium">
+                 View...
+                </button>
+               
+              </div>
+            </td>
+          `;
+          tableBody.appendChild(row);
+        });
+
+      } catch (err) {
+        container.innerHTML = `
+          <div class="text-center py-12 glass-effect rounded-2xl">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6 dark:bg-red-900/30 dark:text-red-400">
+              <i class="fas fa-exclamation-circle text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Error Loading Drafts</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">${err.message}</p>
+            <button onclick="fetchDrafts()" class="btn-primary">
+              <i class="fas fa-redo mr-2"></i>Try Again
+            </button>
+          </div>
+        `;
+      }
     }
 
-    // ✅ keep this outside forEach
-   function viewDraft(draft) {
-  localStorage.setItem("selectedDraft", JSON.stringify(draft));
-  window.location.href = "create-campaign.html";
-} 
+    function editDraft(draft) {
+      // Set edit mode flag and store draft ID
+      isEditMode = true;
+      currentDraftId = draft._id;
+      
+      // Store the draft data in sessionStorage (cleared on page refresh)
+      sessionStorage.setItem("editDraftData", JSON.stringify(draft));
+      sessionStorage.setItem("isEditMode", "true");
+      sessionStorage.setItem("currentDraftId", draft._id);
+      
+      // Redirect to create-campaign page
+      window.location.href = "create-campaign.html";
+    }
+
+    function deleteDraft(draftId) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+        background: 'rgba(255, 255, 255, 0.9)',
+        backdrop: 'rgba(0, 0, 0, 0.5)',
+        customClass: {
+          popup: 'rounded-2xl'
+        }
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          try {
+            const token = localStorage.getItem("authToken");
+            const userEmail = localStorage.getItem("userEmail");
+            
+            const res = await fetch(`https://cms.aekads.com/api/websitesales/campaigns/drafts/${draftId}`, {
+              method: "DELETE",
+              headers: {
+                "Authorization": `Bearer ${token}`,
+                "x-user-email": userEmail
+              }
+            });
+            
+            if (res.ok) {
+              Swal.fire({
+                title: 'Deleted!',
+                text: 'Your draft has been deleted.',
+                icon: 'success',
+                background: 'rgba(255, 255, 255, 0.9)',
+                backdrop: 'rgba(0, 0, 0, 0.5)',
+                customClass: {
+                  popup: 'rounded-2xl'
+                }
+              });
+              fetchDrafts(); // Refresh the list
+            } else {
+              throw new Error("Failed to delete draft");
+            }
+          } catch (error) {
+            Swal.fire({
+              title: 'Error!',
+              text: 'There was a problem deleting your draft.',
+              icon: 'error',
+              background: 'rgba(255, 255, 255, 0.9)',
+              backdrop: 'rgba(0, 0, 0, 0.5)',
+              customClass: {
+                popup: 'rounded-2xl'
+              }
+            });
+          }
+        }
+      });
+    }
 
     function updateStats(drafts) {
-        // Update the stats cards with real data
-        document.getElementById('totalDrafts').textContent = drafts.length;
+      // Update the stats cards with real data
+      document.getElementById('totalDrafts').textContent = drafts.length;
+      
+      let totalScreens = 0;
+      let totalValue = 0;
+      let totalDuration = 0;
+      
+      drafts.forEach(draft => {
+        const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
+        totalScreens += totals?.totalScreens || 0;
+        totalValue += totals?.grandTotal || 0;
         
-        let totalScreens = 0;
-        let totalValue = 0;
-        let totalDuration = 0;
-        
-        drafts.forEach(draft => {
-            const totals = typeof draft.totals === 'string' ? JSON.parse(draft.totals) : draft.totals;
-            totalScreens += totals?.totalScreens || 0;
-            totalValue += totals?.grandTotal || 0;
-            
-            // Calculate duration if we have both start and end dates
-            if (draft.start_date && draft.end_date) {
-                const start = new Date(draft.start_date);
-                const end = new Date(draft.end_date);
-                const duration = (end - start) / (1000 * 60 * 60 * 24); // Convert to days
-                totalDuration += duration;
-            }
-        });
-        
-        document.getElementById('totalScreens').textContent = totalScreens;
-        document.getElementById('totalValue').textContent = `₹${totalValue.toLocaleString()}`;
-        
-        const avgDuration = drafts.length > 0 ? Math.round(totalDuration / drafts.length) : 0;
-        document.getElementById('avgDuration').textContent = `${avgDuration} day${avgDuration !== 1 ? 's' : ''}`;
+        // Calculate duration if we have both start and end dates
+        if (draft.start_date && draft.end_date) {
+          const start = new Date(draft.start_date);
+          const end = new Date(draft.end_date);
+          const duration = (end - start) / (1000 * 60 * 60 * 24); // Convert to days
+          totalDuration += duration;
+        }
+      });
+      
+      document.getElementById('totalScreens').textContent = totalScreens.toLocaleString();
+      document.getElementById('totalValue').textContent = `₹${totalValue.toLocaleString()}`;
+      
+      const avgDuration = drafts.length > 0 ? Math.round(totalDuration / drafts.length) : 0;
+      document.getElementById('avgDuration').textContent = `${avgDuration} day${avgDuration !== 1 ? 's' : ''}`;
     }
 
     // Fetch drafts when page loads
     document.addEventListener('DOMContentLoaded', fetchDrafts);
-</script>
+  </script>
 
-
+    </main>
 
 </body>
-
 </html>
