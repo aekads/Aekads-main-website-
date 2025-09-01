@@ -269,10 +269,21 @@
     </style>
 </head>
 
-
 <body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
-    
-    <!-- DARK MODE SCRIPT -->
+
+<style>
+  /* Hide scrollbar but keep scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE + Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+</style>
+
+
+
 <!-- DARK MODE SCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -330,134 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // LocalStorage se user data uthao
-    const user = JSON.parse(localStorage.getItem("user"));
-    const userEmail = localStorage.getItem("userEmail"); // ✅ extra check
-
-    const loginSection = document.getElementById("loginSection");
-    const userSection = document.getElementById("userSection");
-    const logoutSection = document.getElementById("logoutSection");
-
-    if ((user && user.email) || userEmail) {
-        const email = user?.email || userEmail; // ✅ fallback
-        document.getElementById("email").value = email;
-
-        loginSection.style.display = "none";
-        userSection.classList.remove("hidden");
-        logoutSection.classList.remove("hidden");
-
-        userSection.querySelector("p.text-sm").textContent = email;
-        userSection.querySelector("p.font-semibold").textContent = user?.name || "My Account";
-
-        if (user?.name) document.getElementById("name").value = user.name;
-        if (user?.pan) document.getElementById("pan").value = user.pan;
-        if (user?.gst_number) document.getElementById("gst_number").value = user.gst_number;
-        if (user?.number) document.getElementById("number").value = user.number;
-    } else {
-        loginSection.style.display = "flex";
-        userSection.classList.add("hidden");
-        logoutSection.classList.add("hidden");
-    }
-
-    // Show notification function
-    function showNotification(message, type = 'success') {
-        const notification = document.getElementById('notification');
-        const notificationText = document.getElementById('notificationText');
-        
-        notificationText.textContent = message;
-        notification.className = `notification ${type} show`;
-        
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 3000);
-    }
-
-    // Image upload functionality
-    document.getElementById('imageUpload').addEventListener('change', function(e) {
-        if (e.target.files && e.target.files[0]) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                document.getElementById('profileImage').src = e.target.result;
-                showNotification('Profile image updated successfully!');
-            }
-            
-            reader.readAsDataURL(e.target.files[0]);
-        }
-    });
-
-    // 📝 Form submit
-    document.getElementById("editProfileForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const saveButton = document.querySelector('.save-button');
-        saveButton.disabled = true;
-        saveButton.textContent = 'Saving...';
-
-        const updatedData = {
-            name: document.getElementById("name").value,
-            pan: document.getElementById("pan").value,
-            gst_number: document.getElementById("gst_number").value,
-            number: document.getElementById("number").value,
-            email: document.getElementById("email").value // ✅ ab empty nahi hoga
-        };
-
-        try {
-            const response = await axios.post(
-                "https://aekteam.onrender.com/api/websitesales/users/edit",
-                updatedData,
-                { headers: { "Content-Type": "application/json" } }
-            );
-
-            console.log("✅ Profile updated:", response.data);
-            showNotification('Profile updated successfully!');
-
-            // LocalStorage update
-            localStorage.setItem("user", JSON.stringify(updatedData));
-            localStorage.setItem("userEmail", updatedData.email);
-
-        } catch (error) {
-            console.error("❌ Error updating profile:", error.response ? error.response.data : error);
-            showNotification('Failed to update profile. Please try again.', 'error');
-        } finally {
-            saveButton.disabled = false;
-            saveButton.textContent = 'Save Changes';
-        }
-    });
-
-    // Logout functionality
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("userEmail");
-        localStorage.removeItem("user");
-        
-        window.location.href = "/login.html";
-    });
-
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const htmlElement = document.documentElement;
-    
-    // Check for saved dark mode preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        htmlElement.classList.add('dark');
-    }
-    
-    darkModeToggle.addEventListener('click', () => {
-        htmlElement.classList.toggle('dark');
-        
-        // Save the preference
-        if (htmlElement.classList.contains('dark')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-    });
-});
-</script>
                              
   <!-- HEADER-Deskop -->   
 <header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
@@ -522,11 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </svg>
       </button>
     </div>
-  
   </header>                                                                                                                                                 
 
 <!-- MOBILE NAV -->
-
 
 <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
   <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
@@ -732,7 +613,134 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // LocalStorage se user data uthao
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userEmail = localStorage.getItem("userEmail"); // ✅ extra check
 
+    const loginSection = document.getElementById("loginSection");
+    const userSection = document.getElementById("userSection");
+    const logoutSection = document.getElementById("logoutSection");
+
+    if ((user && user.email) || userEmail) {
+        const email = user?.email || userEmail; // ✅ fallback
+        document.getElementById("email").value = email;
+
+        loginSection.style.display = "none";
+        userSection.classList.remove("hidden");
+        logoutSection.classList.remove("hidden");
+
+        userSection.querySelector("p.text-sm").textContent = email;
+        userSection.querySelector("p.font-semibold").textContent = user?.name || "My Account";
+
+        if (user?.name) document.getElementById("name").value = user.name;
+        if (user?.pan) document.getElementById("pan").value = user.pan;
+        if (user?.gst_number) document.getElementById("gst_number").value = user.gst_number;
+        if (user?.number) document.getElementById("number").value = user.number;
+    } else {
+        loginSection.style.display = "flex";
+        userSection.classList.add("hidden");
+        logoutSection.classList.add("hidden");
+    }
+
+    // Show notification function
+    function showNotification(message, type = 'success') {
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        
+        notificationText.textContent = message;
+        notification.className = `notification ${type} show`;
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
+    }
+
+    // Image upload functionality
+    document.getElementById('imageUpload').addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                document.getElementById('profileImage').src = e.target.result;
+                showNotification('Profile image updated successfully!');
+            }
+            
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+
+    // 📝 Form submit
+    document.getElementById("editProfileForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const saveButton = document.querySelector('.save-button');
+        saveButton.disabled = true;
+        saveButton.textContent = 'Saving...';
+
+        const updatedData = {
+            name: document.getElementById("name").value,
+            pan: document.getElementById("pan").value,
+            gst_number: document.getElementById("gst_number").value,
+            number: document.getElementById("number").value,
+            email: document.getElementById("email").value // ✅ ab empty nahi hoga
+        };
+
+        try {
+            const response = await axios.post(
+                "https://aekteam.onrender.com/api/websitesales/users/edit",
+                updatedData,
+                { headers: { "Content-Type": "application/json" } }
+            );
+
+            console.log("✅ Profile updated:", response.data);
+            showNotification('Profile updated successfully!');
+
+            // LocalStorage update
+            localStorage.setItem("user", JSON.stringify(updatedData));
+            localStorage.setItem("userEmail", updatedData.email);
+
+        } catch (error) {
+            console.error("❌ Error updating profile:", error.response ? error.response.data : error);
+            showNotification('Failed to update profile. Please try again.', 'error');
+        } finally {
+            saveButton.disabled = false;
+            saveButton.textContent = 'Save Changes';
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("user");
+        
+        window.location.href = "/login.html";
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        htmlElement.classList.add('dark');
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        
+        // Save the preference
+        if (htmlElement.classList.contains('dark')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+});
+</script>
 
 <!-- Sidebar -->
 <div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:bg-[#2075AE] shadow-xl
@@ -884,10 +892,11 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-    <main id="scroll-container" data-scroll-container style="height: auto" class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
-       
 
-        <!-- section-1 -->
+
+
+
+    <main id="scroll-container" data-scroll-container style="height: auto" class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white">
           <!-- section-1 -->
         <section id="section-1" class="bg-[#FAFAFA] dark:bg-gradient-to-r dark:from-[#052652] dark:to-[#2D9CDB] dark:text-white lg:pt-0 2xl:pt-0">
   <div class="flex flex-col justify-center items-center">
@@ -3100,7 +3109,6 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
       });
 </script>
 </html>
-
 
 
 
