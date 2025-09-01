@@ -1121,37 +1121,56 @@
                 return;
             }
 
-            try {
-                // Fetch all campaigns
-                const response = await fetch("https://aekteam.onrender.com/api/websitesales/campaigns", {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json"
-                    }
-                });
+       try {
+    // Fetch all campaigns
+    const response = await fetch("https://aekteam.onrender.com/api/websitesales/campaigns", {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+            "x-user-email": userEmail   // 🔹 add this line
+        }
+    });
 
-                const data = await response.json();
+    console.log("➡️ Fetch status:", response.status, response.statusText);
 
-                if (data.success && data.campaigns) {
-                    // Find the campaign by ID and email
-                    const c = data.campaigns.find(camp => camp.id == campaignId && camp.user_email === userEmail);
+    if (!response.ok) {
+        throw new Error(`❌ Failed to fetch campaigns: ${response.status} ${response.statusText}`);
+    }
 
-                    if (!c) {
-                        document.getElementById("campaignContainer").innerHTML = `
-                            <div class="glass-effect rounded-2xl p-8 text-center animate-fade-in">
-                                <div class="inline-flex items-center justify-center w-16 h-16 bg-warning-100 text-warning-500 rounded-full mb-4">
-                                    <i class="fas fa-search text-xl"></i>
-                                </div>
-                                <h2 class="text-2xl font-bold text-gray-800 mb-2">Campaign Not Found</h2>
-                                <p class="text-gray-600 mb-4">The requested campaign could not be found in your account.</p>
-                                <button onclick="goBack()" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors">
-                                    Go Back
-                                </button>
-                            </div>
-                        `;
-                        return;
-                    }
+    const data = await response.json();
+    console.log("✅ API raw data:", data);
+    console.log("📌 userEmail from localStorage:", userEmail);
+    console.log("📌 campaignId from URL:", campaignId);
+
+
+    
+ if (data.campaigns && data.campaigns.length > 0) {
+
+        console.log("📊 Campaigns array:", data.campaigns);
+
+        // Case-insensitive match to avoid mismatch issues
+        const c = data.campaigns.find(
+            camp => camp.id == campaignId && camp.user_email.toLowerCase() === userEmail.toLowerCase()
+        );
+
+        console.log("🎯 Matched campaign:", c);
+
+        if (!c) {
+            document.getElementById("campaignContainer").innerHTML = `
+                <div class="glass-effect rounded-2xl p-8 text-center animate-fade-in">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-warning-100 text-warning-500 rounded-full mb-4">
+                        <i class="fas fa-search text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Campaign Not Found</h2>
+                    <p class="text-gray-600 mb-4">The requested campaign could not be found in your account.</p>
+                    <button onclick="goBack()" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors">
+                        Go Back
+                    </button>
+                </div>
+            `;
+            return;
+        }
 
                     const container = document.getElementById("campaignContainer");
 
@@ -1325,7 +1344,8 @@
                             <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                 <i class="fas fa-film mr-3 text-primary-500"></i> Media Content
                             </h2>
-                            ${initMediaCarousel(c.media_url)}
+             ${initMediaCarousel(c.media_url || [])}
+
                         </div>
 
                         <div class="section-divider"></div>
