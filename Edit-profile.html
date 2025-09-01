@@ -10,12 +10,10 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);  */
         }
         
-        .dark body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
+      
         
         .profile-card {
             background: rgba(255, 255, 255, 0.95);
@@ -478,7 +476,44 @@
 </head>
 
 <body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300 h-screen">
-                                                    
+                 
+    <!-- DARK MODE SCRIPT -->
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const darkIcon = document.getElementById("darkIcon");
+    const lightIcon = document.getElementById("lightIcon");
+
+    // check saved mode
+    let darkMode = localStorage.getItem("darkMode");
+    if (darkMode === null) {
+        darkMode = false;
+    } else {
+        darkMode = JSON.parse(darkMode);
+    }
+
+    updateMode();
+
+    toggleBtn.addEventListener("click", () => {
+        darkMode = !darkMode;
+        localStorage.setItem("darkMode", JSON.stringify(darkMode));
+        updateMode();
+    });
+
+    function updateMode() {
+        if (darkMode) {
+            document.documentElement.classList.add("dark");
+            darkIcon.classList.add("hidden");
+            lightIcon.classList.remove("hidden");
+        } else {
+            document.documentElement.classList.remove("dark");
+            darkIcon.classList.remove("hidden");
+            lightIcon.classList.add("hidden");
+        }
+    }
+});
+</script>
+                             
   <!-- HEADER-Deskop -->   
 <header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
     <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
