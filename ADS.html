@@ -269,82 +269,203 @@
     </style>
 </head>
 
+
 <body class="font-sans bg-white dark:bg-gradient-to-b dark:from-[#052652] dark:to-[#1a365d] dark:text-white duration-300">
-
+    
     <!-- DARK MODE SCRIPT -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggles = [document.getElementById("darkModeToggle"), document.getElementById("darkModeToggleMobile")];
-            const darkIcons = [document.getElementById("darkIcon"), document.getElementById("darkIconMobile")];
-            const lightIcons = [document.getElementById("lightIcon"), document.getElementById("lightIconMobile")];
+<!-- DARK MODE SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const desktopToggle = document.getElementById("darkModeToggle");
+    const mobileToggle = document.getElementById("darkModeToggleMobile");
 
-            let darkMode = localStorage.getItem("darkMode") === "true";
+    const darkIcons = [
+        document.getElementById("darkIcon"),
+        document.getElementById("darkIconMobile")
+    ];
+    const lightIcons = [
+        document.getElementById("lightIcon"),
+        document.getElementById("lightIconMobile")
+    ];
+
+    // check saved mode
+    let darkMode = localStorage.getItem("darkMode");
+    if (darkMode === null) {
+        darkMode = false;
+    } else {
+        darkMode = JSON.parse(darkMode);
+    }
+
+    updateMode();
+
+    // desktop toggle
+    if (desktopToggle) {
+        desktopToggle.addEventListener("click", () => {
+            darkMode = !darkMode;
+            localStorage.setItem("darkMode", JSON.stringify(darkMode));
             updateMode();
-
-            function toggleDarkMode() {
-                darkMode = !darkMode;
-                localStorage.setItem("darkMode", darkMode);
-                updateMode();
-            }
-
-            function updateMode() {
-                if (darkMode) {
-                    document.documentElement.classList.add("dark");
-                    darkIcons.forEach(icon => icon.classList.add("hidden"));
-                    lightIcons.forEach(icon => icon.classList.remove("hidden"));
-                } else {
-                    document.documentElement.classList.remove("dark");
-                    darkIcons.forEach(icon => icon.classList.remove("hidden"));
-                    lightIcons.forEach(icon => icon.classList.add("hidden"));
-                }
-            }
-
-            toggles.forEach(btn => btn?.addEventListener("click", toggleDarkMode));
-            
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuClose = document.getElementById('mobile-menu-close');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            
-            if (mobileMenuButton && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.remove('mobile-menu-closed');
-                        mobileMenu.classList.add('mobile-menu-open');
-                        mobileMenuOverlay.classList.remove('hidden');
-                    }, 10);
-                });
-                
-                mobileMenuClose.addEventListener('click', () => {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    mobileMenu.classList.add('mobile-menu-closed');
-                    mobileMenuOverlay.classList.add('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
-                });
-                
-                mobileMenuOverlay.addEventListener('click', () => {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    mobileMenu.classList.add('mobile-menu-closed');
-                    mobileMenuOverlay.classList.add('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
-                });
-            }
         });
-    </script>
-                                                    
+    }
+
+    // mobile toggle
+    if (mobileToggle) {
+        mobileToggle.addEventListener("click", () => {
+            darkMode = !darkMode;
+            localStorage.setItem("darkMode", JSON.stringify(darkMode));
+            updateMode();
+        });
+    }
+
+    function updateMode() {
+        if (darkMode) {
+            document.documentElement.classList.add("dark");
+            darkIcons.forEach(icon => icon?.classList.add("hidden"));
+            lightIcons.forEach(icon => icon?.classList.remove("hidden"));
+        } else {
+            document.documentElement.classList.remove("dark");
+            darkIcons.forEach(icon => icon?.classList.remove("hidden"));
+            lightIcons.forEach(icon => icon?.classList.add("hidden"));
+        }
+    }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // LocalStorage se user data uthao
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userEmail = localStorage.getItem("userEmail"); // ✅ extra check
+
+    const loginSection = document.getElementById("loginSection");
+    const userSection = document.getElementById("userSection");
+    const logoutSection = document.getElementById("logoutSection");
+
+    if ((user && user.email) || userEmail) {
+        const email = user?.email || userEmail; // ✅ fallback
+        document.getElementById("email").value = email;
+
+        loginSection.style.display = "none";
+        userSection.classList.remove("hidden");
+        logoutSection.classList.remove("hidden");
+
+        userSection.querySelector("p.text-sm").textContent = email;
+        userSection.querySelector("p.font-semibold").textContent = user?.name || "My Account";
+
+        if (user?.name) document.getElementById("name").value = user.name;
+        if (user?.pan) document.getElementById("pan").value = user.pan;
+        if (user?.gst_number) document.getElementById("gst_number").value = user.gst_number;
+        if (user?.number) document.getElementById("number").value = user.number;
+    } else {
+        loginSection.style.display = "flex";
+        userSection.classList.add("hidden");
+        logoutSection.classList.add("hidden");
+    }
+
+    // Show notification function
+    function showNotification(message, type = 'success') {
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        
+        notificationText.textContent = message;
+        notification.className = `notification ${type} show`;
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
+    }
+
+    // Image upload functionality
+    document.getElementById('imageUpload').addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                document.getElementById('profileImage').src = e.target.result;
+                showNotification('Profile image updated successfully!');
+            }
+            
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+
+    // 📝 Form submit
+    document.getElementById("editProfileForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const saveButton = document.querySelector('.save-button');
+        saveButton.disabled = true;
+        saveButton.textContent = 'Saving...';
+
+        const updatedData = {
+            name: document.getElementById("name").value,
+            pan: document.getElementById("pan").value,
+            gst_number: document.getElementById("gst_number").value,
+            number: document.getElementById("number").value,
+            email: document.getElementById("email").value // ✅ ab empty nahi hoga
+        };
+
+        try {
+            const response = await axios.post(
+                "https://aekteam.onrender.com/api/websitesales/users/edit",
+                updatedData,
+                { headers: { "Content-Type": "application/json" } }
+            );
+
+            console.log("✅ Profile updated:", response.data);
+            showNotification('Profile updated successfully!');
+
+            // LocalStorage update
+            localStorage.setItem("user", JSON.stringify(updatedData));
+            localStorage.setItem("userEmail", updatedData.email);
+
+        } catch (error) {
+            console.error("❌ Error updating profile:", error.response ? error.response.data : error);
+            showNotification('Failed to update profile. Please try again.', 'error');
+        } finally {
+            saveButton.disabled = false;
+            saveButton.textContent = 'Save Changes';
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("user");
+        
+        window.location.href = "/login.html";
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        htmlElement.classList.add('dark');
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        
+        // Save the preference
+        if (htmlElement.classList.contains('dark')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+});
+</script>
+                             
   <!-- HEADER-Deskop -->   
 <header id="mainHeader" class="header bg-[#FAFAFA] h-[75px] dark:bg-gray-800/80 backdrop-blur-md sticky top-0 z-50 transform transition-transform duration-300">
     <div class="max-w-[1240px] mx-auto flex items-center justify-between px-6 py-4">
       
       <!-- Logo with animation -->
     <div class="flex-shrink-0">
-      <a href="/ADS" class="hover:opacity-90 transition-opacity duration-300">
+        <a href="/ADS" class="hover:opacity-90 transition-opacity duration-300">
           <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png"
                alt="AEK Ads Logo"
                class="w-36 dark:brightness-150 hover:scale-105 transition-transform duration-300" />
@@ -355,10 +476,9 @@
       <nav class="nav-links hidden lg:flex items-center gap-[50px] text-[17px] font-medium text-gray-700 dark:text-gray-200">
         <a href="/ADS" class="animated-underline hover:text-primary-light">Home</a>
         <a href="/About-new" class="animated-underline hover:text-primary-light">About Us</a>
-        <!-- <a href="#section-2" class="animated-underline hover:text-primary-light">Our Innovation</a> -->
-        <a href="#section-5" class="animated-underline hover:text-primary-light">Our Process</a>
-        <a href="#section-7" class="animated-underline hover:text-primary-light">Pricing</a>
-            <a href="/SAAS" class="animated-underline hover:text-primary-light">Saas</a>
+             <a href="/ADS" class="animated-underline hover:text-primary-light">Our Process</a>
+        <a href="/ADS" class="animated-underline hover:text-primary-light">Pricing</a>
+        <a href="/SAAS" class="animated-underline hover:text-primary-light">Saas</a>
 
         <!-- Dropdown -->
         <div class="relative group">
@@ -369,7 +489,7 @@
             </svg>
           </button>
           <div class="absolute hidden group-hover:block bg-white dark:bg-gray-700 mt-2 shadow-xl rounded-md w-40 overflow-hidden transition-all duration-300 origin-top">
-            <a href="/blog" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
+            <a href="blog.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Blogs</a>
             <a href="career.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">Career</a>
           </div>
         </div>
@@ -402,20 +522,12 @@
         </svg>
       </button>
     </div>
+  
   </header>                                                                                                                                                 
 
-<style>
-  /* Hide scrollbar but keep scroll functionality */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE + Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
-</style>
-  <!-- MOBILE NAV -->
 <!-- MOBILE NAV -->
+
+
 <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 hidden">
   <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
   <div id="mobile-menu-content" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:bg-gray-800 shadow-xl transform transition-transform duration-300 translate-x-full overflow-y-auto no-scrollbar">
@@ -456,21 +568,21 @@
             <p class="font-semibold text-gray-900 dark:text-white"></p>
             <p class="text-sm text-gray-500 dark:text-white"></p>
             <button class="text-sm text-blue-600 hover:text-blue-800 font-medium dark:text-white">
-              View profile
+             <a href="Edit-profile.html"> View profile</a>
             </button>
           </div>
         </div>
 
         <!-- Menu Links -->
         <div class="flex-1 space-y-1 text-gray-800">
-          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+          <a href="campaigns.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
             <span class="font-medium dark:text-white">My Campaigns</span>
           </a>
           
-          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+          <a href="draftCampaign.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
             </svg>
@@ -478,7 +590,7 @@
             <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
           </a>
           
-          <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
+          <a href="Edit-profile.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-gray-900 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -620,6 +732,8 @@
     }
   });
 </script>
+
+
 <!-- Sidebar -->
 <div id="sidebar" class="fixed top-0 right-0 w-80 h-full bg-[#FAFAFA] dark:bg-[#2075AE] shadow-xl
  transform translate-x-full transition-transform duration-300 z-40 mt-[75px]  ">
@@ -650,21 +764,21 @@
           <p class="font-semibold text-gray-900  dark:text-white"></p>
           <p class="text-sm text-gray-500 dark:text-white"></p>
           <button class="text-sm text-blue-600 hover:text-blue-800 font-medium  dark:text-white">
-            View profile
+          <a href="/Edit-profile.html">View profile</a>  
           </button>
         </div>
       </div>
 
       <!-- Menu Links -->
       <div class="flex-1 space-y-1 text-gray-800 ">
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+        <a href="campaigns.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
           </svg>
           <span class="font-medium dark:text-white">My Campaigns</span>
         </a>
         
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+        <a href="draftCampaign.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
           </svg>
@@ -672,7 +786,7 @@
           <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full"></span>
         </a>
         
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
+        <a href="/Edit-profile.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg  text-gray-700 hover:text-gray-900 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -2986,6 +3100,7 @@ lg:text-xl md:text-2xl mb-3 leading-tight line-clamp-2 lg:w-[348px] dark:text-wh
       });
 </script>
 </html>
+
 
 
 
