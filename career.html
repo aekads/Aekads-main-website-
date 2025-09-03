@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add Locomotive Scroll CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         :root {
@@ -1558,94 +1559,41 @@
     <header class="header">
         <div class="container">
             <div class="logoH">
-                <a href="index.html">
+                <a href="ADS.html">
                     <img src="https://res.cloudinary.com/dqfnwh89v/image/upload/v1747293192/Footerlogo_un8f1p.png" alt="Digital Screen Display in India" />
                 </a>
             </div>
             <nav class="navbar">
                 <ul class="nav-links">
-                    <li class="links"><a href="/index">Home</a></li>
-                    <li class="links"><a href="/about">About Us</a></li>
-                         <!-- <li class="links"><a href="/SAAS">SaaS</a></li> -->
-                    <li class="links"><a href="/blog">Blog</a></li>
-                    <li class="links"><a href="/career">Career</a></li>
-                    <!-- <li class="links"><a href="/index#section-4">Our Process</a></li> -->
-                    <!-- <li class="dropdown">
-                        <a href="javascript:void(0)" id="moreBtn">More ▼</a>
-                        <div class="dropdown-content" id="dropdownMenu">
-                            <a href="/blog">Blogs</a>
-                            <a href="/index#section-7">Contact</a>
-                            <a href="/career">Career</a>
-                        </div>
-                    </li> -->
-                    <li class="links">
-                        <a class="ajayy" href="#quotePopup">Get Quote</a>
-                    </li>
+                    <li class="links"><a href="/ADS">Home</a></li>
+                    <li class="links"><a href="/About-new">About Us</a></li>
+                    <li class="links"><a href="/blog">Our Process</a></li>
+                    <li class="links"><a href="/career">Pricing</a></li>
+                    <li class="links"><a href="/SAAS">SaaS</a></li>
+                       <button id="menuButton" class="bg-gradient-to-r from-[#0C1C4D] to-[#2D9CDB] rounded-xl p-1 mt-[-8px]">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="quotePopup" class="quote-popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <h2 class="gradient-text">GET A QUOTE</h2>
-
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    id="closePopup" style="cursor: pointer;">
-                    <path d="M16.875 5.625L5.625 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M5.625 5.625L16.875 16.875" stroke="#37393A" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-
-            </div>
-            <p class="popup-subtitle">Fill this form to get a response from our sales representative</p>
-            <form class="quote-form" id="quote-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">*First name</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">*Last name</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">*Email address</label>
-                        <input type="email" id="email" name="email"
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                            title="Please enter a valid email address (e.g., example@domain.com)" required />
-                        <small id="email-error" class="text-danger" style="display: none">Invalid email format</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">*Phone number</label>
-                        <input type="tel" id="phone" name="phone" pattern="\d{10}"
-                            title="Please enter a 10-digit phone number" required />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">*Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">SEND MESSAGE</button>
-            </form>
-        </div>
-    </div>
 
     <nav class="navbar-mobile">
         <button id="mobile-menu-icon" class="toggle-btn btn btn-outline-dark text-black">
             &#9776;
         </button>
         <div class="mobile-links" id="mobile-links">
-            <a href="/index">Home</a>
-            <a href="/about">About Us</a>
+            <a href="/ADS">Home</a>
+            <a href="/About-new">About Us</a>
+                  <a href="/blog">Our Process</a>
+                  <a href="/career">Pricing</a>
             <!-- <a href="/SAAS">SaaS</a>    -->
             <a href="/blog">Blog</a>
-            <a href="/career">Career</a>
-            <a class="ajayy" href="javascript:void(0)">Get Quote</a>
         </div>
         <div class="overlay" id="overlay"></div>
         <!-- Full-screen overlay -->
